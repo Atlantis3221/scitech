@@ -1,0 +1,121 @@
+@portrait: ~"(orientation:portrait)";
+
+.schoolProjectCards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &:after {
+    content: "";
+    flex: 0 0 30%;
+  }
+}
+
+.schoolProjectCard {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 30%;
+  width: 30%;
+  padding: 1rem 0 0;
+  border-top: 0.2rem solid black;
+  border-bottom: none;
+  overflow: hidden;
+
+  &:hover {
+    border-top: 0.2rem solid #309D64;
+
+    .description {
+      text-decoration: underline;
+      text-decoration-color: #309D64;
+      color: #309D64;
+    }
+  }
+
+  &__violet {
+    &:hover {
+      border-top: 0.2rem solid #9F248E;
+
+      .description {
+        text-decoration: underline;
+        text-decoration-color: #9F248E;
+        color: #9F248E;
+      }
+    }
+  }
+
+  &__red {
+    &:hover {
+      border-top: 0.2rem solid #FA3E3E;
+
+      .description {
+        text-decoration: underline;
+        text-decoration-color: #FA3E3E;
+        color: #FA3E3E;
+      }
+      .description_time {
+        color: #FA3E3E;
+      }
+    }
+    .schoolProjectCard_image {
+      height: 11rem;
+      img {
+        width: auto;
+        object-fit: cover;
+      }
+    }
+  }
+
+  @media @portrait {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  &_image {
+    width: 18.5rem;
+    height: 11.5rem;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: inherit;
+      height: inherit;
+    }
+
+    &__labeled {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #FA3E3E;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 500;
+      color: #FFFFFF;
+      font-size: 1.1rem;
+      padding: 0.3rem 0.5rem;
+    }
+  }
+
+  .description {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    line-height: 1.2rem;
+    font-size: 1rem;
+    padding-top: 1rem;
+    border-bottom: none;
+    margin-bottom: 0.5rem;
+
+    &_arrow {
+      display: inline-block;
+      margin-left: 0.8rem;
+      margin-top: 0.2rem;
+    }
+
+    &_time {
+      color: #4f4f4f;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+  }
+}

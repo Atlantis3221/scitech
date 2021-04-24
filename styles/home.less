@@ -1,0 +1,82 @@
+@phone: ~'(max-width: 799px)';
+
+.section_container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.section_aside {
+  width: 25%;
+  min-width: 14rem;
+
+  & .asideMarker {
+    max-width: 14rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.section_content {
+  width: 75%;
+
+  @media @phone {
+    width: 100%;
+  }
+}
+
+.quote {
+  &_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  &_photoContainer {
+    width: 30%;
+    min-width: 13rem;
+
+    @media @phone {
+      width: 100%;
+    }
+  }
+
+  &_content {
+    width: 65%;
+
+    @media @phone {
+      width: 100%;
+    }
+  }
+
+  &_author {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_authorDescription {
+    font-weight: normal;
+    font-size: 0.85rem;
+  }
+
+  &_title {
+    margin-bottom: 1rem;
+  }
+
+  &_description {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &_descriptionCol {
+    width: 47%;
+
+    @media @phone {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,151 @@
+@portrait: ~"(orientation:portrait)";
+
+.projectGrowthCardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+
+  &:after {
+    content: "";
+    flex: 0 0 32%;
+  }
+
+  .projectGrowthCard {
+    display: flex;
+    flex-direction: column;
+    padding: 1.1rem;
+    background-color: #fff;
+    max-width: 17.6rem;
+    width: 100%;
+    margin-bottom: 1.2rem;
+    cursor: pointer;
+    outline: none;
+    border-bottom: none;
+    transition: all 0.2s ease;
+
+    &__hidden {
+      display: none;
+    }
+
+    &:hover {
+      background-color: #ececec;
+      box-shadow: 1px 1px 15px #9e9e9e7a, -1px -1px 15px #9e9e9e7a;
+    }
+
+    @media (max-width: 620px) {
+      max-width: unset;
+    }
+  }
+}
+
+.projectGrowthCard_image {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 9rem;
+  overflow: hidden;
+  img {
+    height: inherit;
+    width: fit-content;
+  }
+  @media (max-width: 620px) {
+    height: 11rem;
+    img {
+      height: unset;
+    }
+  }
+}
+
+.projectGrowthCard_name_container {
+  display: flex;
+
+  .projectGrowthCard_name {
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    color: #ABAAAA;
+    border: 1px solid #ABAAAA;
+    padding: 5px;
+    border-radius: 2px;
+    width: fit-content;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+  }
+}
+
+.projectGrowthCard_title {
+  color: #02090F;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: 'Raleway', sans-serif;
+  margin: 0.3rem 0;
+
+  &_description {
+    font-weight: 400;
+  }
+}
+
+.projectGrowthCard_description {
+
+  .description_text {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    color: #ABAAAA;
+    margin: 5px 0 10px;
+  }
+
+  .icon {
+    width: 20px;
+    margin-right: 8px;
+  }
+}
+
+.activeFilterTabs {
+  display: flex;
+  flex-direction: row;
+
+  .activeFilterTab {
+    padding: 8px;
+    border: 1px solid #121212;
+    border-radius: 20px;
+    font-family: 'Raleway', sans-serif;
+    margin-right: 10px;
+
+    &__hidden {
+      display: none;
+      visibility: hidden;
+    }
+
+    &-closeBtn {
+      color: transparent;
+      cursor: pointer;
+      background-image: url("/img/icons/x-circle.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50% 75%;
+      margin-left: 8px;
+      font-size: 28px;
+      line-height: 10px;
+    }
+  }
+}
+
+.spiner_container {
+  width: 100%;
+  margin-top: 50px;
+  height: 40px;
+
+  img {
+    margin: 0 auto;
+    width: 2rem;
+  }
+}
+
+.nothingIsFound {
+  font-family: 'Raleway', sans-serif;
+}

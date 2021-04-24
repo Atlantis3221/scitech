@@ -1,0 +1,155 @@
+@portrait: ~"(orientation:portrait)";
+
+.btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  background-color: #FFFFFF;
+  border: 0.1rem solid grey;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+  display: block;
+  width: fit-content;
+  min-width: max-content;
+  transition: all 0.2s ease;
+
+  &__bordered {
+    text-transform: uppercase;
+    border: 0.15rem solid #E62C2C;
+
+    &:hover {
+      border: 0.15rem solid #C62121;
+    }
+  }
+
+  &__bordered-green {
+    border: 0.15rem solid #309D64;
+    color: #309D64;
+    text-transform: none;
+
+    &:hover {
+      border: 0.15rem solid #21814E;
+      color: #21814E;
+    }
+  }
+
+  &__bordered-violet {
+    border: 0.15rem solid #9F248E;
+    color: #9F248E;
+    padding: 0.4rem 0.6rem;
+    text-transform: none;
+
+    &:hover {
+      border: 0.15rem solid #8C1F7D;
+      color: #8C1F7D;
+    }
+  }
+
+  &__marginleft {
+    margin-left: 0.5rem;
+
+    @media (max-width: 900px) {
+      margin-left: 0;
+    }
+  }
+
+  &__red {
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: #E62C2C;
+    border: 0.15rem solid #E62C2C;
+
+    &:hover {
+      background: #C62121;
+      border: 0.15rem solid #C62121;
+    }
+  }
+
+  &__orange {
+    color: #FFFFFF;
+    background: rgba(214, 110, 20, 1);
+    border: 0.15rem solid rgba(214, 110, 20, 1);
+    text-transform: none;
+
+    &:hover {
+      background: #D87F43;
+      border: 0.15rem solid #D87F43;
+    }
+  }
+
+  &__violet {
+    color: #FFFFFF;
+    background: #9F248E;
+    padding: 0.4rem 0.6rem;
+    border: 0.15rem solid #9F248E;
+    text-transform: none;
+
+    &:hover {
+      background: #8C1F7D;
+      border: 0.15rem solid #8C1F7D;
+    }
+  }
+
+  &__green {
+    color: #FFFFFF;
+    background: #309D64;
+    border: 0.15rem solid #309D64;
+    text-transform: none;
+
+    &:hover {
+      background: #21814E;
+      border: 0.15rem solid #21814E;
+    }
+  }
+
+  &__blue {
+    text-transform: capitalize;
+    color: #FFFFFF;
+    background: rgba(39, 198, 188, 1);
+    border: 0.15rem solid rgba(39, 198, 188, 1);
+
+    &:hover {
+      background: rgb(32, 167, 160);
+      border: 0.15rem solid rgb(32, 167, 160);
+    }
+  }
+
+  &__skyblue {
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin: 1rem 0 0;
+    background: rgba(62, 146, 204, 1);
+    border: 0.15rem solid rgba(62, 146, 204, 1);
+
+    &:hover {
+      background: rgb(49, 127, 182);
+      border: 0.15rem solid rgb(49, 127, 182);
+    }
+  }
+
+  &__grey {
+    text-transform: capitalize;
+    color: #FFFFFF;
+    background: #ABAAAA;
+    border: 0.15rem solid #ABAAAA;
+    margin-bottom: 0;
+
+    &:hover {
+      background: #7d7c7c;
+      border: 0.15rem solid #7d7c7c;
+    }
+  }
+
+  &__mt2 {
+    margin-top: 22px;
+
+    @media @portrait {
+      margin-top: 0.8rem;
+    }
+  }
+}

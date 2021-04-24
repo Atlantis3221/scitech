@@ -1,0 +1,29 @@
+@portrait: ~'(orientation:portrait)';
+
+.partner {
+  max-width: 11rem;
+  padding-bottom: 1rem;
+
+  @media @portrait {
+    margin-bottom: 3rem;
+  }
+
+  &__wide {
+    max-width: 16rem;
+  }
+
+  &_logo {
+    margin-bottom: 0.75rem;
+    width: auto;
+    height: 5rem;
+  }
+
+  &_name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+  }
+
+  img {
+    object-fit: contain;
+  }
+}

@@ -1,0 +1,46 @@
+.expertsHeader {
+  &_container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &_logoContainer {
+    width: 8rem;
+    height: 8rem;
+    overflow: hidden;
+    border-radius: 50%;
+    img {
+      width: inherit;
+      max-width: none;
+    }
+  }
+  &_descriptionContainer {
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &_email {
+    text-decoration: none;
+    border: none;
+
+    & svg {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.expertsContent {
+  &_container {
+    margin-top: 1.5rem;
+  }
+
+  & ul {
+    list-style: none;
+    padding: 0;
+
+    & li {
+      margin-bottom: 1rem;
+      line-height: 160%;
+    }
+  }
+}

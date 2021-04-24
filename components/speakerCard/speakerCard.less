@@ -1,0 +1,127 @@
+@portrait: ~"(orientation:portrait)";
+
+.speakerCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.speakerCard {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 50%;
+  max-width: 50%;
+  width: 100%;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+
+  &__white .card_text p {
+    color: #BDBDBD;
+  }
+
+  @media (max-width: 800px) {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .card_photo {
+    flex: 0 0 3.8rem;
+    border-radius: 50%;
+    max-width: 3.8rem;
+    height: 3.8rem;
+    width: 100%;
+    overflow: hidden;
+
+    img {
+      width: inherit;
+    }
+  }
+
+  .card_text {
+    max-width: 23rem;
+    padding: 0 1rem;
+
+    @media (max-width: 800px) {
+      max-width: unset;
+    }
+  }
+
+  .card_title {
+    line-height: 1.4rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #02090F;
+    margin: 0;
+    transition: all 0.3s ease;
+  }
+
+  .card_about {
+    font-family: 'Noto', serif;
+    font-size: 1.1rem;
+    color: #4f4f4f;
+    line-height: 1.4rem;
+    margin: 0;
+    transition: all 0.3s ease;
+  }
+
+  &__order1 {
+    order: 1;
+  }
+  &__order2 {
+    order: 2;
+  }
+  &__order3 {
+    order: 3;
+  }
+  &__order4 {
+    order: 4;
+  }
+  @media (max-width: 800px) {
+    &__order1,
+    &__order2,
+    &__order3,
+    &__order4 {
+      order: 0;
+    }
+  }
+}
+
+.socials {
+  display: flex;
+
+  a {
+    color: transparent;
+    border-bottom: none;
+    width: 2rem;
+    height: 1.5rem;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &_mail {
+    background-image: url("/img/socials/email.svg");
+
+    &__alone {
+      border-bottom: none;
+      width: 2rem;
+      height: 1.5rem;
+      display: block;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &_linkedin {
+    background-image: url("/img/socials/linkedin.svg");
+  }
+
+  &_fb {
+    background-image: url("/img/socials/facebook.svg");
+  }
+
+  &_phone {
+    background-image: url("/img/socials/phone.svg");
+  }
+}
