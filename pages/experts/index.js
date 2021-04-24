@@ -4,7 +4,7 @@ import './experts.less'
 import { experts } from '../../data/experts'
 import { Helmet } from 'react-helmet'
 
-const Index = props => {
+const Experts = props => {
   const data = experts.findById(props.expert)
   console.log(data)
   return (
@@ -72,4 +72,4 @@ const Index = props => {
   )
 }
 
-export default Index
+export default Experts

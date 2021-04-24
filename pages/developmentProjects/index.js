@@ -5,7 +5,6 @@ import { Layout } from '../../components/layout'
 import { ProjectGrowthCard, ProjectGrowthCardContainer } from '../../components/projectGrowthCard'
 import { projectGrowth } from '../../data/projectGrowth'
 import { Helmet } from 'react-helmet'
-import { VacanciesWidget } from '../vacancies'
 import Link from 'next/link'
 
 export default function DevelopmentProjects(props) {
