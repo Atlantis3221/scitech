@@ -1,0 +1,1 @@
+import { UserDoc } from './@fireball/@fireball.types'

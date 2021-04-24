@@ -1,0 +1,20 @@
+<svg width="1239" height="1234" viewBox="0 0 1239 1234" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_f)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M661.527 561.206C700.252 596.801 973.478 590.156 992.649 638.706C1013.13 690.58 796.101 779.353 761.63 814.709C727.302 849.919 663.841 822.721 613.793 829.867C573.913 835.561 539.788 862.058 498.672 852.254C454.968 841.833 415.023 812.25 384.99 775.309C354.388 737.667 339.097 691.914 330.738 645.689C321.636 595.358 306.413 536.51 335.225 500.11C363.886 463.901 421.839 474.455 469.278 470.661C506.655 467.671 544.633 463.359 580.934 480.456C615.198 496.594 632.882 534.876 661.527 561.206Z" fill="#B3D334"/>
+    </g>
+    <g filter="url(#filter1_f)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M719.15 395.476C754.784 400.039 789.715 405.894 819.981 425.226C851.768 445.528 881.941 471.39 893.947 507.118C906.01 543.017 898.563 582.338 884.607 617.546C871.304 651.106 845.051 675.751 817.736 699.382C787.742 725.331 758.724 757.789 719.15 760.683C678.607 763.648 635.731 745.621 609.485 714.614C585.109 685.816 601.798 641.541 588.444 606.268C573.944 567.969 527.262 543.059 529.05 502.152C530.926 459.243 560.115 417.782 597.603 396.746C633.814 376.426 677.953 390.2 719.15 395.476Z" fill="#309D64"/>
+    </g>
+    <defs>
+        <filter id="filter0_f" x="0" y="0" width="1238.57" height="1233.35" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="116" result="effect1_foregroundBlur"/>
+        </filter>
+        <filter id="filter1_f" x="329" y="186" width="771" height="775" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur"/>
+        </filter>
+    </defs>
+</svg>

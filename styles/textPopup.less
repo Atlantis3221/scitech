@@ -1,0 +1,85 @@
+@phone: ~'all and (min-width: 320px) and (max-width: 768px)';
+@tablet: ~'all and (min-width: 768px) and (max-width: 1024px)';
+@desktop: ~'all and (min-width: 1024px)';
+
+.textPopup {
+	display: inline;
+	height: 100%;
+
+	& .popup-content {
+		display: inline;
+		max-width: 50.8rem !important;
+		min-height: 30rem;
+		max-height: 90%;
+		width: 90% !important;
+		padding: 0 !important;
+		border: none !important;
+		overflow: auto;
+	}
+}
+
+.textPopup_container {
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+}
+
+.textPopup_click {
+	color: var(--clr-callToAction);
+	border-bottom: 1px dashed var(--clr-callToAction);
+	cursor: pointer;
+}
+
+.textPopup_contain {
+	position: relative;
+	padding: 3rem 2.5rem 2rem;
+
+	overflow: auto;
+	height: 100%;
+
+	@media @tablet {
+		padding: 3rem 2rem;
+	}
+
+	@media @phone {
+		padding: 2rem 1rem;
+	}
+}
+
+.textPopup_contain_close {
+	position: absolute;
+	right: 3rem;
+	cursor: pointer;
+
+	@media @tablet {
+		right: 1rem;
+	}
+
+	@media @phone {
+		right: 1rem;
+	}
+}
+
+.textPopup_contain_title {
+	max-width: 40.8rem;
+	margin-top: 0;
+	margin-bottom: 2.375rem;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: bold;
+	color: #000000;
+
+	@media @phone {
+		max-width: 17rem;
+	}
+}
+
+.textPopup_contain_list {
+	padding: 0;
+
+	& li {
+		list-style: none;
+		margin-top: 0.8rem;
+	}
+}

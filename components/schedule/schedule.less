@@ -1,0 +1,163 @@
+@portrait: ~"(orientation:portrait)";
+
+.schedule_box {
+  color: #02090F;
+  display: flex;
+  flex-direction: row;
+  margin: 0 -0.5rem;
+  padding: 1rem 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+
+  @media (max-width: 800px) {
+    justify-content: end;
+    margin: 0;
+    padding: 0.5rem 0;
+
+    .schedule_date,
+    .schedule_time,
+    .schedule_place {
+      width: 100%;
+    }
+  }
+
+  &_description {
+    text-transform: none;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: normal;
+    line-height: 1.1rem;
+    max-width: 32rem;
+    margin-top: -0.5rem;
+    display: block;
+
+    @media (max-width: 800px) {
+      padding: 0 0 1rem 0;
+    }
+  }
+}
+
+.sting {
+  width: 2rem;
+  height: 0.25rem;
+  background-color: #02090F;
+  margin-right: 0.8rem;
+  color: transparent;
+  &_small {
+    width: 1.5rem;
+  }
+}
+
+.schedule_date {
+  display: flex;
+  align-items: center;
+
+  .date_wrapper {
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 800px) {
+      //width: 10rem;
+    }
+  }
+
+  .date_day {
+    font-family: 'Noto', serif;
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .date_text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding-left: 0.6rem;
+  }
+
+  .date_month {
+    width: 4.2rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding-left: 0.6rem;
+
+    &__wide {
+      width: 7rem;
+    }
+  }
+}
+
+.schedule_time {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-left: 1rem;
+  p {
+    margin: 0.2rem 0;
+  }
+
+  &__tiny {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 520px) {
+    margin-left: 0;
+  }
+}
+
+.schedule_button {
+  margin-left: 0.5rem;
+
+  .btn {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 800px) {
+    margin-left: 0;
+  }
+}
+
+.schedule_place {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-left: 1rem;
+
+  &__ml0 {
+    margin-left: 0;
+  }
+
+  .place_text {
+    line-height: 1.6rem;
+    max-width: 17rem;
+    padding-top: 0.5rem;
+
+    &_wide {
+      max-width: 17rem;
+    }
+
+    &_icon {
+      display: flex;
+    }
+  }
+
+  img {
+    width: 1rem;
+    padding-bottom: 1rem;
+    margin-right: 0.5rem;
+  }
+
+  @media (max-width: 800px) {
+    margin: 0.5rem 0;
+  }
+}

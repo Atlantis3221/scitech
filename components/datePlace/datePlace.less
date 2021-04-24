@@ -1,0 +1,99 @@
+@portrait: ~"(orientation:portrait)";
+
+.datePlace {
+  color: #02090F;
+  padding: 0.2rem 0 1rem;
+
+  &_text {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+
+    @media (max-width: 800px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 800px) {
+    padding: 0.5rem 0;
+  }
+
+  &_description {
+    text-transform: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: normal;
+    padding: 0 0 0 4rem;
+    max-width: 32rem;
+    margin-top: -0.5rem;
+    display: block;
+
+    @media (max-width: 800px) {
+      padding: 0 0 1rem 0;
+    }
+  }
+}
+
+.sting {
+  width: 2rem;
+  height: 0.25rem;
+  background-color: #02090F;
+  margin-right: 0.8rem;
+  color: transparent;
+}
+
+.datePlace_date {
+  display: flex;
+  align-items: center;
+
+  .date_day {
+    font-family: 'Noto', serif;
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .date_month {
+    width: 4.2rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding-left: 0.6rem;
+  }
+}
+
+.datePlace_place {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-left: 4rem;
+
+  &__ml0 {
+    margin-left: 0;
+  }
+
+  .place_text {
+    padding-left: 0.8rem;
+    line-height: 1.6rem;
+    max-width: 17rem;
+
+    &_wide {
+      max-width: 28rem;
+      margin-right: 2rem;
+    }
+  }
+
+  img {
+    width: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    margin: 0.5rem 0;
+  }
+}

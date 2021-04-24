@@ -1,0 +1,74 @@
+@portrait: ~"(orientation:portrait)";
+
+.dateSwitcher {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  border-bottom: 2px solid #02090F;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  @media (max-width: 900px) {
+    border-bottom: none;
+  }
+  &:after {
+    content: "";
+    flex: 0 0 5rem;
+  }
+
+  .dateItem {
+    padding: 1.5rem 0.5rem;
+    background-color: transparent;
+    text-align: center;
+    border: 2px solid #02090F;
+    flex: 0 0 5rem;
+    width: 5rem;
+    cursor: pointer;
+    margin: -1px -1px -2px;
+    transition: all 0.5s ease;
+
+    @media (max-width: 900px) {
+      margin: -1px;
+    }
+
+    &:hover {
+      background: #FFFFFF;
+    }
+
+    &:first-child {
+      border-left-width: 2px;
+    }
+    &:last-child {
+      border-right-width: 2px;
+    }
+
+    &__active {
+      background-color: #02090F;
+      .dateItem_month {
+        color: #FFFFFF;
+      }
+      .dateItem_date {
+        color: #FFFFFF;
+      }
+      &:hover {
+        background-color: #353538;
+      }
+    }
+  }
+}
+
+.dateItem_date {
+  font-size: 3.4rem;
+  font-weight: 400;
+  margin: 0;
+  font-family: Noto, serif;
+  color: #02090F;
+}
+
+.dateItem_month {
+  text-transform: uppercase;
+  color: #02090F;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  margin: -0.5rem 0 0;
+  line-height: 1.3rem;
+}
