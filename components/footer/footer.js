@@ -41,7 +41,7 @@ export function Footer(props) {
       e.target.classList.toggle('footer_form__success')
 
       // NewsSubscribers.methods
-      //   .insert({ email: inputEmailValue, sendpulseBookId: 'subscribeToNews' })
+      //   .insert({ email: inputEmailValue, sendpulseBookId: 'subscribeToNews', variables: {} })
       //   .finally(console.log)
     }
   }
@@ -91,12 +91,14 @@ export function Footer(props) {
       {/*        </div>*/}
       {/*        <RegisterEventForm*/}
       {/*          hideParticipant={true}*/}
+      {/*          isBecomeClient={true}*/}
+      {/*          eventType={'becomeClient'}*/}
       {/*          onSubmit={(e, payload) => {*/}
       {/*            Requests.methods.insert({*/}
       {/*              group: 'registrations_beClient',*/}
       {/*              payload,*/}
       {/*            })*/}
-      {/*            props.close()*/}
+      {/*            // props.close()*/}
       {/*          }}*/}
       {/*        />*/}
       {/*      </div>*/}

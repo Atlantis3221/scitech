@@ -6,7 +6,7 @@ import {SpeakerCards, SpeakerCard} from '../../components/speakerCard'
 import { SchoolProject, SchoolProject_Card } from '../../components/schoolProject'
 import { Helmet } from 'react-helmet'
 
-export function SmartCitiesInArctic(props) {
+export default function SmartCitiesInArctic(props) {
     return (
         <Page>
             <Layout style={{
@@ -27,7 +27,7 @@ export function SmartCitiesInArctic(props) {
 
                 <div className='show wrapper_hero'>
                     <div className='container relative'>
-                        <div className="colorSpot colorSpot__green"></div>
+                        <div className="colorSpot colorSpot__green" style={{ left: '7.7rem'}}></div>
                         <div className='content'>
                             <ul className='g3 relative'>
                                 <li className='i3_3'>

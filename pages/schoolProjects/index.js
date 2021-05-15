@@ -1,7 +1,0 @@
-export * from './professionalGrowth'
-export * from './ecoSafety'
-export * from './diseaseRisk'
-export * from './greenTransformation'
-export * from './smartCitiesInArctic'
-export * from './sihirtyaNation'
-export * from './wisdomAsTheBasis'

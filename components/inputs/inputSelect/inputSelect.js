@@ -29,5 +29,5 @@ export function InputSelect(props) {
 			<select {...propsContainer} value={applicationTypeSelected} onChange={chooseNumberOfMembers}>{options.$map(Option)}</select>
 			{applicationTypeSelected !== 'individual-select' ? <select className="membersNumberSelect">{membersNumber.$map(Option)}</select> : null}
 		</>
-		: <select {...propsContainer}>{options.$map(Option)}</select>;
+		: <select {...propsContainer}>{options.map(Option)}</select>;
 }

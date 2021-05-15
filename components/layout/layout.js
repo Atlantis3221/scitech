@@ -5,6 +5,7 @@ import { NewHeader } from '../newHeader'
 import { NewsLine } from '../newsLine'
 import { useLocation } from 'react-router-dom'
 import {Footer} from "../footer";
+import { useRouter } from 'next/router'
 
 const UI_HEADER = 'header'
 const UI_FOOTER = 'footer'
@@ -52,8 +53,10 @@ export const LayoutDefaults = {
  * @param { Function } props.children
  */
 export function Layout(props) {
-  // const location = useLocation();
-  // const isShownNewsLine = (/news/ig).test(location?.pathname) !== true;
+  const router = useRouter()
+  const pathname = router.pathname
+  console.log(pathname)
+  const isShownNewsLine = (/news/ig).test(pathname) !== true;
 
   const {
     header = LayoutDefaults.header,
@@ -66,7 +69,7 @@ export function Layout(props) {
   } = $props(Layout, props)
   return (
     <div>
-      {/*{ isShownNewsLine && <NewsLine/> }*/}
+      { isShownNewsLine && <NewsLine/> }
       <div {...$()} style={style}>
       {header && <div {...$(UI_HEADER)}>{header}</div>}
       <div {...$(UI_MAIN)}>

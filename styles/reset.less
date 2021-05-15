@@ -1,3 +1,5 @@
+@huge: ~"(min-width: 1600px)";
+
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, code,
@@ -12,7 +14,7 @@ audio, video {
   border: 0;
   font-weight: inherit;
   font-style: inherit;
-  font-size: 10px;
+  //font-size: 10px;
   font-family: inherit;
   vertical-align: baseline;
 }
@@ -49,10 +51,25 @@ img{
   object-fit: cover;
 }
 
+body, html {
+  padding: 0;
+  margin: 0;
+  background-color: #F4F3F3;
+  //font-size: ~"calc((100vh + 100vw) / 2 * .015)";
+  font-size: 16px;
+  @media @huge {
+    font-size: ~"calc((100vh + 100vw) / 2 * .0125)";
+  }
+}
+
 body {
   background-color: var(--clr-bg-main);
   box-sizing: border-box;
   width: 100%;
   color: var(--clr-text);
   margin: 0 auto;
+}
+
+p {
+  margin: 0.8rem 0;
 }

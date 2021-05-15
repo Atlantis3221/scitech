@@ -7,7 +7,6 @@ import { SpeakerCard } from '../components/speakerCard'
 import { HomeNewsWidget } from '../components/newsLine'
 import Link from "next/link";
 
-import {Helmet} from "react-helmet"
 import '../styles/fonts.css'
 import '../styles/reset.less'
 import '../styles/sciteam.less'
@@ -16,11 +15,12 @@ import '../styles/home.less'
 import '../styles/grid2.less'
 import '../styles/textPopup.less'
 import '../styles/variables.less'
+import Head from 'next/head'
 
 const HomePage = (props) => {
   return (
       <Page>
-        <Helmet>
+        <Head>
           <meta name="description" content="Развитие кадрового потенциала в сфере исследований и разработок в Тюменской области, Ханты-Мансийском автономном округе – Югре и Ямало-Ненецком автономном округе" />
           <meta name="keywords" content="наука в россии, развитие науки в тюмене, школа научного лидерства " />
           <meta property="og:image" content="/img/meta-image.jpg" />
@@ -29,7 +29,7 @@ const HomePage = (props) => {
           <meta property="og:description" content="Развитие кадрового потенциала в сфере исследований и разработок в Тюменской области, Ханты-Мансийском автономном округе – Югре и Ямало-Ненецком автономном округе" />
           <title>Центр развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня</title>
           <link rel="canonical" href="https://scitech.ru/" />
-        </Helmet>
+        </Head>
 
         <Layout style={{
           backgroundImage: 'url(/img/gradients/gradient_main.svg)',
@@ -340,9 +340,12 @@ const HomePage = (props) => {
                               округе, реализация образовательной функции и развитие человеческого капитала трех регионов.
                             </em>
                           </li>
-                          <li className='i3_6'>
+                          <li className='i3_6 mb1'>
                             Фокус деятельности — Тюменская область, Ханты-Мансийский автономный округ — Югра и
                             Ямало-Ненецкий автономный округ.
+                            <p>Головная организация:</p>
+                            <a href='http://sibnoc.ru' target={'_blank'}>
+                              <img src='/img/sibnoc.svg' alt='logo' /></a>
                           </li>
                           <li className='i3_6'>
                             Центр расположен в Тюмени и Сургуте — это два административно самостоятельных офиса,
@@ -355,17 +358,17 @@ const HomePage = (props) => {
                       </li>
                       <li className='i3_4'>
                         <img className='_responsive' loading="lazy" src='/img/photo_1.jpg' alt='' />
-                        <p className='raleway'>
+                        <p className='raleway m1'>
                           Дискуссии и защиты проектных идей являются одним из методов развития компетенций ЦРК
                         </p>
                       </li>
                       <li className='i3_8'>
                         <img src='/img/photo_2.jpg' loading="lazy" alt='' />
-                        <p className='raleway'>Руководители ЦРК комментируют предзащиту участников проекта</p>
+                        <p className='raleway m1'>Руководители ЦРК комментируют предзащиту участников проекта</p>
                       </li>
                       <li className='i3_12'>
                         <img className='_responsive' loading="lazy" src='/img/photo_3.jpg' alt='' />
-                        <p className='raleway'>
+                        <p className='raleway m1'>
                           Ментор Школы научного лидерства Ирина Шрайбер с участниками проекта Школы
                         </p>
                         {/*<p className='flex'>*/}

@@ -71,42 +71,44 @@ export function Schedule(props) {
                         </div>
                     </div>
 
-                   {/*{isShowButton ?*/}
-                   {/*    <div className="schedule_button">*/}
-                   {/*      {eventTitle ?*/}
-                   {/*        <div className='registerEventForm'>*/}
-                   {/*            <Modal*/}
-                   {/*              Trigger={props => (*/}
-                   {/*                <Button red onClick={props.onClick}>*/}
-                   {/*                    Зарегистрироваться*/}
-                   {/*                </Button>*/}
-                   {/*              )}*/}
-                   {/*              Content={props => (*/}
-                   {/*                <div>*/}
-                   {/*                    <div className='registerEventForm_title'>*/}
-                   {/*                        {eventTitle}*/}
-                   {/*                    </div>*/}
-                   {/*                    <RegisterEventForm*/}
-                   {/*                      hideParticipant={true}*/}
-                   {/*                      individual={individual}*/}
-                   {/*                      showOrganizationField={showOrganizationField}*/}
-                   {/*                      askIsSpeaker={showAskIsSpeakerButton}*/}
-                   {/*                      isSpeaker={showAskIsSpeakerButton}*/}
-                   {/*                      eventType={eventType}*/}
-                   {/*                      onSubmit={(e, payload) => {*/}
-                   {/*                          Requests.methods.insert({*/}
-                   {/*                              group: `registrations_${eventLinkToTable}`,*/}
-                   {/*                              payload,*/}
-                   {/*                          })*/}
-                   {/*                          // props.close()*/}
-                   {/*                      }}*/}
-                   {/*                    />*/}
-                   {/*                </div>*/}
-                   {/*              )}*/}
-                   {/*            />*/}
-                   {/*        </div>*/}
-                   {/*        : <a href={eventLinkToTable} className="btn btn__red">{eventLinkToTableTitle}</a> }*/}
-                   {/*    </div>*/}
-                   {/*: <p className="raleway">Прием заявок окончен</p> }*/}
+                   {isShowButton ?
+                       <div className="schedule_button">
+                         {eventTitle ?
+                           <div className='registerEventForm'>
+                             {/*@todo REPLACE with new from*/}
+                             <a href={'/'} className="btn btn__red">Зарегистрироваться</a>
+                               {/*<Modal*/}
+                               {/*  Trigger={props => (*/}
+                               {/*    <Button red onClick={props.onClick}>*/}
+                               {/*        Зарегистрироваться*/}
+                               {/*    </Button>*/}
+                               {/*  )}*/}
+                               {/*  Content={props => (*/}
+                               {/*    <div>*/}
+                               {/*        <div className='registerEventForm_title'>*/}
+                               {/*            {eventTitle}*/}
+                               {/*        </div>*/}
+                               {/*        <RegisterEventForm*/}
+                               {/*          hideParticipant={true}*/}
+                               {/*          individual={individual}*/}
+                               {/*          showOrganizationField={showOrganizationField}*/}
+                               {/*          askIsSpeaker={showAskIsSpeakerButton}*/}
+                               {/*          isSpeaker={showAskIsSpeakerButton}*/}
+                               {/*          eventType={eventType}*/}
+                               {/*          onSubmit={(e, payload) => {*/}
+                               {/*              Requests.methods.insert({*/}
+                               {/*                  group: `registrations_${eventLinkToTable}`,*/}
+                               {/*                  payload,*/}
+                               {/*              })*/}
+                               {/*              // props.close()*/}
+                               {/*          }}*/}
+                               {/*        />*/}
+                               {/*    </div>*/}
+                               {/*  )}*/}
+                               {/*/>*/}
+                           </div>
+                           : <a href={eventLinkToTable} className="btn btn__red">{eventLinkToTableTitle}</a> }
+                       </div>
+                   : <p className="raleway">Прием заявок окончен</p> }
  </div>
 }

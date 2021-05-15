@@ -155,15 +155,24 @@ export const NewHeader = () => {
                   <li>
                     <Link href={'/developmentProjects'}>
                       <a className={'navigation_link'}>
-                        Проекты развития</a>
+                        Проекты</a>
                     </Link>
                   </li>
 
-                  {/*<li>*/}
-                  {/*  <Link href={'/vacancies'} className={'navigation_link'} activeClassName='navigation_link__active'>*/}
-                  {/*    Вакансии и стажировки*/}
-                  {/*  </Link>*/}
-                  {/*</li>*/}
+                  <li>
+                    <Link href={'/grants'}>
+                      <a className={'navigation_link'}>
+                        Гранты</a>
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link href={'/vacancies'}>
+                      <a className={'navigation_link'}>
+                        Вакансии и стажировки
+                      </a>
+                    </Link>
+                  </li>
 
                   <li>
                     <Link href={'/news'}>

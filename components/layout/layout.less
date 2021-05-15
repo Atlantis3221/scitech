@@ -1,21 +1,9 @@
 @desktop: ~"(min-width: 800px)";
 @portrait: ~"(orientation:portrait)";
 @landscape: ~"(orientation:landscape)";
-@huge: ~"(min-width: 1600px)";
 
 *, *:before, *:after {
   box-sizing: border-box;
-}
-
-body, html {
-  padding: 0;
-  margin: 0;
-  background-color: #F4F3F3;
-  //font-size: ~"calc((100vh + 100vw) / 2 * .015)";
-  font-size: 16px;
-  @media @huge {
-    font-size: ~"calc((100vh + 100vw) / 2 * .0125)";
-  }
 }
 
 img {

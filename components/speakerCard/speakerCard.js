@@ -42,28 +42,24 @@ export const SpeakerCard = props => {
         <p className='card_about'>{children}</p>
         <div className='socials'>
           {email && (
-              <Link href={`mailto:${email}`}><a className='socials_mail'>
+              <a className='socials_mail' href={`mailto:${email}`}>
               .
             </a>
-              </Link>
           )}
           {linkedin && (
-              <Link href={linkedin}><a className='socials_linkedin'>
+              <a className='socials_linkedin' href={linkedin}>
               .
             </a>
-              </Link>
           )}
           {fb && (
-              <Link href={fb}><a className='socials_fb'>
+              <a className='socials_fb' href={fb}>
               .
             </a>
-              </Link>
           )}
           {phone && (
-              <Link href={`tel:${phone}`}><a className='socials_phone'>
+              <a className='socials_phone' href={`tel:${phone}`}>
               .
             </a>
-              </Link>
           )}
         </div>
       </div>

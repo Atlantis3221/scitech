@@ -21,7 +21,7 @@ export default function Policy(props) {
 
         <div className='show wrapper_hero'>
           <div className='container relative'>
-            <div className="colorSpot colorSpot__red_low"></div>
+            <div className="colorSpot colorSpot__red_low" style={{ left: '7.7rem'}}></div>
             <div className='content'>
               <ul className='g3 relative'>
                 <li className='i3_3'>

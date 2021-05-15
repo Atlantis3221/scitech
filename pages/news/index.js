@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
-import { NewsWidget } from '../newsCompany/newsWidget'
+import { NewsWidget } from './newsWidget'
 import { Helmet } from 'react-helmet'
 
 export default function News(props) {
