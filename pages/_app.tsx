@@ -8,7 +8,7 @@ import '../styles/grid2.less'
 import '../styles/home.less'
 import '../styles/textPopup.less'
 import '../styles/variables.less'
-
+import 'tailwindcss/tailwind.css'
 import '../components/loader/loader.less'
 
 function MyApp({ Component, pageProps }) {
