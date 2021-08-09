@@ -1,16 +1,9 @@
 import React from 'react'
 
-import './newsLine.less'
+
 import { NewsLineWidget } from './newsLineWidget'
 
-import '../../styles/fonts.css'
-import '../../styles/reset.less'
-import '../../styles/sciteam.less'
-import '../../styles/form.less'
-import '../../styles/home.less'
-import '../../styles/grid2.less'
-import '../../styles/textPopup.less'
-import '../../styles/variables.less'
+
 
 export function NewsLine(props) {
 

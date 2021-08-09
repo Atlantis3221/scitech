@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 
-import './registerEventForm.less'
+
 import { RadioGroup } from '../../inputs/inputRadioGroup'
 import { InputText } from '../../inputs/inputText'
 import { className } from '../../../helpers/className'

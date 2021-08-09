@@ -1,6 +1,5 @@
 import React from 'react'
 import { news } from '../../data/news'
-import './newsLine.less'
 import Link from "next/link";
 
 export const HomeNewsWidget = props => {

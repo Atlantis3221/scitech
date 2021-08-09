@@ -1,7 +1,7 @@
 import React from 'react'
 import { className } from '../../helpers/className'
 
-import './speakerCard.less'
+
 import { experts } from '../../data/experts'
 import Link from "next/link";
 

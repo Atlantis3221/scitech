@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import './footer.less'
 import { RegisterEventForm } from '../forms/registerEventForm/registerEventForm'
 
 // import { Modal } from '/imports/@fireball/components/modal'

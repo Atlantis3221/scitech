@@ -1,7 +1,6 @@
 import React from 'react'
 import {className} from "../../helpers/className";
 
-import './button.less'
 
 /** Button
  * @param props

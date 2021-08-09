@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './inputSelect.less'
 import { mockFnNull } from '../../../lib'
 
 const Option = ({ title, _id }) => <option value={_id}>{title}</option>

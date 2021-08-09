@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-
-import './newHeader.less'
 import { className } from '../../helpers/className'
 import { Submenu } from '../submenu'
 import { Button } from '../button'

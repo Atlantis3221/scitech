@@ -41,32 +41,6 @@ small {
   list-style: none;
 }
 
-.grid() {
-  display: flex;
-  flex-flow: wrap;
-  padding: 0;
-  margin: -.5rem;
-  list-style: none;
-
-  > li {
-    flex: 1 1 100%;
-    padding: .5rem;
-
-    &:empty {
-      display: none;
-    }
-  }
-  @media @desktop {
-    > li {
-      flex: auto;
-
-      &:empty {
-        //background-color: red;
-        display: block;
-      }
-    }
-  }
-}
 
 .focus {
   max-width: 50rem;
@@ -162,12 +136,11 @@ small {
 }
 
 .row {
-  .grid();
+
   flex-flow: nowrap;
 }
 
 .row_0 {
-  .grid();
   flex-flow: nowrap;
 
   > li {
@@ -208,12 +181,7 @@ small {
   }
 }
 
-.grid {
-  .grid();
-}
-
 .grid_0 {
-  .grid();
   @media @desktop {
     > li {
       flex: auto;
@@ -223,7 +191,6 @@ small {
 }
 
 .grid_1 {
-  .grid();
   @media @desktop {
     > li {
       flex: 0 0 100%;
@@ -233,7 +200,6 @@ small {
 }
 
 .grid_0_1 {
-  .grid();
   @media @desktop {
     flex-flow: nowrap;
     > li:first-child {
@@ -249,7 +215,6 @@ small {
 }
 
 .grid_1_0 {
-  .grid();
   @media @desktop {
     > li:first-child {
       flex: auto;
@@ -262,7 +227,6 @@ small {
 }
 
 .grid_2 {
-  .grid();
   @media @desktop {
     > li {
       flex: 0 0 100% / 2;
@@ -273,7 +237,6 @@ small {
 
 
 .grid_2_4 {
-  .grid();
   @media @desktop {
     flex-flow: nowrap;
     > li:first-child {
@@ -284,7 +247,6 @@ small {
 }
 
 .grid_4_2 {
-  .grid();
   @media @desktop {
     > li:first-child {
       flex: 0 0 100% / 6  * 4;
@@ -294,7 +256,6 @@ small {
 
 
 .grid_2_1 {
-  .grid();
   @media @desktop {
     flex-flow: nowrap;
     > li:first-child {
@@ -305,7 +266,6 @@ small {
 }
 
 .grid_1_2 {
-  .grid();
   @media @desktop {
     flex-flow: nowrap;
     > li:last-child {

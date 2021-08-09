@@ -7,14 +7,7 @@ import { SpeakerCard } from '../components/speakerCard'
 import { HomeNewsWidget } from '../components/newsLine'
 import Link from "next/link";
 
-import '../styles/fonts.css'
-import '../styles/reset.less'
-import '../styles/sciteam.less'
-import '../styles/form.less'
-import '../styles/home.less'
-import '../styles/grid2.less'
-import '../styles/textPopup.less'
-import '../styles/variables.less'
+
 import Head from 'next/head'
 
 const HomePage = (props) => {

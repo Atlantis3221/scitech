@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './inputFile.less'
+
 
 export function InputFile(props) {
   const { description } = props

@@ -1,6 +1,5 @@
 import React from 'react'
 import _ from 'underscore'
-import './inputCheckbox.less'
 import Link from 'next/link'
 
 export function InputCheckbox(props) {

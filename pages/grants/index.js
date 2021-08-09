@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { ProjectGrowthCardContainer } from '../../components/projectGrowthCard'
 import { Helmet } from 'react-helmet'
 import { InputSelect } from '../../components/inputs/inputSelect'
-import './grants.less'
+
 import { grants } from '../../data/grants'
 import { GrantCard } from '../../components/grantCard'
 import { Page } from '../../components/page'
