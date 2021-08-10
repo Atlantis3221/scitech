@@ -18,7 +18,7 @@ export default function BioPlantsSecure(props) {
         <Helmet>
           <meta name="description" content='Интеллектуальная система биологической защиты растений' />
           <meta name="keywords" content='проект школы руководителей научно-технических проектов центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/managementSchoolProjects/BioPlantsSecure`} />
           <meta property="og:title" content='Интеллектуальная система биологической защиты растений' />
           <meta property="og:description" content='проект школы руководителей научно-технических проектов центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />

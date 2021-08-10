@@ -1,34 +1,4 @@
 import React, { useState } from 'react'
-import Link from 'next/link'
-import './footer.less'
-import { RegisterEventForm } from '../forms/registerEventForm/registerEventForm'
-
-// import { Modal } from '/imports/@fireball/components/modal'
-// import { Requests } from '/imports/@fireball/collections/requests'
-// import { NewsSubscribers } from '/imports/collections'
-
-
-// export function Footer(props) {
-// 	return <div className="container sans footer">
-// 		<div className="footer__mini_column footer_logo">
-// 			<a href="/">
-// 				<img className="brand" src="/img/logo.svg" alt="logo" />
-// 			</a>
-// 		</div>
-// 		<div className="footer__mini_column footer_policy">
-// 			<a href="/policy" target="_blank">
-// 				<p className='footer_signup__grey'>Политика конфиденциальности</p>
-// 			</a>
-// 			<p className='footer_signup__grey'>Сайт разработан в Цитадели
-// 				<a className='footer_signup__bold' href="https://ctdl.space" target='_blank'>ctdl</a>
-// 			</p>
-// 		</div>
-// 		<div className="footer__mini_column footer_contacts">
-// 			<p>Тюмень</p>
-// 			<a href="/" target='_blank'>cdc@scitech.ru</a>
-// 		</div>
-// 	</div>
-// }
 
 export function Footer(props) {
   const [isSend, setIsSend] = useState(false)
@@ -48,11 +18,9 @@ export function Footer(props) {
 
   return <div className="container sans footer">
     <div className="footer_column footer_logo">
-      <Link href='/'>
-        <a>
-          <img className="brand" src="/img/logo.svg" loading="lazy" alt="logo" />
-        </a>
-      </Link>
+      <a href="/">
+        <img className="brand" src="/img/logo.svg" loading="lazy" alt="logo" />
+      </a>
     </div>
     <div className="footer_column footer_contacts">
       <p className="footer_title">контакты</p>
@@ -77,34 +45,31 @@ export function Footer(props) {
     </div>
     <div className="footer_column footer_about">
       <p className="footer_title">о центре</p>
-      {/*<div className='registerEventForm'>*/}
-      {/*  <Modal*/}
-      {/*    Trigger={props => (*/}
-      {/*      <p className="footer_text link" onClick={props.onClick}>*/}
-      {/*        Стать клиентом*/}
-      {/*      </p>*/}
-      {/*    )}*/}
-      {/*    Content={props => (*/}
-      {/*      <div>*/}
-      {/*        <div className='registerEventForm_title'>*/}
-      {/*          Стать клиентом*/}
-      {/*        </div>*/}
-      {/*        <RegisterEventForm*/}
-      {/*          hideParticipant={true}*/}
-      {/*          isBecomeClient={true}*/}
-      {/*          eventType={'becomeClient'}*/}
-      {/*          onSubmit={(e, payload) => {*/}
-      {/*            Requests.methods.insert({*/}
-      {/*              group: 'registrations_beClient',*/}
-      {/*              payload,*/}
-      {/*            })*/}
-      {/*            // props.close()*/}
-      {/*          }}*/}
-      {/*        />*/}
-      {/*      </div>*/}
-      {/*    )}*/}
-      {/*  />*/}
-      {/*</div>*/}
+      <div className='registerEventForm'>
+
+        {/* @todo: add Modal pop-up*/}
+       <p className="footer_text link" onClick={props.onClick}>Стать клиентом</p>
+
+        {/*  Content={props => (*/}
+        {/*    <div>*/}
+        {/*      <div className='registerEventForm_title'>*/}
+        {/*        Стать клиентом*/}
+        {/*      </div>*/}
+        {/*      <RegisterEventForm*/}
+        {/*        hideParticipant={true}*/}
+        {/*        isBecomeClient={true}*/}
+        {/*        eventType={'becomeClient'}*/}
+        {/*        onSubmit={(e, payload) => {*/}
+        {/*          Requests.methods.insert({*/}
+        {/*            group: 'registrations_beClient',*/}
+        {/*            payload,*/}
+        {/*          })*/}
+        {/*          // props.close()*/}
+        {/*        }}*/}
+        {/*      />*/}
+        {/*    </div>*/}
+
+      </div>
       <a href="mailto:cdc@scitech.ru" className="footer_text link" target="_blank">Стать партнером</a>
     </div>
     <div className="footer_column footer_signup">
@@ -119,11 +84,9 @@ export function Footer(props) {
         <button className={`form_button ${isSend ? 'form_button__send' : ''}`} disabled={isSend} type='submit'></button>
         {isSend ? <p className="successText">Вы добавлены в новостную рассылку</p> : null}
       </form>
-      <Link href="/policy">
-      <a>
+      <a href="/policy">
         <p className='footer_signup__grey'>Политика конфиденциальности</p>
       </a>
-      </Link>
       <p className='footer_signup__grey'>Сайт разработан в Цитадели
         <a className='footer_signup__bold' href="https://ctdl.space" target='_blank'>ctdl</a>
       </p>

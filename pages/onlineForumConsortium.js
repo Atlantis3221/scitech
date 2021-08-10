@@ -1,23 +1,13 @@
 import React from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
-// import { Modal } from '../../@fireball/components/modal'
-// import { Requests } from '../../@fireball/collections/requests'
 import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
 import { Partner } from '../components/partner'
-import { Button } from '../components/button'
 import { EventItem, EventItem_Container } from '../components/eventItem'
-import { RegisterEventForm } from '../components/forms/registerEventForm/registerEventForm'
 import { StrongText } from '../components/strongText'
 import { Schedule } from '../components/schedule'
 import { Helmet } from 'react-helmet'
-import '../styles/fonts.css'
-import '../styles/reset.less'
-import '../styles/sciteam.less'
-import '../styles/form.less'
-import '../styles/textPopup.less'
-import '../styles/variables.less'
-import '../components/speakerCard/speakerCard.less'
+import { Button } from '../components/button'
 
 const endEvent = Date.parse(new Date('10 28 2020'))  // 28-го октября 2020
 const today = Date.now()
@@ -31,7 +21,7 @@ export default function OnlineForumConsortium(props) {
         <Helmet>
           <meta name="description" content='Онлайн-форум «Научно-образовательные консорциумы. Программы НОЦ и приоритет 2030»' />
           <meta name="keywords" content='тренинг Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/onlineForumConsortium`} />
           <meta property="og:title" content='Онлайн-форум «Научно-образовательные консорциумы. Программы НОЦ и приоритет 2030»' />
           <meta property="og:description" content='тренинг Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -61,6 +51,9 @@ export default function OnlineForumConsortium(props) {
               <li className='i3_9 wrapper_borderTop'>
                 <ul className='g3'>
                   <li className='i3_12'>
+
+                    {/* @todo: add Modal pop-up*/}
+
                     <Schedule dataFirst={[null, 'октябрь 2021', '(дата уточняется)']}
                               time={'8:30 - 20:00'}
                               place={'онлайн, zoom'}
@@ -105,7 +98,7 @@ export default function OnlineForumConsortium(props) {
               <li className='i3_9'>
                 <h2>
                   Приглашаем принять участие в онлайн-форуме «Научно-образовательные консорциумы. Программы НОЦ и приоритет 2030»,
-                  который состоится в ноябре 2020 года (дата уточняется).
+                  который состоится в октябре 2021 года (дата уточняется).
                 </h2>
                 <p>
                   <StrongText>Цель форума</StrongText> – представление и обсуждение лучших практик в области построения
@@ -133,12 +126,12 @@ export default function OnlineForumConsortium(props) {
                 <p className="m0">— Тюменский государственный университет;</p>
                 <p className="mt0">— АНО «Россия – страна возможностей».</p>
                 <p>Заявки на включение в работу форума с докладами могут быть поданы на почту ЦРК Западно-Сибирского НОЦ
-                  – <a className="raleway raleway_bold" href="mailto:cdc@scitech.ru">cdc@scitech.ru</a> до 25.10.2020
+                  – <a className="raleway raleway_bold" href="mailto:cdc@scitech.ru">cdc@scitech.ru</a> до 25.09.2021
                   согласно указанной форме. Обновленная
                   программа с указанием всех ключевых
                   спикеров и тематик докладов будет дополнительно разослана и представлена на сайте
                   <a className="raleway raleway_bold" href="https://scitech.ru/"> scitech.ru </a>
-                  не позднее 26.10.2020.</p>
+                  не позднее 26.09.2021.</p>
               </li>
             </ul>
           </div>
@@ -269,38 +262,35 @@ export default function OnlineForumConsortium(props) {
                   <EventItem date='19:00' bottom>Панельная дискуссия</EventItem>
                   <EventItem date='20:00' bottom>Визионерская лекция</EventItem>
                 </EventItem_Container>
-                {/*{isShowRegistrationButton ? (*/}
-                {/*  <div className='registerEventForm pt2'>*/}
-                {/*    <Modal*/}
-                {/*      Trigger={props => (*/}
-                {/*        <Button red onClick={props.onClick}>*/}
-                {/*          Зарегистрироваться*/}
-                {/*        </Button>*/}
-                {/*      )}*/}
-                {/*      Content={props => (*/}
-                {/*        <div>*/}
-                {/*          <div className='registerEventForm_title'>*/}
-                {/*            Зарегистрироваться на мероприятие Онлайн-форум «Научно-образовательные консорциумы.*/}
-                {/*            Программы НОЦ и приоритет 2030»*/}
-                {/*          </div>*/}
-                {/*          <RegisterEventForm*/}
-                {/*            onSubmit={(e, payload) => {*/}
-                {/*              Requests.methods.insert({*/}
-                {/*                group: 'registrations_onlineForumConsortium',*/}
-                {/*                payload,*/}
-                {/*              })*/}
-                {/*              props.close()*/}
-                {/*            }}*/}
-                {/*          />*/}
-                {/*        </div>*/}
-                {/*      )}*/}
-                {/*    />*/}
-                {/*  </div>*/}
-                {/*) : null}*/}
+
+                  <div className='registerEventForm pt2'>
+                    {/* @todo: add Modal pop-up*/}
+
+                        <Button red onClick={props.onClick}>
+                          Зарегистрироваться
+                        </Button>
+
+                    {/*    <div>*/}
+                    {/*      <div className='registerEventForm_title'>*/}
+                    {/*        Зарегистрироваться на мероприятие Онлайн-форум «Научно-образовательные консорциумы.*/}
+                    {/*        Программы НОЦ и приоритет 2030»*/}
+                    {/*      </div>*/}
+                    {/*      <RegisterEventForm*/}
+                    {/*        onSubmit={(e, payload) => {*/}
+                    {/*          Requests.methods.insert({*/}
+                    {/*            group: 'registrations_onlineForumConsortium',*/}
+                    {/*            payload,*/}
+                    {/*          })*/}
+                    {/*          props.close()*/}
+                    {/*        }}*/}
+                    {/*      />*/}
+                    {/*    </div>*/}
+                  </div>
               </li>
             </ul>
           </div>
         </div>
+
       </Layout>
     </Page>
   )

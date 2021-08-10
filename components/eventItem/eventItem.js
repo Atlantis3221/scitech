@@ -1,7 +1,5 @@
 import React from 'react'
 
-import './eventItem.less'
-
 /** EventItem_Container
  *  @param props
  *  @param props.children

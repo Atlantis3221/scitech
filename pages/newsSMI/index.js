@@ -4,6 +4,8 @@ import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { NewsSMIWidget } from './newsSMIWidget'
 import { Helmet } from 'react-helmet'
+import { SchoolProject } from '../../components/schoolProject'
+import { ContentfulNewsWidget } from '../contentfulNews/contentfulNewsWidget'
 
 export default function NewsSMIPage(props) {
   return (
@@ -12,7 +14,7 @@ export default function NewsSMIPage(props) {
         <Helmet>
           <meta name="description" content='СМИ о нас' />
           <meta name="keywords" content='СМИ Новости центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/news`} />
           <meta property="og:title" content='СМИ о нас' />
           <meta property="og:description" content='СМИ Новости центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -71,7 +73,17 @@ export default function NewsSMIPage(props) {
                   </a>
                 </li>
                 <li className='i3_9'>
-                  <NewsSMIWidget />
+                  <div className='newsCards_container'>
+                    <SchoolProject>
+
+                      {/*THESE ARE News from Contentful */}
+                      <ContentfulNewsWidget isSMI={true} />
+
+                      {/*THESE ARE News from website */}
+                      <NewsSMIWidget />
+
+                    </SchoolProject>
+                  </div>
                 </li>
               </ul>
             </div>

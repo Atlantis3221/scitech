@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import './projectGrowthCard.less'
 import Link from "next/link";
 
 /** ProjectGrowthCardContainer

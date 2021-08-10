@@ -4,15 +4,6 @@ import { news } from '../../data/news'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
 
-import '../../styles/fonts.css'
-import '../../styles/reset.less'
-import '../../styles/sciteam.less'
-import '../../styles/form.less'
-import '../../styles/home.less'
-import '../../styles/grid2.less'
-import '../../styles/textPopup.less'
-import '../../styles/variables.less'
-
 const NewsCompany = () => {
 	const router = useRouter()
 	const { id } = router.query
@@ -25,7 +16,7 @@ const NewsCompany = () => {
 			<Helmet>
 				<meta name="description" content={data?.title} />
 				<meta name="keywords" content={data?.title} />
-				<meta property="og:image" content="/img/meta-image.jpg" />
+				<meta property="og:image" content="/img/appleIcon.png" />
 				<meta property="og:url" content={`https://scitech.ru/news/${data?._id}`} />
 				<meta property="og:title" content={data?.title} />
 				<meta property="og:description" content={data?.title} />
@@ -40,6 +31,7 @@ const NewsCompany = () => {
 							<li className='i3_3'>
 							</li>
 							<li className='i3_9'>
+								<p className="subtitleNews">{data?.subtitle}</p>
 								<h1>{data?.title}</h1>
 								<p className="raleway raleway__grey">{data?.date}</p>
 							</li>
@@ -50,8 +42,8 @@ const NewsCompany = () => {
 
 			<div className='show'>
 				<div className='container'>
-					<div className='content'>
-						<ul className='g3'>
+					<div className='content news-padding'>
+						<ul className='g3 news-flex-reverse'>
 							<li className='i3_3'>
 								<a href="/news" className='link_event link_event__toNews active'>Новости центра
 									<svg
@@ -91,7 +83,7 @@ const NewsCompany = () => {
 									<li className='i3_12 mb6'>
 										<ul className='g3'>
 											<li className='i3_12'>
-												<img loading="lazy" src={data?.image} alt="newsPicture" style={{height: '35rem'}} />
+												{!data?.hideTitleImage && <img loading="lazy" src={data?.image} alt="newsPicture" />}
 												<div
 													className='newsText'
 													dangerouslySetInnerHTML={{ __html: data?.description }}

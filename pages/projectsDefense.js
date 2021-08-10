@@ -3,14 +3,24 @@ import { Page } from '../components/page'
 import { Layout } from '../components/layout'
 import { EventItem, EventItem_Container } from '../components/eventItem'
 import { Schedule } from '../components/schedule'
-import { SchoolProject, SchoolProject_Card } from '../components/schoolProject'
+import { SchoolProject } from '../components/schoolProject'
 import { Helmet } from 'react-helmet'
+import * as PropTypes from 'prop-types'
+import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 
 const endEvent = Date.parse(new Date('10 20 2020'))  // 20-го октября 2020
 const today = Date.now()
 // const isShowRegistrationButton = today < endEvent
 const isShowRegistrationButton = true
 
+function ContentfulNewsWidget(props) {
+  return null
+}
+
+ContentfulNewsWidget.propTypes = {
+  isSMI: PropTypes.bool,
+  pageToShow: PropTypes.string,
+}
 export default function ProjectsDefense(props) {
   return (
     <Page>
@@ -18,7 +28,7 @@ export default function ProjectsDefense(props) {
         <Helmet>
           <meta name="description" content='Защита проектов Школы научного лидерства и Школы руководителей научно-технических проектов' />
           <meta name="keywords" content='мероприятие Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/projectsDefense`} />
           <meta property="og:title" content='Защита проектов Школы научного лидерства и Школы руководителей научно-технических проектов' />
           <meta property="og:description" content='мероприятие Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -110,39 +120,19 @@ export default function ProjectsDefense(props) {
               </li>
               <li className="i3_9">
                 <SchoolProject>
-                  <SchoolProject_Card
-                    red
-                    arrow
-                    image='/img/newsSMI/firstCover.jpg'
-                    link="/events/projectsDefenseNews/firstEdition"
-                    time="20 октября 2020"
-                  >
-                    Первый выпуск и защиты лучших научных и научно-технических проектов ЦРК Западно-Сибирского
-                    НОЦ // leader-id
-                  </SchoolProject_Card>
-                  <SchoolProject_Card
-                    red
-                    arrow
-                    image='/img/newsSMI/TumenDefence.jpg'
-                    link="/events/projectsDefenseNews/tumenDefence"
-                    time="20 октября 2020"
-                  >
-                    В Тюмени состоялась защита проектов центра развития компетенции // Тюменская область сегодня
-                  </SchoolProject_Card>
-                  <SchoolProject_Card
-                    red
-                    arrow
-                    image='/img/newsSMI/TumenDefenceRusnews.jpg'
-                    link="/events/projectsDefenseNews/tumenDefenceRusnews"
-                    time="21 октября 2020"
-                  >
-                    В Тюмени прошла защита проектов для Западно-Сибирского НОЦ // Российская газета
-                  </SchoolProject_Card>
+
+                  {/*THESE ARE News from Contentful */}
+                  <ContentfulNewsWidget isSMI={true} pageToShow={'projectsDefense'} />
+
+                  {/*THESE ARE News from website */}
+                  <NewsSMIWidget pageToShow={'projectsDefense'}/>
+
                 </SchoolProject>
               </li>
             </ul>
           </div>
         </div>
+
       </Layout>
     </Page>
   )

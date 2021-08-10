@@ -5,16 +5,6 @@ import { Layout } from '../components/layout'
 import { Project, Project_Card } from '../components/project'
 import { SpeakerCard } from '../components/speakerCard'
 import { HomeNewsWidget } from '../components/newsLine'
-import Link from "next/link";
-
-import '../styles/fonts.css'
-import '../styles/reset.less'
-import '../styles/sciteam.less'
-import '../styles/form.less'
-import '../styles/home.less'
-import '../styles/grid2.less'
-import '../styles/textPopup.less'
-import '../styles/variables.less'
 import Head from 'next/head'
 
 const HomePage = (props) => {
@@ -23,12 +13,13 @@ const HomePage = (props) => {
         <Head>
           <meta name="description" content="Развитие кадрового потенциала в сфере исследований и разработок в Тюменской области, Ханты-Мансийском автономном округе – Югре и Ямало-Ненецком автономном округе" />
           <meta name="keywords" content="наука в россии, развитие науки в тюмене, школа научного лидерства " />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content="https://scitech.ru/" />
           <meta property="og:title" content="Центр развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня" />
           <meta property="og:description" content="Развитие кадрового потенциала в сфере исследований и разработок в Тюменской области, Ханты-Мансийском автономном округе – Югре и Ямало-Ненецком автономном округе" />
           <title>Центр развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня</title>
           <link rel="canonical" href="https://scitech.ru/" />
+          <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
         </Head>
 
         <Layout style={{
@@ -45,8 +36,15 @@ const HomePage = (props) => {
               {/*   <a href="/docs/Broshura_SHNL.pdf" target="_blank">Буклет о Центре в  PDF</a>*/}
               {/*</p>*/}
               <div className='content'>
-                <ul className='g3 relative'>
-                  <li className='i3_3'></li>
+                <ul className='g3 relative news-flex-reverse'>
+                  <li className='i3_3'>
+                    <p className='asideMarker'>Головная организация:</p>
+                    <div className='mt mb1'>
+                      <a href='http://sibnoc.ru' target={'_blank'}  className='sibnoc_link'>
+                        <img src='/img/sibnoc_black.svg' alt='logo' />
+                      </a>
+                    </div>
+                  </li>
                   <li className='i3_9'>
                     <h1>Центр развития компетенций</h1>
                     <h3>
@@ -70,127 +68,140 @@ const HomePage = (props) => {
                     <ul className='g3'>
                       <li className='i3_4'>
                         <div className='link_toEvent'>
-                          <Link href="/developmentProjectZima">
-                          <a className='link_event'>
-                            «Западно-Сибирский инновационный межрегиональный акселератор научно-технических проектов» (ЗИМА 21)
+                          <a href='/scientificPracticalConference' className='link_event'>
+                            II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»
                             {/*TODO: change svg*/}
                             <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
                             >
                               <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
                               />
                             </svg>
                           </a>
-                          </Link>
+                          <div className='link_data'>18 - 23 Октября 2021</div>
+                        </div>
+                      </li>
+                      <li className='i3_4'>
+                        <div className='link_toEvent'>
+                          <a href='/developmentProjectZima' className='link_event'>
+                            «Западно-Сибирский инновационный межрегиональный акселератор научно-технических проектов» (ЗИМА 21)
+                            {/*TODO: change svg*/}
+                            <svg
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
+                            >
+                              <path
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
+                              />
+                            </svg>
+                          </a>
                           <div className='link_data'>Март 2021 - Октябрь 2021</div>
                         </div>
                       </li>
                       <li className='i3_4'>
                         <div className='link_toEvent'>
-                          <Link href="/school">
-                          <a className='link_event'>
+                          <a href='/school' className='link_event'>
                             Школа научного лидерства
                             {/*TODO: change svg*/}
                             <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
                             >
                               <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
                               />
                             </svg>
                           </a>
-                          </Link>
                           <div className='link_data'>Февраль 2021 - Февраль 2022</div>
                         </div>
                       </li>
                       <li className='i3_4'>
                         <div className='link_toEvent'>
-                          <Link href="/managementSchool">
-                          <a className='link_event'>
+                          <a href='/managementSchool' className='link_event'>
                             Школа руководителей научно-технологических проектов
                             {/*TODO: change svg*/}
                             <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
                             >
                               <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
                               />
                             </svg>
                           </a>
-                          </Link>
                           <div className='link_data'>Февраль 2021 - Февраль 2022</div>
                         </div>
                       </li>
                       <li className='i3_4'>
                         <div className='link_toEvent'>
-                          <Link href="/tabulaRasa">
-                          <a className='link_event'>
+                          <a href='/tabulaRasa' className='link_event'>
                             Tabula Rasa
                             {/*TODO: change svg*/}
                             <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
                             >
                               <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
                               />
                             </svg>
                           </a>
-                          </Link>
                           <div className='link_data'>Ноябрь 2020 — Июнь 2022</div>
                         </div>
                       </li>
                       <li className='i3_4'>
                         <div className='link_toEvent'>
-                          <Link href="/onlineForumConsortium">
-                          <a className='link_event'>
+                          <a href='/onlineForumConsortium' className='link_event'>
                             Онлайн-форум «Научно-образовательные консорциумы. Программы НОЦ и приоритет 2030»
                             {/*TODO: change svg*/}
                             <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
                             >
                               <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
                               />
                             </svg>
                           </a>
-                          </Link>
-                          <div className='link_data'>1 квартал 2021 (дата уточняется)</div>
+                          <div className='link_data'>IV квартал 2021</div>
                         </div>
                       </li>
                     </ul>
@@ -211,85 +222,77 @@ const HomePage = (props) => {
                     <ul className='g3'>
                       <li className='i3_4'>
                         <div className='link_toEvent'>
-                          <Link href="/flagmanSchoolPresentation">
-                          <a className='link_event'>
+                          <a href='/flagmanSchoolPresentation' className='link_event'>
                             Онлайн-презентация флагманских школ ЦРК
                             {/*TODO: change svg*/}
                             <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
                             >
                               <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
                               />
                             </svg>
                           </a>
-                          </Link>
                           <div className='link_data'>11 февраля 2021</div>
                         </div>
                       </li>
                       <li className='i3_4'>
                         <div className='link_toEvent'>
-                          <Link href="/roundTable">
-                          <a className='link_event'>
+                          <a href='/roundTable' className='link_event'>
                             Круглый стол «Трансфер университетских технологий. Будущее стартап-студий»
                             {/*TODO: change svg*/}
                             <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
                             >
                               <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
                               />
                             </svg>
                           </a>
-                          </Link>
                           <div className='link_data'>20 октября</div>
                         </div>
                       </li>
                       <li className='i3_4'>
                         <div className='link_toEvent'>
-                          <Link href="/events">
-                          <a className='link_event'>
+                          <a href='/events' className='link_event'>
                             Международная конференция «Наука. Лидерство. Общество»
                             {/*TODO: change svg*/}
                             <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
                             >
                               <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
                               />
                             </svg>
                           </a>
-                          </Link>
                           <div className='link_data'>24 - 28 августа</div>
                         </div>
                       </li>
                       <li className='i3_2'>
-                        <Link href="/developmentProjects">
-                          <a className='btn btn__red mt'>
-                            Посмотреть всё
-                          </a>
-                        </Link>
+                        <a href='/developmentProjects' className='btn btn__red mt'>
+                          Посмотреть всё
+                        </a>
                       </li>
                     </ul>
                   </li>
@@ -309,11 +312,9 @@ const HomePage = (props) => {
                     <ul className='g3 mainPageLinks'>
                       <HomeNewsWidget newsCount={3} />
                       <li className='i3_2'>
-                        <Link href="/news">
-                        <a className='btn btn__red mt'>
+                        <a href='/news' className='btn btn__red mt'>
                           Посмотреть все новости
                         </a>
-                        </Link>
                       </li>
                     </ul>
                   </li>
@@ -340,12 +341,9 @@ const HomePage = (props) => {
                               округе, реализация образовательной функции и развитие человеческого капитала трех регионов.
                             </em>
                           </li>
-                          <li className='i3_6 mb1'>
+                          <li className='i3_6'>
                             Фокус деятельности — Тюменская область, Ханты-Мансийский автономный округ — Югра и
                             Ямало-Ненецкий автономный округ.
-                            <p>Головная организация:</p>
-                            <a href='http://sibnoc.ru' target={'_blank'}>
-                              <img src='/img/sibnoc.svg' alt='logo' /></a>
                           </li>
                           <li className='i3_6'>
                             Центр расположен в Тюмени и Сургуте — это два административно самостоятельных офиса,
@@ -354,29 +352,44 @@ const HomePage = (props) => {
                         </ul>
                       </li>
                       <li className='i3_4'>
-                        <img className='_responsive' src='/img/map.svg' alt='' />
+                        <div className="mainPage_map_wrapper">
+                          <a href="http://sibnoc.ru" className="mainPage_map">
+                          </a>
+                          <a href='http://sibnoc.ru' className='link_event redLink'>
+                            Перейти на сайт НОЦ
+                            {/*TODO: change svg*/}
+                            <svg
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
+                            >
+                              <path
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
+                              />
+                            </svg>
+                          </a>
+                        </div>
                       </li>
                       <li className='i3_4'>
                         <img className='_responsive' loading="lazy" src='/img/photo_1.jpg' alt='' />
-                        <p className='raleway m1'>
+                        <p className='raleway'>
                           Дискуссии и защиты проектных идей являются одним из методов развития компетенций ЦРК
                         </p>
                       </li>
                       <li className='i3_8'>
                         <img src='/img/photo_2.jpg' loading="lazy" alt='' />
-                        <p className='raleway m1'>Руководители ЦРК комментируют предзащиту участников проекта</p>
+                        <p className='raleway'>Руководители ЦРК комментируют предзащиту участников проекта</p>
                       </li>
                       <li className='i3_12'>
                         <img className='_responsive' loading="lazy" src='/img/photo_3.jpg' alt='' />
-                        <p className='raleway m1'>
+                        <p className='raleway'>
                           Ментор Школы научного лидерства Ирина Шрайбер с участниками проекта Школы
                         </p>
-                        {/*<p className='flex'>*/}
-                        {/*  <span>*/}
-                        {/*    <img src='/img/download.svg' alt='icon' />*/}
-                        {/*  </span>*/}
-                        {/*  <a href="/docs/Broshura_SHNL.pdf" target="_blank">Буклет о Центре в  PDF</a>*/}
-                        {/*</p>*/}
                       </li>
                     </ul>
                   </li>
@@ -438,13 +451,13 @@ const HomePage = (props) => {
 
           <Project>
             <Project_Card
-                title='Школа научного лидерства'
-                durations='длительность - 1 год'
-                description='Февраль 2021 - Февраль 2022'
-                gradient='url(/img/projectGradients/group_green.svg)'
-                gradient_spot="/img/projectGradients/miniGreen.svg"
-                arrowColor="#309D64"
-                link="/school"
+              title='Школа научного лидерства'
+              durations='длительность - 1 год'
+              description='Февраль 2021 - Февраль 2022'
+              gradient='url(/img/projectGradients/group_green.svg)'
+              gradient_spot="/img/projectGradients/miniGreen.svg"
+              arrowColor="#309D64"
+              link="/school"
             >
               <SpeakerCard photo='/img/speaker_irina.png' fullName='Ирина Шрайбер' position='ментор' white>
                 Ph. D., кандидат физико-математических наук, ученый, исследователь, лектор
@@ -454,34 +467,34 @@ const HomePage = (props) => {
               </SpeakerCard>
             </Project_Card>
             <Project_Card
-                title='Школа руководителей научно-технических проектов'
-                durations='длительность - 1 год'
-                description='Февраль 2021 - Февраль 2022'
-                gradient='url(/img/projectGradients/group_pink.svg)'
-                gradient_spot="/img/projectGradients/miniBlue.svg"
-                arrowColor="#761D82"
-                link="/managementSchool"
+              title='Школа руководителей научно-технических проектов'
+              durations='длительность - 1 год'
+              description='Февраль 2021 - Февраль 2022'
+              gradient='url(/img/projectGradients/group_pink.svg)'
+              gradient_spot="/img/projectGradients/miniBlue.svg"
+              arrowColor="#761D82"
+              link="/managementSchool"
             >
               <SpeakerCard photo='/img/speaker_golubev.png' fullName='Евгений Голубев' position='ментор' white>
                 Директор Технологического парка ТюмГУ, эксперт по управлению крупными проектами во взаимодействии
                 университет - индустрия
               </SpeakerCard>
               <SpeakerCard
-                  photo='/img/speaker_kizeev.png'
-                  fullName='Вениамин Кизеев'
-                  white
+                photo='/img/speaker_kizeev.png'
+                fullName='Вениамин Кизеев'
+                white
               >
                 IPMA Level«B», член правления НП «СОВНЕТ», эксперт по управлению проектами и инновациями компании WINbd
               </SpeakerCard>
             </Project_Card>
             <Project_Card
-                title='Tabula Rasa'
-                durations='длительность - 2 года'
-                description="Ноябрь 2020 — Июнь 2022"
-                gradient='url(/img/projectGradients/group_rasa.svg)'
-                gradient_spot="/img/projectGradients/miniAqua.svg"
-                arrowColor="#56E39F"
-                link="/tabulaRasa"
+              title='Tabula Rasa'
+              durations='длительность - 2 года'
+              description="Ноябрь 2020 — Июнь 2022"
+              gradient='url(/img/projectGradients/group_rasa.svg)'
+              gradient_spot="/img/projectGradients/miniAqua.svg"
+              arrowColor="#56E39F"
+              link="/tabulaRasa"
             >
               <SpeakerCard photo='/img/speaker_bezuevskaya.png' fullName='Безуевская Валерия' position='руководитель' white>
                 К. н., проректор по развитию СурГУ
@@ -500,13 +513,13 @@ const HomePage = (props) => {
               </SpeakerCard>
             </Project_Card>
             <Project_Card
-                title='Цифровой профиль исследователя'
-                durations=''
-                description=""
-                gradient='url(/img/projectGradients/group_blue.svg)'
-                gradient_spot="/img/projectGradients/miniPink.svg"
-                arrowColor="#3E92CC"
-                link="/digitalProfile"
+              title='Цифровой профиль исследователя'
+              durations=''
+              description=""
+              gradient='url(/img/projectGradients/group_blue.svg)'
+              gradient_spot="/img/projectGradients/miniPink.svg"
+              arrowColor="#3E92CC"
+              link="/digitalProfile"
             >
               <p>Прототип платформы комплексной оценки и развития компетенций управления сложными
                 научно-техническими проектами и программами, с возможностями удаленного доступа и обработки
@@ -517,13 +530,13 @@ const HomePage = (props) => {
                 оценивать перспективы развития конкретных пользователей.</p>
             </Project_Card>
             <Project_Card
-                title='Акселерационная программа'
-                durations='длительность - 2 модуля'
-                description='Июль 2020 — Ноябрь 2020'
-                gradient='url(/img/projectGradients/group_orange.svg)'
-                gradient_spot="/img/projectGradients/miniOrange.svg"
-                arrowColor="#FF9852"
-                link="/accelerationProgram"
+              title='Акселерационная программа'
+              durations='длительность - 2 модуля'
+              description='Июль 2020 — Ноябрь 2020'
+              gradient='url(/img/projectGradients/group_orange.svg)'
+              gradient_spot="/img/projectGradients/miniOrange.svg"
+              arrowColor="#FF9852"
+              link="/accelerationProgram"
             >
               <SpeakerCard photo='/img/speaker_latyshev.png' fullName='Андрей Латышев' position='руководитель' white>
                 Руководитель ЦРК, и.о. проректора по персоналу и организационному развитию ТюмГУ
@@ -540,11 +553,11 @@ const HomePage = (props) => {
               </SpeakerCard>
             </Project_Card>
             <Project_Card
-                title='Step into Russian Arctic'
-                durations=''
-                gradient='url(/img/projectGradients/group_darkgreen.svg)'
-                opacity={0.4}
-                isInProcess='Программа в разработке'
+              title='Step into Russian Arctic'
+              durations=''
+              gradient='url(/img/projectGradients/group_darkgreen.svg)'
+              opacity={0.4}
+              isInProcess='Программа в разработке'
             >
               <p>Уникальная модульная программа по подготовке людей для управления широким спектром проектов в Арктической
                 зоне РФ. Выпускники смогут на новом уровне подходить к решению задач, связанных с эффективным и
@@ -586,7 +599,7 @@ const HomePage = (props) => {
                         <div className='quote_content'>
                           <div className='quote_author'>
                           <span>
-                            <Link href="/experts/latishev"><a>Андрей Латышев</a></Link>, руководитель ЦРК
+                            <a href='/experts/latishev'>Андрей Латышев</a>, руководитель ЦРК
                           </span>
                             <span className='quote_authorDescription'>
                             И.о. проректора по персоналу и организационному развитию ТюмГУ
@@ -615,7 +628,7 @@ const HomePage = (props) => {
                         <div className='quote_content'>
                           <div className='quote_author'>
                           <span>
-                            <Link href="/experts/shreyber"><a>Ирина Шрайбер</a></Link>, ментор и лектор образовательных проектов ЦРК
+                            <a href='/experts/shreyber'>Ирина Шрайбер</a>, ментор и лектор образовательных проектов ЦРК
                           </span>
                             <span className='quote_authorDescription'>
                             Ph. D., кандидат физико-математических наук, ученый, исследователь
@@ -650,7 +663,7 @@ const HomePage = (props) => {
                         <div className='quote_content'>
                           <div className='quote_author'>
                           <span>
-                            <Link href="/experts/golubev"><a>Евгений Голубев</a></Link>, ментор Школы руководителей
+                            <a href='/experts/golubev'>Евгений Голубев</a>, ментор Школы руководителей
                             научно-технических проектов
                           </span>
                             <span className='quote_authorDescription'>

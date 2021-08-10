@@ -1,5 +1,9 @@
 @huge: ~"(min-width: 1600px)";
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, code,
@@ -14,8 +18,8 @@ audio, video {
   border: 0;
   font-weight: inherit;
   font-style: inherit;
-  //font-size: 10px;
   font-family: inherit;
+  line-height: initial;
   vertical-align: baseline;
 }
 
@@ -51,6 +55,10 @@ img{
   object-fit: cover;
 }
 
+svg {
+  display: initial;
+}
+
 body, html {
   padding: 0;
   margin: 0;
@@ -71,5 +79,9 @@ body {
 }
 
 p {
-  margin: 0.8rem 0;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }

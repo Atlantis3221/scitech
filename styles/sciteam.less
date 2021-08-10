@@ -1,3 +1,5 @@
+@import './variables.less';
+
 :root {
   --clr-blackPearl: #02090f;
   --clr-callToAction: #fa3e3e;
@@ -501,6 +503,8 @@ h4 {
   }
   svg {
     margin-left: 0.5rem;
+    width: 14px;
+    height: 12px;
   }
 
   &:last-child {
@@ -798,5 +802,75 @@ h4 {
   font-size: 2.5rem;
   @media (max-width: 900px) {
     font-size: 1.5rem;
+  }
+}
+
+
+.news {
+  p {
+    line-height: 1.5rem;
+    font-family: 'Noto Serif', serif;
+    @media (min-width: 1600px) {
+      font-size: ~"calc((100vh + 100vw) / 2 * .0125)";
+    }
+  }
+
+  a {
+    @media (min-width: 1600px) {
+      font-size: ~"calc((100vh + 100vw) / 2 * .0128)";
+    }
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+  }
+}
+
+
+.mainPage_map_wrapper {
+  cursor: pointer;
+  height: 100%;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    min-height: 30rem;
+    text-align: left;
+  }
+  @media (max-width: 768px) {
+    min-height: 30rem;
+    text-align: left;
+  }
+
+  &:hover {
+    .mainPage_map {
+      transition: all 0.2s;
+      background-image: url("/img/map_red.svg");
+    }
+    .redLink {
+      color: #fa3e3e;
+      border-bottom: 0.1rem solid #fa3e3e;
+    }
+  }
+  .redLink {
+    transition: all 0.2s;
+    svg {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+
+.mainPage_map {
+  display: block;
+  height: 90%;
+  min-height: inherit;
+  width: 100%;
+  background-image: url('/img/map.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom: none;
+}
+
+.sibnoc_link {
+  img {
+    width: 15rem;
   }
 }

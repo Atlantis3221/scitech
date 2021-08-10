@@ -1,4 +1,4 @@
-import './layout.less'
+
 import React from 'react'
 import { $props } from '../../helpers/$props'
 import { NewHeader } from '../newHeader'
@@ -6,6 +6,7 @@ import { NewsLine } from '../newsLine'
 import { useLocation } from 'react-router-dom'
 import {Footer} from "../footer";
 import { useRouter } from 'next/router'
+import Modals from '../modals/Modals'
 
 const UI_HEADER = 'header'
 const UI_FOOTER = 'footer'
@@ -30,16 +31,8 @@ function Aside(props) {
 }
 
 export const LayoutDefaults = {
-  header: (
-    <Container>
-      <NewHeader />
-    </Container>
-  ),
-  footer: (
-      <Container>
-        <Footer />
-      </Container>
-  ),
+  header: <NewHeader />,
+  footer: <Footer />,
   asideLeft: undefined,
   main: undefined,
 }
@@ -79,6 +72,7 @@ export function Layout(props) {
       </div>
       {footer && <div {...$(UI_FOOTER)}>{footer}</div>}
     </div>
+    <Modals/>
   </div>
   )
 }
