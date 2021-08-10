@@ -1,8 +1,6 @@
 import React from 'react'
 import { className } from '../../helpers/className'
 
-import './partner.less'
-
 /** Partner
  *  @param props
  *  @param props.logo

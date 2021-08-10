@@ -8,7 +8,7 @@ export function InputText(props) {
 
   return (
     <>
-      {false ?
+      {typeof phoneNumber !== 'undefined' ?
         <PhoneInput
           value={value}
           international

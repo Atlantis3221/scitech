@@ -1,16 +1,11 @@
 import React, { useState } from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
-import { Day7, Day11, Day18, Day25, Day29, Day2, Day9, Day16, Day23, Day30 } from './events/newEventDays'
-// import { Modal } from '../../@fireball/components/modal'
-// import { Requests } from '../../@fireball/collections/requests'
+import { Day7, Day11, Day18, Day25, Day29, Day2, Day9, Day16, Day23, Day30 } from '../components/events/newEventDays'
 import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
 import { Partner } from '../components/partner'
-import { Button } from '../components/button'
-
 import { DateItem, DateSwitcher } from '../components/dateSwicher/dateSwicher'
 import { EventItem, EventItem_Container } from '../components/eventItem'
-import { RegisterEventForm } from '../components/forms/registerEventForm/registerEventForm'
 import { Schedule } from '../components/schedule'
 import { Helmet } from 'react-helmet'
 
@@ -27,10 +22,6 @@ const days = {
   '30': <Day30 />,
 }
 
-// const startEvent = Date.parse(new Date('11 7 2020'))
-const endEvent = Date.parse(new Date('12 30 2020'))
-const today = Date.now()
-// const isShowRegistrationButton = today < endEvent
 const isShowRegistrationButton = false
 
 export default function GameMethodsInEducation(props) {
@@ -40,7 +31,7 @@ export default function GameMethodsInEducation(props) {
       <Helmet>
         <meta name="description" content="Участники разработают и внедрят в работу своего вуза современный образовательный продукт на основе игровых технологий" />
         <meta name="keywords" content="разработка игры, игровые механики в образовании" />
-        <meta property="og:image" content="/img/meta-image.jpg" />
+        <meta property="og:image" content="/img/appleIcon.png" />
         <meta property="og:url" content="https://scitech.ru/gameMethodsInEducation" />
         <meta property="og:title" content="Игровые методы в образовании. Принципы. Теория. Практика"/>
         <meta property="og:description" content="Участники разработают и внедрят в работу своего вуза современный образовательный продукт на основе игровых технологий" />
@@ -51,7 +42,7 @@ export default function GameMethodsInEducation(props) {
       <Layout>
         <div className='show content'>
           <div className='container relative'>
-            <div className='colorSpot colorSpot__red' style={{ left: '7.7rem'}}></div>
+            <div className='colorSpot colorSpot__red'></div>
             <ul className='g3'>
               <li className='i3_3'>
                 <p className='asideMarker'>тренинг</p>
@@ -71,7 +62,8 @@ export default function GameMethodsInEducation(props) {
               <li className='i3_9 wrapper_borderTop'>
                 <ul className='g3'>
                   <li className='i3_12'>
-                    {/*TODO: переделать на общую форму*/}
+                    {/* @todo: add Modal pop-up*/}
+
                     <Schedule  dataFirst={[7, 'Ноя 2020']}
                                dataSecond={[30, 'Дек 2020']}
                                place={'онлайн, zoom'}
@@ -317,33 +309,6 @@ export default function GameMethodsInEducation(props) {
                 <p>Бусыгина Наталья, тел: <a href='tel:+7 (904) 490 45 74'>+7 (904) 490 45 74</a> (WhatsApp, Viber),
                   e-mail: <a href='mailto:n.v.busygina@utmn.ru'>n.v.busygina@utmn.ru</a>, <a href='mailto:cdc@scitech.ru'>cdc@scitech.ru</a></p>
                 <p><a href="https://scitech.ru">Scitech.ru</a> - Информация о Центре развития компетенций</p>
-                {/*{isShowRegistrationButton ? (*/}
-                {/*  <div className='registerEventForm'>*/}
-                {/*    <Modal*/}
-                {/*      Trigger={props => (*/}
-                {/*        <Button red onClick={props.onClick}>*/}
-                {/*          Зарегистрироваться*/}
-                {/*        </Button>*/}
-                {/*      )}*/}
-                {/*      Content={props => (*/}
-                {/*        <div>*/}
-                {/*          <div className='registerEventForm_title'>*/}
-                {/*            Зарегистрироваться на мероприятие «Игровые методы в образовании. Принципы. Теория. Практика»*/}
-                {/*          </div>*/}
-                {/*          <RegisterEventForm*/}
-                {/*            onSubmit={(e, payload) => {*/}
-                {/*              Requests.methods.insert({*/}
-                {/*                group: 'registrations_gameMethods',*/}
-                {/*                payload,*/}
-                {/*              })*/}
-                {/*              props.close()*/}
-                {/*            }}*/}
-                {/*          />*/}
-                {/*        </div>*/}
-                {/*      )}*/}
-                {/*    />*/}
-                {/*  </div>*/}
-                {/*) : null}*/}
               </li>
             </ul>
           </div>

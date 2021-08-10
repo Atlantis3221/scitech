@@ -15,7 +15,7 @@ export default function EcoSafety(props) {
                 2030 г. на базе интегрированной динамической модели социально-экологической системы бассейна,
                 опирающейся на международные экологические стандарты.̆" />
                 <meta name="keywords" content="экологическая безопасность Обь-Иртышского речного бассейна" />
-                <meta property="og:image" content="/img/meta-image.jpg" />
+                <meta property="og:image" content="/img/appleIcon.png" />
                 <meta property="og:url" content="https://scitech.ru/schoolProjects/ecoSafety" />
                 <meta property="og:title" content="Экологическая безопасность Обь-Иртышского речного бассейна"/>
                 <meta property="og:description" content="Цель научного проекта: создание инструментария для управления
@@ -33,7 +33,7 @@ export default function EcoSafety(props) {
             }}>
                 <div className='show wrapper_hero'>
                     <div className='container relative'>
-                        <div className="colorSpot colorSpot__green" style={{ left: '7.7rem'}}></div>
+                        <div className="colorSpot colorSpot__green"></div>
                         <div className='content'>
                             <ul className='g3 relative'>
                                 <li className='i3_3'>

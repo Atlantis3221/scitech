@@ -2,10 +2,7 @@ import React, { useState } from 'react'
 
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
-import './formRegistration.less'
-import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
-// import { Forms } from '/imports/collections/forms'
 
 const toBase64 = file => new Promise((resolve, reject) => {
   const reader = new FileReader()

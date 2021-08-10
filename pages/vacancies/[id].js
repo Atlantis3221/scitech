@@ -2,7 +2,7 @@ import React from 'react'
 import { Layout } from '../../components/layout'
 import { vacanciesPage } from '../../data/vacanciesPage'
 import { Helmet } from 'react-helmet'
-import './vacancies.less'
+import '../../styles/vacancies.less'
 import { VacanciesWidget } from './vacanciesWidget'
 
 const VacancyById = props => {
@@ -13,7 +13,7 @@ const VacancyById = props => {
       <Helmet>
         <meta name="description" content={data.title} />
         <meta name="keywords" content={data.title} />
-        <meta property="og:image" content="/img/meta-image.jpg" />
+        <meta property="og:image" content="/img/appleIcon.png" />
         <meta property="og:url" content={`https://scitech.ru/news/${data._id}`} />
         <meta property="og:title" content={data.title} />
         <meta property="og:description" content={data.title} />

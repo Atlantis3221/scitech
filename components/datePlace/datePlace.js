@@ -1,5 +1,5 @@
 import React from 'react'
-import './datePlace.less'
+
 
 /** DatePlace
  *  @param props

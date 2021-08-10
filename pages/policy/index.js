@@ -11,7 +11,7 @@ export default function Policy(props) {
         <Helmet>
           <meta name="description" content='Политика в отношении обработки персональных данных' />
           <meta name="keywords" content='Политика в отношении обработки персональных данных' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/policy`} />
           <meta property="og:title" content='Политика в отношении обработки персональных данных' />
           <meta property="og:description" content='Политика в отношении обработки персональных данных' />

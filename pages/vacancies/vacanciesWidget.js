@@ -1,6 +1,5 @@
 import React from 'react'
 import { vacancies } from '../../data/vacancies'
-import './vacancies.less'
 
 export const VacanciesWidget = props => {
   const { vacsCount = vacancies.length, _id } = props

@@ -1,0 +1,312 @@
+.modal {
+  overflow-y: scroll;
+
+  &_content {
+    border-radius: 0;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+
+    form input, select {
+      height: 2rem;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.checkbox_container {
+  margin-left: 0.5rem;
+  @media (max-width: 600px) {
+    margin-top: 1rem;
+  }
+}
+
+.registerEventForm {
+
+  & .modal_content {
+    max-width: 50rem;
+    width: 100%;
+    background: #9f1e1e;
+    margin: 0 auto;
+    max-height: fit-content;
+    padding: 3rem;
+    box-shadow: none;
+    overflow: hidden;
+  }
+  color: white;
+
+  &_title {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-right: 3rem;
+
+    @media (max-width: 600px) {
+      font-size: 1.2rem;
+    }
+
+    .prescription {
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+    }
+  }
+
+  &_button {
+    color: #FA3E3E;
+    background: #ffffff;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: 600;
+    margin-left: 9.9rem;
+    border: none;
+    cursor: pointer;
+
+    @media (max-width: 600px) {
+      margin-left: 0;
+    }
+  }
+
+  select {
+    align-items: flex-end;
+    background: #ffffff;
+    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.04);
+    width: 100%;
+    padding-left: 1rem;
+    margin-top: unset;
+    border-radius: unset;
+    font-family: 'Raleway', sans-serif;
+    color: #879184;
+    appearance: auto;
+    -webkit-appearance: auto;
+    height: 2.8rem;
+  }
+  .membersNumberSelect {
+    margin-left: 20px;
+  }
+
+  &__green {
+    & .modal_content {
+      background: #309D64;
+    }
+    & .registerEventForm_button {
+      color: #309D64;
+    }
+    & .isSend_content {
+      background: #309D64;
+    }
+    .radio_label .checkmark:after {
+      background: #309D64;
+    }
+    .radio_label:hover input ~ .checkmark {
+      border: 2px solid #309D64;
+    }
+    .radio_label input:checked ~ .checkmark {
+      border: 2px solid #309D64;
+    }
+    .checkmark {
+      border: 2px solid #309D64;
+    }
+    .inputFile_icon {
+      color: #309D64;
+    }
+  }
+  &__violet {
+    & .modal_content {
+      background: #9F248E;
+    }
+    & .registerEventForm_button {
+      color: #9F248E;
+    }
+    & .isSend_content {
+      background: #9F248E;
+    }
+    .radio_label .checkmark:after {
+      background: #9F248E;
+    }
+    .radio_label:hover input ~ .checkmark {
+      border: 2px solid #9F248E;
+    }
+    .radio_label input:checked ~ .checkmark {
+      border: 2px solid #9F248E;
+    }
+    .checkmark {
+      border: 2px solid #9F248E;
+    }
+  }
+  &__blue {
+    & .modal_content {
+      background: rgba(39, 198, 188, 1);
+    }
+    & .registerEventForm_button {
+      color: rgba(39, 198, 188, 1);
+    }
+    & .isSend_content {
+      background: rgba(39, 198, 188, 1);
+    }
+    & form div:nth-child(4) label {
+      align-items: self-start;
+    }
+    & form div:nth-child(5) label {
+      align-items: baseline;
+    }
+
+    form div:nth-child(5) label {
+      align-items: flex-start;
+    }
+  }
+  &__orange {
+    & .modal_content {
+      background: rgba(214, 110, 20, 1);
+    }
+    & .registerEventForm_button {
+      color: rgba(214, 110, 20, 1);
+    }
+    & .isSend_content {
+      background: rgba(214, 110, 20, 1);
+    }
+    & form div:nth-child(4) label {
+      align-items: self-start;
+    }
+    & form div:nth-child(5) label {
+      align-items: baseline;
+    }
+  }
+
+  & .checkbox_container .checkbox {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    left: 9rem;
+    &:checked ~ .checkbox_description::after {
+      content: '';
+      position: absolute;
+      width: 0.9rem;
+      height: 0.6rem;
+      left: 0;
+      top: 1.3rem;
+      border-radius: 1px;
+      border-left: 3px solid #1e7b4b;
+      border-bottom: 3px solid #1e7b4b;
+      -webkit-transform: rotate(-55deg);
+      -moz-transform: rotate(-55deg);
+      -o-transform: rotate(-55deg);
+      -ms-transform: rotate(-55deg);
+      transform: rotate(-55deg);
+    }
+  }
+
+  & .checkbox_description {
+    display: inline;
+    position: relative;
+    padding-left: 2rem;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      margin-left: -2.5rem;
+      top: 0.7rem;
+      background-color: #FFFFFF;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+      cursor: pointer;
+    }
+  }
+
+  .form_label__isSpeaker {
+    justify-content: flex-start;
+    margin-top: -2rem;
+  }
+}
+
+.isSend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
+  min-height: 160px;
+
+  @media (max-width: 600px) {
+    min-height: 80px;
+  }
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 5rem;
+    top: 0;
+    position: absolute;
+    background: #9f1e1e;
+  }
+
+
+
+  &_icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 20%;
+      right: 35%;
+      width: 1rem;
+      height: 1.5rem;
+      border: solid #309D64;
+      border-width: 0 0.2rem 0.2rem 0;
+      transform: rotate(42deg);
+      -webkit-transform: rotate(42deg);
+    }
+  }
+
+  &_text {
+    font-weight: 600;
+    font-size: 1.5rem;
+    max-width: 18rem;
+    text-align: center;
+    margin-top: 0;
+  }
+}
+
+.input_linkToPolicy {
+  border-bottom: none;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  border-bottom: 1px solid #fff;
+}
+
+.PhoneInput {
+  position: relative;
+  width: 100%;
+
+  .PhoneInputCountry {
+    position: absolute;
+    padding-top: 0.8rem;
+    padding-left: 1rem;
+  }
+  .PhoneInputInput {
+    padding-left: 3.5rem;
+  }
+  .PhoneInputCountrySelect {
+    width: 75px !important;
+    max-width: none;
+    min-width: 75px;
+  }
+  .PhoneInputCountrySelectArrow {
+    border-color: black;
+    margin-top: -1.2rem;
+  }
+}

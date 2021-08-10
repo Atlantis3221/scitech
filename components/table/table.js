@@ -5,7 +5,6 @@
 
 import React from 'react'
 
-import './table.less'
 import { className } from '../../helpers/className'
 
 /**

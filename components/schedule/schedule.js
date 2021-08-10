@@ -1,9 +1,4 @@
 import React from 'react'
-import './schedule.less'
-import { Button } from '../button'
-// import { Modal } from '../../@fireball/components/modal'
-import { RegisterEventForm } from '../forms/registerEventForm/registerEventForm'
-// import { Requests } from '../../@fireball/collections/requests'
 
 /** Schedule
  *  @param props

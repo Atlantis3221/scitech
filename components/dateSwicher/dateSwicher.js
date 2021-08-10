@@ -1,8 +1,6 @@
 import React from 'react'
 import { className } from '../../helpers/className'
 
-import './dateSwicher.less'
-
 /** dateSwitcher
  *  @param props
  *  @param props.children

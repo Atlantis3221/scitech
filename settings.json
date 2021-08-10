@@ -1,0 +1,10 @@
+{
+  "contentful": {
+    "accessToken": "rTNPZuGvM3_8ah6RJKU-md7kwSaDf1uRarqd8gUih4o",
+    "space": "3xvprbsu4asv",
+    "host": "cdn.contentful.com",
+    "callbackToken": "username:password",
+    "callbackPort": 1234,
+    "limit": 500
+  }
+}

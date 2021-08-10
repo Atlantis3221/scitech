@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './submenu.less'
+
 
 export const Submenu = props => {
   const { children, isShown, opened } = props
