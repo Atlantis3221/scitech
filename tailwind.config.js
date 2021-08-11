@@ -2,10 +2,17 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        error: "#E52C2C",
+        "input-hover": "#4F4F4F"
+      }
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      ringColor: ['hover', 'active'],
+    },
   },
   plugins: [],
 }
