@@ -35,6 +35,8 @@ import '../styles/events.less'
 import '../styles/experts.less'
 import '../styles/formRegistration.less'
 import '../styles/vacancies.less'
+import 'react-phone-input-2/lib/style.css'
+
 
 
 import { ModalsContextProvider } from '../components/modals/ModalContext'
@@ -44,7 +46,7 @@ function MyApp({ Component, pageProps }) {
     <ModalsContextProvider>
       <Component {...pageProps} />
     </ModalsContextProvider>
-  ) 
+  )
 }
 
 export default MyApp

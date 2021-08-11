@@ -6,8 +6,8 @@ export type IModals = "reg"
 type ContextProps = {
   modalsState: IModalState,
   modalService: ModalService,
-  regModalState: keyof IColors,
-  setRegModalState: React.Dispatch<React.SetStateAction<keyof IColors>>
+  regModalState: IRegModalState
+  setRegModalState: React.Dispatch<React.SetStateAction<IRegModalState>>
 }
 
 const ModalsContext = React.createContext<Partial<ContextProps>>({});
@@ -20,24 +20,24 @@ type IModalState = {
   [key in IModals]: boolean
 }
 
-type IColors = {
-    red: string,
-    green: string,
-    blue: string,
-    yellow: string
+type IColoredInputs = {
+  bg: string,
+  checkbox: string
 }
 
-export const Colors: IColors = {
-    red: "#E52C2C",
-    green: "#309D64",
-    blue: "#3E92CC",
-    yellow: "#D66E14"
+type IColors = {
+    red: IColoredInputs,
+    green: IColoredInputs,
+    blue: IColoredInputs,
+    yellow: IColoredInputs
 }
+
+type IRegModalInput = "participationType" | "firstName" | "lastName" | "role" | "amount" | "theme" | "phone" | "year" | "policy" | "email"
 
 
 type IRegModalState = {
     color: keyof IColors,
-    inputs: string[]
+    inputs: IRegModalInput[]
 }
 
 const initialState:IModalState = {
@@ -88,7 +88,10 @@ class ModalService {
 const ModalsContextProvider = ({ children }: Props) => {
   const [modalsState, dispatch] = useReducer(modalReducer, initialState)
   const modalService = new ModalService(dispatch)
-  const [regModalState, setRegModalState] = useState<keyof IColors>("red")
+  const [regModalState, setRegModalState] = useState<IRegModalState>({
+    color: "red",
+    inputs: ["firstName", "lastName"]
+  })
 
   return (
     <ModalsContext.Provider

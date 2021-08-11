@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { RadioGroup } from '../../inputs/inputRadioGroup'
 import { InputText } from '../../inputs/inputText'
 import { className } from '../../../helpers/className'
-import { InputCheckbox } from '../../inputs/inputCheckbox'
 import { InputTextarea } from '../../inputs/inputTextarea'
 import { InputFile } from '../../inputs/inputFile'
 
