@@ -39,6 +39,7 @@ import '../styles/grid2.less'
 import '../styles/textPopup.less'
 import '../styles/variables.less'
 import '../styles/grants.less'
+import 'react-phone-input-2/lib/style.css'
 
 
 

@@ -32,29 +32,12 @@ type IColors = {
     yellow: IColoredInputs
 }
 
-export const Colors = {
-    red: {
-      bg: "#9F1E1E",
-      checkbox: "#E52C2C"
-    },
-    green: {
-      bg: "#309D64",
-      checkbox: "#309D64"
-    },
-    blue: {
-      bg: "#3E92CC",
-      checkbox: "#3E92CC"
-    },
-    yellow: {
-      bg: "#D66E14",
-      checkbox: "#D66E14"
-    }
-}
+type IRegModalInput = "participationType" | "firstName" | "lastName" | "role" | "amount" | "theme" | "phone" | "year" | "policy" | "email"
 
 
 type IRegModalState = {
     color: keyof IColors,
-    inputs: string[]
+    inputs: IRegModalInput[]
 }
 
 const initialState:IModalState = {
@@ -107,7 +90,7 @@ const ModalsContextProvider = ({ children }: Props) => {
   const modalService = new ModalService(dispatch)
   const [regModalState, setRegModalState] = useState<IRegModalState>({
     color: "red",
-    inputs: []
+    inputs: ["firstName", "lastName"]
   })
 
   return (
