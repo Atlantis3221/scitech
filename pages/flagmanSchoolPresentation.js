@@ -11,7 +11,7 @@ export default function FlagmanSchoolPresentation(props) {
         <Helmet>
           <meta name="description" content='Онлайн-презентация флагманских школ ЦРК' />
           <meta name="keywords" content='мероприятие Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/flagmanSchoolPresentation`} />
           <meta property="og:title" content='Онлайн-презентация флагманских школ ЦРК' />
           <meta property="og:description" content='мероприятие Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />

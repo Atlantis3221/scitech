@@ -3,23 +3,9 @@ import React from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
 import { SpeakerCards, SpeakerCard } from '../components/speakerCard'
-import { Button } from '../components/button'
 import { SchoolProject, SchoolProject_Card } from '../components/schoolProject'
-import { StrongText } from '../components/strongText'
-// import { Modal } from '../../@fireball/components/modal'
-import { RegisterEventFormSchool } from '../components/forms/registerEventFormSchool/registerEventForm'
-// import { Requests } from '../../@fireball/collections/requests'
 import { Helmet } from 'react-helmet'
-import { RegisterEventForm } from '../components/forms/registerEventForm/registerEventForm'
-import '../styles/fonts.css'
-import '../styles/reset.less'
-import '../styles/sciteam.less'
-import '../styles/form.less'
-import '../styles/home.less'
-import '../styles/grid2.less'
-import '../styles/textPopup.less'
-import '../styles/variables.less'
-import '../components/speakerCard/speakerCard.less'
+import { Button } from '../components/button'
 
 export default function ManagementSchool(props) {
   return (
@@ -28,7 +14,7 @@ export default function ManagementSchool(props) {
         <meta name="description"
               content="Подготовка руководителей, которые должны обеспечить перевод исследовательской идеи в инновационную технологию или продукт" />
         <meta name="keywords" content="Управление научно-техническими проектами, шрнтп" />
-        <meta property="og:image" content="/img/meta-image.jpg" />
+        <meta property="og:image" content="/img/appleIcon.png" />
         <meta property="og:url" content="https://scitech.ru/managementSchool" />
         <meta property="og:title" content="Школа руководителей научно-технологических проектов" />
         <meta property="og:description"
@@ -44,7 +30,7 @@ export default function ManagementSchool(props) {
       }}>
         <div className='show wrapper_hero'>
           <div className='container relative'>
-            <div className="colorSpot colorSpot__violet" style={{ left: '7.7rem'}}></div>
+            <div className="colorSpot colorSpot__violet"></div>
             <div className='content'>
               <ul className='g3 relative'>
                 <li className='i3_3'>
@@ -94,45 +80,12 @@ export default function ManagementSchool(props) {
                       </div>
                     </li>
                     <li className='i3_12 flex_end m0'>
-                      {/*<div className='registerEventForm registerEventForm__violet'>*/}
-                        {/*<Modal*/}
-                        {/*  Trigger={props => (*/}
-                        {/*    <Button violet onClick={props.onClick}>*/}
-                        {/*      Записаться на набор 2021/2022*/}
-                        {/*    </Button>*/}
-                        {/*  )}*/}
-                        {/*  Content={props => (*/}
-                        {/*    <div>*/}
-                        {/*      <div className='registerEventForm_title'>*/}
-                        {/*        Записаться на набор 2021/2022*/}
-                        {/*      </div>*/}
-                        {/*      /!*TODO: переделать на общую форму*!/*/}
-                        {/*      <RegisterEventForm*/}
-                        {/*        // applicationType={true}*/}
-                        {/*        hideParticipant={false}*/}
-                        {/*        hideSituation={true}*/}
-                        {/*        showOrganizationField={true}*/}
-                        {/*        eventType={'managementSchoolNextSet'}*/}
-                        {/*        onSubmit={(e, payload) => {*/}
-                        {/*          Requests.methods.insert({*/}
-                        {/*            group: 'registrations_schoolCoach',*/}
-                        {/*            payload,*/}
-                        {/*          })*/}
-                        {/*          // props.close()*/}
-                        {/*        }}*/}
-                        {/*      />*/}
-                        {/*    </div>*/}
-                        {/*  )}*/}
-                        {/*/>*/}
-                      {/*</div>*/}
-                      {/*<div className='registerEventForm registerEventForm__violet'>*/}
-                      {/*  <Modal*/}
-                      {/*    Trigger={props => (*/}
-                      {/*      <Button bordered-violet marginleft onClick={props.onClick}>*/}
-                      {/*        Заказать проведение в моем регионе*/}
-                      {/*      </Button>*/}
-                      {/*    )}*/}
-                      {/*    Content={props => (*/}
+                      {/* @todo: add Modal pop-up*/}
+
+                            <Button bordered-violet marginleft onClick={props.onClick}>
+                              Заказать проведение в моем регионе
+                            </Button>
+
                       {/*      <div>*/}
                       {/*        <div className='registerEventForm_title'>*/}
                       {/*          Заказать проведение в моем регионе*/}
@@ -152,9 +105,6 @@ export default function ManagementSchool(props) {
                       {/*          }}*/}
                       {/*        />*/}
                       {/*      </div>*/}
-                      {/*    )}*/}
-                      {/*  />*/}
-                      {/*</div>*/}
                     </li>
                   </ul>
                 </li>

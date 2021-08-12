@@ -18,7 +18,7 @@ export default function FaceDrive(props) {
         <Helmet>
           <meta name="description" content='FaceDrive - Услуга по идентификации водителя транспортного средства путём распознавания его лица' />
           <meta name="keywords" content='проект школы руководителей научно-технических проектов центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/managementSchoolProjects/FaceDrive`} />
           <meta property="og:title" content='FaceDrive - Услуга по идентификации водителя транспортного средства путём распознавания его лица' />
           <meta property="og:description" content='проект школы руководителей научно-технических проектов центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />

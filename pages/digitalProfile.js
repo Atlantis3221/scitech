@@ -15,7 +15,7 @@ export default function DigitalProfile(props) {
         <Helmet>
           <meta name="description" content='Цифровой профиль исследователя' />
           <meta name="keywords" content='Партнерский проект Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/digitalProfile`} />
           <meta property="og:title" content='Цифровой профиль исследователя' />
           <meta property="og:description" content='Партнерский проект Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -25,7 +25,7 @@ export default function DigitalProfile(props) {
 
         <div className='show'>
           <div className='container relative'>
-            <div className="colorSpot colorSpot__blue" style={{ left: '7.7rem'}}></div>
+            <div className="colorSpot colorSpot__blue"></div>
             <div className='content pb0'>
               <ul className='g3 relative zIndex'>
                 <li className='i3_3'>

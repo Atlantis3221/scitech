@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
-import { Day24 } from './events/day24'
-import { Day25 } from './events/day25'
-import { Day26 } from './events/day26'
-import { Day27 } from './events/day27'
-import { Day28 } from './events/day28'
-// import { Modal } from '../../@fireball/components/modal'
-// import { Form } from '../../@fireball/components/form'
-// import { Requests } from '../../@fireball/collections/requests'
-// import { RegistrationForm1 } from '../../components/registrationForm1/registrationForm1'
+import { Day24 } from '../components/events/day24'
+import { Day25 } from '../components/events/day25'
+import { Day26 } from '../components/events/day26'
+import { Day27 } from '../components/events/day27'
+import { Day28 } from '../components/events/day28'
 import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
 import { Partner } from '../components/partner'
 import { StrongText } from '../components/strongText'
-import { Button } from '../components/button'
 import { DatePlace } from '../components/datePlace'
 
 import { DateItem, DateSwitcher } from '../components/dateSwicher/dateSwicher'
-import { SchoolProject, SchoolProject_Card } from '../components/schoolProject'
+import { SchoolProject } from '../components/schoolProject'
 import { Helmet } from 'react-helmet'
+import { ContentfulNewsWidget } from './contentfulNews/contentfulNewsWidget'
+import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 
 const days = {
 	'24': <Day24/>,
@@ -41,7 +38,7 @@ export default function EventsPage(props) {
 			<Helmet>
 				<meta name="description" content='Международная конференция «Наука. Лидерство. Общество» (Science. Leadership. Society)' />
 				<meta name="keywords" content='Международная конференция «Наука. Лидерство. Общество» (Science. Leadership. Society)' />
-				<meta property="og:image" content="/img/meta-image.jpg" />
+				<meta property="og:image" content="/img/appleIcon.png" />
 				<meta property="og:url" content={`https://scitech.ru/events`} />
 				<meta property="og:title" content='Международная конференция «Наука. Лидерство. Общество» (Science. Leadership. Society)' />
 				<meta property="og:description" content='Международная конференция «Наука. Лидерство. Общество» (Science. Leadership. Society)' />
@@ -343,36 +340,15 @@ export default function EventsPage(props) {
 						</li>
 						<li className="i3_9">
 							<SchoolProject>
-								<SchoolProject_Card
-									red
-									arrow
-									image='/img/newsSMI/eventNews_title.jpg'
-									link="/events/eventsNews/roundTableNews"
-									time="28 августа 2020"
-								>
-									Конференция ЦРК Западно-Сибирского НОЦ // Экспедиционный корпус Восток - Запад
-								</SchoolProject_Card>
-								<SchoolProject_Card
-									red
-									arrow
-									image='/img/newsSMI/eventNews_title.jpg'
-									link="/events/eventsNews/CRK_Conference"
-									time="26 августа 2020"
-								>
-									25 августа 2020 года в онлайн-формате представители НГЛУ приняли участие в круглом столе «Актуальные
-									вызовы и лучшие практики в подготовке лидеров для научных, научно-технических проектов и лабораторий»
-									// НГЛУ
-								</SchoolProject_Card>
-								<SchoolProject_Card
-									red
-									arrow
-									image='/img/newsSMI/eventNews_title.jpg'
-									link="/events/eventsNews/bestPractice"
-									time="26 августа 2020"
-								>
-									Опыт и лучшие практики Центров развития компетенций НОЦ // Университет Лобачевского: новости университета
-								</SchoolProject_Card>
+
+								{/*THESE ARE News from Contentful */}
+								<ContentfulNewsWidget isSMI={true} pageToShow={'events'} />
+
+								{/*THESE ARE News from website */}
+								<NewsSMIWidget pageToShow={'events'}/>
+
 							</SchoolProject>
+
 						</li>
 					</ul>
 				</div>

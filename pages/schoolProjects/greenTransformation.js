@@ -17,7 +17,7 @@ export default function GreenTransformation(props) {
                 <Helmet>
                     <meta name="description" content='Разработка модели зеленой трансформации региона: ценности, практики, социально-экономические эффекты' />
                     <meta name="keywords" content='проект школы научного лидерства центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-                    <meta property="og:image" content="/img/meta-image.jpg" />
+                    <meta property="og:image" content="/img/appleIcon.png" />
                     <meta property="og:url" content={`https://scitech.ru/schoolProjects/greenTransformation`} />
                     <meta property="og:title" content='Разработка модели зеленой трансформации региона: ценности, практики, социально-экономические эффекты' />
                     <meta property="og:description" content='проект школы научного лидерства центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -27,7 +27,7 @@ export default function GreenTransformation(props) {
 
                 <div className='show wrapper_hero'>
                     <div className='container relative'>
-                        <div className="colorSpot colorSpot__green" style={{ left: '7.7rem'}}></div>
+                        <div className="colorSpot colorSpot__green"></div>
                         <div className='content'>
                             <ul className='g3 relative'>
                                 <li className='i3_3'>

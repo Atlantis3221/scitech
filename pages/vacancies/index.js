@@ -44,7 +44,7 @@ export default function Vacancies(props) {
         <Helmet>
           <meta name="description" content='Вакансии' />
           <meta name="keywords" content='Вакансии' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/developmentProjects`} />
           <meta property="og:title" content='Вакансии' />
           <meta property="og:description" content='Вакансии' />

@@ -4,15 +4,6 @@ import { newsSMI } from '../../data/newsSMI'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
 
-import '../../styles/fonts.css'
-import '../../styles/reset.less'
-import '../../styles/sciteam.less'
-import '../../styles/form.less'
-import '../../styles/home.less'
-import '../../styles/grid2.less'
-import '../../styles/textPopup.less'
-import '../../styles/variables.less'
-
 const NewsSMI = props => {
   const router = useRouter()
   const { id } = router.query
@@ -24,7 +15,7 @@ const NewsSMI = props => {
       <Helmet>
         <meta name="description" content={data?.title} />
         <meta name="keywords" content={data?.title} />
-        <meta property="og:image" content="/img/meta-image.jpg" />
+        <meta property="og:image" content="/img/appleIcon.png" />
         <meta property="og:url" content={`https://scitech.ru/newsSMI/${data?._id}`} />
         <meta property="og:title" content={data?.title} />
         <meta property="og:description" content={data?.title} />
@@ -90,7 +81,7 @@ const NewsSMI = props => {
                   <li className='i3_12 mb6'>
                     <ul className='g3'>
                       <li className='i3_12'>
-                        <img loading="lazy" src={data?.image} alt="newsPicture" style={{height: '35rem'}} />
+                        <img loading="lazy" src={data?.image} alt="newsPicture" />
                         <div
                           className='newsText'
                           dangerouslySetInnerHTML={{ __html: data?.description }}

@@ -4,15 +4,19 @@ import { Layout } from '../components/layout'
 import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
 import { Partner } from '../components/partner'
 import { StrongText } from '../components/strongText'
-import { SchoolProject, SchoolProject_Card } from '../components/schoolProject'
+import { SchoolProject } from '../components/schoolProject'
 import { Helmet } from 'react-helmet'
-import '../components/datePlace/datePlace.less'
-// const startEvent = Date.parse(new Date('11 17 2020'))
-// const endEvent = Date.parse(new Date('12 16 2020'))
-// const today = Date.now()
-// const isShowRegistrationButton = today < endEvent
-const isShowRegistrationButton = true
+import * as PropTypes from 'prop-types'
+import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 
+function ContentfulNewsWidget(props) {
+  return null
+}
+
+ContentfulNewsWidget.propTypes = {
+  isSMI: PropTypes.bool,
+  pageToShow: PropTypes.string,
+}
 export default function TabulaRasa(props) {
   return (
     <Page>
@@ -24,7 +28,7 @@ export default function TabulaRasa(props) {
         <Helmet>
           <meta name="description" content='Tabula Rasa' />
           <meta name="keywords" content='Образовательный проект Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/tabulaRasa`} />
           <meta property="og:title" content='Tabula Rasa' />
           <meta property="og:description" content='Образовательный проект Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -448,33 +452,13 @@ export default function TabulaRasa(props) {
               </li>
               <li className="i3_9">
                 <SchoolProject>
-                  <SchoolProject_Card
-                    red
-                    arrow
-                    image='/img/newsSMI/roadMapofGrowth.png'
-                    link="/newsSMI/newsSMI_project-radonDanger"
-                    time="22 апреля 2021"
-                  >
-                    Молодые архангельские ученые реализуют проект по оценке радоноопасности арктических территорий // Пресс-центр Правительства Архангельской области
-                  </SchoolProject_Card>
-                  <SchoolProject_Card
-                    red
-                    arrow
-                    image='/img/newsSMI/youngScientists.jpg'
-                    link="/events/tabulaRasaNews/youngScientists"
-                    time="01 декабря 2020"
-                  >
-                    Tabula Rasa: молодые учёные ФИЦКИА УрО РАН проходят обучение на базе Западно-Сибирского НОЦ // Новости ФГБУН ФИЦКИА УрО РАН
-                  </SchoolProject_Card>
-                  <SchoolProject_Card
-                    red
-                    arrow
-                    image='/img/newsSMI/roadMapofGrowth.png'
-                    link="/events/tabulaRasaNews/aspirantSchool"
-                    time="02 декабря 2020"
-                  >
-                    Аспирантская школа «Tabula Rasa» // Новости СурГУ
-                  </SchoolProject_Card>
+
+                  {/*THESE ARE News from Contentful */}
+                  <ContentfulNewsWidget isSMI={true} pageToShow={'tabulaRasa'} />
+
+                  {/*THESE ARE News from website */}
+                  <NewsSMIWidget pageToShow={'tabulaRasa'}/>
+
                 </SchoolProject>
               </li>
             </ul>

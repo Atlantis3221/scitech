@@ -13,7 +13,7 @@ export default function ManagementSchool2019_2020 (props) {
           <Helmet>
               <meta name="description" content="Подготовка руководителей, которые должны обеспечить перевод исследовательской идеи в инновационную технологию или продукт" />
               <meta name="keywords" content="Управление научно-техническими проектами, шрнтп" />
-              <meta property="og:image" content="/img/meta-image.jpg" />
+              <meta property="og:image" content="/img/appleIcon.png" />
               <meta property="og:url" content="https://scitech.ru/managementSchool" />
               <meta property="og:title" content="Школа руководителей научно-технологических проектов"/>
               <meta property="og:description" content="Подготовка руководителей, которые должны обеспечить перевод исследовательской идеи в инновационную технологию или продукт" />
@@ -28,7 +28,7 @@ export default function ManagementSchool2019_2020 (props) {
           }}>
               <div className='show wrapper_hero'>
                   <div className='container relative'>
-                      <div className="colorSpot colorSpot__violet" style={{ left: '7.7rem'}}></div>
+                      <div className="colorSpot colorSpot__violet"></div>
                       <div className='content'>
                           <ul className='g3 relative'>
                               <li className='i3_3'>
@@ -485,30 +485,30 @@ export default function ManagementSchool2019_2020 (props) {
                                       ХМГМА, СурГУ, ЮГУ, ТюмНЦ СО РАН и ООО «Инновационная компания «МЕТАКОН», АНО «Культура
                                       Сибири», ООО Группа компаний «СЕВЕР», ООО «Ивент» и ООО «Тёплый дом»</p>
                                   <ul className='g3'>
-                                     <li className='i3_12'>
-                                         <div className="result_numbers">
-                                             <div className="result_item">
-                                                 <p className="bigNumber">38</p>
-                                                 <p className="number_description">участников</p>
-                                             </div>
-                                             <div className="result_item">
-                                                 <p className="bigNumber">10</p>
-                                                 <p className="number_description">проектов </p>
-                                             </div>
-                                             <div className="result_item">
-                                                 <p className="bigNumber">12</p>
-                                                 <p className="number_description">выиграные заявки на гранты и конкурсы</p>
-                                             </div>
-                                             <div className="result_item">
-                                                 <p className="bigNumber">16<span className="bigNumber_mini">млн ₽</span></p>
-                                                 <p className="number_description">Выигранных денег </p>
-                                             </div>
-                                             <div className="result_item">
-                                                 <p className="bigNumber">22<span className="bigNumber_mini">млн ₽</span></p>
-                                                 <p className="number_description">Привлеченные деньги от партнеров</p>
-                                             </div>
-                                         </div>
-                                     </li>
+                                      <li className='i3_12'>
+                                          <div className="result_numbers">
+                                              <div className="result_item">
+                                                  <p className="bigNumber">38</p>
+                                                  <p className="number_description">участников</p>
+                                              </div>
+                                              <div className="result_item">
+                                                  <p className="bigNumber">10</p>
+                                                  <p className="number_description">проектов </p>
+                                              </div>
+                                              <div className="result_item">
+                                                  <p className="bigNumber">12</p>
+                                                  <p className="number_description">выиграные заявки на гранты и конкурсы</p>
+                                              </div>
+                                              <div className="result_item">
+                                                  <p className="bigNumber">16<span className="bigNumber_mini">млн ₽</span></p>
+                                                  <p className="number_description">Выигранных денег </p>
+                                              </div>
+                                              <div className="result_item">
+                                                  <p className="bigNumber">22<span className="bigNumber_mini">млн ₽</span></p>
+                                                  <p className="number_description">Привлеченные деньги от партнеров</p>
+                                              </div>
+                                          </div>
+                                      </li>
                                   </ul>
                               </li>
                           </ul>
@@ -554,6 +554,23 @@ export default function ManagementSchool2019_2020 (props) {
                                           Интеллектуальная система биологической защиты растений
                                       </SchoolProject_Card>
                                   </SchoolProject>
+
+                                  <a href="/managementSchool" className='link_event link_event__noBorder raleway_bold pt2'>
+                                      Расписание потока 2021-2022
+                                      <svg
+                                        width='12'
+                                        height='12'
+                                        viewBox='0 0 12 12'
+                                        fill='none'
+                                        xmlns='http://www.w3.org/2000/svg'
+                                      >
+                                          <path
+                                            fillRule='evenodd'
+                                            clipRule='evenodd'
+                                            d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                            fill='#E62C2C'
+                                          />
+                                      </svg></a>
                               </li>
                           </ul>
                       </div>

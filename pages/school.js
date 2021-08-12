@@ -3,22 +3,9 @@ import React from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
 import { SpeakerCards, SpeakerCard } from '../components/speakerCard'
-import { Button } from '../components/button'
 import { SchoolProject, SchoolProject_Card } from '../components/schoolProject'
-// import { Modal } from '../../@fireball/components/modal'
-// import { Requests } from '../../@fireball/collections/requests'
 import { Helmet } from 'react-helmet'
-import { RegisterEventForm } from '../components/forms/registerEventForm/registerEventForm'
-import '../styles/fonts.css'
-import '../styles/reset.less'
-import '../styles/sciteam.less'
-import '../styles/form.less'
-import '../styles/home.less'
-import '../styles/grid2.less'
-import '../styles/textPopup.less'
-import '../styles/variables.less'
-import '../components/speakerCard/speakerCard.less'
-import '../components/datePlace/datePlace.less'
+import { Button } from '../components/button'
 
 export default function School(props) {
   return (
@@ -27,7 +14,7 @@ export default function School(props) {
         <meta name="description"
               content="Школа воспитывает современное поколение научных лидеров, способных управлять научными процессами" />
         <meta name="keywords" content="школа научного лидерства,  шнл, Система компетенций LAUNCH, Форсайт" />
-        <meta property="og:image" content="/img/meta-image.jpg" />
+        <meta property="og:image" content="/img/appleIcon.png" />
         <meta property="og:url" content="https://scitech.ru/school" />
         <meta property="og:title" content="Школа научного лидерства Science leadership school" />
         <meta property="og:description"
@@ -43,7 +30,7 @@ export default function School(props) {
       }}>
         <div className='show wrapper_hero'>
           <div className='container relative'>
-            <div className='colorSpot colorSpot__green colorSpot__green' style={{ left: '7.7rem'}}></div>
+            <div className='colorSpot colorSpot__green colorSpot__green'></div>
             <div className='spot'></div>
             <div className='content pb0'>
               <ul className='g3 zIndex'>
@@ -101,43 +88,13 @@ export default function School(props) {
                       </ul>
                     </li>
                     <li className='i3_12 flex_end'>
-                      {/*<div className='registerEventForm registerEventForm__green'>*/}
-                        {/*<Modal*/}
-                        {/*  Trigger={props => (*/}
-                        {/*    <Button green onClick={props.onClick}>*/}
-                        {/*      Записаться на набор 2021/2022*/}
-                        {/*    </Button>*/}
-                        {/*  )}*/}
-                        {/*  Content={props => (*/}
-                        {/*    <div>*/}
-                        {/*      <div className='registerEventForm_title'>Записаться на набор 2021/2022</div>*/}
-                        {/*      /!*TODO: переделать на общую форму*!/*/}
-                        {/*      <RegisterEventForm*/}
-                        {/*        // applicationType={true}*/}
-                        {/*        hideParticipant={false}*/}
-                        {/*        hideSituation={true}*/}
-                        {/*        showOrganizationField={true}*/}
-                        {/*        eventType={'scienceLeadSchoolNextSet'}*/}
-                        {/*        onSubmit={(e, payload) => {*/}
-                        {/*          Requests.methods.insert({*/}
-                        {/*            group: 'registrations_school',*/}
-                        {/*            payload,*/}
-                        {/*          })*/}
-                        {/*          // props.close()*/}
-                        {/*        }}*/}
-                        {/*      />*/}
-                        {/*    </div>*/}
-                        {/*  )}*/}
-                        {/*/>*/}
-                      {/*</div>*/}
-                      {/*<div className='registerEventForm registerEventForm__green'>*/}
-                      {/*  <Modal*/}
-                      {/*    Trigger={props => (*/}
-                      {/*      <Button bordered-green marginleft onClick={props.onClick}>*/}
-                      {/*        Заказать проведение в моем регионе*/}
-                      {/*      </Button>*/}
-                      {/*    )}*/}
-                      {/*    Content={props => (*/}
+
+                      {/* @todo: add Modal pop-up*/}
+
+                            <Button bordered-green marginleft onClick={props.onClick}>
+                              Заказать проведение в моем регионе
+                            </Button>
+
                       {/*      <div>*/}
                       {/*        <div className='registerEventForm_title'>Заказать проведение в моем регионе</div>*/}
                       {/*        <RegisterEventForm*/}
@@ -155,9 +112,7 @@ export default function School(props) {
                       {/*          }}*/}
                       {/*        />*/}
                       {/*      </div>*/}
-                      {/*    )}*/}
-                      {/*  />*/}
-                      {/*</div>*/}
+
                     </li>
                   </ul>
                 </li>
@@ -352,7 +307,7 @@ export default function School(props) {
                 </li>
                 <li className='i3_3'>
                   <p className='asideMarker asideMarker_tiny'>Модуль 3</p>
-                  <p className='asideMarker asideMarker_mt1'>10 - 18 июля 2021</p>
+                  <p className='asideMarker asideMarker_mt1'>11 - 30 июля 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
@@ -471,7 +426,7 @@ export default function School(props) {
                     В потоке принимали участие научные сотрудники и исследователи из различных университетов ХМАО, ЯНАО
                     и Тюмени
                   </p>
-                  <a href="/school2019-2020" className='link_event link_event__noBorder raleway_bold mt_low'>Полное
+                  <a href="/school2019_2020" className='link_event link_event__noBorder raleway_bold mt_low'>Полное
                     расписание первого потока 2019-2020
                     <svg
                       width='12'

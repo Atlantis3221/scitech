@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
-import Link from "next/link";
 
 /** Project
  *  @param props

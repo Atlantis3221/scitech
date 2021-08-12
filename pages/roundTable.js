@@ -1,11 +1,7 @@
 import React from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
-// import { Modal } from '../../@fireball/components/modal'
-// import { Requests } from '../../@fireball/collections/requests'
-import { Button } from '../components/button'
 import { EventItem, EventItem_Container } from '../components/eventItem'
-import { RegisterEventForm } from '../components/forms/registerEventForm/registerEventForm'
 import { Schedule } from '../components/schedule'
 import { Helmet } from 'react-helmet'
 
@@ -21,7 +17,7 @@ export default function RoundTable(props) {
         <Helmet>
           <meta name="description" content='Круглый стол «Трансфер университетских технологий. Будущее стартап-студий»' />
           <meta name="keywords" content='Круглый стол Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/roundTable`} />
           <meta property="og:title" content='Круглый стол «Трансфер университетских технологий. Будущее стартап-студий»' />
           <meta property="og:description" content='Круглый стол Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />

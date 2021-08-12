@@ -18,7 +18,7 @@ export default function ElectroBase(props) {
         <Helmet>
           <meta name="description" content='Мобильная многофункциональная электрическая платформа с дистанционным управлением ElectroBase' />
           <meta name="keywords" content='проект школы руководителей научно-технических проектов центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/managementSchoolProjects/ElectroBase`} />
           <meta property="og:title" content='Мобильная многофункциональная электрическая платформа с дистанционным управлением ElectroBase' />
           <meta property="og:description" content='проект школы руководителей научно-технических проектов центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />

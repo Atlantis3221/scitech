@@ -1,6 +1,6 @@
 import React from 'react'
 import { news } from '../../data/news'
-import { SchoolProject, SchoolProject_Card } from '../../components/schoolProject'
+import { SchoolProject_Card } from '../../components/schoolProject'
 
 export const NewsWidget = props => {
   const { newsCount = news.length, _id } = props
@@ -14,24 +14,23 @@ export const NewsWidget = props => {
   }
 
   return (
-    <div className='newsCards_container'>
-      <SchoolProject>
-        {getNews(news, _id, newsCount).map((newsItem, i) => {
-          return (
-            <SchoolProject_Card
-              red
-              arrow
-              link={`/news/${newsItem._id}`}
-              time={newsItem.date}
-              image={newsItem.image}
-              imageLabel={newsItem.imageLabel}
-              key={`news_${newsItem._id}`}
-            >
-              {newsItem.title}
-            </SchoolProject_Card>
-          )
-        })}
-      </SchoolProject>
-    </div>
+    <>
+      {getNews(news, _id, newsCount).map((newsItem, i) => {
+        return (
+          <SchoolProject_Card
+            red
+            arrow
+            link={`/news/${newsItem._id}`}
+            time={newsItem.date}
+            image={newsItem.image}
+            imageLabel={newsItem.imageLabel}
+            key={`news_${newsItem._id}`}
+          >
+            <span>{newsItem.subtitle} </span>
+            {newsItem.title}
+          </SchoolProject_Card>
+        )
+      })}
+    </>
   )
 }

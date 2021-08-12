@@ -1,22 +1,11 @@
 import React from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
-// import { Modal } from '../../@fireball/components/modal'
-// import { Requests } from '../../@fireball/collections/requests'
 import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
 import { Partner } from '../components/partner'
-import { Button } from '../components/button'
-import { DatePlace } from '../components/datePlace'
-import { EventItem, EventItem_Container } from '../components/eventItem'
-import { RegisterEventForm } from '../components/forms/registerEventForm/registerEventForm'
 import { StrongText } from '../components/strongText'
 import { Helmet } from 'react-helmet'
-
-// const startEvent = Date.parse(new Date('11 17 2020'))
-const endEvent = Date.parse(new Date('12 16 2020'))
-const today = Date.now()
-// const isShowRegistrationButton = today < endEvent
-const isShowRegistrationButton = true
+import { Button } from '../components/button'
 
 export default function AccelerationProgram(props) {
   return (
@@ -29,7 +18,7 @@ export default function AccelerationProgram(props) {
         <Helmet>
           <meta name="description" content='Акселерационная программа' />
           <meta name="keywords" content='Образовательный проект Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/accelerationProgram`} />
           <meta property="og:title" content='Акселерационная программа' />
           <meta property="og:description" content='Образовательный проект Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -84,21 +73,16 @@ export default function AccelerationProgram(props) {
                       </div>
                     </div>
                   </li>
-                  {/*<li className='i3_12'>*/}
-                  {/*  {isShowRegistrationButton ? (*/}
-                  {/*    <div className='registerEventForm registerEventForm__orange mt_low'>*/}
-                  {/*      <Modal*/}
-                  {/*        Trigger={props => (*/}
-                  {/*          <Button orange onClick={props.onClick}>*/}
-                  {/*            Записаться на следующий набор*/}
-                  {/*          </Button>*/}
-                  {/*        )}*/}
-                  {/*        Content={props => (*/}
+                  {/* @todo: add Modal pop-up*/}
+
+                            <Button orange onClick={props.onClick}>
+                              Записаться на следующий набор
+                            </Button>
+
                   {/*          <div>*/}
                   {/*            <div className='registerEventForm_title'>*/}
                   {/*              Регистрация*/}
                   {/*            </div>*/}
-                  {/*            /!*TODO: переделать на общую форму*!/*/}
                   {/*            <RegisterEventForm*/}
                   {/*              hideParticipant={true}*/}
                   {/*              isTheme={true}*/}
@@ -114,11 +98,7 @@ export default function AccelerationProgram(props) {
                   {/*              }}*/}
                   {/*            />*/}
                   {/*          </div>*/}
-                  {/*        )}*/}
-                  {/*      />*/}
-                  {/*    </div>*/}
-                  {/*  ) : null}*/}
-                  {/*</li>*/}
+
                 </ul>
               </li>
             </ul>

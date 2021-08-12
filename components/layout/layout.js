@@ -31,16 +31,8 @@ function Aside(props) {
 }
 
 export const LayoutDefaults = {
-  header: (
-    <Container>
-      <NewHeader />
-    </Container>
-  ),
-  footer: (
-      <Container>
-        <Footer />
-      </Container>
-  ),
+  header: <NewHeader />,
+  footer: <Footer />,
   asideLeft: undefined,
   main: undefined,
 }

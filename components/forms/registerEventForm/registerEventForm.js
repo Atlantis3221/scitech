@@ -1,13 +1,16 @@
-import React, { Fragment, useState } from 'react'
-
-
+import React, { useState } from 'react'
 import { RadioGroup } from '../../inputs/inputRadioGroup'
 import { InputText } from '../../inputs/inputText'
 import { className } from '../../../helpers/className'
 import { InputTextarea } from '../../inputs/inputTextarea'
 import { InputFile } from '../../inputs/inputFile'
-// import { NewsSubscribers } from '../../../collections'
-import { InputSelect } from '../../inputs/inputSelect'
+
+const toBase64 = file => new Promise((resolve, reject) => {
+  const reader = new FileReader()
+  reader.readAsDataURL(file)
+  reader.onload = () => resolve(reader.result)
+  reader.onerror = error => reject(error)
+})
 
 export const Field = ({ label, component, desc, isSpeaker, ...props }) => {
   const Com = component
@@ -27,23 +30,24 @@ export const Field = ({ label, component, desc, isSpeaker, ...props }) => {
 }
 
 export const RegisterEventForm = ({
-  hideParticipant,
-  hideSituation,
-  isTheme,
-  isTraineeship,
-  isTraineeshipYear,
-  individual,
-  askIsSpeaker,
-  isSpeaker,
-  showCommentsField,
-  showOrganizationField,
-  askAQuestion,
-  eventType,
-  applicationType,
-  inputFileEsse,
-  inputFileCV,
-  ...props
-}) => {
+                                    hideParticipant,
+                                    hideSituation,
+                                    isTheme,
+                                    isTraineeship,
+                                    isTraineeshipYear,
+                                    individual,
+                                    askIsSpeaker,
+                                    isSpeaker,
+                                    showCommentsField,
+                                    showOrganizationField,
+                                    askAQuestion,
+                                    isBecomeClient,
+                                    eventType,
+                                    applicationType,
+                                    inputFileEsse,
+                                    inputFileCV,
+                                    ...props
+                                  }) => {
 
   const initialValues = {
     participantType: 'individual',
@@ -72,16 +76,16 @@ export const RegisterEventForm = ({
       async onChange(e) {
 
         console.log('onChange')
-        
-        let value = e.target.value
+
+        let value = name === 'phone' ? e : e.target.value;
 
         if (type === 'file') {
           value = await toBase64(e.target.files[0])
         }
-        
+
         if(name === 'phone') {
           /**
-           * это для плагина 
+           * это для плагина
            */
           setValues({
             ...values,
@@ -95,14 +99,8 @@ export const RegisterEventForm = ({
         }
       },
     }
-
-    // console.log('props')
-    // console.log(props)
     return props
   }
-
-  console.log('test1')
-  console.log(getProps('participantType'))
 
   return (
     <form
@@ -118,9 +116,17 @@ export const RegisterEventForm = ({
           props.onSubmit(e, payload)
           setIsSend(true)
 
+          console.log(eventType, payload)
+
+          const variables = {
+            email: payload?.email || '',
+            phone: payload?.phone || '',
+            name: payload?.name || '',
+          }
+
           // NewsSubscribers
           //   .methods
-          //   .insert({email: payload.email, sendpulseBookId: eventType})
+          //   .insert({email: payload.email, sendpulseBookId: eventType, variables: variables})
           //   .finally(console.log)
         } catch (e) {
           alert(e)
@@ -142,16 +148,16 @@ export const RegisterEventForm = ({
               ]}
               {...getProps('participantType')}
             />
-          : null
-        }
+            : null
+          }
 
-            <Field
-              label={hideParticipant === undefined ? values.participantType === 'individual' ? 'Имя и Фамилия' : 'Организация' : 'Имя и Фамилия'}
-              required={true}
-              placeholder={hideParticipant === undefined ? values.participantType === 'individual' ? 'Иван Петров' : 'ТюмГУ' : 'Имя и Фамилия'}
-              component={InputText}
-              {...getProps('name')}
-            />
+          <Field
+            label={hideParticipant === undefined ? values.participantType === 'individual' ? 'Имя и Фамилия' : 'Организация' : 'Имя и Фамилия'}
+            required={true}
+            placeholder={hideParticipant === undefined ? values.participantType === 'individual' ? 'Иван Петров' : 'ТюмГУ' : 'Имя и Фамилия'}
+            component={InputText}
+            {...getProps('name')}
+          />
           {showOrganizationField ?
             <Field
               label={'Организация'}
@@ -166,12 +172,12 @@ export const RegisterEventForm = ({
               label={individual ? 'Должность'
                 : hideParticipant === undefined ?
                   values.participantType === 'individual' ? 'Должность'
-                : 'Количество человек' : 'Организация'}
+                    : 'Количество человек' : 'Организация'}
               required={true}
               placeholder={individual ? 'Руководитель научных проектов'
                 : hideParticipant === undefined ?
                   values.participantType === 'individual' ? 'Руководитель научных проектов'
-                : 'Например, 20-30' : 'Организация'}
+                    : 'Например, 20-30' : 'Организация'}
               component={InputText}
               {...getProps('situation')}
             />
@@ -203,48 +209,48 @@ export const RegisterEventForm = ({
               {...getProps('traineeshipYear')}
             />
             : null}
-        <Field
-          label='Телефон'
-          required={true}
-          placeholder='+ 7 (999) 999-99-99'
-          phoneNumber={true}
-          component={InputText}
-          {...getProps('phone')}
-        />
-        <Field
-          label='Email'
-          required={true}
-          placeholder='example@gmail.com'
-          component={InputText}
-          {...getProps('email')}
-        />
-        {askIsSpeaker ?
           <Field
-            isSpeaker={isSpeaker}
-            label=''
-            description='Принять участие как спикер'
-            component={InputCheckbox}
-            required={false}
-            {...getProps('isSpeaker')}
-          />
-        : null}
-        {showCommentsField ?
-          <Field
-            label='Комментарий'
-            component={InputTextarea}
+            label='Телефон'
             required={true}
-            {...getProps('comments')}
+            placeholder='+ 7 (999) 999-99-99'
+            phoneNumber={true}
+            component={InputText}
+            {...getProps('phone')}
           />
-        : null }
-        {inputFileEsse ?
           <Field
-            label='Эссе'
-            description="Эссе"
-            component={InputFile}
+            label='Email'
             required={true}
-            {...getProps('inputFileEsse')}
+            placeholder='example@gmail.com'
+            component={InputText}
+            {...getProps('email')}
           />
-         : null}
+          {askIsSpeaker ?
+            <Field
+              isSpeaker={isSpeaker}
+              label=''
+              description='Принять участие как спикер'
+              component={InputCheckbox}
+              required={false}
+              {...getProps('isSpeaker')}
+            />
+            : null}
+          {showCommentsField ?
+            <Field
+              label='Комментарий'
+              component={InputTextarea}
+              required={true}
+              {...getProps('comments')}
+            />
+            : null }
+          {inputFileEsse ?
+            <Field
+              label='Эссе'
+              description="Эссе"
+              component={InputFile}
+              required={true}
+              {...getProps('inputFileEsse')}
+            />
+            : null}
           {inputFileCV ?
             <Field
               label='CV'
@@ -254,28 +260,28 @@ export const RegisterEventForm = ({
               {...getProps('inputFileCV')}
             />
             : null}
-        <Field
-          label=''
-          description='Даю согласие на обработку персональных данных, описанную в '
-          linkToPolicy="Политике обработки персональных данных"
-          required={true}
-          component={InputCheckbox}
-          {...getProps('personalData')}
-        />
-        <div>
-          <button type='submit' className='registerEventForm_button'>
-            Отправить
-          </button>
-        </div>
-      </>
+          <Field
+            label=''
+            description='Даю согласие на обработку персональных данных, описанную в '
+            linkToPolicy="Политике обработки персональных данных"
+            required={true}
+            component={InputCheckbox}
+            {...getProps('personalData')}
+          />
+          <div>
+            <button type='submit' className='registerEventForm_button'>
+              Отправить
+            </button>
+          </div>
+        </>
       ) : (
-      <div className='isSend'>
-        <div className='isSend_content'>
-          <div className='isSend_icon' />
-          <p className='isSend_text'>Спасибо, Ваши данные отправлены</p>
-          <p>{askAQuestion ? 'Ожидайте ответа': 'До встречи на мероприятии!'}</p>
+        <div className='isSend'>
+          <div className='isSend_content'>
+            <div className='isSend_icon' />
+            <p className='isSend_text'>Спасибо, Ваши данные отправлены</p>
+            <p>{askAQuestion ? 'Ожидайте ответа': isBecomeClient ? 'Будьте в курсе наших новостей' : 'До встречи на мероприятии!'}</p>
+          </div>
         </div>
-      </div>
       )}
     </form>
   )

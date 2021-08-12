@@ -1,6 +1,5 @@
 import React from 'react'
 import { Layout } from '../../components/layout'
-import './experts.less'
 import { experts } from '../../data/experts'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
@@ -20,7 +19,7 @@ const Experts = props => {
       <Helmet>
         <meta name="description" content={data?.metaDescription} />
         <meta name="keywords" content={data?.title} />
-        <meta property="og:image" content="/img/meta-image.jpg" />
+        <meta property="og:image" content="/img/appleIcon.png" />
         <meta property="og:url" content={`https://scitech.ru/experts/${data?._id}`} />
         <meta property="og:title" content={data?.title} />
         <meta property="og:description" content={data?.metaDescription} />

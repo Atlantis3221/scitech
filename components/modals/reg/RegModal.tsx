@@ -82,7 +82,7 @@ const RegModal = () => {
 
     const validate = () => {
         const obj = Object.keys(state).reduce((acc, curr) => {
-            acc[curr] = !validators[curr](state[curr]); 
+            acc[curr] = !validators[curr](state[curr]);
             if (curr === "phone") {
                 acc[curr] = !validators[curr]("+" + state[curr])
             }
@@ -104,13 +104,13 @@ const RegModal = () => {
                 backgroundColor: Colors[regModalState.color].bg
             }}
             className={`
-            overflow-y-auto max-w-3xl w-full h-full relative z-50 bg-white rounded-lg
+            overflow-y-auto max-w-3xl w-full h-full relative z-50 bg-white 
             ${isOpen ? "opacity-100 visible scale-100" : "opacity-10 invisible scale-75"}
             transistion-all duration-300 transform origin-center
-            pt-10 px-4 md:px-8 pb-10`}>
-            <div className={`grid md:grid-cols-4 grid-cols-1 gap-y-4 text-white`}>
-               {regModalState.inputs.includes("participationType") && 
-               <>
+            pt-14 px-6 md:px-14 pb-10`}>
+            <div className={`md:grid grid-cols-4 gap-y-4 text-white`}>
+                {regModalState.inputs.includes("participationType") &&
+                <>
                <div className={`col-span-1`}>
                 Тип участия
                </div>
@@ -122,7 +122,7 @@ const RegModal = () => {
                     })}
                 </div>
                 </>}
-                {regModalState.inputs.includes("firstName") && 
+                {regModalState.inputs.includes("firstName") &&
                 <>
                 <div className={`col-span-1`}>
                     Имя
@@ -132,7 +132,7 @@ const RegModal = () => {
                 </div>
                 </>
                 }
-                {regModalState.inputs.includes("lastName") && 
+                {regModalState.inputs.includes("lastName") &&
                 <>
                 <div className={`col-span-1 flex items-center`}>
                     Фамилия
@@ -142,7 +142,7 @@ const RegModal = () => {
                 </div>
                 </>
                 }
-                {regModalState.inputs.includes("role") && 
+                {regModalState.inputs.includes("role") &&
                 <>
                 <div className={`col-span-1 flex items-center`}>
                     Должность
@@ -151,7 +151,7 @@ const RegModal = () => {
                     <ValidatedTextInput errors={errors} state={state} name={"role"} setState={setState}/>
                 </div>
                 </>}
-                {regModalState.inputs.includes("amount") && 
+                {regModalState.inputs.includes("amount") &&
                 <>
                 <div className={`col-span-1 mb-1 flex items-center`}>
                     Количество человек
@@ -160,7 +160,7 @@ const RegModal = () => {
                     <ValidatedTextInput errors={errors} state={state} name={"amount"} setState={setState}/>
                 </div>
                 </>}
-                {regModalState.inputs.includes("year")  && 
+                {regModalState.inputs.includes("year")  &&
                 <>
                 <div className={`col-span-1 flex items-center`}>
                     Год аспирантуры 
@@ -203,10 +203,10 @@ const RegModal = () => {
                     containerClass={`w-full text-black`}
                     />
                         <div className={`w-6 h-6 absolute top-3 right-3 z-30`}>
-                            {errors["phone"] && <Warning/>} 
+                            {errors["phone"] && <Warning/>}
                         </div>
-                </div> 
-                </> 
+                </div>
+                </>
                 }
                 {regModalState.inputs.includes("email") &&
                 <>
@@ -228,7 +228,6 @@ const RegModal = () => {
                         <Checkbox state={state} setState={setState} name={"policy"}/>
                     </div>
                 </div>
-                
                 <div className={`col-span-1`}>
 
                 </div>

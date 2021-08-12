@@ -3,15 +3,10 @@ import { Page } from '../components/page'
 import { Layout } from '../components/layout'
 import { Schedule } from '../components/schedule'
 import { Helmet } from 'react-helmet'
-import '../styles/fonts.css'
-import '../styles/reset.less'
-import '../styles/sciteam.less'
-import '../styles/form.less'
-import '../styles/home.less'
-import '../styles/grid2.less'
-import '../styles/textPopup.less'
-import '../styles/variables.less'
-import '../components/speakerCard/speakerCard.less'
+import { SchoolProject } from '../components/schoolProject'
+import { ContentfulNewsWidget } from './contentfulNews/contentfulNewsWidget'
+import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
+import { Button } from '../components/button'
 
 export default function DevelopmentProjectZima(props) {
 
@@ -21,7 +16,7 @@ export default function DevelopmentProjectZima(props) {
         <Helmet>
           <meta name="description" content='ЗИМА 21 - первая открытая акселерация научно-исследовательских и научно-технических проектов и команд' />
           <meta name="keywords" content='первая открытая акселерация научно-исследовательских и научно-технических проектов и команд' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/developmentProjectZima`} />
           <meta property="og:title" content='первая открытая акселерация научно-исследовательских и научно-технических проектов и команд' />
           <meta property="og:description" content='ЗИМА 21 - первая открытая акселерация научно-исследовательских и научно-технических проектов и команд' />
@@ -54,12 +49,35 @@ export default function DevelopmentProjectZima(props) {
                     <Schedule dataFirst={[,' Март 2021 ']}
                               dataSecond={[,'Окт 2021']}
                               place={'онлайн'}
-                              isShowButton={true}
-                              eventLinkToTableTitle={'Зарегистрироваться'}
+                              isShowButton={false}
                               eventLinkToTable="https://docs.google.com/forms/d/e/1FAIpQLSfJfJjrG1F8ROcIZICMe2bmfxSXfOwriXWgfDVDyyCIbNCY1Q/viewform"
                     />
                   </li>
                 </ul>
+
+                {/* @todo: add Modal pop-up*/}
+                      <Button bordered-green marginleft onClick={props.onClick}>
+                        Сообщить о следующем наборе
+                      </Button>
+
+                {/*      <div>*/}
+                {/*        <div className='registerEventForm_title'>Сообщить о следующем наборе</div>*/}
+                {/*        <RegisterEventForm*/}
+                {/*          // applicationType={true}*/}
+                {/*          hideParticipant={false}*/}
+                {/*          hideSituation={true}*/}
+                {/*          showOrganizationField={true}*/}
+                {/*          eventType={'scienceLeadSchoolMyRegion'}*/}
+                {/*          onSubmit={(e, payload) => {*/}
+                {/*            Requests.methods.insert({*/}
+                {/*              group: 'registrations_schoolMyRegion',*/}
+                {/*              payload,*/}
+                {/*            })*/}
+                {/*            // props.close()*/}
+                {/*          }}*/}
+                {/*        />*/}
+                {/*      </div>*/}
+
               </li>
             </ul>
           </div>
@@ -132,27 +150,27 @@ export default function DevelopmentProjectZima(props) {
               <ul className='g3'>
                 <li className='i3_3'>
                   <p className='asideMarker asideMarker_tiny asideMarker_mt1'>Этап 0</p>
-                  <p className='asideMarker asideMarker_mt1'>31 марта – 30 апреля 2021</p>
+                  <p className='asideMarker asideMarker_mt1'>31 марта – 23 мая 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <p className='module_school'>Проекты для участия в программе акселерации будут приниматься с 31 марта по 30 апреля 2021 года.
+                          <p className='m0'>Проекты для участия в программе акселерации будут приниматься с 31 марта по 23 мая 2021 года.
                             Обязательные условия для прохождения технического отбора:</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Подача информации о проекте в формате, установленном организаторами <a className="" href='https://docs.google.com/forms/d/e/1FAIpQLSfJfJjrG1F8ROcIZICMe2bmfxSXfOwriXWgfDVDyyCIbNCY1Q/viewform'>(ЗИМА 21. Технический Отбор).</a> </p>
+                          <p className='m0'>Подача информации о проекте в формате, установленном организаторами <a className="" href='https://docs.google.com/forms/d/e/1FAIpQLSfJfJjrG1F8ROcIZICMe2bmfxSXfOwriXWgfDVDyyCIbNCY1Q/viewform'>(ЗИМА 21. Технический Отбор).</a> </p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Регистрация участников в <a className="" href='http://lab.scienceteam.ru/nocPortal/#/PersonLogin'>цифровом профиле исследователя</a> до 30 апреля 2021 года. </p>
+                          <p className='m0'>Регистрация участников в <a className="" href='http://lab.scienceteam.ru/nocPortal/#/PersonLogin'>цифровом профиле исследователя</a> до 23 мая 2021 года. </p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Уточнение проектных идей (в контакте с организаторами при необходимости).</p>
+                          <p className='m0'>Уточнение проектных идей (в контакте с организаторами при необходимости).</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school pb3'>Соответствие проектов требованиям по TRL и фокусным тематикам ЗИМА 21.</p>
+                          <p className='m0 pb3'>Соответствие проектов требованиям по TRL и фокусным тематикам ЗИМА 21.</p>
                         </li>
                       </ul>
                     </li>
@@ -160,20 +178,20 @@ export default function DevelopmentProjectZima(props) {
                 </li>
                 <li className='i3_3'>
                   <p className='asideMarker asideMarker_tiny asideMarker_mt1'>Этап 1</p>
-                  <p className='asideMarker asideMarker_mt1'>30 апреля – 28 мая 2021</p>
+                  <p className='asideMarker asideMarker_mt1'>24 мая – 5 июля 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <p className='module_school'>Оценка проектных идей, экспертиза, обратная связь командам. </p>
+                          <p className='m0'>Оценка проектных идей, экспертиза, обратная связь командам. </p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Проведение диагностики и самодиагностики компетенций участников (в рамках системы тестирования и аудита компетенций команд).</p>
+                          <p className='m0'>Проведение диагностики и самодиагностики компетенций участников (в рамках системы тестирования и аудита компетенций команд).</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school pb3'>Определение до 30-ти перспективных команд и проектов, получающих право перехода во второй этап акселерации.</p>
+                          <p className='m0 pb3'>Определение до 30-ти перспективных команд и проектов, получающих право перехода во второй этап акселерации.</p>
                         </li>
                       </ul>
                     </li>
@@ -181,25 +199,25 @@ export default function DevelopmentProjectZima(props) {
                 </li>
                 <li className='i3_3'>
                   <p className='asideMarker asideMarker_tiny asideMarker_mt1'>Этап 2</p>
-                  <p className='asideMarker asideMarker_mt1'>31 мая – 2 июля 2021</p>
+                  <p className='asideMarker asideMarker_mt1'>5 июля – 29 августа 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <p className='module_school'>Целевая проработка параметров проектов, привлечение узких экспертов, консультации команд и проектов
+                          <p className='m0'>Целевая проработка параметров проектов, привлечение узких экспертов, консультации команд и проектов
                             со стороны Западно-Сибирского НОЦ.</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Организация коммуникаций с потенциальными заказчиками со стороны власти и индустрии, рассмотрение
+                          <p className='m0'>Организация коммуникаций с потенциальными заказчиками со стороны власти и индустрии, рассмотрение
                             потенциальных инвестиций в проекты.</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Формирование пула заинтересованных сторон.</p>
+                          <p className='m0'>Формирование пула заинтересованных сторон.</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school pb3'>Определение до 15-ти перспективных команд и проектов, получающих право перехода в третий этап акселерации.
+                          <p className='m0 pb3'>Определение до 15-ти перспективных команд и проектов, получающих право перехода в третий этап акселерации.
                             Команды, которые не проходят в третий этап, имеют право на этой стадии быть включенными в профильные
                             Школы ЦРК для дополнительной проработки программы проектов.</p>
                         </li>
@@ -209,36 +227,36 @@ export default function DevelopmentProjectZima(props) {
                 </li>
                 <li className='i3_3'>
                   <p className='asideMarker asideMarker_tiny asideMarker_mt1'>Этап 3</p>
-                  <p className='asideMarker asideMarker_mt1'>05 июля – 20 октября 2021</p>
+                  <p className='asideMarker asideMarker_mt1'>30 августа – 20 октября 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <p className='module_school'>Обучение команд, прошедших в финал. Реализация экспресс-программы глубокой акселерации компетенций
+                          <p className='m0'>Обучение команд, прошедших в финал. Реализация экспресс-программы глубокой акселерации компетенций
                             команд финалистов по следующей программе:</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Постановка целей и разработка плана развития: стратегия развития, дорожная карта, команда
+                          <p className='m0'>Постановка целей и разработка плана развития: стратегия развития, дорожная карта, команда
                             (дополнение, определение ролей).</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Выявление целевой аудитории, оценка рынков, выявление жизнеспособности, оценка затрат/доходов,
+                          <p className='m0'>Выявление целевой аудитории, оценка рынков, выявление жизнеспособности, оценка затрат/доходов,
                             определение востребованности и ценности продукта/предложения.</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Деловые коммуникации, взаимодействие с органами власти региона, современное продвижение проекта,
+                          <p className='m0'>Деловые коммуникации, взаимодействие с органами власти региона, современное продвижение проекта,
                             навыки презентации и публичных выступлений, переговоры.</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Правовая база. РИД.</p>
+                          <p className='m0'>Правовая база. РИД.</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school'>Финансовый менеджмент и привлечение инвестиций.</p>
+                          <p className='m0'>Финансовый менеджмент и привлечение инвестиций.</p>
                         </li>
                         <li className='i3_12'>
-                          <p className='module_school pb3'>На данном этапе также предусмотрено проведение переговоров с потенциальными партнерами, заказчиками,
+                          <p className='m0 pb3'>На данном этапе также предусмотрено проведение переговоров с потенциальными партнерами, заказчиками,
                             заинтересованными сторонами.</p>
                         </li>
                       </ul>
@@ -253,7 +271,7 @@ export default function DevelopmentProjectZima(props) {
                     <li className='i3_12'>
                       <ul className='g3 pb3'>
                         <li className='i3_12'>
-                          <p className='module_school'>После прохождения обучения, по итогам промежуточного представления проектов, до 10 команд будут
+                          <p className='m0'>После прохождения обучения, по итогам промежуточного представления проектов, до 10 команд будут
                             допущены на финальную защиту проектов перед руководством (Наблюдательным и Управляющим Советами)
                             Западно-Сибирского НОЦ с целью определения победителей акселератора (первое, второе, третье места
                             и номинации). Представление проектов финалистов и победителей в публичном формате пройдет,
@@ -262,6 +280,25 @@ export default function DevelopmentProjectZima(props) {
                       </ul>
                     </li>
                   </ul>
+                  <p>
+                    <a href="/docs/polozhenie_utv.pdf" download className='link_event link_event__noBorder raleway_bold mt_low'>
+                      Положение о научно-техническом акселераторе «Западно-Сибирский инновационный межрегиональный акселератор научно-технических проектов» (ЗИМА21)
+                      <svg
+                        width='12'
+                        height='12'
+                        viewBox='0 0 12 12'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path
+                          fillRule='evenodd'
+                          clipRule='evenodd'
+                          d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                          fill='#E62C2C'
+                        />
+                      </svg>
+                    </a>
+                  </p>
                 </li>
               </ul>
             </div>
@@ -297,6 +334,26 @@ export default function DevelopmentProjectZima(props) {
             </div>
           </div>
         </div>
+
+        <div className="wrapper_partners content">
+          <div className="container mb6">
+            <ul className="g3">
+              <li className="i3_3">
+                <p className="asideMarker">Публикации СМИ</p>
+              </li>
+              <li className="i3_9">
+                <SchoolProject>
+                  {/*THESE ARE News from Contentful */}
+                  <ContentfulNewsWidget isSMI={true} pageToShow={'developmentProjectZima'} />
+
+                  {/*THESE ARE News from website */}
+                  <NewsSMIWidget pageToShow={'developmentProjectZima'}/>
+                </SchoolProject>
+              </li>
+            </ul>
+          </div>
+        </div>
+
 
       </Layout>
     </Page>

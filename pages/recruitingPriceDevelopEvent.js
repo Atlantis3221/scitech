@@ -1,12 +1,8 @@
 import React from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
-// import { Modal } from '../../@fireball/components/modal'
-// import { Requests } from '../../@fireball/collections/requests'
 import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
 import { Partner } from '../components/partner'
-import { Button } from '../components/button'
-import { RegisterEventForm } from '../components/forms/registerEventForm/registerEventForm'
 import { Schedule } from '../components/schedule'
 import { Helmet } from 'react-helmet'
 
@@ -22,7 +18,7 @@ export default function RecruitingPriceDevelopEvent(props) {
         <Helmet>
           <meta name="description" content='«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»' />
           <meta name="keywords" content='мероприятие Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <meta property="og:image" content="/img/meta-image.jpg" />
+          <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/recruitingPriceDevelopEvent`} />
           <meta property="og:title" content='«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»' />
           <meta property="og:description" content='мероприятие Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
