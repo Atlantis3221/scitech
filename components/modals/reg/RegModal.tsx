@@ -65,8 +65,7 @@ type IRegState = {
         theme: ValidatorService.default,
         year: ValidatorService.default,
         email: ValidatorService.email,
-        phone: isValidPhoneNumber,
-        policy: ValidatorService.true
+        phone: isValidPhoneNumber
     }
     
 
@@ -81,14 +80,18 @@ const RegModal = () => {
     console.log(state)
 
     const validate = () => {
-        const obj = Object.keys(state).reduce((acc, curr) => {
+        const obj = regModalState.inputs.reduce((acc, curr) => {
             acc[curr] = !validators[curr](state[curr]);
             if (curr === "phone") {
                 acc[curr] = !validators[curr]("+" + state[curr])
             }
             return acc
         }, {})
-        setErrors(obj)
+        const poilcy = ValidatorService.checkIfTrue(state.policy)
+        setErrors({
+            ...obj,
+            poilcy
+        })
     }
     
     return (
