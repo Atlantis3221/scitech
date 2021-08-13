@@ -2,6 +2,10 @@ class Validator {
     true(value:string){
         return true
     }
+
+    checkIfTrue(value:boolean) {
+        return value
+    }
     
     default(value:string){
         if (value.length > 0) {

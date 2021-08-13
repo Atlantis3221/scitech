@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/variables.less'
 import 'polyfill-object.fromentries/index'
 import 'tailwindcss/tailwind.css'
@@ -36,12 +36,17 @@ import '../styles/experts.less'
 import '../styles/formRegistration.less'
 import '../styles/vacancies.less'
 import 'react-phone-input-2/lib/style.css'
-
-
-
 import { ModalsContextProvider } from '../components/modals/ModalContext'
+import { getContentfulNews } from '../helpers/axios'
+import App from 'next/app'
+
+
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    console.log(pageProps)
+  }, [])
+
   return (
     <ModalsContextProvider>
       <Component {...pageProps} />
@@ -50,3 +55,18 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp
+
+
+// MyApp.getInitialProps = async ({ctx}) => {
+//   const pageProps = await App.getInitialProps(ctx);
+//   return {
+//     pageProps: Object.assign({}, pageProps, { 'serverSide' : true })
+//   }
+// }
+//
+// MyApp.getServerSideProps = async (ctx) => {
+//   const data = await getContentfulNews();
+//   return {
+//     pageProps: ctx,
+//     data: data.data  }
+// }

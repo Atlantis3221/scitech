@@ -1,9 +1,7 @@
-
 import React from 'react'
 import { $props } from '../../helpers/$props'
 import { NewHeader } from '../newHeader'
 import { NewsLine } from '../newsLine'
-import { useLocation } from 'react-router-dom'
 import {Footer} from "../footer";
 import { useRouter } from 'next/router'
 import Modals from '../modals/Modals'
@@ -14,26 +12,11 @@ const UI_MAIN = 'main'
 const UI_ASIDE = 'aside'
 const UI_CONTENT = 'content'
 
-function Container(props) {
-  const { children, $ } = $props(Container, props)
-  return <div {...$()}>
-    {children}
-  </div>
-}
-
-function Aside(props) {
-  const { children, $ } = $props(Aside, props)
-  return <nav {...$()}>
-    {
-      children
-    }
-  </nav>
-}
-
 export const LayoutDefaults = {
   header: <NewHeader />,
   footer: <Footer />,
   asideLeft: undefined,
+  asideRight: undefined,
   main: undefined,
 }
 
@@ -48,7 +31,6 @@ export const LayoutDefaults = {
 export function Layout(props) {
   const router = useRouter()
   const pathname = router.pathname
-  console.log(pathname)
   const isShownNewsLine = (/news/ig).test(pathname) !== true;
 
   const {
@@ -60,6 +42,7 @@ export function Layout(props) {
     style = {},
     $,
   } = $props(Layout, props)
+
   return (
     <div>
       { isShownNewsLine && <NewsLine/> }
