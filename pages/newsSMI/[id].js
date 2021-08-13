@@ -14,11 +14,11 @@ const NewsSMI = props => {
 
   useEffect(async() => {
     data = newsSMI.findById(id)
+    setDefineNews(data)
     setTimeout(async() => {
       if (!data) {
         const { data: [contentful] } = await getDefineNews(id)
         const contentfulNews = processEvent(contentful)
-        console.log(contentful)
         data = {
           _id: contentful?.fields?._id,
           title: contentful?.fields?.title,
@@ -26,9 +26,9 @@ const NewsSMI = props => {
           image: contentful?.fields?.front?.fields?.file?.url,
           description: contentfulNews,
         }
+        setDefineNews(data)
       }
     }, 1000)
-    setDefineNews(data)
   }, [id])
 
   console.log(defineNews)

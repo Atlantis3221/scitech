@@ -2,7 +2,6 @@ import React from 'react'
 
 export function Page(props) {
 	const { children } = props
-
 	// <!-- Yandex.Metrika counter-->
 	const yandexMetrics = () => {
 		return (
