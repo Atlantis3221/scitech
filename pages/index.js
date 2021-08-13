@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
@@ -6,8 +6,15 @@ import { Project, Project_Card } from '../components/project'
 import { SpeakerCard } from '../components/speakerCard'
 import { HomeNewsWidget } from '../components/newsLine'
 import Head from 'next/head'
+import { getContentfulNews } from '../helpers/axios'
 
-const HomePage = (props) => {
+const HomePage = ({  data  }) => {
+  const [allContentfulNews, setContentfulNews] = useState([])
+
+  useEffect(() => {
+    setContentfulNews(data)
+  }, [])
+
   return (
       <Page>
         <Head>
@@ -29,12 +36,6 @@ const HomePage = (props) => {
         }}>
           <div className='show'>
             <div className='container relative'>
-              {/*<p className='flex absoluteLinkToDocument'>*/}
-              {/*   <span>*/}
-              {/*      <img src='/img/download.svg' alt='icon' />*/}
-              {/*   </span>*/}
-              {/*   <a href="/docs/Broshura_SHNL.pdf" target="_blank">Буклет о Центре в  PDF</a>*/}
-              {/*</p>*/}
               <div className='content'>
                 <ul className='g3 relative news-flex-reverse'>
                   <li className='i3_3'>
@@ -310,7 +311,7 @@ const HomePage = (props) => {
                   </li>
                   <li className='i3_9'>
                     <ul className='g3 mainPageLinks'>
-                      <HomeNewsWidget newsCount={3} />
+                      <HomeNewsWidget newsCount={3} allContentfulNews={allContentfulNews} />
                       <li className='i3_2'>
                         <a href='/news' className='btn btn__red mt'>
                           Посмотреть все новости
@@ -406,7 +407,7 @@ const HomePage = (props) => {
                     <p className='asideMarker'>Партнеры</p>
                   </li>
                   <li className='i3_7'>
-                    <ul className='flex_centred'>
+                    <ul className='flex_centred' style={{ display: 'flex', alignItems: 'center' }}>
                       <li>
                         <a href='https://winbd.ru' target='_blank'>
                           <img loading="lazy" className='partnerLogo partnerLogo_small' src='/img/logo_1.svg' alt='' />
@@ -564,6 +565,7 @@ const HomePage = (props) => {
                 результативным управлением в данном регионе.</p>
             </Project_Card>
           </Project>
+
           <div className='show wrapper_about'>
             <div className='container'>
               <div className='content'>
@@ -700,3 +702,11 @@ const HomePage = (props) => {
 }
 
 export default HomePage
+
+export async function getServerSideProps() {
+  const data = await getContentfulNews();
+
+  return {
+    props: { data: data.data },
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
 import { Day24 } from '../components/events/day24'
@@ -14,8 +14,9 @@ import { DatePlace } from '../components/datePlace'
 import { DateItem, DateSwitcher } from '../components/dateSwicher/dateSwicher'
 import { SchoolProject } from '../components/schoolProject'
 import { Helmet } from 'react-helmet'
-import { ContentfulNewsWidget } from './contentfulNews/contentfulNewsWidget'
+import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
+import { getContentfulNews } from '../helpers/axios'
 
 const days = {
 	'24': <Day24/>,
@@ -25,14 +26,15 @@ const days = {
 	'28': <Day28/>,
 }
 
-const eventsDates = ['8 24 2020', '8 25 2020', '8 26 2020', '8 27 2020', '8 28 2020']  // month day year
-const today = Date.now()
-// const isShowRegistrationButton = eventsDates.some(date => today < Date.parse(new Date(date)))
-const isShowRegistrationButton = false
 
-export default function EventsPage(props) {
-
+export default function EventsPage({  data  }) {
 	const [day, setDay] = useState('24')
+	const [allContentfulNews, setContentfulNews] = useState([])
+
+	useEffect(() => {
+		setContentfulNews(data)
+	}, [])
+
 	return <Page>
 		<Layout>
 			<Helmet>
@@ -342,7 +344,7 @@ export default function EventsPage(props) {
 							<SchoolProject>
 
 								{/*THESE ARE News from Contentful */}
-								<ContentfulNewsWidget isSMI={true} pageToShow={'events'} />
+								<ContentfulNewsWidget isSMI={true} pageToShow={'events'} allContentfulNews={allContentfulNews}  />
 
 								{/*THESE ARE News from website */}
 								<NewsSMIWidget pageToShow={'events'}/>
@@ -355,4 +357,13 @@ export default function EventsPage(props) {
 			</div>
 		</Layout>
 	</Page>
+}
+
+
+export async function getServerSideProps() {
+	const data = await getContentfulNews();
+
+	return {
+		props: { data: data.data },
+	}
 }

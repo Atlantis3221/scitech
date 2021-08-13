@@ -18,7 +18,7 @@ export function NewsLine(props) {
               minHeight: "10rem"
             }}
             className='g3 newsLine_list'>
-            <NewsLineWidget newsCount={3} />
+            <NewsLineWidget />
           </ul>
         </li>
       </ul>

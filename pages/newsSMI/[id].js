@@ -1,26 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Layout } from '../../components/layout'
 import { newsSMI } from '../../data/newsSMI'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
+import { getDefineNews } from '../../helpers/axios'
+import processEvent, { convertToDate } from '../news/processEvent'
 
 const NewsSMI = props => {
+  const [defineNews, setDefineNews] = useState({})
   const router = useRouter()
   const { id } = router.query
+  let data = undefined
 
-  const data = newsSMI.findById(id)
+  useEffect(async() => {
+    data = newsSMI.findById(id)
+    setDefineNews(data)
+    setTimeout(async() => {
+      if (!data) {
+        const { data: [contentful] } = await getDefineNews(id)
+        const contentfulNews = processEvent(contentful)
+        data = {
+          _id: contentful?.fields?._id,
+          title: contentful?.fields?.title,
+          date: convertToDate(contentful?.fields?.date),
+          image: contentful?.fields?.front?.fields?.file?.url,
+          description: contentfulNews,
+        }
+        setDefineNews(data)
+      }
+    }, 1000)
+  }, [id])
+
+  console.log(defineNews)
 
   return (
     <Layout>
       <Helmet>
-        <meta name="description" content={data?.title} />
-        <meta name="keywords" content={data?.title} />
+        <meta name="description" content={defineNews?.title} />
+        <meta name="keywords" content={defineNews?.title} />
         <meta property="og:image" content="/img/appleIcon.png" />
-        <meta property="og:url" content={`https://scitech.ru/newsSMI/${data?._id}`} />
-        <meta property="og:title" content={data?.title} />
-        <meta property="og:description" content={data?.title} />
-        <title>{data?.title}</title>
-        <link rel="canonical" href={`https://scitech.ru/newsSMI/${data?._id}`} />
+        <meta property="og:url" content={`https://scitech.ru/newsSMI/${defineNews?._id}`} />
+        <meta property="og:title" content={defineNews?.title} />
+        <meta property="og:description" content={defineNews?.title} />
+        <title>{defineNews?.title}</title>
+        <link rel="canonical" href={`https://scitech.ru/newsSMI/${defineNews?._id}`} />
       </Helmet>
 
       <div className='show wrapper_hero'>
@@ -30,8 +53,8 @@ const NewsSMI = props => {
               <li className='i3_3'>
               </li>
               <li className='i3_9'>
-                <h1>{data?.title}</h1>
-                <p className="raleway raleway__grey">{data?.date}</p>
+                <h1>{defineNews?.title}</h1>
+                <p className="raleway raleway__grey">{defineNews?.date}</p>
               </li>
             </ul>
           </div>
@@ -81,15 +104,15 @@ const NewsSMI = props => {
                   <li className='i3_12 mb6'>
                     <ul className='g3'>
                       <li className='i3_12'>
-                        <img loading="lazy" src={data?.image} alt="newsPicture" />
+                        <img loading="lazy" src={defineNews?.image} alt="newsPicture" />
                         <div
                           className='newsText'
-                          dangerouslySetInnerHTML={{ __html: data?.description }}
+                          dangerouslySetInnerHTML={{ __html: defineNews?.description }}
                         />
                         <a
-                          href={data?.sourceLink}
+                          href={defineNews?.sourceLink}
                           className='link_event link_event__noBorder raleway_bold mt_low'>
-                          Источник: {data?.source}
+                          Источник: {defineNews?.source}
                           <svg
                             width='12'
                             height='12'

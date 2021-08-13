@@ -1,9 +1,16 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
-export default processAsset = (asset) => {
+export const convertToDate = (sec) => {
+  if (sec) {
+    const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+    return `${new Date(sec).getDate()} ${months[new Date(sec).getMonth()]} ${new Date(sec).getFullYear()}`
+  }
+  return ''
+}
+
+ const processAsset = (asset) => {
   if (asset?.fields?.body) {
-    console.log(asset.fields)
     const options = {
       renderMark: {
         [MARKS.BOLD]: text => `<b>${text}</b>`
@@ -21,7 +28,7 @@ export default processAsset = (asset) => {
   }
 
   }
-
+export default processAsset
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
