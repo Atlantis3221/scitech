@@ -13,7 +13,6 @@ const HomePage = ({  data  }) => {
 
   useEffect(() => {
     setContentfulNews(data)
-    console.log(data)
   }, [])
 
   return (

@@ -5,43 +5,34 @@ import { GrantCard } from '../../components/grantCard'
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { getContentfulGrants } from '../../helpers/axios'
 
-export default function Grants(props) {
-	{/* @todo: add Grants from contentful*/}
-	// const grantsData =  useTracker(() => clientGrants.find({}).fetch())
-	const grantsData = ''
-	const [grants, setGrants] = useState([])
-	const [loaded, setLoaded] = useState(false)
+export default function Grants({ data }) {
+	const [allContentfulGrants, setContentfulGrants] = useState([])
+
+	useEffect(() => {
+		const contentfulGrants = (data.map(grant => {
+					const fields = grant.fields
+					return {
+						description: documentToHtmlString(fields.description),
+						deadline: fields.deadline,
+						order: fields.order,
+						price: fields.price,
+						link: fields.link,
+						title: fields.title,
+						image: "https:" + fields.image.fields.file.url,
+						_id: grant._id,
+						cardType: fields.type === "Конкурс" ? "contests" : fields.type === "Фестиваль" ? "festivals" : fields.type === "Премия" ? "awards" : "grants"
+					}
+				}).sort((a,b) => a.order - b.order))
+		setContentfulGrants(contentfulGrants.concat(grants))
+	}, [])
+	console.log(allContentfulGrants)
+
 	const [grantsType, setGrantsType] = useState(null)
 	const [isShowSpinner, setIsShowSpinner] = useState(false)
 
 	const [isShowMobileFilters, setIsShowMobileFilters] = useState(false)
-
-	useEffect(() => {
-		if (grantsData.length && !loaded) {
-			console.log(grantsData)
-			setLoaded(true)
-			setGrants(grantsData.map(grant => {
-				const fields = grant.fields
-				return {
-					description: documentToHtmlString(fields.description),
-					deadline: fields.deadline,
-					order: fields.order,
-					price: fields.price,
-					link: fields.link,
-					title: fields.title,
-					image: "https:" + fields.image.fields.file.url,
-					_id: grant._id,
-					cardType: fields.type === "Конкурс" ? "contests" : fields.type === "Фестиваль" ? "festivals" : fields.type === "Премия" ? "awards" : "grants"
-				}
-			}).sort((a,b) => a.order - b.order))
-		}
-
-	},[grantsData])
-
-	useEffect(() => {
-
-	}, [grants])
 
 	const changeType = (type, name) => {
 		setIsShowSpinner(true)
@@ -130,7 +121,7 @@ export default function Grants(props) {
 											<span className="activeFilterTab-closeBtn" onClick={() => changeType('type', null)}>x</span></p>
 									</div>
 
-									{grantsType ? grants.filter(a => a.cardType === grantsType).map(el => {
+									{!isShowSpinner ? grantsType ? allContentfulGrants.filter(a => a.cardType === grantsType).map(el => {
 										return <GrantCard link={el?.link}
 																			key={el?._id}
 																			cardType={el?.cardType}
@@ -141,7 +132,7 @@ export default function Grants(props) {
 																			deadline={el?.deadline}
 																			price={el?.price}
 										> </GrantCard>
-									}) : grants.map(el => {
+									}) : allContentfulGrants.map(el => {
 										return <GrantCard link={el?.link}
 																			key={el?._id}
 																			cardType={el?.cardType}
@@ -151,26 +142,12 @@ export default function Grants(props) {
 																			description={el?.description}
 																			deadline={el?.deadline}
 																			price={el?.price}
-										> </GrantCard>})}
-									{/*
-                  {!isShowSpinner ? <ProjectGrowthCardContainer>
-                      {grants.map(el => {
-                       return <GrantCard link={el?.link}
-                                           key={el?._id}
-                                           cardType={el?.cardType}
-                                           isShown={grantsType}
-                                           image={el?.image}
-                                           title={el?.title}
-                                           description={el?.description}
-                                           deadline={el?.deadline}
-                                           price={el?.price}
-                        > </GrantCard>
-                      })}
-                    </ProjectGrowthCardContainer>
-                    :
-                    <div className="spiner_container">
-                      <img src="/img/icons/spiner.gif" alt="spiner" />
-                    </div>} */}
+										> </GrantCard>})
+										:
+										<div className="spiner_container">
+											<img src="/img/icons/spiner.gif" alt="spiner" />
+										</div>
+									}
 								</li>
 							</ul>
 						</div>
@@ -179,4 +156,13 @@ export default function Grants(props) {
 			</Layout>
 		</Page>
 	)
+}
+
+
+export async function getServerSideProps() {
+	const data = await getContentfulGrants();
+
+	return {
+		props: { data: data.data },
+	}
 }
