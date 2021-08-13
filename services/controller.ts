@@ -31,7 +31,6 @@ class Controller {
              obj = {[this.query.index_key]: {$in: this.query.index_value}}
             }
         }
-        console.log(obj)
         return obj
 
     }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Layout } from '../../components/layout'
-import { experts } from '../../data/experts'
+import { Layout } from '../../../components/layout'
+import { experts } from '../../../data/experts'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
 

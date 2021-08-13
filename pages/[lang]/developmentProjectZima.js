@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { Schedule } from '../components/schedule'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
-import { SchoolProject } from '../components/schoolProject'
-import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
+import { SchoolProject } from '../../components/schoolProject'
+import { ContentfulNewsWidget } from '../news/contentfulNewsWidget'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
-import { Button } from '../components/button'
-import { getContentfulNews } from '../helpers/axios'
+import { Button } from '../../components/button'
+import { getContentfulNews } from '../../helpers/axios'
 
 export default function DevelopmentProjectZima({  data  }) {
   const [allContentfulNews, setContentfulNews] = useState([])

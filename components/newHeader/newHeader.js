@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export const NewHeader = () => {
+  const router = useRouter()
+  const changeLang = (lang) => {
+    let path = router.asPath.split("/")
+    path.splice(1,1, lang)
+    router.push(path.join("/"))
+  }
 
   return (
     <header>
@@ -63,17 +70,24 @@ export const NewHeader = () => {
                 </ul>
                 <div className='navigation_email flex'>
                   <div className="languages">
-                    <Link href="/ru.scitech.ru">
-                      <a className="navigation_link" style={{ marginRight: '.2rem' }}>
+                      <a 
+                      onClick={
+                        () => {
+                          changeLang("ru")
+                        }
+                      }
+                      className="navigation_link" style={{ marginRight: '.2rem' }}>
                         Руc
                       </a>
-                    </Link>
-                    /
-                    <Link href="/en.scitech.ru">
-                      <a className="navigation_link" style={{ marginLeft: '.3rem' }}>
+                      <a 
+                      onClick={
+                        () => {
+                          changeLang("en")
+                        }
+                      }
+                      className="navigation_link" style={{ marginLeft: '.3rem' }}>
                         Eng
                       </a>
-                    </Link>
                   </div>
 
 

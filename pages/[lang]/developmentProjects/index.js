@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-import { Page } from '../../components/page'
-import { Layout } from '../../components/layout'
-import { ProjectGrowthCard, ProjectGrowthCardContainer } from '../../components/projectGrowthCard'
-import { projectGrowth } from '../../data/projectGrowth'
+import { Page } from '../../../components/page'
+import { Layout } from '../../../components/layout'
+import { ProjectGrowthCard, ProjectGrowthCardContainer } from '../../../components/projectGrowthCard'
+import { projectGrowth } from '../../../data/projectGrowth'
 import { Helmet } from 'react-helmet'
 
 export default function DevelopmentProjects(props) {

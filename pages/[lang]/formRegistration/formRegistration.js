@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import { Page } from '../../components/page'
-import { Layout } from '../../components/layout'
+import { Page } from '../../../components/page'
+import { Layout } from '../../../components/layout'
 import 'react-phone-number-input/style.css'
 
 const toBase64 = file => new Promise((resolve, reject) => {

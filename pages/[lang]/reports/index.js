@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Page } from '../../components/page'
-import { Layout } from '../../components/layout'
+import { Page } from '../../../components/page'
+import { Layout } from '../../../components/layout'
 import { Helmet } from 'react-helmet'
 
 export default function Reports(props) {

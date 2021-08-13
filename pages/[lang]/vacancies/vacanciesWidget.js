@@ -1,5 +1,5 @@
 import React from 'react'
-import { vacancies } from '../../data/vacancies'
+import { vacancies } from '../../../data/vacancies'
 
 export const VacanciesWidget = props => {
   const { vacsCount = vacancies.length, _id } = props

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Layout } from '../../components/layout'
-import { vacanciesPage } from '../../data/vacanciesPage'
+import { Layout } from '../../../components/layout'
+import { vacanciesPage } from '../../../data/vacanciesPage'
 import { Helmet } from 'react-helmet'
 import '../../styles/vacancies.less'
 import { VacanciesWidget } from './vacanciesWidget'

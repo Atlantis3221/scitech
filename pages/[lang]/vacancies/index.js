@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 
-import { Page } from '../../components/page'
-import { Layout } from '../../components/layout'
+import { Page } from '../../../components/page'
+import { Layout } from '../../../components/layout'
 import { Helmet } from 'react-helmet'
-import { vacancies } from '../../data/vacancies'
-import { InputSelect } from '../../components/inputs/inputSelect'
+import { vacancies } from '../../../data/vacancies'
+import { InputSelect } from '../../../components/inputs/inputSelect'
+import useTranslate from '../../../i18n/translator'
 
-export default function Vacancies(props) {
+export default function Vacancies({current}) {
 
   const [vacanciesType, setVacanciesType] = useState('vacancies')
   const [vacanciesCountry, setVacanciesCountry] = useState('all')
@@ -71,6 +72,7 @@ export default function Vacancies(props) {
                 </li>
                 <li className='i3_9'>
                   <h1>Вакансии и стажировки</h1>
+                  <h2>{current["title1"]}</h2>
                 </li>
               </ul>
           </div>
@@ -132,4 +134,12 @@ export default function Vacancies(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps(ctx) {
+  const {current} = useTranslate("test", ctx.params.lang) 
+
+  return {
+    props: { current: current["test"]  },
+  }
 }

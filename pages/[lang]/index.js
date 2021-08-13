@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { Project, Project_Card } from '../components/project'
-import { SpeakerCard } from '../components/speakerCard'
-import { HomeNewsWidget } from '../components/newsLine'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { Project, Project_Card } from '../../components/project'
+import { SpeakerCard } from '../../components/speakerCard'
+import { HomeNewsWidget } from '../../components/newsLine'
 import Head from 'next/head'
-import { getContentfulNews } from '../helpers/axios'
+import { getContentfulNews } from '../../helpers/axios'
+import Translator from "../../i18n/translator"
 
-const HomePage = ({  data  }) => {
+const HomePage = ({  data, current  }) => {
   const [allContentfulNews, setContentfulNews] = useState([])
 
   useEffect(() => {
@@ -48,6 +49,7 @@ const HomePage = ({  data  }) => {
                   </li>
                   <li className='i3_9'>
                     <h1>Центр развития компетенций</h1>
+                    <h2>{current["title1"]}</h2>
                     <h3>
                       руководителей научных и научно-технических проектов и лабораторий межрегионального
                       Западно-Сибирского научно-образовательного центра мирового уровня
@@ -703,10 +705,11 @@ const HomePage = ({  data  }) => {
 
 export default HomePage
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
   const data = await getContentfulNews();
+  const {current} = Translator("test", ctx.params.lang) 
 
   return {
-    props: { data: data.data },
+    props: { data: data.data, current: current["test"]  },
   }
 }

@@ -1,11 +1,11 @@
 import React from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
-import { Partner } from '../components/partner'
-import { StrongText } from '../components/strongText'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
+import { Partner } from '../../components/partner'
+import { StrongText } from '../../components/strongText'
 import { Helmet } from 'react-helmet'
-import { Button } from '../components/button'
+import { Button } from '../../components/button'
 
 export default function AccelerationProgram(props) {
   return (

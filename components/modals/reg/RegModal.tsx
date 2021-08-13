@@ -77,8 +77,6 @@ const RegModal = () => {
     const [state, setState] = useState(initialState)
     const [errors, setErrors] = useState(initialErrors)
 
-    console.log(state)
-
     const validate = () => {
         const obj = regModalState.inputs.reduce((acc, curr) => {
             acc[curr] = !validators[curr](state[curr]);

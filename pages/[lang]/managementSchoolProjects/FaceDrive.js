@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Page } from '../../components/page'
-import { Layout } from '../../components/layout'
-import { SpeakerCards, SpeakerCard } from '../../components/speakerCard'
-import { SchoolProject, SchoolProject_Card } from '../../components/schoolProject'
-import { StrongText } from '../../components/strongText'
+import { Page } from '../../../components/page'
+import { Layout } from '../../../components/layout'
+import { SpeakerCards, SpeakerCard } from '../../../components/speakerCard'
+import { SchoolProject, SchoolProject_Card } from '../../../components/schoolProject'
+import { StrongText } from '../../../components/strongText'
 import { Helmet } from 'react-helmet'
 
 export default function FaceDrive(props) {
