@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
 import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
@@ -6,18 +6,17 @@ import { Partner } from '../components/partner'
 import { StrongText } from '../components/strongText'
 import { SchoolProject } from '../components/schoolProject'
 import { Helmet } from 'react-helmet'
-import * as PropTypes from 'prop-types'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
+import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
+import { getContentfulNews } from '../helpers/axios'
 
-function ContentfulNewsWidget(props) {
-  return null
-}
+export default function TabulaRasa({  data  }) {
+  const [allContentfulNews, setContentfulNews] = useState([])
 
-ContentfulNewsWidget.propTypes = {
-  isSMI: PropTypes.bool,
-  pageToShow: PropTypes.string,
-}
-export default function TabulaRasa(props) {
+  useEffect(() => {
+    setContentfulNews(data)
+  }, [])
+
   return (
     <Page>
       <Layout style={{
@@ -50,6 +49,7 @@ export default function TabulaRasa(props) {
             </ul>
           </div>
         </div>
+
         <div className='show content'>
           <div className='container'>
             <ul className='g3'>
@@ -467,4 +467,12 @@ export default function TabulaRasa(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps() {
+  const data = await getContentfulNews();
+
+  return {
+    props: { data: data.data },
+  }
 }

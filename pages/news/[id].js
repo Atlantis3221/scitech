@@ -1,27 +1,51 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Layout } from '../../components/layout'
 import { news } from '../../data/news'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
+import { getContentfulNews, getDefineNews } from '../../helpers/axios'
+import processEvent, { convertToDate } from './processEvent'
+
+
 
 const NewsCompany = () => {
+	const [defineNews, setDefineNews] = useState({})
 	const router = useRouter()
 	const { id } = router.query
+	let data = undefined
 
-	const data = news.findById(id)
-	console.log(data)
+	useEffect(async() => {
+		data = news.findById(id)
+		setTimeout(async() => {
+			if (!data) {
+				const { data: [contentful] } = await getDefineNews(id)
+				const contentfulNews = processEvent(contentful)
+				console.log(contentful)
+				data = {
+					_id: contentful?.fields?._id,
+					title: contentful?.fields?.title,
+					date: convertToDate(contentful?.fields?.date),
+					image: contentful?.fields?.front?.fields?.file?.url,
+					description: contentfulNews,
+				}
+			}
+		}, 1000)
+		setDefineNews(data)
+	}, [id])
+
+	console.log(defineNews)
 
 	return (
 		<Layout>
 			<Helmet>
-				<meta name="description" content={data?.title} />
-				<meta name="keywords" content={data?.title} />
+				<meta name="description" content={defineNews?.title} />
+				<meta name="keywords" content={defineNews?.title} />
 				<meta property="og:image" content="/img/appleIcon.png" />
-				<meta property="og:url" content={`https://scitech.ru/news/${data?._id}`} />
-				<meta property="og:title" content={data?.title} />
-				<meta property="og:description" content={data?.title} />
-				<title>{data?.title}</title>
-				<link rel="canonical" href={`https://scitech.ru/news/${data?._id}`} />
+				<meta property="og:url" content={`https://scitech.ru/news/${defineNews?._id}`} />
+				<meta property="og:title" content={defineNews?.title} />
+				<meta property="og:description" content={defineNews?.title} />
+				<title>{defineNews?.title}</title>
+				<link rel="canonical" href={`https://scitech.ru/news/${defineNews?._id}`} />
 			</Helmet>
 
 			<div className='show wrapper_hero'>
@@ -31,9 +55,9 @@ const NewsCompany = () => {
 							<li className='i3_3'>
 							</li>
 							<li className='i3_9'>
-								<p className="subtitleNews">{data?.subtitle}</p>
-								<h1>{data?.title}</h1>
-								<p className="raleway raleway__grey">{data?.date}</p>
+								<p className="subtitleNews">{defineNews?.subtitle}</p>
+								<h1>{defineNews?.title}</h1>
+								<p className="raleway raleway__grey">{defineNews?.date}</p>
 							</li>
 						</ul>
 					</div>
@@ -83,10 +107,10 @@ const NewsCompany = () => {
 									<li className='i3_12 mb6'>
 										<ul className='g3'>
 											<li className='i3_12'>
-												{!data?.hideTitleImage && <img loading="lazy" src={data?.image} alt="newsPicture" />}
+												{!defineNews?.hideTitleImage && <img loading="lazy" src={defineNews?.image} alt="newsPicture" />}
 												<div
 													className='newsText'
-													dangerouslySetInnerHTML={{ __html: data?.description }}
+													dangerouslySetInnerHTML={{ __html: defineNews?.description }}
 												/>
 											</li>
 										</ul>
@@ -102,3 +126,12 @@ const NewsCompany = () => {
 }
 
 export default NewsCompany
+
+
+export async function getServerSideProps() {
+	const data = await getContentfulNews();
+
+	return {
+		props: { data: data.data },
+	}
+}

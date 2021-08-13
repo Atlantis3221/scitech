@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { NewsWidget } from './newsWidget'
 import { Helmet } from 'react-helmet'
 import { SchoolProject } from '../../components/schoolProject'
-import { ContentfulNewsWidget } from '../contentfulNews/contentfulNewsWidget'
+import { ContentfulNewsWidget } from './contentfulNewsWidget'
+import { getContentfulNews } from '../../helpers/axios'
 
-export default function News(props) {
+
+export default function News({ data }) {
+  const [allContentfulNews, setContentfulNews] = useState([])
+
+  useEffect(() => {
+    setContentfulNews(data)
+  }, [])
+
   return (
     <Page>
       <Layout>
@@ -77,7 +85,7 @@ export default function News(props) {
                     <SchoolProject>
 
                       {/*THESE ARE News from Contentful */}
-                      <ContentfulNewsWidget isSMI={false} />
+                      <ContentfulNewsWidget isSMI={false} allContentfulNews={allContentfulNews} />
 
                       {/*THESE ARE News from website */}
                       <NewsWidget />
@@ -92,4 +100,13 @@ export default function News(props) {
       </Layout>
     </Page>
   )
+}
+
+
+export async function getServerSideProps() {
+  const data = await getContentfulNews();
+
+  return {
+    props: { data: data.data },
+  }
 }

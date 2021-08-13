@@ -1,19 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { news } from '../../data/news'
-// import { useTracker } from 'meteor/react-meteor-data'
-import { convertContentfulNews, convertToMilliseconds } from '../../lib'
+import { convertContentfulNews } from '../../lib'
 
 
 export const HomeNewsWidget = props => {
-  const { newsCount = news.length, _id } = props
-
-  const [isContentNewsLoaded, setIsContentNewsLoaded] = useState(false)
-  const [allContentfulNews, setContentfulNews] = useState([])
-
-  // const contentfulNews = useTracker(() => clientNews.find({ "sys.contentType.sys.id": "news" }).fetch())
-  //   .filter(news => !news?.fields?.isSmi)
-  //   .sort((news1, news2) => convertToMilliseconds(news2?.fields?.date) - convertToMilliseconds(news1?.fields?.date)) || []
-  const contentfulNews = []
+  const { newsCount = news.length, _id, allContentfulNews = [] } = props
 
   const getNews = (news, currentId, newsCount) => {
     let filteredNews = news
@@ -22,17 +13,10 @@ export const HomeNewsWidget = props => {
     }
     return filteredNews.slice(0, newsCount)
   }
+  const contentfulNews = convertContentfulNews(allContentfulNews)
 
-  useEffect(() => {
-    if (!isContentNewsLoaded && contentfulNews.length) {
-      setIsContentNewsLoaded(true)
-      const contentfulNewsMap = convertContentfulNews(contentfulNews)
-      setContentfulNews(contentfulNewsMap)
-    }
-  }, [contentfulNews])
-
-  const allNews = allContentfulNews.length >= 3
-    ? allContentfulNews.splice(0, 3)
+  const allNews = contentfulNews.length >= 3
+    ? contentfulNews.splice(0, 3)
     : [...allContentfulNews, ...getNews(news, _id, newsCount)].splice(0, 3)
 
   return (
@@ -41,7 +25,7 @@ export const HomeNewsWidget = props => {
         return (
           <li className='i3_4' key={'homenews' + i}>
             <div className='link_toEvent'>
-              <a href={`/${newsItem?.isContentful ? 'allNews' : 'news'}/${newsItem._id}`} className='link_event'>
+              <a href={`/news/${newsItem._id}`} className='link_event'>
                 <span>{newsItem.subtitle} </span>
                 {newsItem.title}
                 <svg

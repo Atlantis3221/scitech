@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { news } from '../../data/news'
-// import { useTracker } from 'meteor/react-meteor-data'
-import { convertContentfulNews, convertToMilliseconds } from '../../lib'
+import { convertContentfulNews } from '../../lib'
 
 
 export const NewsLineWidget = props => {
-  const { newsCount = news.length, _id } = props
-
-  const [isContentNewsLoaded, setIsContentNewsLoaded] = useState(false)
-  const [allContentfulNews, setContentfulNews] = useState([])
-
-  // const contentfulNews = useTracker(() => clientNews.find({"sys.contentType.sys.id": "news"}).fetch())
-  //   .filter(news => !news?.fields?.isSmi) || []
-  // // .sort((news1, news2) => convertToMilliseconds(news2?.fields?.date) - convertToMilliseconds(news1?.fields?.date)) || []
-  const contentfulNews = []
-
+  const { newsCount = news.length, _id, allContentfulNews = [] } = props
+  console.log(props)
   const getNews = (news, currentId, newsCount) => {
     let filteredNews = news.filter(item => item.isShownInNewsTopLine === true)
     if (currentId) {
@@ -23,16 +14,10 @@ export const NewsLineWidget = props => {
     return filteredNews.slice(0, newsCount)
   }
 
-  useEffect(() => {
-    if (!isContentNewsLoaded && contentfulNews.length) {
-      setIsContentNewsLoaded(true)
-      const sortedNews = contentfulNews
-      const contentfulNewsMap = convertContentfulNews(sortedNews).sort((a,b) => b.date - a.date)
-      setContentfulNews(contentfulNewsMap)
-    }
-  }, [contentfulNews])
+  const contentfulNews = allContentfulNews.filter(news => news.fields.isShownInNewsTopLine)
 
-  const allNews = convertContentfulNews(contentfulNews.sort((news1, news2) => convertToMilliseconds(news2?.fields?.date) - convertToMilliseconds(news1?.fields?.date)))
+  const allNews = convertContentfulNews(contentfulNews)
+  // console.log(allNews)
 
   return (
     <>

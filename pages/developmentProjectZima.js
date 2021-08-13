@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
 import { Schedule } from '../components/schedule'
 import { Helmet } from 'react-helmet'
 import { SchoolProject } from '../components/schoolProject'
-import { ContentfulNewsWidget } from './contentfulNews/contentfulNewsWidget'
+import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 import { Button } from '../components/button'
+import { getContentfulNews } from '../helpers/axios'
 
-export default function DevelopmentProjectZima(props) {
+export default function DevelopmentProjectZima({  data  }) {
+  const [allContentfulNews, setContentfulNews] = useState([])
+
+  useEffect(() => {
+    setContentfulNews(data)
+  }, [])
 
   return (
     <Page>
@@ -56,7 +62,7 @@ export default function DevelopmentProjectZima(props) {
                 </ul>
 
                 {/* @todo: add Modal pop-up*/}
-                      <Button bordered-green marginleft onClick={props.onClick}>
+                      <Button bordered-green marginleft onClick={() => {}}>
                         Сообщить о следующем наборе
                       </Button>
 
@@ -344,7 +350,7 @@ export default function DevelopmentProjectZima(props) {
               <li className="i3_9">
                 <SchoolProject>
                   {/*THESE ARE News from Contentful */}
-                  <ContentfulNewsWidget isSMI={true} pageToShow={'developmentProjectZima'} />
+                  <ContentfulNewsWidget isSMI={true} pageToShow={'developmentProjectZima'} allContentfulNews={allContentfulNews}  />
 
                   {/*THESE ARE News from website */}
                   <NewsSMIWidget pageToShow={'developmentProjectZima'}/>
@@ -358,4 +364,13 @@ export default function DevelopmentProjectZima(props) {
       </Layout>
     </Page>
   )
+}
+
+
+export async function getServerSideProps() {
+  const data = await getContentfulNews();
+
+  return {
+    props: { data: data.data },
+  }
 }

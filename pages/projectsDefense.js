@@ -1,27 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Page } from '../components/page'
 import { Layout } from '../components/layout'
 import { EventItem, EventItem_Container } from '../components/eventItem'
 import { Schedule } from '../components/schedule'
 import { SchoolProject } from '../components/schoolProject'
 import { Helmet } from 'react-helmet'
-import * as PropTypes from 'prop-types'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
+import { getContentfulNews } from '../helpers/axios'
+import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 
-const endEvent = Date.parse(new Date('10 20 2020'))  // 20-го октября 2020
-const today = Date.now()
-// const isShowRegistrationButton = today < endEvent
-const isShowRegistrationButton = true
 
-function ContentfulNewsWidget(props) {
-  return null
-}
+export default function ProjectsDefense({ data }) {
+  const [allContentfulNews, setContentfulNews] = useState([])
 
-ContentfulNewsWidget.propTypes = {
-  isSMI: PropTypes.bool,
-  pageToShow: PropTypes.string,
-}
-export default function ProjectsDefense(props) {
+  useEffect(() => {
+    setContentfulNews(data)
+  }, [])
+
   return (
     <Page>
       <Layout>
@@ -122,7 +117,7 @@ export default function ProjectsDefense(props) {
                 <SchoolProject>
 
                   {/*THESE ARE News from Contentful */}
-                  <ContentfulNewsWidget isSMI={true} pageToShow={'projectsDefense'} />
+                  <ContentfulNewsWidget isSMI={true} pageToShow={'projectsDefense'} allContentfulNews={allContentfulNews} />
 
                   {/*THESE ARE News from website */}
                   <NewsSMIWidget pageToShow={'projectsDefense'}/>
@@ -136,4 +131,12 @@ export default function ProjectsDefense(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps() {
+  const data = await getContentfulNews();
+
+  return {
+    props: { data: data.data },
+  }
 }
