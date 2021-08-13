@@ -39,6 +39,7 @@
     "react-router-dom": "^5.1.2",
     "sass": "^1.37.5",
     "sendpulse-api": "^1.1.4",
+    "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.1.1",
     "underscore": "^1.10.2"
   },
