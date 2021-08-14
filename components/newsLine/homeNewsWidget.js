@@ -1,9 +1,11 @@
 import React from 'react'
 import { news } from '../../data/news'
 import { convertContentfulNews } from '../../lib'
+import { useRouter } from 'next/dist/client/router'
 
 
 export const HomeNewsWidget = props => {
+  const { query: {lang: lang} } = useRouter()
   const { newsCount = news.length, _id, allContentfulNews = [] } = props
 
   const getNews = (news, currentId, newsCount) => {
@@ -25,7 +27,7 @@ export const HomeNewsWidget = props => {
         return (
           <li className='i3_4' key={'homenews' + i}>
             <div className='link_toEvent'>
-              <a href={`/news/${newsItem._id}`} className='link_event'>
+              <a href={`/${lang}/news/${newsItem._id}`} className='link_event'>
                 <span>{newsItem.subtitle} </span>
                 {newsItem.title}
                 <svg

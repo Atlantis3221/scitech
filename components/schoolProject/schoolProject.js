@@ -1,5 +1,6 @@
 import React from 'react'
 import {className} from "../../helpers/className";
+import { useRouter } from 'next/dist/client/router'
 
 /** SchoolProject
  *  @param props
@@ -27,7 +28,7 @@ export function SchoolProject_Card(props) {
     const { image, onClick, link, children, arrow, time, imageLabel} = props
 
     return <a className={className('schoolProjectCard', props)}
-              href={link}
+              href={`/${link}`}
               onClick={onClick}>
         <div className="schoolProjectCard_image">
             <img src={image} alt="image" loading="lazy"/>

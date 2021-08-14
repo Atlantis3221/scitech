@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useRouter } from 'next/router'
 
 /** Project
  *  @param props
@@ -40,8 +40,9 @@ export function Project(props) {
  *  @return {any}
  */
 export function Project_Card(props) {
+  const { query: {lang: lang} } = useRouter()
+  const router = useRouter()
     const {title, link, durations, description, arrowColor, gradient_spot, isInProcess, gradient, opacity, children} = props
-    const history = useHistory()
 
     const grad = useRef(null)
     const [bgPosition, setBgPosition] = useState(['0', '0'])
@@ -64,9 +65,14 @@ export function Project_Card(props) {
       setBgPosition(['0', '0'])
     }
 
+  const switchToPath = (link) => {
+    let path = router.asPath.split("/")
+    router.push(`${link}`)
+  }
+
   return <div className="projectCard"
               title={title}
-              onClick={() => link && history.push(link, window.scrollTo(0, 0))}
+              onClick={() => {switchToPath(link)}}
               ref={grad}
               onMouseMove={link ? handleAnimation : null}
               onMouseLeave={link ? finish : null}
@@ -93,7 +99,7 @@ export function Project_Card(props) {
             {children}
         </div>
 
-    {!durations ?<a href={link} className="projectCard_spacer"></a> : null}
+    {!durations ?<a href={`${lang}/${link}`} className="projectCard_spacer"></a> : null}
 
         {isInProcess ?
             // <Link href={link}>

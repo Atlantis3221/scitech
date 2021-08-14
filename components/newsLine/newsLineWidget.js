@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { convertContentfulNews } from '../../lib'
 import { getContentfulNews } from '../../helpers/axios'
+import { useRouter } from 'next/dist/client/router'
 
 
 export const NewsLineWidget = props => {
+  const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setAllContentfulNews] = useState([])
 
   useEffect(async() => {
@@ -22,7 +24,7 @@ export const NewsLineWidget = props => {
         return (
           <li className='i3_4 newsLine_linkLi' key={newsItem._id} style={{ paddingLeft: 0 }}>
             <div className='link_toEvent'>
-              <a href={`/${newsItem?.isSMI ? 'newsSMI' : 'news'}/${newsItem._id}`}
+              <a href={`/${lang}/${newsItem?.isSMI ? 'newsSMI' : 'news'}/${newsItem._id}`}
                  className='newsLine_link'
               >
                 {newsItem.title}

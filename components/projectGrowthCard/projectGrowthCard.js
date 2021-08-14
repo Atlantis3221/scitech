@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import Link from "next/link";
+import { useRouter } from 'next/dist/client/router'
 
 /** ProjectGrowthCardContainer
  *  @param props
@@ -40,6 +41,7 @@ export function ProjectGrowthCardContainer(props) {
  *  @return {any}
  */
 export function ProjectGrowthCard(props) {
+  const { query: {lang: lang} } = useRouter()
     const { cardType, isShown, image, name, title, titleDescription, link, deadline, projectDate, location, price } = props
 
     function isShownCard() {
@@ -55,7 +57,7 @@ export function ProjectGrowthCard(props) {
       return isShown[0] === cardType[0] && isShown[1] === cardType[1] ? '' : 'projectGrowthCard__hidden';
     }
 
-    return <Link href={link}>
+    return <Link href={`/${lang}${link}`}>
             <a className={`projectGrowthCard ${isShownCard()} `} title={title}>
             <div className="projectGrowthCard_image">
                 <img src={image} alt="" />
