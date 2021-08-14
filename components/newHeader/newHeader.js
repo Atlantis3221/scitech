@@ -1,7 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export const NewHeader = () => {
+  const router = useRouter()
+  const { lang } = router.query
+  const changeLang = (lang) => {
+    let path = router.asPath.split("/")
+    path.splice(1,1, lang)
+    router.push(path.join("/"))
+  }
 
   return (
     <header>
@@ -9,7 +17,7 @@ export const NewHeader = () => {
         <div className='content'>
           <div className='section_container header_container'>
             <aside className='section_aside'>
-              <Link href="/">
+              <Link href={`/${lang}/`}>
                 <a>
                   <img className='brand' loading="lazy" src='/img/logo.svg' alt=''/>
                 </a>
@@ -21,28 +29,28 @@ export const NewHeader = () => {
                 <div/>
               </div>
               <nav className='navigation'>
-                <Link href="/">
+                <Link href={`/${lang}/`}>
                   <a className='navigation_logo'>
                     <img className='brand' loading="lazy" src='/img/logo.svg' alt=''/>
                   </a>
                 </Link>
                 <ul className='navigation_list'>
                   <li>
-                    <Link href={'/developmentProjects'}>
+                    <Link href={`/${lang}/developmentProjects`}>
                       <a className={'navigation_link'}>
                         Проекты</a>
                     </Link>
                   </li>
 
                   <li>
-                    <Link href={'/grants'}>
+                    <Link href={`/${lang}/grants`}>
                       <a className={'navigation_link'}>
                         Гранты</a>
                     </Link>
                   </li>
 
                   <li>
-                    <Link href={'/vacancies'}>
+                    <Link href={`/${lang}/vacancies`}>
                       <a className={'navigation_link'}>
                         Вакансии и стажировки
                       </a>
@@ -50,30 +58,37 @@ export const NewHeader = () => {
                   </li>
 
                   <li>
-                    <Link href={'/news'}>
+                    <Link href={`/${lang}/news`}>
                       <a  className={'navigation_link'}>Новости</a>
                     </Link>
                   </li>
 
                   <li>
-                    <Link href={'/reports'}>
+                    <Link href={`/${lang}/reports`}>
                       <a  className={'navigation_link'}>Отчеты</a>
                     </Link>
                   </li>
                 </ul>
                 <div className='navigation_email flex'>
                   <div className="languages">
-                    <Link href="/ru.scitech.ru">
-                      <a className="navigation_link" style={{ marginRight: '.2rem' }}>
+                      <a 
+                      onClick={
+                        () => {
+                          changeLang("ru")
+                        }
+                      }
+                      className="navigation_link" style={{ marginRight: '.2rem' }}>
                         Руc
                       </a>
-                    </Link>
-                    /
-                    <Link href="/en.scitech.ru">
-                      <a className="navigation_link" style={{ marginLeft: '.3rem' }}>
+                      <a 
+                      onClick={
+                        () => {
+                          changeLang("en")
+                        }
+                      }
+                      className="navigation_link" style={{ marginLeft: '.3rem' }}>
                         Eng
                       </a>
-                    </Link>
                   </div>
 
 

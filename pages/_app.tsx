@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/variables.less'
 import 'polyfill-object.fromentries/index'
 import 'tailwindcss/tailwind.css'
@@ -37,12 +37,37 @@ import '../styles/formRegistration.less'
 import '../styles/vacancies.less'
 import 'react-phone-input-2/lib/style.css'
 import { ModalsContextProvider } from '../components/modals/ModalContext'
+import Router from "next/router"
+import smoothscroll from 'smoothscroll-polyfill';
+import Loader from '../components/Loader'
 
 
 function MyApp({ Component, pageProps }) {
+
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    smoothscroll.polyfill();
+    const appHeight = () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }
+    window.addEventListener("resize", appHeight);
+    appHeight();
+    return () => {
+      window.removeEventListener("resize", appHeight);
+    };
+    
+  }, []);
+
+
+Router.events.on("routeChangeStart", () => {setLoading(true)} );
+Router.events.on("routeChangeComplete", () => {setLoading(false)});
+Router.events.on("routeChangeError", () => {setLoading(false)});
   return (
     <ModalsContextProvider>
+
       <Component {...pageProps} />
+      {loading && <Loader/>}
     </ModalsContextProvider>
   )
 }
