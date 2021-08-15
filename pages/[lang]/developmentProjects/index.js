@@ -5,8 +5,10 @@ import { Layout } from '../../../components/layout'
 import { ProjectGrowthCard, ProjectGrowthCardContainer } from '../../../components/projectGrowthCard'
 import { projectGrowth } from '../../../data/projectGrowth'
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/dist/client/router'
 
 export default function DevelopmentProjects(props) {
+  const { query: {lang: lang} } = useRouter()
 
   const [projectsType, setProjectsType] = useState(null)
   const [projectTime, setProjectTime] = useState(null)
@@ -104,7 +106,7 @@ export default function DevelopmentProjects(props) {
                      onClick={() => changeType('type','services')}>Сервисы</p>
 
                   <br/>
-                  <a href="/vacancies" className='raleway link_event link_event__noBorder raleway_bold pt2'>
+                  <a href={`/${lang}/vacancies`} className='raleway link_event link_event__noBorder raleway_bold pt2'>
                     Вакансии и стажировки
                     <svg
                       width='12'

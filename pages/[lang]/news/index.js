@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 
-import { Page } from '../../components/page'
-import { Layout } from '../../components/layout'
+import { Page } from '../../../components/page'
+import { Layout } from '../../../components/layout'
 import { NewsWidget } from './newsWidget'
 import { Helmet } from 'react-helmet'
-import { SchoolProject } from '../../components/schoolProject'
+import { SchoolProject } from '../../../components/schoolProject'
 import { ContentfulNewsWidget } from './contentfulNewsWidget'
-import { getContentfulNews } from '../../helpers/axios'
+import { getContentfulNews } from '../../../helpers/axios'
+import { useRouter } from 'next/router'
 
 
 export default function News({ data }) {
+  const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
 
   useEffect(() => {
@@ -47,7 +49,7 @@ export default function News({ data }) {
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <a href="/news" className='link_event link_event__toNews active'>Новости центра
+                  <a href={`/${lang}/news`} className='link_event link_event__toNews active'>Новости центра
                     <svg
                       width='12'
                       height='12'
@@ -63,7 +65,7 @@ export default function News({ data }) {
                       />
                     </svg>
                   </a>
-                  <a href="/newsSMI" className='link_event link_event__toNews'>СМИ о нас
+                  <a href={`/${lang}/newsSMI`} className='link_event link_event__toNews'>СМИ о нас
                     <svg
                       width='12'
                       height='12'

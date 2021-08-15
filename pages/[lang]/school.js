@@ -1,13 +1,15 @@
 import React from 'react'
 
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { SpeakerCards, SpeakerCard } from '../components/speakerCard'
-import { SchoolProject, SchoolProject_Card } from '../components/schoolProject'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { SpeakerCards, SpeakerCard } from '../../components/speakerCard'
+import { SchoolProject, SchoolProject_Card } from '../../components/schoolProject'
 import { Helmet } from 'react-helmet'
-import { Button } from '../components/button'
+import { Button } from '../../components/button'
+import { useRouter } from 'next/dist/client/router'
 
 export default function School(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Helmet>
@@ -426,7 +428,7 @@ export default function School(props) {
                     В потоке принимали участие научные сотрудники и исследователи из различных университетов ХМАО, ЯНАО
                     и Тюмени
                   </p>
-                  <a href="/school2019_2020" className='link_event link_event__noBorder raleway_bold mt_low'>Полное
+                  <a href={`/${lang}/school2019_2020`} className='link_event link_event__noBorder raleway_bold mt_low'>Полное
                     расписание первого потока 2019-2020
                     <svg
                       width='12'

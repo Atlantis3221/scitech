@@ -3,8 +3,10 @@ import React from 'react'
 import { Page } from '../../../components/page'
 import { Layout } from '../../../components/layout'
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/router'
 
 export default function Reports(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout>

@@ -4,6 +4,7 @@ import { className } from '../../helpers/className'
 
 import { experts } from '../../data/experts'
 import Link from "next/link";
+import { useRouter } from 'next/router'
 
 /** SpeakerCards
  *  @param props
@@ -27,6 +28,7 @@ export const SpeakerCards = props => {
  */
 
 export const SpeakerCard = props => {
+  const { query: {lang: lang} } = useRouter()
   const { photo, fullName, email, phone, linkedin, fb, children, position } = props
   const expert = experts.find(item => item.title === fullName)
   return (
@@ -36,7 +38,7 @@ export const SpeakerCard = props => {
       </div>
       <div className='card_text'>
         <p className='card_title'>
-            {expert ? <Link href={`/experts/${expert._id}`}><a title={fullName}>{fullName}</a></Link> : fullName}
+            {expert ? <Link href={`/${lang}/experts/${expert._id}`}><a title={fullName}>{fullName}</a></Link> : fullName}
           {position ? `, ${position}` : ''}
         </p>
         <p className='card_about'>{children}</p>

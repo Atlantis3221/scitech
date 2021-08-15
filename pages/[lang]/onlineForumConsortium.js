@@ -1,20 +1,19 @@
 import React from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
-import { Partner } from '../components/partner'
-import { EventItem, EventItem_Container } from '../components/eventItem'
-import { StrongText } from '../components/strongText'
-import { Schedule } from '../components/schedule'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
+import { Partner } from '../../components/partner'
+import { EventItem, EventItem_Container } from '../../components/eventItem'
+import { StrongText } from '../../components/strongText'
+import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
-import { Button } from '../components/button'
+import { Button } from '../../components/button'
+import { useRouter } from 'next/dist/client/router'
 
-const endEvent = Date.parse(new Date('10 28 2020'))  // 28-го октября 2020
-const today = Date.now()
-// const isShowRegistrationButton = today < endEvent
 const isShowRegistrationButton = true
 
 export default function OnlineForumConsortium(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout>

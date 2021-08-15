@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { EventItem, EventItem_Container } from '../components/eventItem'
-import { Schedule } from '../components/schedule'
-import { SchoolProject } from '../components/schoolProject'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { EventItem, EventItem_Container } from '../../components/eventItem'
+import { Schedule } from '../../components/schedule'
+import { SchoolProject } from '../../components/schoolProject'
 import { Helmet } from 'react-helmet'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
-import { getContentfulNews } from '../helpers/axios'
+import { getContentfulNews } from '../../helpers/axios'
 import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
+import { useRouter } from 'next/dist/client/router'
 
 
 export default function ProjectsDefense({ data }) {
+  const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
 
   useEffect(() => {

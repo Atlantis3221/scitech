@@ -1,13 +1,15 @@
 import React from 'react'
 
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import {SpeakerCards, SpeakerCard} from '../components/speakerCard'
-import {SchoolProject, SchoolProject_Card} from "../components/schoolProject";
-import {StrongText} from "../components/strongText";
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import {SpeakerCards, SpeakerCard} from '../../components/speakerCard'
+import {SchoolProject, SchoolProject_Card} from "../../components/schoolProject";
+import {StrongText} from "../../components/strongText";
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/dist/client/router'
 
 export default function ManagementSchool2019_2020 (props) {
+    const { query: {lang: lang} } = useRouter()
     return (
       <Page>
           <Helmet>
@@ -555,7 +557,7 @@ export default function ManagementSchool2019_2020 (props) {
                                       </SchoolProject_Card>
                                   </SchoolProject>
 
-                                  <a href="/managementSchool" className='link_event link_event__noBorder raleway_bold pt2'>
+                                  <a href={`/${lang}/managementSchool`} className='link_event link_event__noBorder raleway_bold pt2'>
                                       Расписание потока 2021-2022
                                       <svg
                                         width='12'

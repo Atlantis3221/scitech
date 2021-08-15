@@ -6,8 +6,10 @@ import { SpeakerCards, SpeakerCard } from '../../../components/speakerCard'
 import { SchoolProject, SchoolProject_Card } from '../../../components/schoolProject'
 import { StrongText } from '../../../components/strongText'
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/dist/client/router'
 
 export default function FaceDrive(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout style={{

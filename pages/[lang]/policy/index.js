@@ -3,8 +3,10 @@ import React from 'react'
 import { Page } from '../../../components/page'
 import { Layout } from '../../../components/layout'
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/router'
 
 export default function Policy(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout>
@@ -21,7 +23,7 @@ export default function Policy(props) {
 
         <div className='show wrapper_hero'>
           <div className='container relative'>
-            <div className="colorSpot colorSpot__red_low" style={{ left: '7.7rem'}}></div>
+            <div className="colorSpot colorSpot__red_low"></div>
             <div className='content'>
               <ul className='g3 relative'>
                 <li className='i3_3'>

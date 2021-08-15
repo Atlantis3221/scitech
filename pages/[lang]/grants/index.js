@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { grants } from '../../data/grants'
-import { GrantCard } from '../../components/grantCard'
-import { Page } from '../../components/page'
-import { Layout } from '../../components/layout'
+import { grants } from '../../../data/grants'
+import { GrantCard } from '../../../components/grantCard'
+import { Page } from '../../../components/page'
+import { Layout } from '../../../components/layout'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import { getContentfulGrants } from '../../helpers/axios'
+import { getContentfulGrants } from '../../../helpers/axios'
+import { useRouter } from 'next/dist/client/router'
 
 export default function Grants({ data }) {
+	const { query: {lang: lang} } = useRouter()
 	const [allContentfulGrants, setContentfulGrants] = useState([])
 
 	useEffect(() => {

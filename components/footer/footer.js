@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/dist/client/router'
 
 export function Footer(props) {
+  const { query: {lang: lang} } = useRouter()
   const [isSend, setIsSend] = useState(false)
   const [inputEmailValue, setInputEmailValue] = useState('')
 
@@ -19,7 +21,7 @@ export function Footer(props) {
 
   return <div className="container sans footer">
     <div className="footer_column footer_logo">
-      <Link href='/'>
+      <Link href={`/${lang}/`}>
         <a>
           <img className="brand" src="/img/logo.svg" loading="lazy" alt="logo" />
         </a>
@@ -87,7 +89,7 @@ export function Footer(props) {
         <button className={`form_button ${isSend ? 'form_button__send' : ''}`} disabled={isSend} type='submit'></button>
         {isSend ? <p className="successText">Вы добавлены в новостную рассылку</p> : null}
       </form>
-      <Link href="/policy">
+      <Link href={`/${lang}/policy`}>
       <a>
         <p className='footer_signup__grey'>Политика конфиденциальности</p>
       </a>

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Layout } from '../../components/layout'
-import { news } from '../../data/news'
+import { Layout } from '../../../components/layout'
+import { news } from '../../../data/news'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
-import { getContentfulNews, getDefineNews } from '../../helpers/axios'
+import { getContentfulNews, getDefineNews } from '../../../helpers/axios'
 import processEvent, { convertToDate } from './processEvent'
 
 
 
 const NewsCompany = () => {
+	const { query: {lang: lang} } = useRouter()
 	const [defineNews, setDefineNews] = useState({})
 	const router = useRouter()
 	const { id } = router.query
@@ -69,7 +70,7 @@ const NewsCompany = () => {
 					<div className='content news-padding'>
 						<ul className='g3 news-flex-reverse'>
 							<li className='i3_3'>
-								<a href="/news" className='link_event link_event__toNews active'>Новости центра
+								<a href={`/${lang}/news`} className='link_event link_event__toNews active'>Новости центра
 									<svg
 										width='12'
 										height='12'
@@ -85,7 +86,7 @@ const NewsCompany = () => {
 										/>
 									</svg>
 								</a>
-								<a href="/newsSMI" className='link_event link_event__toNews'>СМИ о нас
+								<a href={`/${lang}/newsSMI`} className='link_event link_event__toNews'>СМИ о нас
 									<svg
 										width='12'
 										height='12'

@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
-import { Partner } from '../components/partner'
-import { StrongText } from '../components/strongText'
-import { SchoolProject } from '../components/schoolProject'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
+import { Partner } from '../../components/partner'
+import { StrongText } from '../../components/strongText'
+import { SchoolProject } from '../../components/schoolProject'
 import { Helmet } from 'react-helmet'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
-import { getContentfulNews } from '../helpers/axios'
+import { getContentfulNews } from '../../helpers/axios'
+import { useRouter } from 'next/dist/client/router'
 
 export default function TabulaRasa({  data  }) {
+  const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
 
   useEffect(() => {
@@ -454,7 +456,7 @@ export default function TabulaRasa({  data  }) {
                 <SchoolProject>
 
                   {/*THESE ARE News from Contentful */}
-                  <ContentfulNewsWidget isSMI={true} pageToShow={'tabulaRasa'} />
+                  <ContentfulNewsWidget isSMI={true} pageToShow={'tabulaRasa'} allContentfulNews={allContentfulNews} />
 
                   {/*THESE ARE News from website */}
                   <NewsSMIWidget pageToShow={'tabulaRasa'}/>

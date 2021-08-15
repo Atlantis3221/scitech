@@ -3,9 +3,10 @@ import { Layout } from '../../../components/layout'
 import { vacanciesPage } from '../../../data/vacanciesPage'
 import { Helmet } from 'react-helmet'
 import '../../styles/vacancies.less'
-import { VacanciesWidget } from './vacanciesWidget'
+import { useRouter } from 'next/router'
 
 const VacancyById = props => {
+  const { query: {lang: lang} } = useRouter()
   const data = vacanciesPage.findById(props.vacancy)
 
   return (
@@ -33,7 +34,7 @@ const VacancyById = props => {
                 <p className='vacancies_description'>{data.description}</p>
               </li>
               <li className='i3_9 vacancyDescr'>
-                <a href={'/vacancies'} className="raleway_bold backArrow">
+                <a href={`/${lang}/vacancies`} className="raleway_bold backArrow">
                   <img src="/img/icons/arrow_black.svg" alt="backArrow" />
                   Вакансии
                 </a>
@@ -57,7 +58,7 @@ const VacancyById = props => {
           <div className='content'>
             <ul className='g3'>
               <li className='i3_3'>
-                <a href="/vacancies" className='raleway link_event link_event__noBorder raleway_bold pt2'>
+                <a href={`/${lang}/vacancies`} className='raleway link_event link_event__noBorder raleway_bold pt2'>
                   Другие вакансии и стажировки
                   <svg
                     width='12'

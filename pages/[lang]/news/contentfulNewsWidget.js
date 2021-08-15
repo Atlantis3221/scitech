@@ -1,8 +1,10 @@
 import React from 'react'
-import { SchoolProject_Card } from '../../components/schoolProject'
-import { convertToDate } from '../../lib'
+import { SchoolProject_Card } from '../../../components/schoolProject'
+import { convertToDate } from '../../../lib'
+import { useRouter } from 'next/router'
 
 export const ContentfulNewsWidget = props => {
+  const { query: {lang: lang} } = useRouter()
   const {isSMI, pageToShow = null, allContentfulNews = []} = props
   let allNews = []
 
@@ -29,7 +31,7 @@ export const ContentfulNewsWidget = props => {
             <SchoolProject_Card
               red
               arrow
-              link={`/${!isSMI ? 'news': 'newsSMI'}/${newsItem?.fields?.url}`}
+              link={`${lang}/${!isSMI ? 'news': 'newsSMI'}/${newsItem?.fields?.url}`}
               time={convertToDate(newsItem?.fields?.date)}
               image={newsItem?.fields?.front?.fields?.file?.url}
               imageLabel={newsItem?.isAddImageLabel}

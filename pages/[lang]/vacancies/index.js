@@ -6,9 +6,10 @@ import { Helmet } from 'react-helmet'
 import { vacancies } from '../../../data/vacancies'
 import { InputSelect } from '../../../components/inputs/inputSelect'
 import useTranslate from '../../../i18n/translator'
+import { useRouter } from 'next/router'
 
 export default function Vacancies({current}) {
-
+  const { query: {lang: lang} } = useRouter()
   const [vacanciesType, setVacanciesType] = useState('vacancies')
   const [vacanciesCountry, setVacanciesCountry] = useState('all')
   const [isShowSpinner, setIsShowSpinner] = useState(false)

@@ -1,13 +1,15 @@
 import React from 'react'
 
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { SpeakerCards, SpeakerCard } from '../components/speakerCard'
-import { SchoolProject, SchoolProject_Card } from '../components/schoolProject'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { SpeakerCards, SpeakerCard } from '../../components/speakerCard'
+import { SchoolProject, SchoolProject_Card } from '../../components/schoolProject'
 import { Helmet } from 'react-helmet'
-import { Button } from '../components/button'
+import { Button } from '../../components/button'
+import { useRouter } from 'next/dist/client/router'
 
 export default function ManagementSchool(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Helmet>
@@ -566,7 +568,7 @@ export default function ManagementSchool(props) {
                   <p className="titleBlock">В Школе принимали участие сотрудники из ТюмГУ, ТИУ, ТюмГМУ,
                     ХМГМА, СурГУ, ЮГУ, ТюмНЦ СО РАН и ООО «Инновационная компания «МЕТАКОН», АНО «Культура
                     Сибири», ООО Группа компаний «СЕВЕР», ООО «Ивент» и ООО «Тёплый дом»</p>
-                  <a href="/managementSchool2019-2020" className='link_event link_event__noBorder raleway_bold mt_low'>Полное
+                  <a href={`/${lang}/managementSchool2019-2020`} className='link_event link_event__noBorder raleway_bold mt_low'>Полное
                     расписание первого
                     потока 2019-2020
                     <svg

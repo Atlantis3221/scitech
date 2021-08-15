@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 const Experts = props => {
   const router = useRouter()
   const { id } = router.query
-
+  const { lang } = router.query
   const data = experts.findById(id)
   console.log(data)
   return (

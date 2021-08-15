@@ -1,13 +1,15 @@
 import React from 'react'
-import { Schedule } from '../components/schedule'
+import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
-import { Partner } from '../components/partner'
-import { EventItem_guest, EventItem_guests } from '../components/eventItem'
-import { StrongText } from '../components/strongText'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
+import { Partner } from '../../components/partner'
+import { EventItem_guest, EventItem_guests } from '../../components/eventItem'
+import { StrongText } from '../../components/strongText'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { useRouter } from 'next/dist/client/router'
 
 export default function ScientificPracticalConference(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout>
@@ -183,7 +185,7 @@ export default function ScientificPracticalConference(props) {
                 </li>
                 <li className='i3_9'>
                   <p>
-                    <a href='/events' className="mt_low">I Международная научно-практическая конференция Центра развития компетенций Западно-Сибирского
+                    <a href={`/${lang}/events`} className="mt_low">I Международная научно-практическая конференция Центра развития компетенций Западно-Сибирского
                       межрегионального научно-образовательного центра мирового уровня «Наука. Лидерство. Общество», 2020 год. </a>
                   </p>
                 </li>

@@ -1,16 +1,15 @@
 import React from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { EventItem, EventItem_Container } from '../components/eventItem'
-import { Schedule } from '../components/schedule'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { EventItem, EventItem_Container } from '../../components/eventItem'
+import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/dist/client/router'
 
-// const endEvent = Date.parse(new Date('10 20 2020'))  // 20-го октября 2020
-// const today = Date.now()
-// const isShowRegistrationButton = today < endEvent
 const isShowRegistrationButton = false
 
 export default function RoundTable(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout>

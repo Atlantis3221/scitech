@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Layout } from '../../components/layout'
-import { newsSMI } from '../../data/newsSMI'
+import { Layout } from '../../../components/layout'
+import { newsSMI } from '../../../data/newsSMI'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
-import { getDefineNews } from '../../helpers/axios'
+import { getDefineNews } from '../../../helpers/axios'
 import processEvent, { convertToDate } from '../news/processEvent'
 
 const NewsSMI = props => {
+  const { query: {lang: lang} } = useRouter()
   const [defineNews, setDefineNews] = useState({})
   const router = useRouter()
   const { id } = router.query
@@ -66,7 +67,7 @@ const NewsSMI = props => {
           <div className='content'>
             <ul className='g3'>
               <li className='i3_3'>
-                <a href="/news" className='link_event link_event__toNews'>Новости центра
+                <a href={`/${lang}/news`} className='link_event link_event__toNews'>Новости центра
                   <svg
                     width='12'
                     height='12'
@@ -82,7 +83,7 @@ const NewsSMI = props => {
                     />
                   </svg>
                 </a>
-                <a href="/newsSMI" className='link_event link_event__toNews active'>СМИ о нас
+                <a href={`/${lang}/newsSMI`} className='link_event link_event__toNews active'>СМИ о нас
                   <svg
                     width='12'
                     height='12'
@@ -110,7 +111,7 @@ const NewsSMI = props => {
                           dangerouslySetInnerHTML={{ __html: defineNews?.description }}
                         />
                         <a
-                          href={defineNews?.sourceLink}
+                          href={`${defineNews?.sourceLink}`}
                           className='link_event link_event__noBorder raleway_bold mt_low'>
                           Источник: {defineNews?.source}
                           <svg

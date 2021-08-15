@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { Day7, Day11, Day18, Day25, Day29, Day2, Day9, Day16, Day23, Day30 } from '../components/events/newEventDays'
-import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
-import { Partner } from '../components/partner'
-import { DateItem, DateSwitcher } from '../components/dateSwicher/dateSwicher'
-import { EventItem, EventItem_Container } from '../components/eventItem'
-import { Schedule } from '../components/schedule'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { Day7, Day11, Day18, Day25, Day29, Day2, Day9, Day16, Day23, Day30 } from '../../components/events/newEventDays'
+import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
+import { Partner } from '../../components/partner'
+import { DateItem, DateSwitcher } from '../../components/dateSwicher/dateSwicher'
+import { EventItem, EventItem_Container } from '../../components/eventItem'
+import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/dist/client/router'
 
 const days = {
   '7': <Day7 />,
@@ -25,6 +26,7 @@ const days = {
 const isShowRegistrationButton = false
 
 export default function GameMethodsInEducation(props) {
+  const { query: {lang: lang} } = useRouter()
   const [day, setDay] = useState('7')
   return (
     <Page>
@@ -303,7 +305,7 @@ export default function GameMethodsInEducation(props) {
                 <p>Место проведения: дистанционно, онлайн на платформе Zoom.</p>
                 <p>Стоимость обучения на курсе — 12 000 &#x20bd; для одного участника. </p>
                 <p>Стоимость обучения для группы сотрудников вуза (от 5 до 8 человек) – 48000 &#x20bd;.</p>
-                <p>Заявки принимаются через заполнение <a href='/gameMethodsInEducation'>электронной формы.</a></p>
+                <p>Заявки принимаются через заполнение <a href={`/${lang}//gameMethodsInEducation`}>электронной формы.</a></p>
                 <p>Вопросы заключения договоров и содержательные вопросы – Латышев Андрей, тел: <a href='tel:+7 (905) 089 67 47'>+7 (905) 089 67 47</a>,
                   e-mail: <a href='mailto:a.s.latyshev@utmn.ru'>a.s.latyshev@utmn.ru.</a> </p>
                 <p>Бусыгина Наталья, тел: <a href='tel:+7 (904) 490 45 74'>+7 (904) 490 45 74</a> (WhatsApp, Viber),

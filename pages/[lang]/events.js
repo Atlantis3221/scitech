@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { Day24 } from '../components/events/day24'
-import { Day25 } from '../components/events/day25'
-import { Day26 } from '../components/events/day26'
-import { Day27 } from '../components/events/day27'
-import { Day28 } from '../components/events/day28'
-import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
-import { Partner } from '../components/partner'
-import { StrongText } from '../components/strongText'
-import { DatePlace } from '../components/datePlace'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { Day24 } from '../../components/events'
+import { Day25 } from '../../components/events'
+import { Day26 } from '../../components/events'
+import { Day27 } from '../../components/events'
+import { Day28 } from '../../components/events'
+import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
+import { Partner } from '../../components/partner'
+import { StrongText } from '../../components/strongText'
+import { DatePlace } from '../../components/datePlace'
 
-import { DateItem, DateSwitcher } from '../components/dateSwicher/dateSwicher'
-import { SchoolProject } from '../components/schoolProject'
+import { DateItem, DateSwitcher } from '../../components/dateSwicher/dateSwicher'
+import { SchoolProject } from '../../components/schoolProject'
 import { Helmet } from 'react-helmet'
 import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
-import { getContentfulNews } from '../helpers/axios'
+import { getContentfulNews } from '../../helpers/axios'
+import { useRouter } from 'next/dist/client/router'
 
 const days = {
 	'24': <Day24/>,
@@ -28,6 +29,7 @@ const days = {
 
 
 export default function EventsPage({  data  }) {
+	const { query: {lang: lang} } = useRouter()
 	const [day, setDay] = useState('24')
 	const [allContentfulNews, setContentfulNews] = useState([])
 

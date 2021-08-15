@@ -4,12 +4,14 @@ import { Layout } from '../../components/layout'
 import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { SchoolProject } from '../../components/schoolProject'
-import { ContentfulNewsWidget } from '../news/contentfulNewsWidget'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 import { Button } from '../../components/button'
 import { getContentfulNews } from '../../helpers/axios'
+import { useRouter } from 'next/dist/client/router'
+import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 
 export default function DevelopmentProjectZima({  data  }) {
+  const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
 
   useEffect(() => {

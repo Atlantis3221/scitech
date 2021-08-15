@@ -1,9 +1,11 @@
 import React from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/dist/client/router'
 
 export default function DigitalProfile(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout style={{

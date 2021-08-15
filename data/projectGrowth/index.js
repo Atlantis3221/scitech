@@ -1,5 +1,15 @@
 export const projectGrowth = [
   {
+    _id: 'strategicEducationalIntensive',
+    link: '/strategicEducationalIntensive',
+    name: 'Интенсив',
+    cardType: ['now', 'courses'],
+    projectDate: '16 - 19 Сен 2021',
+    location: 'Тюмень',
+    image: '/img/developmentProjects/bgLily.svg',
+    title: 'Стратегический образовательный интенсив',
+  },
+  {
     _id: 'scientificPracticalConference',
     link: '/scientificPracticalConference',
     name: 'Конференция',

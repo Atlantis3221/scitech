@@ -1,10 +1,12 @@
 import React from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { Schedule } from '../components/schedule'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/dist/client/router'
 
 export default function FlagmanSchoolPresentation(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout>
@@ -70,8 +72,8 @@ export default function FlagmanSchoolPresentation(props) {
                     <em className="pt2">Трансляция состоится на площадке Leader ID. Присоединяйтесь!</em>
                   </p>
                   <p>
-                    <em className="pt2">Узнать подробнее о программах и зарегистрироваться в <a href="/school">Школу научного
-                      лидерства</a>, в <a href="/managementSchool">Школу руководителей научно-технических проектов</a></em>
+                    <em className="pt2">Узнать подробнее о программах и зарегистрироваться в <a href={`/${lang}/school`}>Школу научного
+                      лидерства</a>, в <a href={`/${lang}/managementSchool`}>Школу руководителей научно-технических проектов</a></em>
                   </p>
                 </li>
               </ul>

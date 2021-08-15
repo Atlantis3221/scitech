@@ -1,17 +1,15 @@
 import React from 'react'
-import { Page } from '../components/page'
-import { Layout } from '../components/layout'
-import { SpeakerCard, SpeakerCards } from '../components/speakerCard'
-import { Partner } from '../components/partner'
-import { Schedule } from '../components/schedule'
+import { Page } from '../../components/page'
+import { Layout } from '../../components/layout'
+import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
+import { Partner } from '../../components/partner'
+import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/dist/client/router'
 
-// const endEvent = Date.parse(new Date('10 28 2020'))  // 28-го октября 2020
-// const today = Date.now()
-// const isShowRegistrationButton = today < endEvent
-const isShowRegistrationButton = false
 
 export default function RecruitingPriceDevelopEvent(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout>
@@ -221,7 +219,7 @@ export default function RecruitingPriceDevelopEvent(props) {
                 <p>- 19 000 &#x20bd; для одного участника.</p>
                 <p>- 15 000 &#x20bd; для одного участника, представляющего организации участников Западно-Сибирского НОЦ.</p>
                 <p>- 30 000 &#x20bd; для группы от 3 до 4 человек от одной организации.</p>
-                <p>Заявки принимаются через заполнение <a href='/recruitingPriceDevelopEvent'>электронной формы.</a></p>
+                <p>Заявки принимаются через заполнение <a href={`/${lang}/recruitingPriceDevelopEvent`}>электронной формы.</a></p>
                 <p>Справки и консультации по программе курсу и общим вопросам заключения договоров:</p>
                 <p>Селиванова Наталья, e-mail: <a href='mailto:natalia.selivanova@scitech.ru'>natalia.selivanova@scitech.ru</a> </p>
                 <p><a href="https://scitech.ru">Scitech.ru</a> - Информация о Центре развития компетенций</p>

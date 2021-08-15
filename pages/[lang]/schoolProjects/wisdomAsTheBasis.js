@@ -5,8 +5,10 @@ import { Layout } from '../../../components/layout'
 import {SpeakerCards, SpeakerCard} from '../../../components/speakerCard'
 import { SchoolProject, SchoolProject_Card } from '../../../components/schoolProject'
 import { Helmet } from 'react-helmet'
+import { useRouter } from 'next/router'
 
 export default function WisdomAsTheBasis(props) {
+    const { query: {lang: lang} } = useRouter()
     return (
         <Page>
             <Layout style={{
@@ -295,7 +297,7 @@ export default function WisdomAsTheBasis(props) {
                                         <li className='i3_12'>
                                             <ul className='g3'>
                                                 <li className='i3_12'>
-                                                    <a href="/events" className="raleway raleway_bold"> Посмотреть доклад</a>
+                                                    <a href={`/${lang}/events`} className="raleway raleway_bold"> Посмотреть доклад</a>
                                                 </li>
                                             </ul>
                                         </li>

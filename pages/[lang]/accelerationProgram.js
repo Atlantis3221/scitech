@@ -6,8 +6,10 @@ import { Partner } from '../../components/partner'
 import { StrongText } from '../../components/strongText'
 import { Helmet } from 'react-helmet'
 import { Button } from '../../components/button'
+import { useRouter } from 'next/dist/client/router'
 
 export default function AccelerationProgram(props) {
+  const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout style={{
