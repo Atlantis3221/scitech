@@ -32,7 +32,7 @@ type IColors = {
     yellow: IColoredInputs
 }
 
-type IRegModalInput = "participationType" | "firstName" | "lastName" | "role" | "amount" | "theme" | "phone" | "year" | "policy" | "email"
+type IRegModalInput = "participationType" | "name" | "role" | "amount" | "theme" | "phone" | "year" | "policy" | "email" | "company"
 
 
 type IRegModalState = {
@@ -90,7 +90,7 @@ const ModalsContextProvider = ({ children }: Props) => {
   const modalService = new ModalService(dispatch)
   const [regModalState, setRegModalState] = useState<IRegModalState>({
     color: "red",
-    inputs: ["firstName", "lastName"]
+    inputs: ["name", "phone", "participationType"]
   })
 
   return (

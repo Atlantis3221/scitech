@@ -9,6 +9,7 @@ import PhoneInput from 'react-phone-input-2'
 import { isValidPhoneNumber } from "react-phone-number-input";
 import Warning from "../../icons/warning"
 import Checkbox from "../../inputs/Checkbox"
+import ValidatedPhoneInput from "../../inputs/ValidatedPhoneInput"
 
 export const Colors = {
     red: {
@@ -29,24 +30,27 @@ export const Colors = {
     }
 }
 
+
+
 type IRegState = {
-    firstName?: string,
-    lastName?: string,
-    participationType?: string,
+    name?: string,
+    participationType?: ParticipationEnum,
     role?: string,
     amount?: string,
     theme?: string,
     phone?: string,
     year?: string,
     email?: string,
-    policy?: boolean
+    policy?: boolean,
+    company?: string
 }
 
+type ParticipationEnum = "Индивидуальное" | "Групповое"
 
-    const radioValues = ["Индивидуальное", "Групповое"]
+
+    const radioValues: ParticipationEnum[] = ["Индивидуальное", "Групповое"]
     const initialState: IRegState = {
-        firstName: "",
-        lastName: "",
+        name: "",
         participationType: radioValues[0],
         role: "",
         amount: "",
@@ -54,11 +58,11 @@ type IRegState = {
         year: "",
         email: "",
         phone: "",
-        policy: false
+        policy: false,
+        company: ""
     }
-    const validators = {
-        firstName: ValidatorService.default,
-        lastName: ValidatorService.default,
+   export const validators = {
+        name: ValidatorService.default,
         participationType: ValidatorService.default,
         role: ValidatorService.default,
         amount: ValidatorService.default,
@@ -76,6 +80,14 @@ const RegModal = () => {
     const isOpen = modalsState[modal]
     const [state, setState] = useState(initialState)
     const [errors, setErrors] = useState(initialErrors)
+    const [addtionalNames, setAdditionalNames] = useState({
+        name1: '',
+        name2: "",
+        name3: "",
+        name4: "",
+        name5: "",
+        name6: ""
+    })
 
     const validate = () => {
         const obj = regModalState.inputs.reduce((acc, curr) => {
@@ -110,125 +122,153 @@ const RegModal = () => {
             transistion-all duration-300 transform origin-center
             pt-14 px-6 md:px-14 pb-10`}>
             <div className={`md:grid grid-cols-4 gap-y-4 text-white`}>
-                {regModalState.inputs.includes("participationType") &&
-                <>
-               <div className={`col-span-1`}>
-                Тип участия
-               </div>
-               <div className={`col-span-3`}>
-                     {radioValues.map(a => {
-                    return <div className={`w-6 h-6 mb-2`}>
-                        <Radio value={a} state={state} setState={setState} color={Colors[regModalState.color].checkbox} name={"participationType"}/>
-                    </div>
-                    })}
-                </div>
-                </>}
-                {regModalState.inputs.includes("firstName") &&
-                <>
-                <div className={`col-span-1`}>
-                    Имя
-                </div>
-                <div className={`col-span-3`}>
-                    <ValidatedTextInput errors={errors} state={state} name={"firstName"} setState={setState}/>
-                </div>
-                </>
-                }
-                {regModalState.inputs.includes("lastName") &&
-                <>
-                <div className={`col-span-1 flex items-center`}>
-                    Фамилия
-                </div>
-                <div className={`col-span-3`}>
-                    <ValidatedTextInput errors={errors} state={state} name={"lastName"} setState={setState}/>
-                </div>
-                </>
-                }
-                {regModalState.inputs.includes("role") &&
-                <>
-                <div className={`col-span-1 flex items-center`}>
-                    Должность
-                </div>
-                <div className={`col-span-3`}>
-                    <ValidatedTextInput errors={errors} state={state} name={"role"} setState={setState}/>
-                </div>
-                </>}
-                {regModalState.inputs.includes("amount") &&
-                <>
-                <div className={`col-span-1 mb-1 flex items-center`}>
-                    Количество человек
-                </div>
-                <div className={`col-span-3`}>
-                    <ValidatedTextInput errors={errors} state={state} name={"amount"} setState={setState}/>
-                </div>
-                </>}
-                {regModalState.inputs.includes("year")  &&
-                <>
-                <div className={`col-span-1 flex items-center`}>
-                    Год аспирантуры 
-                </div>
-                <div className={`col-span-3`}>
-                    <ValidatedTextInput errors={errors} state={state} name={"year"} setState={setState}/>
-                </div>
-                </>}
-                {regModalState.inputs.includes("phone") &&
-                <>
-                <div className={`col-span-1 flex items-center`}>
-                    Номер телефона
-                </div>
-                 <div className={`col-span-3 relative z-30`}>
-                 <PhoneInput
-                    inputStyle={{
-                        width: "100%",
-                        paddingTop: "0.5rem",
-                        paddingBottom: "0.5rem",
-                        height: "3rem"
-                    }}
-                    country="ru"
-                    value={state["phone"]}
-                    onChange={(e) => {
-                        setState({
-                            ...state,
-                            phone: e
-                        })
-                    }}
-                    containerStyle={{
-                        zIndex:30
-                    }}
-                    dropdownStyle={{
-                        zIndex:30
-                    }}
-                    buttonStyle={{
-                        zIndex: 30
-                    }}
-                    dropdownClass={`absolute top-10 left-0`}
-                    containerClass={`w-full text-black`}
-                    />
-                        <div className={`w-6 h-6 absolute top-3 right-3 z-30`}>
-                            {errors["phone"] && <Warning/>}
+                {regModalState.inputs.map(input => {
+                    if (input === "name") {
+                        if (state.participationType === "Индивидуальное") {
+                            return (
+                                <>
+                                <div className={`col-span-1 flex items-center`}>
+                                    Имя и фамилия
+                                </div>
+                                <div className={`col-span-3`}>
+                                    <ValidatedTextInput errors={errors} state={state} name={"name"} setState={setState} setErrors={setErrors}/>
+                                </div>
+                                </>
+                            )
+                        }
+                        else {
+                            return (
+                                <>
+                                <div className={`col-span-1 flex items-center`}>
+                                    Имя и фамилия
+                                </div>
+                                <div className={`col-span-3`}>
+                                    <ValidatedTextInput errors={errors} state={state} name={"name"} setState={setState} setErrors={setErrors}/>
+                                </div>
+                                {Object.keys(addtionalNames).map(name => {
+                                    return (
+                                        <>
+                                        <div className={`col-span-1 flex items-center`}>
+                                        Имя и фамилия
+                                        </div>
+                                        <div className={`col-span-3`}>
+                                            <ValidatedTextInput errors={{
+                                                [name]: false
+                                            }} state={addtionalNames} name={name} setState={setAdditionalNames} setErrors={setErrors}/>
+                                        </div>
+                                        </>
+                                    )
+                                })}
+                                </>
+                                
+                            )
+                            
+                        }
+                    }
+                    if (input === "email") {
+                        return (
+                            <>
+                            <div className={`col-span-1 flex items-center`}>
+                                Email
+                            </div>
+                            <div className={`col-span-3`}>
+                                <ValidatedTextInput setErrors={setErrors} errors={errors} state={state} name={"email"} setState={setState}/>
+                            </div>
+                            </>
+                        )
+                    }
+                    if (input === "participationType") {
+                        return (
+                            <>
+                            <div className={`col-span-1`}>
+                             Тип участия
+                            </div>
+                            <div className={`col-span-3`}>
+                                  {radioValues.map(a => {
+                                 return <div className={`w-6 h-6 mb-2`}>
+                                     <Radio value={a} state={state} setState={setState} color={Colors[regModalState.color].checkbox} name={"participationType"}/>
+                                 </div>
+                                 })}
+                             </div>
+                             </>
+                        )
+                    }
+                    if (input === "amount") {
+                        return (
+                            <>
+                            <div className={`col-span-1 mb-1 flex items-center`}>
+                                Количество человек
+                            </div>
+                            <div className={`col-span-3`}>
+                                <ValidatedTextInput setErrors={setErrors} errors={errors} state={state} name={"amount"} setState={setState}/>
+                            </div>
+                            </>
+                        )
+                    }
+                    if (input === "role") {
+                        return (
+                            <>
+                            <div className={`col-span-1 flex items-center`}>
+                                Должность
+                            </div>
+                            <div className={`col-span-3`}>
+                                <ValidatedTextInput setErrors={setErrors} errors={errors} state={state} name={"role"} setState={setState}/>
+                            </div>
+                            </>
+                        )
+                    }
+                    if (input === "year") {
+                       return (
+                        <>
+                        <div className={`col-span-1 flex items-center`}>
+                            Год аспирантуры 
                         </div>
-                </div>
-                </>
-                }
-                {regModalState.inputs.includes("email") &&
-                <>
-                <div className={`col-span-1 flex items-center`}>
-                    Email
-                </div>
-                <div className={`col-span-3`}>
-                    <ValidatedTextInput errors={errors} state={state} name={"email"} setState={setState}/>
-                </div>
-                </>
-                }
-                <div className={`col-span-1`}>
+                        <div className={`col-span-3`}>
+                            <ValidatedTextInput setErrors={setErrors} errors={errors} state={state} name={"year"} setState={setState}/>
+                        </div>
+                        </>
+                       ) 
+                    }
+                    if (input === "phone") {
+                        return (
+                            <>
+                            <div className={`col-span-1 flex items-center`}>
+                                Номер телефона
+                            </div>
+                             <div className={`col-span-3 relative z-30`}>
+                                <ValidatedPhoneInput  setErrors={setErrors} errors={errors} state={state} setState={setState}/>
+                            </div>
+                            </>
+                        )
+                    }
+                    if (input === "policy") {
+                        return (
+                            <>
+                            <div className={`col-span-1`}/>
+                            <div className={`col-span-3`}>
+                                <div style={{
+                                    color: Colors[regModalState.color].checkbox
+                                }} className={`w-6 h-6`}>
+                                    <Checkbox state={state} setState={setState} name={"policy"}/>
+                                </div>
+                            </div>
+                            </>
+                        )
+                    }
+                    if (input === "company") {
+                        return (
+                            <>
+                            <div className={`col-span-1 flex items-center`}>
+                               Организация
+                            </div>
+                            <div className={`col-span-3`}>
+                                <ValidatedTextInput setErrors={setErrors} errors={errors} state={state} name={"company"} setState={setState}/>
+                            </div>
+                            </>
+                        )
+                    }
+                })}
 
-                </div>
-                <div className={`col-span-3`}>
-                    <div style={{
-                        color: Colors[regModalState.color].checkbox
-                    }} className={`w-6 h-6`}>
-                        <Checkbox state={state} setState={setState} name={"policy"}/>
-                    </div>
-                </div>
                 <div className={`col-span-1`}>
 
                 </div>
