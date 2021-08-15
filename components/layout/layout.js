@@ -31,7 +31,8 @@ export const LayoutDefaults = {
 export function Layout(props) {
   const router = useRouter()
   const pathname = router.pathname
-  const isShownNewsLine = (/news/ig).test(pathname) !== true;
+  const lang = router.query
+  const isShownNewsLine = lang.lang !== 'en' && (/news/ig).test(pathname) !== true;
 
   const {
     header = LayoutDefaults.header,
@@ -45,7 +46,7 @@ export function Layout(props) {
 
   return (
     <div>
-      { isShownNewsLine && <NewsLine/> }
+      { isShownNewsLine && <NewsLine lang={lang}/> }
       <div {...$()} style={style}>
       {header && <div {...$(UI_HEADER)}>{header}</div>}
       <div {...$(UI_MAIN)}>

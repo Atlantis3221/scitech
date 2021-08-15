@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
 import Link from "next/link";
-import { useRouter } from 'next/dist/client/router'
 
 /** ProjectGrowthCardContainer
  *  @param props
  *  @param props.children
  *  @return {any}
  */
-export function ProjectGrowthCardContainer(props) {
+export function ProjectGrowthCardContainer({ lang, children }) {
   const [isNothingFound, setIsNothingFound] = useState(false)
 
   useEffect(() => {
@@ -22,7 +21,9 @@ export function ProjectGrowthCardContainer(props) {
   })
 
     return <div className="projectGrowthCardContainer">
-        {isNothingFound ? <p className="nothingIsFound">Похоже, ничего не найдено, попробуйте убрать фильтры.</p> : props.children}
+        {isNothingFound ? (<p className="nothingIsFound">
+          {lang === 'ru'? 'Похоже, ничего не найдено, попробуйте убрать фильтры.' : 'Sorry, nothing was found, try to remove the filters.'}
+        </p>) : children}
     </div>
 }
 
@@ -41,8 +42,7 @@ export function ProjectGrowthCardContainer(props) {
  *  @return {any}
  */
 export function ProjectGrowthCard(props) {
-  const { query: {lang: lang} } = useRouter()
-    const { cardType, isShown, image, name, title, titleDescription, link, deadline, projectDate, location, price } = props
+    const { cardType, isShown, image, name, title, titleDescription, link, deadline, projectDate, location, price, lang } = props
 
     function isShownCard() {
       if(isShown[0] !== null && (isShown[1] === null || isShown[1] === 'all')) {

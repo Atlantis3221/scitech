@@ -9,8 +9,9 @@ import { Button } from '../../components/button'
 import { getContentfulNews } from '../../helpers/axios'
 import { useRouter } from 'next/dist/client/router'
 import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
+import Translator from '../../i18n/translator'
 
-export default function DevelopmentProjectZima({  data  }) {
+export default function DevelopmentProjectZima({  data, current  }) {
   const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
 
@@ -22,13 +23,13 @@ export default function DevelopmentProjectZima({  data  }) {
     <Page>
       <Layout>
         <Helmet>
-          <meta name="description" content='ЗИМА 21 - первая открытая акселерация научно-исследовательских и научно-технических проектов и команд' />
-          <meta name="keywords" content='первая открытая акселерация научно-исследовательских и научно-технических проектов и команд' />
+          <meta name="description" content={current["zime"]}/>
+          <meta name="keywords" content={current["zime"]} />
           <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/developmentProjectZima`} />
-          <meta property="og:title" content='первая открытая акселерация научно-исследовательских и научно-технических проектов и команд' />
-          <meta property="og:description" content='ЗИМА 21 - первая открытая акселерация научно-исследовательских и научно-технических проектов и команд' />
-          <title>ЗИМА 21 - первая открытая акселерация научно-исследовательских и научно-технических проектов и команд</title>
+          <meta property="og:title" content={current["zime"]}/>
+          <meta property="og:description" content={current["zime"]} />
+          <title>{current["zime"]}</title>
           <link rel="canonical" href={`https://scitech.ru/developmentProjectZima`} />
         </Helmet>
 
@@ -37,10 +38,10 @@ export default function DevelopmentProjectZima({  data  }) {
             <div className='content pb0'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>акселератор</p>
+                  <p className='asideMarker'>{current["акселератор"]}</p>
                 </li>
                 <li className='i3_9'>
-                  <h1>«Западно-Сибирский инновационный межрегиональный акселератор научно-технических проектов» (ЗИМА 21)</h1>
+                  <h1>{current["zime"]}</h1>
                 </li>
               </ul>
             </div>
@@ -54,38 +55,43 @@ export default function DevelopmentProjectZima({  data  }) {
               <li className='i3_9 wrapper_borderTop'>
                 <ul className='g3'>
                   <li className='i3_12 flex_end'>
-                    <Schedule dataFirst={[,' Март 2021 ']}
-                              dataSecond={[,'Окт 2021']}
-                              place={'онлайн'}
-                              isShowButton={false}
-                              eventLinkToTable="https://docs.google.com/forms/d/e/1FAIpQLSfJfJjrG1F8ROcIZICMe2bmfxSXfOwriXWgfDVDyyCIbNCY1Q/viewform"
-                    />
+                    <div className="schedule_box">
+                      <div className="schedule_date">
+                        <p className="raleway" style={{ margin: '0 0.5rem'}}>{current["Март"]} 2021 </p>
+                        <div className="sting"> -</div><p> {current["Окт"]} 2021</p>
+                      </div>
+
+                      <div className="schedule_place">
+                        <div className={`place_text '}`}>
+                          <div className="place_text_icon">
+                            <img loading="lazy" src='/img/pin.svg' alt='icon'/>
+                            <p className="schedule_time__tiny mt0">{current["онлайн"]}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="raleway">{current["Прием заявок окончен"]}</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li className='i3_12 flex_end m0'>
+                      <div className="schedule_button">
+                        <div className='registerEventForm'>
+                          {/* @todo: add Modal pop-up*/}
+                          <Button bordered-green onClick={() => {}}>
+                            {current["Сообщить о следующем наборе"]}
+                          </Button>
+                          {/*          hideParticipant={false}*/}
+                          {/*          hideSituation={true}*/}
+                          {/*          showOrganizationField={true}*/}
+                          {/*          eventType={'scienceLeadSchoolMyRegion'}*/}
+                          {/*          onSubmit={(e, payload) => {*/}
+
+                        </div>
+                      </div>
                   </li>
                 </ul>
-
-                {/* @todo: add Modal pop-up*/}
-                      <Button bordered-green marginleft onClick={() => {}}>
-                        Сообщить о следующем наборе
-                      </Button>
-
-                {/*      <div>*/}
-                {/*        <div className='registerEventForm_title'>Сообщить о следующем наборе</div>*/}
-                {/*        <RegisterEventForm*/}
-                {/*          // applicationType={true}*/}
-                {/*          hideParticipant={false}*/}
-                {/*          hideSituation={true}*/}
-                {/*          showOrganizationField={true}*/}
-                {/*          eventType={'scienceLeadSchoolMyRegion'}*/}
-                {/*          onSubmit={(e, payload) => {*/}
-                {/*            Requests.methods.insert({*/}
-                {/*              group: 'registrations_schoolMyRegion',*/}
-                {/*              payload,*/}
-                {/*            })*/}
-                {/*            // props.close()*/}
-                {/*          }}*/}
-                {/*        />*/}
-                {/*      </div>*/}
-
               </li>
             </ul>
           </div>
@@ -96,37 +102,28 @@ export default function DevelopmentProjectZima({  data  }) {
             <div className='content'>
               <ul className='g3 relative'>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_mt1'>о проекте</p>
+                  <p className='asideMarker asideMarker_mt1'>{current["О проекте"]}</p>
                 </li>
                 <li className='i3_9'>
-                  <p>Генеральной целью акселерации является выявление перспективных команд и командных лидеров, способных
-                    обеспечить быстрое продвижение научно-технической идеи или прототипа в фокусе ключевых исследовательских
-                    направлении до инновационных продуктов, внедренных в экономику одного из наиболее активно развивающихся
-                    регионов Российской Федерации, представленных Тюменской областью, Ханты-Мансийским автономных округом –
-                    Югрой, Ямало-Ненецким автономным округом.</p>
-                  <p>Стартовый этап программы акселерации (технический отбор) начинается 31 марта 2021 года и направлен на
-                    предварительный сбор заявок от заинтересованных участников. Наибольшие перспективы для поддержки в
-                    рамках акселерации будут иметь научно-исследовательские и прикладные научно-технические проекты,
-                    находящиеся в следующий фокусных тематиках:</p>
-                  <p>— Биобезопасность человека, растений и животных, включая цифровую трансформацию медицинских технологий
-                    и цифровизацию сельского хозяйства.</p>
-                  <p>— Разработки новых технологий в области контроля углеродного баланса и совершенствования контроля
-                    над состоянием окружающей среды.</p>
-                  <p>— Арктика. Ресурсы и качество окружающей среды. Человек в Арктике.</p>
-                  <p>— Цифровая трансформация нефтегазовой индустрии.</p>
-                  <p>— Передовые решения в области образовательных технологий (EdTech // EduNet проекты).</p>
-                  <p>— Другие проекты и темы при условии их соответствия стратегии научно-технологического развития РФ.</p>
-                  <p>Программа акселерации является полностью бесплатной для участников. Команды, успешно защитившие свои
-                    проекты на финальной стадии акселерации, имеют возможность претендовать на следующие формы поддержки:</p>
-                  <p>— Включение в программу Западно-Сибирского НОЦ и партнерские проекты с организациями участниками НОЦ.</p>
-                  <p>— Получение гранта на развитие проекта 1 уровня (до 10 млн руб.), 2 уровня (до 6 млн руб.) и 3 уровня (до 3 млн руб.).</p>
-                  <p>— Включение в тематические Школы и программы Центра развития компетенций Западно-Сибирского НОЦ в 2021 – 2022 году.</p>
+                  <p>{current["zimeAbout1"]}</p>
+                  <p>{current["zimeAbout2"]}</p>
+                  <p>— {current["zimeAbout3"]}</p>
+                  <p>— {current["zimeAbout4"]}</p>
+                  <p>— {current["zimeAbout5"]}</p>
+                  <p>— {current["zimeAbout6"]}</p>
+                  <p>— {current["zimeAbout7"]}</p>
+                  <p>— {current["zimeAbout8"]}</p>
+                  <p>{current["zimeAbout9"]}</p>
+                  <p>— {current["zimeAbout10"]}</p>
+                  <p>— {current["zimeAbout11"]}</p>
+                  <p>— {current["zimeAbout12"]}</p>
                 </li>
               </ul>
             </div>
           </div>
         </div>
 
+        {lang === 'ru' ? (
         <div className='show'>
           <div className='container'>
             <div className='content'>
@@ -150,8 +147,9 @@ export default function DevelopmentProjectZima({  data  }) {
               </ul>
             </div>
           </div>
-        </div>
+        </div>) : null}
 
+        {lang === 'ru' ? (
         <div className='show'>
           <div className='container'>
             <div className='content'>
@@ -311,7 +309,7 @@ export default function DevelopmentProjectZima({  data  }) {
               </ul>
             </div>
           </div>
-        </div>
+        </div>) : null}
 
         <div className='show'>
           <div className='container'>
@@ -319,16 +317,16 @@ export default function DevelopmentProjectZima({  data  }) {
               <ul className='g3'>
                 <li className='i3_3'></li>
                 <li className='i3_9'>
-                  <p className="">Вопросы для уточнения и обсуждение партнерств:</p>
+                  <p className="">{current["Вопросы для уточнения и обсуждение партнерств:"]}</p>
                   <div className="speakerCard">
                     <div className="card_photo">
                       <img src="/img/speaker_latyshev.png" alt="avatar" />
                     </div>
                     <div className="card_text">
                       <p className="card_title">
-                        Латышев Андрей, Проректор, Тюменский Государственный Университет
+                        {current["Латышев Андрей, Проректор, Тюменский Государственный Университет"]}
                       </p>
-                      <p className="card_about"> Руководитель ЦРК, Западно-Сибирский НОЦ.</p>
+                      <p className="card_about"> {current["Руководитель ЦРК, Западно-Сибирский НОЦ."]}</p>
                       <div className="socials">
                         <a href="mailto:a.s.latyshev@utmn.ru" className="socials_mail"></a>
                         <a href="tel:+7 905 089 67 47" className="socials_phone"></a>
@@ -343,6 +341,7 @@ export default function DevelopmentProjectZima({  data  }) {
           </div>
         </div>
 
+        {lang === 'ru' ? (
         <div className="wrapper_partners content">
           <div className="container mb6">
             <ul className="g3">
@@ -360,7 +359,7 @@ export default function DevelopmentProjectZima({  data  }) {
               </li>
             </ul>
           </div>
-        </div>
+        </div>) : null}
 
 
       </Layout>
@@ -369,10 +368,11 @@ export default function DevelopmentProjectZima({  data  }) {
 }
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
   const data = await getContentfulNews();
+  const {current} = Translator("test", ctx.params.lang)
 
   return {
-    props: { data: data.data },
+    props: { data: data.data, current: current["test"] },
   }
 }

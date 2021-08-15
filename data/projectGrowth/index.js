@@ -8,6 +8,7 @@ export const projectGrowth = [
     location: 'Тюмень',
     image: '/img/developmentProjects/bgLily.svg',
     title: 'Стратегический образовательный интенсив',
+    engVersion: false
   },
   {
     _id: 'scientificPracticalConference',
@@ -15,9 +16,10 @@ export const projectGrowth = [
     name: 'Конференция',
     cardType: ['now', 'courses'],
     projectDate: '18 Окт - 23 Окт 2021',
-    location: 'Онлайн',
+    location: 'онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»',
+    engVersion: true
   },
   {
     _id: 'developmentProjectZima',
@@ -25,9 +27,10 @@ export const projectGrowth = [
     name: 'Школа',
     cardType: ['inProcess', 'school'],
     projectDate: 'Мар 2021 - Окт 2021',
-    location: 'Онлайн',
+    location: 'онлайн',
     image: '/img/news/news-31-03.jpg',
     title: 'ЗИМА 21',
+    engVersion: true
   },
   {
     _id: 'school',
@@ -35,9 +38,10 @@ export const projectGrowth = [
     name: 'Школа',
     cardType: ['inProcess', 'school'],
     projectDate: 'Фев 2021 - Фев 2022',
-    location: 'Онлайн',
+    location: 'онлайн',
     image: '/img/developmentProjects/bgGreen.svg',
     title: 'Школа научного лидерства. Science leadership school',
+    engVersion: true
   },
   {
     _id: 'managementSchool',
@@ -45,9 +49,10 @@ export const projectGrowth = [
     name: 'Школа',
     cardType: ['inProcess', 'school'],
     projectDate: 'Фев 2021 - Фев 2022',
-    location: 'Онлайн',
+    location: 'онлайн',
     image: '/img/developmentProjects/bgPink.svg',
     title: 'Школа руководителей научно-технологических проектов',
+    engVersion: true
   },
   {
     _id: 'onlineForumConsortium',
@@ -58,15 +63,17 @@ export const projectGrowth = [
     location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'Онлайн-форум «Научно-образовательные консорциумы. Программы НОЦ и приоритет 2030»',
+    engVersion: false
   },
   {
     _id: 'digitalProfile',
     link: '/digitalProfile',
     name: 'Сервис, Партнерский проект',
     cardType: ['now', 'services'],
-    location: 'Онлайн',
+    location: 'онлайн',
     image: '/img/developmentProjects/digitalProfile.svg',
     title: 'Цифровой профиль исследователя — социальная сеть для ученых',
+    engVersion: true
   },
   {
     _id: 'flagmanSchoolPresentation',
@@ -77,6 +84,7 @@ export const projectGrowth = [
     location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'Онлайн-презентация флагманских школ ЦРК',
+    engVersion: false
   },
   {
     _id: 'tabulaRasa',
@@ -85,9 +93,10 @@ export const projectGrowth = [
     cardType: ['inProcess', 'school'],
     deadline: 'Дедлайн 10 декабря 2020',
     projectDate: 'Ноя 2020 — Июн 2022',
-    location: 'Онлайн',
+    location: 'онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'Tabula Rasa',
+    engVersion: true
   },
   {
     _id: 'gameMethodsInEducation',
@@ -98,6 +107,7 @@ export const projectGrowth = [
     location: 'Онлайн',
     image: '/img/developmentProjects/bgLily.svg',
     title: 'Игровые методы в образовании. Принципы. Теория. Практика',
+    engVersion: false
   },
   {
     _id: 'recruitingPriceDevelopEvent',
@@ -108,6 +118,7 @@ export const projectGrowth = [
     location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: '«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»',
+    engVersion: false
   },
   {
     _id: 'roundTable',
@@ -118,6 +129,7 @@ export const projectGrowth = [
     location: 'Онлайн и офлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'Круглый стол «Трансфер университетских технологий. Будущее стартап-студий»',
+    engVersion: false
   },
   {
     _id: 'projectsDefense',
@@ -128,6 +140,7 @@ export const projectGrowth = [
     location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'Защита проектов Школы научного лидерства и Школы руководителей научно-технических проектов',
+    engVersion: false
   },
   {
     _id: 'events',
@@ -138,6 +151,7 @@ export const projectGrowth = [
     location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'Международная конференция «Наука. Лидерство. Общество» (Science. Leadership. Society)',
+    engVersion: false
   },
   {
     _id: 'accelerationProgram',
@@ -148,5 +162,6 @@ export const projectGrowth = [
     location: 'Онлайн',
     image: '/img/developmentProjects/bgYellow.svg',
     title: 'Акселерационная программа',
+    engVersion: false
   },
 ]

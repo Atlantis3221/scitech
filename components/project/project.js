@@ -7,12 +7,14 @@ import { useRouter } from 'next/router'
  *  @return {any}
  */
 export function Project(props) {
+  const { query: {lang: lang} } = useRouter()
+
     return <div className="show wrapper_project">
         <div className="container">
             <div className="content">
                 <ul className="g3">
                     <li className="i3_3">
-                        <p className="asideMarker white">Проекты</p>
+                        <p className="asideMarker white">{lang === 'ru'? 'Проекты': 'Projects'}</p>
                     </li>
                     <li className="i3_9">
                         <div className="projectCards">

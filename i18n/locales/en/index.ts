@@ -4,23 +4,29 @@ export default {
         "keywords": "наука в россии, развитие науки в тюмене, школа научного лидерства ",
         "pageTitle": "Центр развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня",
         "Головная организация:": "Head organization:",
-        "Центр развития компетенций": "CENTRE FOR COMPETENCE DEVELOPMENT",
-        "руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня": "OF LEADERS OF RESEARCH ORGANIZATIONS, SCIENTIFIC AND TECHNOLOGICAL PROJECTS AND LABORATORIES OF THE WORLD-CLASS WEST SIBERIAN INTERREGIONAL SCIENTIFIC AND EDUCATIONAL CENTRE",
+        "Центр развития компетенций": "Centre for competence development",
+        "руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня": "of leaders of research organizations, scientific and technological projects and laboratories of the world-class west siberian interregional scientific and educational centre",
         "предстоящие события": "Upcoming events",
-        "Стратегический образовательный интенсив: Практика создания и развития карбоновых полигонов и сопутствующих климатических проектов: кадры, технологии, оборудование": "Conference «SCIENCE. LEADERSHIP. SOCIETY – 2050»",
-        "Февраль": "Февраль",
-        "Февраля": "Февраля",
-        "Март": "Март",
-        "Июнь": "Июнь",
-        "Июль": "Июль",
-        "августа": "августа",
-        "Сентября": "Сентября",
-        "Октября": "Октября",
-        "Октябрь": "Октябрь",
-        "Ноябрь": "Ноябрь",
+        "января": "января",
+        "Февраль": "February",
+        "Февраля": "February",
+        "февраля": "February",
+        "мая": "May",
+        "Март": "March",
+        "марта": "March",
+        "Июнь": "June",
+        "Июль": "July",
+        "июля": "July",
+        "августа": "August",
+        "Сентября": "September",
+        "Октября": "October",
+        "Октябрь": "October",
+        "Окт": "Oct",
+        "Ноябрь": "November",
+        "ноября": "November",
 
         "Проекты": "Projects",
-        "II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»": "II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»",
+        "II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»": "Conference «SCIENCE. LEADERSHIP. SOCIETY – 2050»",
         "«Западно-Сибирский инновационный межрегиональный акселератор научно-технических проектов» (ЗИМА 21)": "«Западно-Сибирский инновационный межрегиональный акселератор научно-технических проектов» (ЗИМА 21)",
         "Школа научного лидерства": "School of Scientific Leadership",
         "Школа руководителей научно-технологических проектов": "School of Scientific and Technological Project Management",
@@ -35,7 +41,7 @@ export default {
         "Наша цель — опережающее развитие кадрового потенциала в сфере исследований и разработок в Тюменской области, Ханты-Мансийском автономном округе – Югре и Ямало-Ненецком автономном округе, реализация образовательной функции и развитие человеческого капитала трех регионов.": "Our mission consists in the development of human resources in the field of research and development in Tyumen Oblast, Khanty-Mansi Autonomous Okrug–Yugra and Yamalo-Nenets Autonomous Okrug, as well as the implementation of education and nurturing of human capital in these regions.",
         "Фокус деятельности — Тюменская область, Ханты-Мансийский автономный округ — Югра и Ямало-Ненецкий автономный округ.": "The activities are focused on Tyumen oblast, Khanty-Mansi Autonomous Okrug–Yugra and Yamalo-Nenets Autonomous Okrug.",
         "Центр расположен в Тюмени и Сургуте — это два административно самостоятельных офиса, объединенных единой методологией оценки компетенций и набором образовательных технологий.": "The Centre’s collocation in Tyumen and Surgut comprises two administratively independent offices operating according to a single methodology for assessing competencies and a set of educational technologies.",
-        "Перейти на сайт НОЦ": "Перейти на сайт НОЦ",
+        "Перейти на сайт НОЦ": "Go to the NOC website",
         "Дискуссии и защиты проектных идей являются одним из методов развития компетенций ЦРК": "Дискуссии и защиты проектных идей являются одним из методов развития компетенций ЦРК",
         "Руководители ЦРК комментируют предзащиту участников проекта": "Руководители ЦРК комментируют предзащиту участников проекта",
         "Ментор Школы научного лидерства Ирина Шрайбер с участниками проекта Школы": "Ментор Школы научного лидерства Ирина Шрайбер с участниками проекта Школы",
@@ -73,7 +79,7 @@ export default {
         "Директор ЦКИ СурГУ": "Director of the Computer Engineering Centre, Surgut State University",
         "Исполнительный директор «Краевой фонд науки»": "Executive Director of the Krasnoyarsk Krai Science Foundation",
         "Прототип платформы комплексной оценки и развития компетенций управления сложными научно-техническими проектами и программами, с возможностями удаленного доступа и обработки цифрового следа.": "is a prototype platform for comprehensive assessment and development of competencies for managing complex scientific and technical projects and programmes, with option for remote access and digital footprint processing. ",
-        "Интерактивная ИТ-платформа с современными интерфейсами позволяет обрабатывать информацию о текущей и прогнозной компетенции пользователей, на основе сквозной технологии работы с данными, обеспечивать управление развитием и обучением персонала, формировать проектные команды и оценивать перспективы развития конкретных пользователей.": "An interactive IT platform with modern interfaces is set for processing information about the current and forecasted competence of users, based on end-to-end data technology, providing development management and staff training, organizing project teams and assessing the potential of specific users.",
+        "digitalProfPro": "An interactive IT platform with modern interfaces is set for processing information about the current and forecasted competence of users, based on end-to-end data technology, providing development management and staff training, organizing project teams and assessing the potential of specific users.",
         "Акселерационная программа": "Акселерационная программа",
         "Руководитель ЦРК, и.о. проректора по персоналу и организационному развитию ТюмГУ": "Руководитель ЦРК, и.о. проректора по персоналу и организационному развитию ТюмГУ",
         "Step into Russian Arctic": "Step into Russian Arctic",
@@ -85,14 +91,296 @@ export default {
         "Центр развития компетенций — наш ответ на вопрос, как правильно формировать и развивать проектные команды. В этой логике ЦРК — один из важнейших проектов нашего НОЦ.": "Центр развития компетенций — наш ответ на вопрос, как правильно формировать и развивать проектные команды. В этой логике ЦРК — один из важнейших проектов нашего НОЦ.",
         "И.о. проректора по персоналу и организационному развитию ТюмГУ": "И.о. проректора по персоналу и организационному развитию ТюмГУ",
         "В ЦРК запланирован значительный спектр задач от повышения профессиональной компетентности до формирования информационной системы управления знаниями.": "В ЦРК запланирован значительный спектр задач от повышения профессиональной компетентности до формирования информационной системы управления знаниями.",
-        "В ЦРК запланирован значительный спектр задач от повышения профессиональной и управленческой компетентности руководителей научных, научно-технических проектов и лабораторий в соответствии со Стратегией научно-технологического развития Российской Федерации до формирования информационной системы управления знаниями на принципах цифровых двойников, позволяющей оперативно оценивать и управлять человеческим капиталом в рамках Западно-Сибирского межрегионального научно-образовательного центра мирового уровня.": "В ЦРК запланирован значительный спектр задач от повышения профессиональной и управленческой компетентности руководителей научных, научно-технических проектов и лабораторий в соответствии со Стратегией научно-технологического развития Российской Федерации до формирования информационной системы управления знаниями на принципах цифровых двойников, позволяющей оперативно оценивать и управлять человеческим капиталом в рамках Западно-Сибирского межрегионального научно-образовательного центра мирового уровня.",
+        "review1": "В ЦРК запланирован значительный спектр задач от повышения профессиональной и управленческой компетентности руководителей научных, научно-технических проектов и лабораторий в соответствии со Стратегией научно-технологического развития Российской Федерации до формирования информационной системы управления знаниями на принципах цифровых двойников, позволяющей оперативно оценивать и управлять человеческим капиталом в рамках Западно-Сибирского межрегионального научно-образовательного центра мирового уровня.",
         "ментор и лектор образовательных проектов ЦРК": "ментор и лектор образовательных проектов ЦРК",
         "Ph. D., кандидат физико-математических наук, ученый, исследователь": "Ph. D., кандидат физико-математических наук, ученый, исследователь",
         "Одни из основополагающих принципов Школы Научного Лидерства – междисциплинарность и межкультурность.": "Одни из основополагающих принципов Школы Научного Лидерства – междисциплинарность и межкультурность.",
-        "Научное лидерство как концепция руководства должна позволять немедленную адаптацию исследований и их реализацию в условиях непредвиденных изменений глобального масштаба. В том числе в условиях ограниченных ресурсов. Работа нашей Школы учит действовать и в таких условиях.": "Научное лидерство как концепция руководства должна позволять немедленную адаптацию исследований и их реализацию в условиях непредвиденных изменений глобального масштаба. В том числе в условиях ограниченных ресурсов. Работа нашей Школы учит действовать и в таких условиях.",
+        "review2": "Научное лидерство как концепция руководства должна позволять немедленную адаптацию исследований и их реализацию в условиях непредвиденных изменений глобального масштаба. В том числе в условиях ограниченных ресурсов. Работа нашей Школы учит действовать и в таких условиях.",
         "ментор Школы руководителей научно-технических проектов": "ментор Школы руководителей научно-технических проектов",
-        "Директор Технологического парка ТюмГУ, эксперт по управлению крупными проектами во взаимодействии университет-индустрия, управлению результатами разработок в университетах и их трансферу для использования обществом": "Директор Технологического парка ТюмГУ, эксперт по управлению крупными проектами во взаимодействии университет-индустрия, управлению результатами разработок в университетах и их трансферу для использования обществом",
+        "golubevPro": "Директор Технологического парка ТюмГУ, эксперт по управлению крупными проектами во взаимодействии университет-индустрия, управлению результатами разработок в университетах и их трансферу для использования обществом",
         "Инновационное развитие региона основано сквозных практиках управления технологическими проектами для университетов и бизнеса": "Инновационное развитие региона основано сквозных практиках управления технологическими проектами для университетов и бизнеса",
-        "Директор Технологического парка ТюмГУ, эксперт по управлению крупными проектами во взаимодействии университет - индустрия, управлению результатами разработок в университетах и их трансферу для использования обществом Инновационное развитие региона основано сквозных практиках управления технологическими проектами для университетов и бизнеса. Реализация проектов по созданию новых продуктов и технологий — это основная форма работы консорциума Западно-Сибирского научно-образовательного центра.": "Директор Технологического парка ТюмГУ, эксперт по управлению крупными проектами во взаимодействии университет - индустрия, управлению результатами разработок в университетах и их трансферу для использования обществом Инновационное развитие региона основано сквозных практиках управления технологическими проектами для университетов и бизнеса. Реализация проектов по созданию новых продуктов и технологий — это основная форма работы консорциума Западно-Сибирского научно-образовательного центра.",
+        "golubevReview": "Директор Технологического парка ТюмГУ, эксперт по управлению крупными проектами во взаимодействии университет - индустрия, управлению результатами разработок в университетах и их трансферу для использования обществом Инновационное развитие региона основано сквозных практиках управления технологическими проектами для университетов и бизнеса. Реализация проектов по созданию новых продуктов и технологий — это основная форма работы консорциума Западно-Сибирского научно-образовательного центра.",
+
+
+
+        //  strategicEducationalIntensive
+        "Первый в России": "First in russia",
+
+
+
+
+        //  scientificPracticalConference
+        "scientificPracticalConferenceTitle": "SCIENCE. LEADERSHIP. SOCIETY – 2050 (SLS2050).\n 2nd International " +
+          "Scientific and Practical Conference of the Centre for Competence Development of the world-class West Siberian " +
+          "Interregional Scientific and Educational Centre",
+        "конференция": "CONFERENCE",
+        "Конференция": "Conference ",
+        "«Наука. Лидерство. Общество – 2050»": "«Science. Leadership. Society – 2050»",
+        "Зарегистрироваться": "Register now",
+        "о конференции": "ABOUT THE CONFERENCE",
+        "scientificPracticalConferenceA": "The 2nd international conference with the thematic scope «Man and the Prospects of Humanity in a Dynamically Changing World» will be held on October 18–23, 2021.",
+        "scientificPracticalConferenceB": "The Conference is aimed at discussing topical issues of human development in a changing world, including such existential threats as climate change, social disasters, biosafety disruption and the role of science in combating these threats.",
+        "scientificPracticalConferenceC": "The conference will feature lectures by world-class scientists, round tables with the representatives of science, government, " +
+          "business and society, meetings of representatives of the REC Centres for Competence Development and other institutions. The lecturers will explore approaches, practices and challenges of developing human capital in the R&D field.",
+        "ЦЕЛЬ КОНФЕРЕНЦИИ": "AIMS",
+        "scientificPracticalConference-aim1": "To encourage an international dialogue on the future of humanity and science until 2050.",
+        "scientificPracticalConference-aim2": "To provide a platform for leading scientists, heads of scientific organizations and leading universities, " +
+          "as well as representatives of public authorities and businesses for discussing current challenges of scientific and technological development. This " +
+          "will facilitate collaboration between the participants in implementing breakthrough R&D projects in accordance with the national goals of the Russian Federation.",
+        "онлайн": "online",
+        "ПРОЕКТ СОДЕРЖАНИЯ КОНФЕРЕНЦИИ": "DRAFT PROGRAMME",
+        "3 круглых стола": "3 round tables",
+        "с экспертами мирового уровня по следующим тематикам:": "with world-class experts on the following topics:",
+        "roundtable-1": "Human capital as an important component of the transformational and innovative development of science and technology on the agenda of world-class scientific and educational centres.",
+        "roundtable-2": "Russia's integration into the global climate agenda. Formation and development of carbon polygons. Green values and sustainable development.",
+        "roundtable-3": "The Arctic and people in the Arctic. Future Challenges",
+        "Лекции": "Lectures",
+        "международных и российских экспертов.": "of international and Russian experts.",
+        "Мини-конференции": "Mini-conferences",
+        "ведущих исследовательских команд.": "of leading research teams.",
+        "Дискуссии": "Discussions ",
+        "Обсуждение": "Discussions",
+        "Активизация совместного поиска": "Enhancing ",
+        "с привлечением широкого круга профессиональной общественности.": "involving a wide range of professional communities.",
+        "международного опыта и трансляция его в отечественную практику.": "of international experience and its translation into Russian practice.",
+        "и разработка эффективных моделей сотрудничества науки, органов власти и бизнес-структур.": "joint research and developing effective models of cooperation between scientists, government authorities and business structures.",
+        "ЦЕЛЕВАЯ АУДИТОРИЯ": "TARGET AUDIENCE",
+        "Представители Министерства науки и высшего образования Российской Федерации;": "Representatives of the Ministry of Science and Higher Education of the Russian Federation;",
+        "Представители органов власти регионов НОЦ;": "Representatives of regional authorities of REC;",
+        "Представители НОЦ и ЦРК РФ;": "Representatives of REC and Central Regional Committees of the Russian Federation;",
+        "Представители научно-экспертного сообщества;": "Representatives of the scientific and expert community;",
+        "Представители крупного бизнеса.": "Representatives of large businesses.",
+        "ИНФОРМАЦИЯ О ПРЕДЫДУЩЕЙ КОНФЕРЕНЦИИ": "ABOUT THE PREVIOUS CONFERENCE",
+        "previousScienceLeadSoc": "Previous conference: Science. Leadership. Society 2020",
+        "scienceLeadSocRequest": "Please forward requests for participation in the conference, proposals for partnership and arising questions via",
+        "scienceLeadSocRegistr": "Register now to the 2nd International Scientific and Practical Conference",
+
+
+
+
+
+
+        // development projects
+        "Проекты развития": "Development Projects",
+        "Фильтры": "Filters",
+        "Идет набор": "Now",
+        "В этом месяце": "This month",
+        "Прошедшие": "Past",
+        "В процессе": "In the process",
+        "Тип проекта": "Project type",
+        "Школа": "School",
+        "Курсы и мероприятия": "Courses and events",
+        "Сервисы": "Services",
+        "Время старта": "Start time",
+        "Вакансии и стажировки": "Vacancies and internships",
+        "ЗИМА 21": "«West Siberian interregional innovative accelerator of scientific and R&D projects» (ZIMA 21)",
+        "Школа научного лидерства. Science leadership school": "Science leadership school",
+        "Цифровой профиль исследователя — социальная сеть для ученых": "Researcher's Digital Profile",
+        "Сервис, Партнерский проект": "Service, Partner project",
+        "Дедлайн 10 декабря 2020": "Deadline December 10, 2020",
+        "18 Окт - 23 Окт 2021": "18 Oct - 23 Oct 2021",
+        "Мар 2021 - Окт 2021": "Mar 2021 - Oct 2021",
+        "Фев 2021 - Фев 2022": "Feb 2021 - Feb 2022",
+        "Ноя 2020 — Июн 2022": "Nov 2020 — Jun 2022",
+
+
+
+
+
+
+
+        // SCHOOL OF SCIENTIFIC LEADERSHIP
+        "schoolMeta": "The school brings up a modern generation of scientific leaders capable of managing scientific processes",
+        "Образовательный проект": "Educational project",
+        "Длительность — 1 год": "Duration - 1 year",
+        "оффлайн": "offline",
+        "Прием заявок окончен": "Enrolment completed\n",
+        "Заказать проведение в моем регионе": "Enquire about next enrolment period",
+        "О проекте": "About the project",
+        "school-about1": "The school nurtures a modern generation of scientific leaders capable of managing scientific processes, generating non-standard scientific solutions and bringing cutting-edge research projects to the market.",
+        "school-about2": "We involve scientific leaders from different countries in order to increase Russia's competitiveness in the realm of global research",
+        "school-about3": "A scientific leader should be able to solve research problems under the conditions of limited resources, as well as in the context of unforeseen global changes (COVID-19)",
+        "school-about4": "We create a culture of international and interdisciplinary scientific interaction, transfer of knowledge at the local, regional, federal and international levels\n",
+        "school-about5": "It is an effective tool for creating innovative scientific ideas and implementing relevant research projects that meet acute societal needs",
+        "Сообщество международного уровня": "International community",
+        "Научный лидер — эффективный руководитель": "Scientific leader – Effective manager",
+        "Постоянный обмен опытом": "Ongoing exchange of experience\n",
+        "Междисциплинарная команда": "Interdisciplinary team",
+        "Команда": "Team",
+        "Основные эксперты": "",
+        "Модуль": "Module",
+        "Лидерство и эффективная командная работа в научной среде. Форсайт в науке": "Leadership and effective teamwork in the scientific environment. Foresight in science",
+        "Научный протокол и управление знаниями. Академическое письмо.": "Scientific protocol and knowledge management. Academic writing",
+        "Проектное управление в науке. Разработка и создание устава проекта.": "Project management in science. Design and creation of a project charter",
+        "Фандрайзинг, финансирование и работа с грантовыми фондами. Научная экспертиза": "Fundraising, financing and working with grant funds. Scientific expertise\n",
+        "Коммуникации ученого в современном мире: власть, бизнес, социум": "Scientific communication in the modern world: power, business, society",
+        "Стратегия управления научно-исследовательской деятельностью. Трансфер технологий": "Research management strategy. Transfer of technologies\n",
+        "Линейное управление в научных и научно-технических проектах, центрах, лабораториях": "Linear management in scientific and R&D projects, centres, laboratories",
+        "Подготовка к защитам и защиты проектов": "Preparation and presentation of projects",
+        "Итоги первого потока": "First enrolment stream",
+        "schoolStreamres": "Researchers from various universities of Khanty-Mansi Autonomous Okrug, Yamalo-Nenets Autonomous Okrug and Tyumen",
+        "Полное расписание первого потока 2019-2020": "Full program of 2019–2020 enrolment ",
+        "участников": "participants",
+        "проектов": "projects",
+        "статей в научных журналах": "articles in scientific journals",
+        "грантовых заявок": "grant applications",
+        "повышений до руководителей": "promotions to executive positions",
+        "проекты 1 потока": "PROJECTS prepared by the participants of the first enrolment stream",
+        "professionalGrowth": "Increasing the professional longevity of the newcomer population in Northern areas: Foresight of adjustment strategies",
+        "ecoSafety": "Environmental safety of the Ob-Irtysh basin",
+        "diseaseRisk": "A multilevel system for assessing the risk of cardiovascular disease among workers in the Arctic",
+        "greenTransformation": "Development of a model for the green transformation of a region\n",
+        "smartCitiesInArctic": "Smart cities in the Russian Arctic Polaris: White stars of arctic",
+        "sihirtyaNation": "Sihirtia people – medieval legend of the Arctic: Cultural adaptation and transfer of traditions\n",
+        "wisdomAsTheBasis": "Wisdom as a basis for successful personal and professional development of students along individual educational trajectories\n",
+        "integrationOfGreenTechnologies": "Integration of green technologies into the sustainable development of the Arctic",
+
+
+
+
+
+
+        // managementSchool
+        "managementMeta": "Training of leaders who must ensure the translation of a research idea into an innovative technology or product",
+        "Школа руководителей": "School of scientific",
+        "научно-технических проектов": "and technological project management",
+        "managementSchoolAbout": "Training of leaders capable of turning research ideas into innovative technologies and products (prototypes), generating outside-the-box ideas, facilitating the scaling of innovations, creating new jobs, bringing new products and advanced technologies to the market.",
+        "managementSchoolAbout1": "Space of the new as an opportunity to create new ideas and projects",
+        "managementSchoolAbout2": "Project training and mentoring",
+        "managementSchoolAbout3": "Capacity to solve problems under limited resources",
+        "managementSchoolAbout4": "A culture of cooperation as a key factor in technology development\n",
+        "managementSchoolAbout5": "Entrepreneurship and entrepreneurial spirit, development of business-oriented logic\n",
+        "managementSchoolAbout6": "Setting managerial and business models of the future as a basis for the development of knowledge-intensive technologies",
+        "Основные идеи школы:": "Key concepts:",
+        "Директор Технологического парка ТюмГУ, эксперт по управлению крупными проектами во взаимодействии университет-индустрия": "Director of the Technological Park of Tyumen State University, Expert in management of major projects at the interface between university and industry",
+        "managementModule1": "Strategies for generation, development and implementation of scientific and R&D projects",
+        "managementModule2": "Expertise and design of scientific and R&D projects",
+        "managementModule3": "Management of stakeholders’ interests in scientific and R&D projects (including VC, government, corporate customers, industrial partners)",
+        "managementModule4": "Business model and economics of a scientific and R&D project",
+        "managementModule5": "Organization of work with potential clients of scientific and R&D projects (customer development)",
+        "managementModule6": "Project management and project team management\n",
+        "managementModule7": "International technology transfer and intellectual property protection\n",
+        "managementModule8": "Preparation and presentation of projects",
+        "Итоги первого потока 2019-2020": "Results of the first enrolment stream, 2019–2020",
+        "managementSchoolRes": "The School was attended by employees from Tyumen State University, Industrial University of Tyumen (IUT), Tyumen State Medical University, Khanty-Mansiysk State Medical Academy, Surgut State University, Yugra State University, Tyumen Scientific Centre (RAS Siberian Branch), METAKON Innovation Company Ltd., Kultura Sibiri autonomous non-for-profit organization, SEVER Corporate Group Ltd., Ivent Ltd. and Tepliy Dom Ltd.",
+        "участников выпустились": "graduates",
+        "выигранных грантов": "grants",
+        "выигранных денег": "attracted",
+        "привлеченные деньги от партнеров": "of partner investments",
+        "млн": "mln",
+        "Digital Lean-Lab (DLL): электронная образовательная платформа": "Digital Lean-Lab (DLL): Electronic Education Platform\n",
+        "Мобильная многофункциональная электрическая платформа с дистанционным управлением ElectroBase": "ElectroBase: Mobile multifunctional electrical platform with remote control\n",
+        "FaceDrive - Услуга по идентификации водителя транспортного средства путём распознавания его лица": "FaceDrive: Service for identifying the driver by recognizing his/her face\n",
+        "Интеллектуальная система биологической защиты растений": "Smart system for biological protection of plants",
+
+
+
+
+
+
+
+
+        // developmentProjectZima
+        "акселератор": "accelerator",
+        "zime": "«West Siberian interregional innovative accelerator of scientific and R&D projects» (ZIMA 21)",
+        "Сообщить о следующем наборе": "Enquire about next enrolment period",
+        "zimeAbout1": "The key purpose of acceleration is to identify promising teams and team leaders capable of ensuring rapid transformation of research ideas/prototypes into innovative products and their further economic implementation in such actively developing regions of the Russian Federation as Tyumen Oblast, Khanty-Mansi Autonomous Okrug – Yugra, Yamalo-Nenets Autonomous Okrug.",
+        "zimeAbout2": "The initial stage of the acceleration programme (technical selection) has started on March 31, 2021 with the purpose of a preliminary gathering of applications. The following fundamental and applied R&D topics will have the highest priority:\n",
+        "zimeAbout3": "Biosecurity of humans, plants and animals, including the digital transformation of medical technologies and the digitalization of agriculture",
+        "zimeAbout4": "Development of new technologies in the field of carbon balance control and improvement of environmental control\n",
+        "zimeAbout5": "The Arctic Region. Resources and environmental quality. Man in the Arctic Region\n",
+        "zimeAbout6": "Digital transformation of the oil and gas industry\n",
+        "zimeAbout7": " Advanced solutions in educational technologies (EdTech // EduNet projects)\n",
+        "zimeAbout8": "Other projects and topics specified in the Strategy of Scientific and Technological Development of the Russian Federation",
+        "zimeAbout9": "The acceleration program is completely free for the participants. The teams that have successfully defended their projects at the final stage can apply for the following forms of support:",
+        "zimeAbout10": "Inclusion in the program of the West Siberian REC and partner projects with organizations participating in the REC;",
+        "zimeAbout11": "Winning a grant for the development of a project of level 1 (up to 10 million roubles), level 2 (up to 6 million roubles) and level 3 (up to 3 million roubles).",
+        "zimeAbout12": " Inclusion in the thematic Schools and programs of the Competence Development Centre of the West Siberian REC in 2021 - 2022.",
+        "Вопросы для уточнения и обсуждение партнерств:": "Enquire about the project:",
+        "Латышев Андрей, Проректор, Тюменский Государственный Университет": "Andrey Latyshev, Ideologist,",
+        "Руководитель ЦРК, Западно-Сибирский НОЦ.": "Head of the Centre for Competence Development\n",
+
+
+
+
+
+
+
+        // digitalProfile
+        "digitalProfileMeta": "Partner project of the Center for the Development of Competencies of Heads of Scientific and Scientific and Technical Projects and Laboratories of the interregional West Siberian scientific and educational center of the world level",
+        "digitalProfileAbout1": "Researcher's Digital Profile is a prototype platform for comprehensive assessment and development of competencies for managing complex scientific and technical projects and programmes, with option for remote access and digital footprint processing.",
+        "digitalProfileAbout2": "An interactive IT platform with modern interfaces is set for processing information about the current and forecasted competence of users, based on end-to-end data technology, providing development management and staff training, organizing project teams and assessing the potential of specific users.",
+        "Перейти на сайт": "Go to the website",
+        "Скриншот платформы": "Platform screenshot",
+
+
+
+
+
+
+
+        // Reports
+        "Отчеты о деятельности Центра": "Centre activity reports",
+        "ReportsMeta": "Reports on the activities of the Center for the Development of Competencies of Heads of Scientific and Scientific and Technical Projects and Laboratories of the interregional West Siberian scientific and educational center of the world level",
+        "Итоги и результаты": "Activity Report",
+        "Буклет с итогами года PDF": "Activity Report Booklet, PDF",
+        "Человек прошли обучение": "people trained",
+        "Млн руб. дополнительного финансирования привлечено": "million roubles attracted funding ",
+        "Экспертов": "experts",
+        "Новых научных проектов": "new scientific projects",
+
+
+
+
+
+
+        // POLICY
+        "Политика в отношении обработки персональных данных": "Personal Data Processing Policy",
+        "Общие положения": "General provisions",
+        "policy1": "The present personal data processing policy has been developed in accordance with the requirements of Federal Law No. 152-FZ dated July 27, 2006 «On Personal Data» and determines the procedure for processing personal data and measures to ensure the security of personal data taken by the autonomous non-for-profit organization «Agency for Development of Scientific and Educational projects» (hereinafter refer to as the Operator).",
+        "policy11": "The Operator's most important aim and condition for the implementation of its activities is the observance of human and civil rights and freedoms when processing personal data, including the protection of the rights to privacy, personal and family secrets.",
+        "policy12": " The present policy regarding the processing of personal data (hereinafter referred to as the Policy) applies to all information that the Operator can obtain about visitors of the website https://scitech.ru.",
+        "policy13": "The training platform of the Distance Learning Control System \"DLC-system\" is used for work: http://sdo.mck72.ru\n",
+        "policy14": "All materials and records are not for distribution and are designated only for educational purposes.",
+        "policy2": " Basic concepts used in the Policy\n",
+        "policy21": " Automated processing of personal data refers to processing of personal data using computer technology.",
+        "policy22": "Blocking of personal data means a temporary cessation of the processing of personal data (unless the processing is necessary to clarify personal data).",
+        "policy23": "A website is defined as a set of graphic and information materials, as well as computer programs and databases, ensuring their availability on the Internet at https://scitech.ru.",
+        "policy24": " A personal data information system comprises a set of personal data contained in databases and information technologies and technical means providing its processing.\n",
+        "policy25": " Depersonalization of personal data implies actions resulted in impossibility to identify a particular User to whom personal data relates without additional information.\n",
+        "policy26": " Processing of personal data refers to any action (operation) or a set of actions (operations) performed with personal data using automation tools or without using such tools, including collection, recording, systematization, accumulation, storage, clarification (update, change), extraction, use, transfer (distribution, provision, access), depersonalization, blocking, deletion, and destruction of personal data.\n",
+        "policy27": "An Operator is a state body, municipal body, legal entity or individual, independently or jointly with other persons organizing and/or carrying out the processing of personal data, as well as determining the purposes of processing personal data, the composition of personal data to be processed, actions (operations) performed with personal data.\n",
+        "policy28": " Personal data means any information related directly or indirectly to a particular User of the website https://scitech.ru.",
+        "policy29": "The User is any visitor of the website https://scitech.ru.\n",
+        "policy210": "Provision of personal data implies actions aimed at disclosing personal data to a certain person or a certain circle of persons.\n",
+        "policy211": "Dissemination of personal data means any actions aimed at disclosing personal data to an indefinite circle of persons (transfer of personal data) or at getting acquainted with the personal data by an unlimited number of persons, including the disclosure of personal data in the media, posting or providing access to personal data in any other way.",
+        "policy212": "Cross-border transfer of personal data refers to the transfer of personal data to the territory of a foreign state: to the authority of a foreign state, to a foreign individual or foreign legal entity.\n",
+        "policy213": "Destruction of personal data is defined as any actions causing irrevocable destruction of personal data without the possibility of further restoring of the content in the personal data information system and (or) the destruction of the material carriers of personal data.",
+        "policy3": "The Operator can process the following personal data of the User",
+        "policy31": "Surname, name, patronymic",
+        "policy32": "E-mail address\n",
+        "policy33": " Phone number.",
+        "policy34": " Furthermore, the site collects and processes anonymized data about visitors (including cookies) using Internet statistics services (Yandex Metrica, Google Analytics, and others)",
+        "policy35": " Hereinafter in the text of the Policy, the above data is referred to as the general concept of «Personal data».\n",
+        "policy4": "Aims of personal data processing",
+        "policy41": "Processing of the User's personal data is aimed at informing the User by sending emails.\n",
+        "policy42": "The Operator also has the right to send the User notifications about new products and services, special offers and various events. The user can always refuse to receive notification messages by sending the Operator an email to hi@scitech.ru with a note «Refusal of notifications about new products and services, and special offers».",
+        "policy43": " Anonymized data of Users collected by means of Internet statistics services are used to collect information about the actions of Users on the site, improve the quality of the site and its content.\n",
+        "policy5": " Legal grounds for personal data processing \n",
+        "policy51": "The Operator processes the User's personal data only if they are filled in and|/or sent by the User independently through special forms located on the website https://scitech.ru. The User agrees with this Policy by filling out the appropriate forms and/or sending his/her personal data to the Operator.",
+        "policy52": "The Operator processes anonymized data about the User provided this is allowed in the settings of the User's browser (the storage of cookies and the use of JavaScript technology are enabled).",
+        "policy6": "Procedure for collecting, storing, transferring and other types of processing of personal data",
+        "policy60": "The security of personal data processed by the Operator is ensured by the implementation of legal, organizational and technical measures necessary to fully comply with the requirements of the current legislation in the field of personal data protection.",
+        "policy61": "The Operator ensures the safety of personal data and takes all possible measures to exclude access to personal data by unauthorized persons.",
+        "policy62": "The User's personal data will never, under any circumstances, be transferred to third parties, except in cases related to the implementation of the current legislation.",
+        "policy63": "In cases where inaccuracies in personal data is revealed, the User can update the information independently by sending a notification to the Operator to hi@scitech.ru bearing a note «Updating personal data».\n",
+        "policy64": "The period for processing personal data is unlimited. The user can at any time revoke his/her consent to the processing of personal data by sending a notification to the Operator via e-mail to hi@scitech.ru bearing a note «Revocation of consent to the processing of personal data».\n",
+        "policy7": "Cross-border transfer of personal data",
+        "policy71": "Before starting the cross-border transfer of personal data, the Operator must ensure that the foreign state, to whose territory the personal data is transferred, provides reliable protection of the rights of personal data subjects.",
+        "policy72": "Cross-border transfer of personal data to foreign states that do not meet the above requirements can be carried out only if the subject of personal data provides a written consent to the cross-border transfer of his/her personal data and/or the execution of an agreement to which the subject of personal data is a party.",
+        "policy8": "Final provisions",
+        "policy81": "The User can receive any clarifications on issues of interest regarding the processing of his/her personal data by contacting the Operator via e-mail hi@scitech.ru.",
+        "policy82": " The present document will reflect any changes in the personal data processing policy by the Operator. The policy remains in force indefinitely until it is replaced by a new version.\n",
+        "policy83": " The current version of the Policy is freely available on the Internet at: https://scitech.ru/policy.\n",
     }
 }

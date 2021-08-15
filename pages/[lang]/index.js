@@ -45,7 +45,9 @@ const HomePage = ({  data, current  }) => {
                     <p className='asideMarker'>{current["Головная организация:"]}</p>
                     <div className='mt mb1'>
                       <a href='http://sibnoc.ru' target={'_blank'}  className='sibnoc_link'>
-                        <img src='/img/sibnoc_black.svg' alt='logo' />
+                        {lang === 'ru' ? <img src='/img/sibnoc_black.svg' alt='logo' /> : (
+                          <p>The world-class West Siberian Interregional Scientific and Educational Centre</p>
+                        )}
                       </a>
                     </div>
                   </li>
@@ -69,50 +71,55 @@ const HomePage = ({  data, current  }) => {
                   </li>
                   <li className='i3_9'>
                     <ul className='g3'>
-                      <li className='i3_4'>
-                        <div className='link_toEvent'>
-                          <a href={`/${lang}/strategicEducationalIntensive`} className='link_event'>
-                            {current["Стратегический образовательный интенсив: Практика создания и развития карбоновых полигонов и сопутствующих климатических проектов: кадры, технологии, оборудование"]}
-                            <svg
-                              width='12'
-                              height='12'
-                              viewBox='0 0 12 12'
-                              fill='none'
-                              xmlns='http://www.w3.org/2000/svg'
-                            >
-                              <path
-                                fillRule='evenodd'
-                                clipRule='evenodd'
-                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                fill='#E62C2C'
-                              />
-                            </svg>
-                          </a>
-                          <div className='link_data'>16 - 19 {current["Сентября"]} 2021</div>
-                        </div>
-                      </li>
-                      <li className='i3_4'>
-                        <div className='link_toEvent'>
-                          <a href={`/${lang}/scientificPracticalConference`} className='link_event'>
-                            {current["II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»"]}
-                            <svg
-                              width='12'
-                              height='12'
-                              viewBox='0 0 12 12'
-                              fill='none'
-                              xmlns='http://www.w3.org/2000/svg'
-                            >
-                              <path
-                                fillRule='evenodd'
-                                clipRule='evenodd'
-                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                fill='#E62C2C'
-                              />
-                            </svg>
-                          </a>
-                          <div className='link_data'>18 - 23 {current["Октября"]} 2021</div>
-                        </div>
-                      </li>
+                      {lang === 'ru'? ( <>
+                        <li className='i3_4'>
+                          <div className='link_toEvent'>
+                            <a href={`/${lang}/strategicEducationalIntensive`} className='link_event'>
+                              {current["Стратегический образовательный интенсив: Практика создания и развития карбоновых полигонов и сопутствующих климатических проектов: кадры, технологии, оборудование"]}
+                              <svg
+                                width='12'
+                                height='12'
+                                viewBox='0 0 12 12'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path
+                                  fillRule='evenodd'
+                                  clipRule='evenodd'
+                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                  fill='#E62C2C'
+                                />
+                              </svg>
+                            </a>
+                            <div className='link_data'>16 - 19 {current["Сентября"]} 2021</div>
+                          </div>
+                        </li>
+                      </>) : null}
+
+                        <li className='i3_4'>
+                          <div className='link_toEvent'>
+                            <a href={`/${lang}/scientificPracticalConference`} className='link_event'>
+                              {current["II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»"]}
+                              <svg
+                                width='12'
+                                height='12'
+                                viewBox='0 0 12 12'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path
+                                  fillRule='evenodd'
+                                  clipRule='evenodd'
+                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                  fill='#E62C2C'
+                                />
+                              </svg>
+                            </a>
+                            <div className='link_data'>18 - 23 {current["Октября"]} 2021</div>
+                          </div>
+                        </li>
+
+                      {lang === 'ru'? ( <>
                       <li className='i3_4'>
                         <div className='link_toEvent'>
                           <a href={`/${lang}/developmentProjectZima`} className='link_event'>
@@ -201,6 +208,7 @@ const HomePage = ({  data, current  }) => {
                           <div className='link_data'>{current["Ноябрь"]} 2020 — {current["Июнь"]} 2022</div>
                         </div>
                       </li>
+                      </>) : null}
                     </ul>
                   </li>
                 </ul>
@@ -208,6 +216,90 @@ const HomePage = ({  data, current  }) => {
             </div>
           </div>
 
+          {lang === 'en'? (
+            <div className='show'>
+              <div className='container'>
+                <div className='content'>
+                  <ul className='g3'>
+                    <li className='i3_3'>
+                      <p className='asideMarker'>Current activities</p>
+                    </li>
+                    <li className='i3_9'>
+                      <ul className='g3 mainPageLinks'>
+                        <li className='i3_4'>
+                          <div className='link_toEvent'>
+                            <a href={`/${lang}/school`} className='link_event'>
+                              {current["Школа научного лидерства"]}
+                              <svg
+                                width='12'
+                                height='12'
+                                viewBox='0 0 12 12'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path
+                                  fillRule='evenodd'
+                                  clipRule='evenodd'
+                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                  fill='#E62C2C'
+                                />
+                              </svg>
+                            </a>
+                            <div className='link_data'>{current["Февраль"]} 2021 - {current["Февраль"]} 2022</div>
+                          </div>
+                        </li>
+                        <li className='i3_4'>
+                          <div className='link_toEvent'>
+                            <a href={`/${lang}/managementSchool`} className='link_event'>
+                              {current["Школа руководителей научно-технологических проектов"]}
+                              <svg
+                                width='12'
+                                height='12'
+                                viewBox='0 0 12 12'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path
+                                  fillRule='evenodd'
+                                  clipRule='evenodd'
+                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                  fill='#E62C2C'
+                                />
+                              </svg>
+                            </a>
+                            <div className='link_data'>{current["Февраль"]} 2021 - {current["Февраль"]} 2022</div>
+                          </div>
+                        </li>
+                        <li className='i3_4'>
+                          <div className='link_toEvent'>
+                            <a href={`/${lang}/tabulaRasa`} className='link_event'>
+                              Tabula Rasa
+                              <svg
+                                width='12'
+                                height='12'
+                                viewBox='0 0 12 12'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path
+                                  fillRule='evenodd'
+                                  clipRule='evenodd'
+                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                  fill='#E62C2C'
+                                />
+                              </svg>
+                            </a>
+                            <div className='link_data'>{current["Ноябрь"]} 2020 — {current["Июнь"]} 2022</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>) : null }
+
+          {lang === 'ru'? (
           <div className='show'>
             <div className='container'>
               <div className='content'>
@@ -293,8 +385,9 @@ const HomePage = ({  data, current  }) => {
                 </ul>
               </div>
             </div>
-          </div>
+          </div>) : null }
 
+          {lang === 'ru'? (
           <div className='show'>
             <div className='container'>
               <div className='content'>
@@ -315,7 +408,7 @@ const HomePage = ({  data, current  }) => {
                 </ul>
               </div>
             </div>
-          </div>
+          </div>) : null }
 
           <div className='show'>
             <div className='container'>
@@ -366,19 +459,19 @@ const HomePage = ({  data, current  }) => {
                       </li>
                       <li className='i3_4'>
                         <img className='_responsive' loading="lazy" src='/img/photo_1.jpg' alt='' />
-                        <p className='raleway'>
+                        {lang === 'ru'? ( <p className='raleway'>
                           {current["Дискуссии и защиты проектных идей являются одним из методов развития компетенций ЦРК"]}
-                        </p>
+                        </p> ): null}
                       </li>
                       <li className='i3_8'>
                         <img src='/img/photo_2.jpg' loading="lazy" alt='' />
-                        <p className='raleway'>{current["Руководители ЦРК комментируют предзащиту участников проекта"]}</p>
+                        {lang === 'ru'? (<p className='raleway'>{current["Руководители ЦРК комментируют предзащиту участников проекта"]}</p> ): null}
                       </li>
                       <li className='i3_12'>
                         <img className='_responsive' loading="lazy" src='/img/photo_3.jpg' alt='' />
-                        <p className='raleway'>
+                        {lang === 'ru'? ( <p className='raleway'>
                           {current["Ментор Школы научного лидерства Ирина Шрайбер с участниками проекта Школы"]}
-                        </p>
+                        </p> ): null}
                       </li>
                     </ul>
                   </li>
@@ -510,8 +603,10 @@ const HomePage = ({  data, current  }) => {
               link={`/${lang}/digitalProfile`}
             >
               <p>{current["Прототип платформы комплексной оценки и развития компетенций управления сложными научно-техническими проектами и программами, с возможностями удаленного доступа и обработки цифрового следа."]} </p>
-              <p>{current["Интерактивная ИТ-платформа с современными интерфейсами позволяет обрабатывать информацию о текущей и прогнозной компетенции пользователей, на основе сквозной технологии работы с данными, обеспечивать управление развитием и обучением персонала, формировать проектные команды и оценивать перспективы развития конкретных пользователей."]}</p>
+              <p>{current["digitalProfPro"]}</p>
             </Project_Card>
+
+            {lang === 'ru'? ( <>
             <Project_Card
               title={current["Акселерационная программа"]}
               durations={current["длительность - 2 модуля"]}
@@ -543,8 +638,10 @@ const HomePage = ({  data, current  }) => {
             >
               <p>{current["Уникальная модульная программа по подготовке людей для управления широким спектром проектов в Арктической зоне РФ. Выпускники смогут на новом уровне подходить к решению задач, связанных с эффективным и результативным управлением в данном регионе."]}</p>
             </Project_Card>
+            </>) : null}
           </Project>
 
+          {lang === 'ru'? (
           <div className='show wrapper_about'>
             <div className='container'>
               <div className='content'>
@@ -591,7 +688,7 @@ const HomePage = ({  data, current  }) => {
                             </em>
                           </div>
                           <div className='quote_description'>
-                            {current["В ЦРК запланирован значительный спектр задач от повышения профессиональной и управленческой компетентности руководителей научных, научно-технических проектов и лабораторий в соответствии со Стратегией научно-технологического развития Российской Федерации до формирования информационной системы управления знаниями на принципах цифровых двойников, позволяющей оперативно оценивать и управлять человеческим капиталом в рамках Западно-Сибирского межрегионального научно-образовательного центра мирового уровня."]}
+                            {current["review1"]}
                           </div>
                         </div>
                       </div>
@@ -614,7 +711,7 @@ const HomePage = ({  data, current  }) => {
                             </em>
                           </div>
                           <div className='quote_description'>
-                            {current["Научное лидерство как концепция руководства должна позволять немедленную адаптацию исследований и их реализацию в условиях непредвиденных изменений глобального масштаба. В том числе в условиях ограниченных ресурсов. Работа нашей Школы учит действовать и в таких условиях."]}
+                            {current["review2"]}
                           </div>
                         </div>
                       </div>
@@ -628,7 +725,7 @@ const HomePage = ({  data, current  }) => {
                             <a href={`${lang}/experts/golubev`}>{current["Евгений Голубев"]}</a>, {current["ментор Школы руководителей научно-технических проектов"]}
                           </span>
                             <span className='quote_authorDescription'>
-                            {current["Директор Технологического парка ТюмГУ, эксперт по управлению крупными проектами во взаимодействии университет-индустрия, управлению результатами разработок в университетах и их трансферу для использования обществом"]}
+                            {current["golubevPro"]}
                           </span>
                           </div>
                           <div className='quote_title'>
@@ -637,7 +734,7 @@ const HomePage = ({  data, current  }) => {
                             </em>
                           </div>
                           <div className='quote_description'>
-                            {current["Директор Технологического парка ТюмГУ, эксперт по управлению крупными проектами во взаимодействии университет - индустрия, управлению результатами разработок в университетах и их трансферу для использования обществом Инновационное развитие региона основано сквозных практиках управления технологическими проектами для университетов и бизнеса. Реализация проектов по созданию новых продуктов и технологий — это основная форма работы консорциума Западно-Сибирского научно-образовательного центра."]}
+                            {current["golubevReview"]}
                           </div>
                         </div>
                       </div>
@@ -646,7 +743,8 @@ const HomePage = ({  data, current  }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> ) : null}
+
         </Layout>
       </Page>
   )
