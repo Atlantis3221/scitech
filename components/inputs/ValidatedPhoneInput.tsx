@@ -32,7 +32,8 @@ const ValidatedPhoneInput = ({state, setState, errors, setErrors}) => {
             borderRadius: 0
         }}
         dropdownStyle={{
-            zIndex:30
+            zIndex: 9999,
+            position: "absolute"
         }}
         buttonStyle={{
             zIndex: 30

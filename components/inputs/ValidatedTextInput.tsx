@@ -7,7 +7,10 @@ const ValidatedTextInput = ({state, name, setState, errors, setErrors}) => {
     return (
         <>
     <InputStyleWrapper>
-        <input name={name} value={state[name]} 
+        <input style={{
+            position: "relative",
+            zIndex: 0
+        }} name={name} value={state[name]} 
          onChange={(e) => {
             if (errors[name]) {
                 setErrors({
