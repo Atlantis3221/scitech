@@ -3,8 +3,9 @@ import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../i18n/translator'
 
-export default function DigitalProfile(props) {
+export default function DigitalProfile({ current }) {
   const { query: {lang: lang} } = useRouter()
   return (
     <Page>
@@ -15,13 +16,13 @@ export default function DigitalProfile(props) {
         backgroundPosition: '100% -7%',
       }}>
         <Helmet>
-          <meta name="description" content='Цифровой профиль исследователя' />
-          <meta name="keywords" content='Партнерский проект Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
+          <meta name="description" content={current["Цифровой профиль исследователя"]} />
+          <meta name="keywords" content={current["Цифровой профиль исследователя"]} />
           <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/digitalProfile`} />
-          <meta property="og:title" content='Цифровой профиль исследователя' />
-          <meta property="og:description" content='Партнерский проект Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
-          <title>Цифровой профиль исследователя</title>
+          <meta property="og:title" content={current["Цифровой профиль исследователя"]} />
+          <meta property="og:description" content={current["digitalProfileMeta"]} />
+          <title>{current["Цифровой профиль исследователя"]}</title>
           <link rel="canonical" href={`https://scitech.ru/digitalProfile`} />
         </Helmet>
 
@@ -34,7 +35,7 @@ export default function DigitalProfile(props) {
                   <p className='asideMarker'></p>
                 </li>
                 <li className='i3_9'>
-                  <h1>Цифровой профиль исследователя </h1>
+                  <h1>{current["Цифровой профиль исследователя"]} </h1>
                 </li>
               </ul>
             </div>
@@ -46,19 +47,14 @@ export default function DigitalProfile(props) {
             <div className='content'>
               <ul className='g3 relative'>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_mt1'>о проекте</p>
+                  <p className='asideMarker asideMarker_mt1'>{current["О проекте"]}</p>
                 </li>
                 <li className='i3_9'>
-                  <em className="pb3">Прототип платформы комплексной оценки и развития компетенций управления сложными
-                    научно-техническими проектами и программами, с возможностями удаленного доступа и обработки
-                    цифрового следа.</em>
+                  <em className="pb3">{current["digitalProfileAbout1"]}</em>
                   <p>
-                    <em className="pt2">Интерактивная ИТ-платформа с современными интерфейсами позволяет обрабатывать
-                      информацию о текущей и прогнозной компетенции пользователей, на основе сквозной технологии работы с
-                      данными, обеспечивать управление развитием и обучением персонала, формировать проектные команды и
-                      оценивать перспективы развития конкретных пользователей.</em>
+                    <em className="pt2">{current["digitalProfileAbout2"]}</em>
                   </p>
-                  <a href="http://lab.scienceteam.ru" className="btn btn__skyblue">Перейти на сайт</a>
+                  <a href="http://lab.scienceteam.ru" className="btn btn__skyblue">{current["Перейти на сайт"]}</a>
                 </li>
               </ul>
             </div>
@@ -72,7 +68,7 @@ export default function DigitalProfile(props) {
                 <li className='i3_3'></li>
                 <li className='i3_9'>
                   <img loading="lazy" src="/img/digitalProfile.png" alt="digitalProfile.image" />
-                  <p className="raleway">Скриншот платформы</p>
+                  <p className="raleway">{current["Скриншот платформы"]}</p>
                 </li>
               </ul>
             </div>
@@ -82,4 +78,12 @@ export default function DigitalProfile(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps(ctx) {
+  const {current} = Translator("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"] },
+  }
 }

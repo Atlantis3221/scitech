@@ -28,8 +28,8 @@ export function Footer(props) {
       </Link>
     </div>
     <div className="footer_column footer_contacts">
-      <p className="footer_title">контакты</p>
-      <p className="footer_text">Тюмень — Сургут</p>
+      <p className="footer_title">{lang === 'ru'? 'контакты': 'contacts'}</p>
+      <p className="footer_text">{lang === 'ru'? 'Тюмень — Сургут': 'Tyumen - Surgut'}</p>
       <a href="mailto:cdc@scitech.ru" target='_blank'>
         <p className="footer_text link link_red">cdc@scitech.ru</p>
       </a>
@@ -49,11 +49,11 @@ export function Footer(props) {
       </div>
     </div>
     <div className="footer_column footer_about">
-      <p className="footer_title">о центре</p>
+      <p className="footer_title">{lang === 'ru'? 'о центре': 'about the center'}</p>
       <div className='registerEventForm'>
 
         {/* @todo: add Modal pop-up*/}
-       <p className="footer_text link" onClick={props.onClick}>Стать клиентом</p>
+       <p className="footer_text link" onClick={props.onClick}>{lang === 'ru'? 'Стать клиентом': 'Become a client'}</p>
 
         {/*  Content={props => (*/}
         {/*    <div>*/}
@@ -75,10 +75,10 @@ export function Footer(props) {
         {/*    </div>*/}
 
       </div>
-      <a href="mailto:cdc@scitech.ru" className="footer_text link" target="_blank">Стать партнером</a>
+      <a href="mailto:cdc@scitech.ru" className="footer_text link" target="_blank">{lang === 'ru'? 'Стать партнером': 'Become a partner'}</a>
     </div>
     <div className="footer_column footer_signup">
-      {!isSend ? <p className="footer_title">подпишитесь на новости</p> : null}
+      {!isSend ? <p className="footer_title">{lang === 'ru'? 'подпишитесь на новости': 'Subscribe to news'}</p> : null}
       <form className="footer_form" onSubmit={saveToServer}>
         <input onChange={(e) => setInputEmailValue(e.target.value)}
                className="form_input"
@@ -91,10 +91,10 @@ export function Footer(props) {
       </form>
       <Link href={`/${lang}/policy`}>
       <a>
-        <p className='footer_signup__grey'>Политика конфиденциальности</p>
+        <p className='footer_signup__grey'>{lang === 'ru'? 'Политика конфиденциальности': 'Personal Data Processing Policy'}</p>
       </a>
       </Link>
-      <p className='footer_signup__grey'>Сайт разработан в Цитадели
+      <p className='footer_signup__grey'>{lang === 'ru'? 'Сайт разработан в Цитадели': 'Developed by the Citadel'}
         <a className='footer_signup__bold' href="https://ctdl.space" target='_blank'>ctdl</a>
       </p>
     </div>

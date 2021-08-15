@@ -7,21 +7,21 @@ import { SchoolProject, SchoolProject_Card } from '../../components/schoolProjec
 import { Helmet } from 'react-helmet'
 import { Button } from '../../components/button'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../i18n/translator'
 
-export default function School(props) {
+export default function School({ current, onClick }) {
   const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Helmet>
-        <meta name="description"
-              content="Школа воспитывает современное поколение научных лидеров, способных управлять научными процессами" />
-        <meta name="keywords" content="школа научного лидерства,  шнл, Система компетенций LAUNCH, Форсайт" />
+        <meta name="description" content={current["schoolMeta"]} />
+        <meta name="keywords" content={current["schoolMeta"]}  />
         <meta property="og:image" content="/img/appleIcon.png" />
         <meta property="og:url" content="https://scitech.ru/school" />
-        <meta property="og:title" content="Школа научного лидерства Science leadership school" />
+        <meta property="og:title" content={current["Школа научного лидерства Science leadership school"]} />
         <meta property="og:description"
-              content="Школа воспитывает современное поколение научных лидеров, способных управлять научными процессами" />
-        <title>Школа научного лидерства Science leadership school</title>
+              content={current["schoolMeta"]}  />
+        <title>{current["Школа научного лидерства Science leadership school"]}</title>
         <link rel="canonical" href="https://scitech.ru/school" />
       </Helmet>
 
@@ -37,10 +37,10 @@ export default function School(props) {
             <div className='content pb0'>
               <ul className='g3 zIndex'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>Образовательный проект</p>
+                  <p className='asideMarker'>{current["Образовательный проект"]}</p>
                 </li>
                 <li className='i3_9'>
-                  <h1>Школа научного лидерства</h1>
+                  {lang === 'ru' ? <h1>Школа научного лидерства</h1> : null}
                   <h1>Science leadership school</h1>
                 </li>
               </ul>
@@ -73,18 +73,18 @@ export default function School(props) {
                                   fill='#02090F'
                                 />
                               </svg>
-                              Длительность — 1 год
+                              {current["Длительность — 1 год"]}
                             </p>
-                            <p className='raleway'>Февраль 2021 - Февраль 2022</p>
+                            <p className='raleway'>{current["Февраль"]} 2021 - {current["Февраль"]} 2022</p>
                           </div>
                           <div className='datePlace_place mt_low'>
                             <img src='/img/pin.svg' alt='icon' />
                             <div className='place_text'>
-                              <p className='asideMarker asideMarker_place'>онлайн, оффлайн</p>
+                              <p className='asideMarker asideMarker_place'>{current["онлайн"]}, {current["оффлайн"]}</p>
                             </div>
                           </div>
                           <div>
-                            <p className="raleway">Прием заявок окончен</p>
+                            <p className="raleway">{current["Прием заявок окончен"]}</p>
                           </div>
                         </li>
                       </ul>
@@ -93,27 +93,15 @@ export default function School(props) {
 
                       {/* @todo: add Modal pop-up*/}
 
-                            <Button bordered-green marginleft onClick={props.onClick}>
-                              Заказать проведение в моем регионе
+                            <Button bordered-green marginleft onClick={onClick}>
+                              {current["Заказать проведение в моем регионе"]}
                             </Button>
 
-                      {/*      <div>*/}
-                      {/*        <div className='registerEventForm_title'>Заказать проведение в моем регионе</div>*/}
-                      {/*        <RegisterEventForm*/}
-                      {/*          // applicationType={true}*/}
                       {/*          hideParticipant={false}*/}
                       {/*          hideSituation={true}*/}
                       {/*          showOrganizationField={true}*/}
                       {/*          eventType={'scienceLeadSchoolMyRegion'}*/}
-                      {/*          onSubmit={(e, payload) => {*/}
-                      {/*            Requests.methods.insert({*/}
                       {/*              group: 'registrations_schoolMyRegion',*/}
-                      {/*              payload,*/}
-                      {/*            })*/}
-                      {/*            // props.close()*/}
-                      {/*          }}*/}
-                      {/*        />*/}
-                      {/*      </div>*/}
 
                     </li>
                   </ul>
@@ -128,7 +116,7 @@ export default function School(props) {
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>О проекте</p>
+                  <p className='asideMarker'>{current["О проекте"]}</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
@@ -136,38 +124,31 @@ export default function School(props) {
                       <ul className='g3'>
                         <li className='i3_12'>
                           <em className="zIndex">
-                            Школа воспитывает современное поколение научных лидеров, способных управлять научными
-                            процессами, генерировать нестандартные научные решения и выводить на рынок передовые
-                            научно-исследовательские проекты.
+                            {current["school-about1"]}
                           </em>
                         </li>
                         <li className='i3_6'>
-                          <h4>Сообщество международного уровня</h4>
+                          <h4>{current["Сообщество международного уровня"]}</h4>
                           <p>
-                            Мы привлекаем научных лидеров разных стран с целью повышения конкурентоспособности России в
-                            мировой программе научных исследований
+                            {current["school-about2"]}
                           </p>
                         </li>
                         <li className='i3_6'>
-                          <h4>Научный лидер — эффективный руководитель</h4>
+                          <h4>{current["Научный лидер — эффективный руководитель"]}</h4>
                           <p>
-                            Научный лидер умеет решать научно-исследовательские задачи в условиях ограниченности или
-                            отсутствия ресурсов, а также в условиях непредвиденных изменений мирового масштаба
-                            (COVID-19){' '}
+                            {current["school-about3"]}
                           </p>
                         </li>
                         <li className='i3_6'>
-                          <h4 className='mt0'>Постоянный обмен опытом</h4>
+                          <h4 className='mt0'>{current["Постоянный обмен опытом"]}</h4>
                           <p>
-                            Создаем культуру международного и междисциплинарного научного взаимодействия, передачи
-                            знаний на локальном, региональном, федеральном и международном уровнях{' '}
+                            {current["school-about4"]}
                           </p>
                         </li>
                         <li className='i3_6'>
-                          <h4 className='mt0'>Междисциплинарная команда</h4>
+                          <h4 className='mt0'>{current["Междисциплинарная команда"]}</h4>
                           <p>
-                            Это эффективный инструмент для создания инновационных научных идей и реализации актуальных
-                            научно-исследовательских проектов, удовлетворяющих запросам всего общества
+                            {current["school-about5"]}
                           </p>
                         </li>
                       </ul>
@@ -184,15 +165,15 @@ export default function School(props) {
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>Команда</p>
+                  <p className='asideMarker'>{current["Команда"]}</p>
                 </li>
                 <li className='i3_9'>
                   <SpeakerCards>
-                    <SpeakerCard photo='/img/speaker_irina.png' fullName='Ирина Шрайбер' position='ментор'>
-                      Ph. D., кандидат физико-математических наук, ученый, исследователь, лектор
+                    <SpeakerCard photo='/img/speaker_irina.png' fullName={current["Ирина Шрайбер"]} position={current["ментор"]}>
+                      {current["Ph. D., кандидат физико-математических наук, ученый, исследователь, лектор"]}
                     </SpeakerCard>
-                    <SpeakerCard photo='/img/roman_osvald.png' fullName='Роман Оствальд' position='руководитель проектной работы'>
-                      Канд. хим. наук. Проректор СурГУ по науке и технологиям. Руководитель проектной работы SLS
+                    <SpeakerCard photo='/img/roman_osvald.png' fullName={current["Роман Оствальд"]} position={current["руководитель проектной работы"]}>
+                      {current["Канд. хим. наук. Проректор СурГУ по науке и технологиям. Руководитель проектной работы SLS"]}
                     </SpeakerCard>
                   </SpeakerCards>
                 </li>
@@ -201,6 +182,7 @@ export default function School(props) {
           </div>
         </div>
 
+        {lang === 'ru'? (
         <div className='show'>
           <div className='container'>
             <div className='content'>
@@ -255,149 +237,134 @@ export default function School(props) {
               </ul>
             </div>
           </div>
-        </div>
+        </div>) : null}
 
         <div className='show'>
           <div className='container'>
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>Модуль 1</p>
-                  <p className='asideMarker asideMarker_mt1'>20 - 28 марта 2021</p>
+                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 1</p>
+                  <p className='asideMarker asideMarker_mt1'>20 - 28 {current["марта"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>Лидерство и эффективная командная работа в научной среде. Форсайт в науке</h4>
-                        </li>
-                        {/*<li className='i3_3'>*/}
-                        {/*  <p className='module_school'>Форсайт — ключевая компетенция ученого </p>*/}
-                        {/*</li>*/}
-                        {/*<li className='i3_12 raleway_big'>*/}
-                        {/*  <p className="cursiv"><StrongText>Практика:</StrongText> принципы и практика взаимодействия.*/}
-                        {/*    Защита учебных проектов. </p>*/}
-                        {/*</li>*/}
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>Модуль 2</p>
-                  <p className='asideMarker asideMarker_mt1'>15 - 23 мая 2021</p>
-                </li>
-                <li className='i3_9'>
-                  <ul className='g3'>
-                    <li className='i3_12'>
-                      <ul className='g3'>
-                        <li className='i3_12'>
-                          <h4>Научный протокол и управление знаниями. Академическое письмо.</h4>
-                        </li>
-                        {/*<li className='i3_12 raleway_big'>*/}
-                        {/*  <p className="cursiv"><StrongText> Открытые лекции:</StrongText>*/}
-                        {/*    <p className="m0">— Земля – воздух – чем поделимся. Мифы и реальность о «человеческом*/}
-                        {/*      факторе»;</p>*/}
-                        {/*    <p className="m0">— Человеческий капитал как драйвер развития организаций и регионов;</p>*/}
-                        {/*    <p className="m0">— Как измерить наше сознание. Модель «7 уровней сознания» Ричарда*/}
-                        {/*      Барретта.</p>*/}
-                        {/*  </p>*/}
-                        {/*</li>*/}
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>Модуль 3</p>
-                  <p className='asideMarker asideMarker_mt1'>11 - 30 июля 2021</p>
-                </li>
-                <li className='i3_9'>
-                  <ul className='g3'>
-                    <li className='i3_12'>
-                      <ul className='g3'>
-                        <li className='i3_12'>
-                          <h4>Проектное управление в науке. Разработка и создание устава проекта.</h4>
+                          <h4>{current["Лидерство и эффективная командная работа в научной среде. Форсайт в науке"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>Модуль 4</p>
-                  <p className='asideMarker asideMarker_mt1'>21 - 29 августа 2021</p>
+                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 2</p>
+                  <p className='asideMarker asideMarker_mt1'>15 - 23 {current["мая"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>Фандрайзинг, финансирование и работа с грантовыми фондами. Научная экспертиза</h4>
+                          <h4>{current["Научный протокол и управление знаниями. Академическое письмо."]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>Модуль 5</p>
-                  <p className='asideMarker asideMarker_mt1'>17 - 29 октября 2021</p>
+                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 3</p>
+                  <p className='asideMarker asideMarker_mt1'>11 - 30 {current["июля"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>Коммуникации ученого в современном мире: власть, бизнес, социум</h4>
+                          <h4>{current["Проектное управление в науке. Разработка и создание устава проекта."]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>Модуль 6</p>
-                  <p className='asideMarker asideMarker_mt1'>20 - 28 ноября 2021</p>
+                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 4</p>
+                  <p className='asideMarker asideMarker_mt1'>21 - 29 {current["августа"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>Стратегия управления научно-исследовательской деятельностью. Трансфер технологий</h4>
+                          <h4>{current["Фандрайзинг, финансирование и работа с грантовыми фондами. Научная экспертиза"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>Модуль 7</p>
-                  <p className='asideMarker asideMarker_mt1'>15 - 23 января 2022</p>
+                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 5</p>
+                  <p className='asideMarker asideMarker_mt1'>17 - 29 {current["Октября"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>Линейное управление в научных и научно-технических проектах, центрах, лабораториях</h4>
+                          <h4>{current["Коммуникации ученого в современном мире: власть, бизнес, социум"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>Модуль 8</p>
-                  <p className='asideMarker asideMarker_mt1'>19 - 22 февраля 2022</p>
+                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 6</p>
+                  <p className='asideMarker asideMarker_mt1'>20 - 28 {current["ноября"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>Подготовка к защитам и защиты проектов</h4>
+                          <h4>{current["Стратегия управления научно-исследовательской деятельностью. Трансфер технологий"]}</h4>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li className='i3_3'>
+                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 7</p>
+                  <p className='asideMarker asideMarker_mt1'>15 - 23 {current["января"]} 2022</p>
+                </li>
+                <li className='i3_9'>
+                  <ul className='g3'>
+                    <li className='i3_12'>
+                      <ul className='g3'>
+                        <li className='i3_12'>
+                          <h4>{current["Линейное управление в научных и научно-технических проектах, центрах, лабораториях"]}</h4>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li className='i3_3'>
+                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 8</p>
+                  <p className='asideMarker asideMarker_mt1'>19 - 22 {current["февраля"]} 2022</p>
+                </li>
+                <li className='i3_9'>
+                  <ul className='g3'>
+                    <li className='i3_12'>
+                      <ul className='g3'>
+                        <li className='i3_12'>
+                          <h4>{current["Подготовка к защитам и защиты проектов"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'> </li>
+                {lang === 'ru' ? (
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
@@ -411,7 +378,7 @@ export default function School(props) {
                       </ul>
                     </li>
                   </ul>
-                </li>
+                </li>) : null}
               </ul>
             </div>
           </div>
@@ -423,13 +390,12 @@ export default function School(props) {
               <ul className='g3'>
                 <li className='i3_3'></li>
                 <li className='i3_9 border_top'>
-                  <h2>Итоги первого потока 2019-2020</h2>
+                  <h2>{current["Итоги первого потока"]} 2019-2020</h2>
                   <p className='titleBlock'>
-                    В потоке принимали участие научные сотрудники и исследователи из различных университетов ХМАО, ЯНАО
-                    и Тюмени
+                    {current["schoolStreamres"]}
                   </p>
-                  <a href={`/${lang}/school2019_2020`} className='link_event link_event__noBorder raleway_bold mt_low'>Полное
-                    расписание первого потока 2019-2020
+                  <a href={`/${lang}/school2019_2020`} className='link_event link_event__noBorder raleway_bold mt_low'>
+                    {current["Полное расписание первого потока 2019-2020"]}
                     <svg
                       width='12'
                       height='12'
@@ -450,23 +416,23 @@ export default function School(props) {
                       <div className='result_numbers'>
                         <div className='result_item'>
                           <p className='bigNumber'>46</p>
-                          <p className='number_description'>участников</p>
+                          <p className='number_description'>{current["участников"]}</p>
                         </div>
                         <div className='result_item'>
                           <p className='bigNumber'>9</p>
-                          <p className='number_description'>проектов </p>
+                          <p className='number_description'>{current["проектов"]} </p>
                         </div>
                         <div className='result_item'>
                           <p className='bigNumber'>35</p>
-                          <p className='number_description'>статей в научных журналах</p>
+                          <p className='number_description'>{current["статей в научных журналах"]}</p>
                         </div>
                         <div className='result_item'>
                           <p className='bigNumber'>10</p>
-                          <p className='number_description'>грантовых заявок </p>
+                          <p className='number_description'>{current["грантовых заявок"]} </p>
                         </div>
                         <div className='result_item'>
                           <p className='bigNumber'>11</p>
-                          <p className='number_description'>повышений до руководителей</p>
+                          <p className='number_description'>{current["повышений до руководителей"]}</p>
                         </div>
                       </div>
                     </li>
@@ -477,6 +443,7 @@ export default function School(props) {
           </div>
         </div>
 
+        {lang === 'ru' ? (
         <div className='show wrapper_feedback content mt_half'>
           <div className='container'>
             <ul className='g3'>
@@ -561,67 +528,64 @@ export default function School(props) {
               </li>
             </ul>
           </div>
-        </div>
+        </div>) : null}
 
         <div className='show'>
           <div className='container mt_half'>
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>проекты 1 потока</p>
+                  <p className='asideMarker'>{current["проекты 1 потока"]}</p>
                 </li>
                 <li className='i3_9'>
                   <SchoolProject>
                     <SchoolProject_Card
                       image='/img/schoolProjects/projectGrowth_image.png'
-                      link="/schoolProjects/professionalGrowth"
+                      link={`/schoolProjects/professionalGrowth`}
                     >
-                      Увеличение профессионального долголетия пришлого населения Северных территорий: форсайт
-                      адаптационных стратегий
+                      {current["professionalGrowth"]}
                     </SchoolProject_Card>
                     <SchoolProject_Card
                       image='/img/schoolProjects/ecoSafety_image.png'
                       link="/schoolProjects/ecoSafety"
                     >
-                      Экологическая безопасность Обь-Иртышского речного бассейна
+                      {current["ecoSafety"]}
                     </SchoolProject_Card>
                     <SchoolProject_Card
                       image='/img/schoolProjects/diseaseRisk.png'
                       link="/schoolProjects/diseaseRisk"
                     >
-                      Многоуровневая система оценки риска развития сердечно-сосудистых заболеваний работников в Арктике
+                      {current["diseaseRisk"]}
                     </SchoolProject_Card>
                     <SchoolProject_Card
                       image='/img/schoolProjects/greenTransformation.png'
                       link="/schoolProjects/greenTransformation"
                     >
-                      Разработка модели зеленой трансформации региона
+                      {current["greenTransformation"]}
                     </SchoolProject_Card>
                     <SchoolProject_Card
                       image='/img/schoolProjects/smartCitiesInArctic.png'
                       link="/schoolProjects/smartCitiesInArctic"
                     >
-                      Умные города в российской Арктике
-                      Polaris: White Stars Of Arctic
+                      {current["smartCitiesInArctic"]}
                     </SchoolProject_Card>
                     <SchoolProject_Card
                       image='/img/schoolProjects/sihirtyaNation.png'
                       link="/schoolProjects/sihirtyaNation"
                     >
-                      Народ сихиртя – средневековая легенда Арктики: культурная адаптация и трансфер традиций
+                      {current["sihirtyaNation"]}
                     </SchoolProject_Card>
                     <SchoolProject_Card
                       image='/img/schoolProjects/wisdomAsTheBasis.png'
                       link="/schoolProjects/wisdomAsTheBasis"
                     >
-                      Мудрость как основа успешного личностного и профессионального развития студентов в рамках
-                      индивидуальной образовательной траектории
+                      {current["wisdomAsTheBasis"]}
                     </SchoolProject_Card>
                     <SchoolProject_Card
                       image='/img/schoolProjects/integration_image.svg'
                       link="/schoolProjects/integrationOfGreenTechnologies"
                     >
-                      Интеграция зеленых технологий в устойчивое развитие Арктики
+                      {current["integrationOfGreenTechnologies"]}
                     </SchoolProject_Card>
                   </SchoolProject>
                 </li>
@@ -632,4 +596,12 @@ export default function School(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps(ctx) {
+  const {current} = Translator("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"]  },
+  }
 }

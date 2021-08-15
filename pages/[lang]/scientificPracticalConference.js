@@ -7,30 +7,22 @@ import { StrongText } from '../../components/strongText'
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../i18n/translator'
+import { Button } from '../../components/button'
 
-export default function ScientificPracticalConference(props) {
+export default function ScientificPracticalConference({ current, onClick }) {
   const { query: {lang: lang} } = useRouter()
   return (
     <Page>
       <Layout>
         <Helmet>
-          <meta name="description" content='II Международная научно-практическая конференция Центра развития компетенций
-Западно-Сибирского межрегионального научно-образовательного центра мирового уровня «Наука. Лидерство. Общество – 2050»
-«Science. Leadership. Society – 2050» «SLS2050»' />
-          <meta name="keywords" content='II Международная научно-практическая конференция Центра развития компетенций
-Западно-Сибирского межрегионального научно-образовательного центра мирового уровня «Наука. Лидерство. Общество – 2050»
-«Science. Leadership. Society – 2050» «SLS2050»' />
+          <meta name="description" content={current["scientificPracticalConferenceTitle"]} />
+          <meta name="keywords" content={current["scientificPracticalConferenceTitle"]} />
           <meta property="og:image" content="/img/appleIcon.png" />
           <meta property="og:url" content={`https://scitech.ru/scientificPracticalConference`} />
-          <meta property="og:title" content='II Международная научно-практическая конференция Центра развития компетенций
-Западно-Сибирского межрегионального научно-образовательного центра мирового уровня «Наука. Лидерство. Общество – 2050»
-«Science. Leadership. Society – 2050» «SLS2050»' />
-          <meta property="og:description" content='II Международная научно-практическая конференция Центра развития компетенций
-Западно-Сибирского межрегионального научно-образовательного центра мирового уровня «Наука. Лидерство. Общество – 2050»
-«Science. Leadership. Society – 2050» «SLS2050»' />
-          <title>II Международная научно-практическая конференция Центра развития компетенций
-            Западно-Сибирского межрегионального научно-образовательного центра мирового уровня «Наука. Лидерство. Общество – 2050»
-            «Science. Leadership. Society – 2050» «SLS2050»</title>
+          <meta property="og:title" content={current["scientificPracticalConferenceTitle"]} />
+          <meta property="og:description" content={current["scientificPracticalConferenceTitle"]} />
+          <title>{current["scientificPracticalConferenceTitle"]}</title>
           <link rel="canonical" href={`https://scitech.ru/scientificPracticalConference`} />
         </Helmet>
 
@@ -39,17 +31,11 @@ export default function ScientificPracticalConference(props) {
             <div className='content pb0'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>конференция</p>
+                  <p className='asideMarker'>{current["конференция"]}</p>
                 </li>
                 <li className='i3_9'>
-                  <h1>II Международная научно-практическая конференция
-                    Центра развития компетенций
-                    Западно-Сибирского межрегионального
-                    научно-образовательного центра мирового уровня
+                  <h1>{current["scientificPracticalConferenceTitle"]}
                   </h1>
-                  <h1>«Наука. Лидерство. Общество – 2050»</h1>
-                  <h1>«Science. Leadership. Society – 2050»</h1>
-                  <h1>«SLS2050»</h1>
                 </li>
               </ul>
             </div>
@@ -63,18 +49,44 @@ export default function ScientificPracticalConference(props) {
               <li className='i3_9 wrapper_borderTop'>
                 <ul className='g3'>
                   <li className='i3_12 flex_end'>
-                    <Schedule dataFirst={[18,' Окт 2021 ']}
-                              dataSecond={[23,'Окт 2021']}
-                              place={'онлайн'}
-                              isShowButton={true}
-                              eventLinkToTableTitle={'Зарегистрироваться'}
-                              showOrganizationField={true}
-                              showAskIsSpeakerButton={true}
-                              individual={true}
-                              eventType={'scientificPracticalConference'}
-                              eventTitle="Зарегистрироваться на мероприятие II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»"
-                              eventLinkToTable="scientificPracticalConference"
-                    />
+
+                    <div className="schedule_box">
+                      <div className="schedule_date">
+                        <p className="date_day">18</p>
+                        <div className="date_wrapper">
+                          <span className={`date_month 'date_month__wide'`}>{current["Окт"]} 2021</span>
+                        </div>
+                            <div className="sting">-</div>
+                            <div className="schedule_date">
+                              <p className="date_day">23</p>
+                              <span className={`date_month date_month__wide'}`}>{current["Окт"]} 2021</span>
+                            </div>
+                      </div>
+
+                      <div className="schedule_place">
+                        <div className={`place_text '}`}>
+                          <div className="place_text_icon">
+                            <img loading="lazy" src='/img/pin.svg' alt='icon'/>
+                            <p className="schedule_time__tiny mt0">{current["онлайн"]}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                        <div className="schedule_button">
+                            <div className='registerEventForm'>
+                              <Button red onClick={onClick}>{current["Зарегистрироваться"]}</Button>
+                              {/*@todo REPLACE with new from*/}
+                              {/*<a href={'/'} className="btn btn__red">{current["scienceLeadSocRegistr"]}</a>*/}
+                              {/*          hideParticipant={true}*/}
+                              {/*          individual={individual}*/}
+                              {/*          showOrganizationField={showOrganizationField}*/}
+                              {/*          askIsSpeaker={showAskIsSpeakerButton}*/}
+                              {/*          isSpeaker={showAskIsSpeakerButton}*/}
+                              {/*          eventType={eventType}*/}
+
+                            </div>
+                          </div>
+                    </div>
                   </li>
                 </ul>
               </li>
@@ -87,18 +99,12 @@ export default function ScientificPracticalConference(props) {
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_mt_half'>о конференции</p>
+                  <p className='asideMarker asideMarker_mt_half'>{current["о конференции"]}</p>
                 </li>
                 <li className='i3_9'>
-                  <p>Вторая международная конференция пройдет в рамках обсуждения перспективных вопросов развития
-                    человечества в условиях меняющегося мира, экзистенциальных угроз – изменения климата, социальных катастроф,
-                    драматичных потрясений в области биобезопасности и роли науки в борьбе с этими угрозами.</p>
-                  <p>Традиционно важной частью конференции станут выступления с открытыми лекциями ученых мирового уровня,
-                    круглые столы с представителями науки, власти, бизнеса и общественности, а также встречи представителей
-                    центров развития компетенций сети НОЦ и других институтов развития о подходах, практиках и вызовах в
-                    работе с человеческим капиталом в сфере исследования и разработок. </p>
-                  <p>«Человек и перспективы человечества в динамично меняющемся мире» – тематический фокус нашей конференции,
-                    которая состоится 18-23 октября 2021 года. </p>
+                  <p>{current["scientificPracticalConferenceA"]}</p>
+                  <p>{current["scientificPracticalConferenceB"]}</p>
+                  <p>{current["scientificPracticalConferenceC"]} </p>
                 </li>
               </ul>
             </div>
@@ -110,14 +116,11 @@ export default function ScientificPracticalConference(props) {
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>ЦЕЛЬ КОНФЕРЕНЦИИ</p>
+                  <p className='asideMarker'>{current["ЦЕЛЬ КОНФЕРЕНЦИИ"]}</p>
                 </li>
                 <li className='i3_9'>
-                  <p>Организовать международный диалог о будущем человечества и науки в перспективе до 2050 года. </p>
-                  <p>Объединить на площадке конференции ведущих мировых ученых, руководителейнаучных организаций и ведущих
-                    университетов, представителей органов государственной власти и бизнеса, что позволит участникам конференции
-                    обсудить актуальные вызовы научно-технологического развития, сформировать и укрепить консорциумы для
-                    реализации прорывных исследований и разработок в соответствии с национальными целями РФ.</p>
+                  <p>{current["scientificPracticalConference-aim1"]} </p>
+                  <p>{current["scientificPracticalConference-aim2"]}</p>
                 </li>
               </ul>
             </div>
@@ -129,28 +132,26 @@ export default function ScientificPracticalConference(props) {
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>ПРОЕКТ СОДЕРЖАНИЯ КОНФЕРЕНЦИИ</p>
+                  <p className='asideMarker'>{current["ПРОЕКТ СОДЕРЖАНИЯ КОНФЕРЕНЦИИ"]}</p>
                 </li>
                 <li className='i3_9'>
-                  <p className='mb0'><StrongText>3 круглых стола</StrongText> с экспертами мирового уровня по следующим тематикам:</p>
+                  <p className='mb0'><StrongText>{current["3 круглых стола"]}</StrongText> {current["с экспертами мирового уровня по следующим тематикам:"]}</p>
                   <EventItem_guests guests=''>
                     <EventItem_guest>
-                        Человеческий капитал как важная составляющая трансформации и инновационного развития науки и технологий
-                        в повестке научно-образовательных центров мирового уровня.
+                      {current["roundtable-1"]}
                     </EventItem_guest>
                     <EventItem_guest>
-                      Интеграция России в мировую климатическую повестку. Развитие и формирование карбоновых полигонов.
-                      Зеленые ценности и устойчивое развитие.
+                      {current["roundtable-2"]}
                     </EventItem_guest>
                     <EventItem_guest>
-                      Арктика и человек в Арктике. Вызовы будущего
+                      {current["roundtable-3"]}
                     </EventItem_guest>
                   </EventItem_guests>
-                  <p><StrongText> Лекции</StrongText> международных и российских экспертов.</p>
-                  <p><StrongText>Мини-конференции</StrongText> ведущих исследовательских команд.</p>
-                  <p><StrongText>Дискуссии</StrongText> с привлечением широкого круга профессиональной общественности.</p>
-                  <p><StrongText>Обсуждение</StrongText> международного опыта и трансляция его в отечественную практику.</p>
-                  <p><StrongText>Активизация совместного поиска</StrongText> и разработка эффективных моделей сотрудничества науки, органов власти и бизнес-структур.</p>
+                  <p><StrongText> {current["Лекции"]}Лекции</StrongText> {current["международных и российских экспертов."]}</p>
+                  <p><StrongText>{current["Мини-конференции"]}</StrongText> {current["ведущих исследовательских команд."]}</p>
+                  <p><StrongText>{current["Дискуссии"]}</StrongText> {current["с привлечением широкого круга профессиональной общественности."]}</p>
+                  <p><StrongText>{current["Обсуждение"]}</StrongText> {current["международного опыта и трансляция его в отечественную практику."]}</p>
+                  <p><StrongText>{current["Активизация совместного поиска"]}</StrongText> {current["и разработка эффективных моделей сотрудничества науки, органов власти и бизнес-структур."]}</p>
                 </li>
               </ul>
             </div>
@@ -162,14 +163,14 @@ export default function ScientificPracticalConference(props) {
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>ЦЕЛЕВАЯ АУДИТОРИЯ</p>
+                  <p className='asideMarker'>{current["ЦЕЛЕВАЯ АУДИТОРИЯ"]}</p>
                 </li>
                 <li className='i3_9'>
-                  <p>— Представители Министерства науки и высшего образования Российской Федерации;</p>
-                  <p>— Представители органов власти регионов НОЦ;</p>
-                  <p>— Представители НОЦ и ЦРК РФ;</p>
-                  <p>— Представители научно-экспертного сообщества;</p>
-                  <p>— Представители крупного бизнеса.</p>
+                  <p>— {current["Представители Министерства науки и высшего образования Российской Федерации;"]}</p>
+                  <p>— {current["Представители органов власти регионов НОЦ;"]}</p>
+                  <p>— {current["Представители НОЦ и ЦРК РФ;"]}</p>
+                  <p>— {current["Представители научно-экспертного сообщества;"]}</p>
+                  <p>— {current["Представители крупного бизнеса."]}</p>
                 </li>
               </ul>
             </div>
@@ -181,12 +182,11 @@ export default function ScientificPracticalConference(props) {
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>ИНФОРМАЦИЯ О ПРЕДЫДУЩЕЙ КОНФЕРЕНЦИИ</p>
+                  <p className='asideMarker'>{current["ИНФОРМАЦИЯ О ПРЕДЫДУЩЕЙ КОНФЕРЕНЦИИ"]}</p>
                 </li>
                 <li className='i3_9'>
                   <p>
-                    <a href={`/${lang}/events`} className="mt_low">I Международная научно-практическая конференция Центра развития компетенций Западно-Сибирского
-                      межрегионального научно-образовательного центра мирового уровня «Наука. Лидерство. Общество», 2020 год. </a>
+                    <a href={`/${lang}/events`} className="mt_low">{current["previousScienceLeadSoc"]} </a>
                   </p>
                 </li>
               </ul>
@@ -200,14 +200,14 @@ export default function ScientificPracticalConference(props) {
               <ul className='g3'>
                 <li className='i3_3'></li>
                 <li className='i3_9'>
-                  <p className="">Запросы на участие в конференции, предложения о партнерстве и вопросы принимаются по электронному
-                    адресу: <a href="mailto:cdc@scitech.ru" className="raleway_bold">cdc@scitech.ru</a></p>
+                  <p className="">{current["scienceLeadSocRequest"]} <a href="mailto:cdc@scitech.ru" className="raleway_bold">cdc@scitech.ru</a></p>
                 </li>
               </ul>
             </div>
           </div>
         </div>
 
+        {lang === 'ru' ? (
         <div className="wrapper_partners content mb6">
           <div className="container">
             <ul className="g3">
@@ -247,8 +247,17 @@ export default function ScientificPracticalConference(props) {
             </ul>
           </div>
         </div>
-
+        ) : null}
       </Layout>
     </Page>
   )
+}
+
+
+export async function getServerSideProps(ctx) {
+  const {current} = Translator("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"]  },
+  }
 }

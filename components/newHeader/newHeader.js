@@ -38,34 +38,34 @@ export const NewHeader = () => {
                   <li>
                     <Link href={`/${lang}/developmentProjects`}>
                       <a className={'navigation_link'}>
-                        Проекты</a>
+                        {lang === 'ru'? 'Проекты': 'Projects'}</a>
                     </Link>
                   </li>
 
                   <li>
                     <Link href={`/${lang}/grants`}>
                       <a className={'navigation_link'}>
-                        Гранты</a>
+                        {lang === 'ru'? 'Гранты': 'Grants'}</a>
                     </Link>
                   </li>
 
                   <li>
                     <Link href={`/${lang}/vacancies`}>
                       <a className={'navigation_link'}>
-                        Вакансии и стажировки
+                        {lang === 'ru'? 'Вакансии и стажировки': 'Vacancies and internships'}
                       </a>
                     </Link>
                   </li>
 
                   <li>
                     <Link href={`/${lang}/news`}>
-                      <a  className={'navigation_link'}>Новости</a>
+                      <a  className={'navigation_link'}>{lang === 'ru'? 'Новости': 'News'}</a>
                     </Link>
                   </li>
 
                   <li>
                     <Link href={`/${lang}/reports`}>
-                      <a  className={'navigation_link'}>Отчеты</a>
+                      <a  className={'navigation_link'}>{lang === 'ru'? 'Отчеты': 'Reports'}</a>
                     </Link>
                   </li>
                 </ul>

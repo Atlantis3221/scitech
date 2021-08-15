@@ -8,6 +8,7 @@ import { EventItem, EventItem_Container } from '../../components/eventItem'
 import { useRouter } from 'next/dist/client/router'
 import { Layout } from '../../components/layout'
 import { Page } from '../../components/page'
+import Translator from '../../i18n/translator'
 
 
 const day16 =  (<div className="day" id="16">
@@ -24,8 +25,8 @@ const day16 =  (<div className="day" id="16">
       </EventItem>
       <EventItem date_add='09:15 — 11:15'
                  title='Лекция 1.'>
-        <p className="eventItem_title mt0">Создание и развития карбоновых полигонов и других климатических проектов
-          национальный и международный опыт. От глобальных вызовов к стратегии и тактике для России.</p>
+        <span className="eventItem_title mt0">Создание и развития карбоновых полигонов и других климатических проектов
+          национальный и международный опыт. От глобальных вызовов к стратегии и тактике для России.</span><br/>
         Спикер. Николай Дмитриевич Дурманов
       </EventItem>
       <EventItem date_add='11:15 — 11:30'
@@ -43,8 +44,8 @@ const day16 =  (<div className="day" id="16">
       </EventItem>
       <EventItem date_add='14:30 – 16:30'
                  title='Лекция 2.'>
-        <p className="eventItem_title mt0">Перспективные климатические проекты, технологии и оборудование. Организационные,
-          кадровые решения, нормативно-регуляторная рамка и взаимодействие с ключевыми стейкхолдерами</p>
+        <span className="eventItem_title mt0">Перспективные климатические проекты, технологии и оборудование. Организационные,
+          кадровые решения, нормативно-регуляторная рамка и взаимодействие с ключевыми стейкхолдерами</span><br/>
         Спикеры. Николай Дмитриевич Дурманов // Андрей Толстиков
       </EventItem>
       <EventItem date_add='16:30 — 16:45'
@@ -71,8 +72,8 @@ const day17 =  (<div className="day" id="17">
       </EventItem>
       <EventItem date_add='09:00 — 11:00'
                  title='Лекция 3.'>
-        <p className="eventItem_title mt0">Зеленая повестка и устойчивое развитие как драйвер развития человеческого
-          капитала регионов и трансформации экономики.</p>
+        <span className="eventItem_title mt0">Зеленая повестка и устойчивое развитие как драйвер развития человеческого
+          капитала регионов и трансформации экономики.</span><br/>
         Сергей Зенин // Ольга Захарова // Неля Рахимова // Филимонова Ирина
       </EventItem>
       <EventItem date_add='11:00 — 11:30'
@@ -90,8 +91,8 @@ const day17 =  (<div className="day" id="17">
       </EventItem>
       <EventItem date_add='14:30 – 16:30'
                  title='Лекция 4.'>
-        <p className="eventItem_title mt0">Направления деятельности карбоновых полигонов и типовые участники
-          «производственной цепочки» климатических проектов: карбоновые станции, фермы, заводы по переработки биомассы и др.</p>
+        <span className="eventItem_title mt0">Направления деятельности карбоновых полигонов и типовые участники
+          «производственной цепочки» климатических проектов: карбоновые станции, фермы, заводы по переработки биомассы и др.</span><br/>
         Спикеры. Помогаев Виталий Михайлович
       </EventItem>
       <EventItem date_add='16:30 — 16:45'
@@ -118,8 +119,8 @@ const day18 =  (<div className="day" id="18">
       </EventItem>
       <EventItem date_add='09:00 — 11:00'
                  title='Лекция 5.'>
-        <p className="eventItem_title mt0"> Нормативно-регуляторная рамка климатических проектов на федеральном и региональном
-          уровне. Практический опыт работы с региональными властями, полномочия региональных властей.</p>
+        <span className="eventItem_title mt0"> Нормативно-регуляторная рамка климатических проектов на федеральном и региональном
+          уровне. Практический опыт работы с региональными властями, полномочия региональных властей.</span><br/>
         Спикер. Ирина Ведерникова
       </EventItem>
       <EventItem date_add='11:00 — 11:30'
@@ -137,7 +138,7 @@ const day18 =  (<div className="day" id="18">
       </EventItem>
       <EventItem date_add='14:30 – 16:30'
                  title='Лекция 6.'>
-        <p className="eventItem_title mt0">Практические кейсы и технологии биосеквестрации парниковых газов. Проекты полного цикла.</p>
+        <span className="eventItem_title mt0">Практические кейсы и технологии биосеквестрации парниковых газов. Проекты полного цикла.</span><br/>
         Спикеры. Сергей Верховец // Андрей Толстиков
       </EventItem>
       <EventItem date_add='16:30 — 16:45'
@@ -164,8 +165,8 @@ const day19 =  (<div className="day" id="19">
       </EventItem>
       <EventItem date_add='09:00 — 11:00'
                  title='Лекция 7.'>
-        <p className="eventItem_title mt0">Декарбонизация экономики, низкоуглеродное производство, углеродные рынки,
-          бизнес возможности и новые индустрии.</p>
+        <span className="eventItem_title mt0">Декарбонизация экономики, низкоуглеродное производство, углеродные рынки,
+          бизнес возможности и новые индустрии.</span><br/>
         Спикер. Сергей Анатольевич Твердохлеб
       </EventItem>
       <EventItem date_add='11:00 — 13:00'
@@ -187,7 +188,6 @@ const day19 =  (<div className="day" id="19">
   </div>
 </div>)
 
-
 const days = {
   '16': day16,
   '17': day17,
@@ -195,7 +195,7 @@ const days = {
   '19': day19,
 }
 
-export default function StrategicEducationalIntensive(props) {
+export default function StrategicEducationalIntensive({  current  }) {
   const { query: {lang: lang} } = useRouter()
   const [day, setDay] = useState('16')
 
@@ -218,7 +218,7 @@ export default function StrategicEducationalIntensive(props) {
             <div className='colorSpot colorSpot__red'></div>
             <ul className='g3'>
               <li className='i3_3'>
-                <p className='asideMarker'>Первый в России,   <br/> стратегический образовательный <br/>интенсив</p>
+                <p className='asideMarker'>{current["Первый в России"]},   <br/> стратегический образовательный <br/>интенсив</p>
               </li>
               <li className='i3_9'>
                 <div className='titleHero'>
@@ -597,4 +597,12 @@ export default function StrategicEducationalIntensive(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps(ctx) {
+  const {current} = Translator("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"]  },
+  }
 }

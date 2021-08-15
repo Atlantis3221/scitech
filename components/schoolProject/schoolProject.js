@@ -1,6 +1,7 @@
 import React from 'react'
 import {className} from "../../helpers/className";
 import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
 
 /** SchoolProject
  *  @param props
@@ -25,20 +26,21 @@ export function SchoolProject(props) {
  *  @return {any}
  */
 export function SchoolProject_Card(props) {
-    const { image, onClick, link, children, arrow, time, imageLabel} = props
+    const { query: {lang: lang} } = useRouter()
+    const { image, link, children, arrow, time, imageLabel} = props
+    console.log(`${lang}${link}`)
+    return <Link href={`/${lang}${link}`}>
+            <a className={className('schoolProjectCard', props)}>
+                <div className="schoolProjectCard_image">
+                    <img src={image} alt="image" loading="lazy"/>
+                    {imageLabel ? <span className="schoolProjectCard_image__labeled">{imageLabel}</span> : null}
+                </div>
+                <p className="description">{children}
+                    {arrow ?
+                      <span className="description_arrow"><img src="img/icons/arrow_red.svg" loading="lazy" alt=""/></span> : null}
+                </p>
 
-    return <a className={className('schoolProjectCard', props)}
-              href={`/${link}`}
-              onClick={onClick}>
-        <div className="schoolProjectCard_image">
-            <img src={image} alt="image" loading="lazy"/>
-            {imageLabel ? <span className="schoolProjectCard_image__labeled">{imageLabel}</span> : null}
-        </div>
-        <p className="description">{children}
-            {arrow ?
-              <span className="description_arrow"><img src="img/icons/arrow_red.svg" loading="lazy" alt=""/></span> : null}
-        </p>
-
-        {time ? <p className="description_time">{time}</p> : null}
-    </a>
+                {time ? <p className="description_time">{time}</p> : null}
+        </a>
+    </Link>
 }
