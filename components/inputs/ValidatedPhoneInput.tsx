@@ -1,11 +1,20 @@
+import { useEffect } from "react"
 import PhoneInput from "react-phone-input-2"
 import Warning from "../icons/warning"
 import { validators } from "../modals/reg/RegModal"
 
 const ValidatedPhoneInput = ({state, setState, errors, setErrors}) => {
+
+    useEffect(() => {
+      const res = Array.from(document.getElementsByClassName("country")) 
+      res.map(elem => {
+        elem.classList.add("z-30", "relative")
+      })
+    }, [])
     return (
         <>
         <PhoneInput
+        
         inputStyle={{
             width: "100%",
             paddingTop: "0.5rem",
@@ -29,17 +38,17 @@ const ValidatedPhoneInput = ({state, setState, errors, setErrors}) => {
         }}
         containerStyle={{
             zIndex:30,
-            borderRadius: 0
+            borderRadius: 0,
+            fontFamily: "Arial"
         }}
         dropdownStyle={{
+        }}
+        buttonStyle={{
             zIndex: 9999,
             position: "absolute"
         }}
-        buttonStyle={{
-            zIndex: 30
-        }}
-        dropdownClass={`absolute top-10 left-0`}
-        containerClass={`w-full text-black`}
+        dropdownClass={`absolute top-10 left-0 z-30`}
+        containerClass={`w-full text-black `}
         />
             <div className={`w-6 h-6 absolute top-3 right-3 z-30`}>
                 {errors["phone"] && <Warning/>}

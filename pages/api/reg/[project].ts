@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Controller from "../../../services/controller";
 import { MongoService } from "../../../services/mongo";
+import { addToSendpulse } from "../sendpulse";
 
 
 export default async (req:NextApiRequest, res:NextApiResponse) => { 
@@ -13,6 +14,7 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
                 ...req.body,
                 project
             })
+            addToSendpulse(req.body)
             controller.ok(data)
             return
         }

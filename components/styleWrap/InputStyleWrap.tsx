@@ -20,7 +20,7 @@ const InputStyleWrapper: FC<InputStyleWrapperProps> = ({
             return React.cloneElement(child, {
                 ...child.props,
                 disabled,
-                className: child.props.className + `placeholder-gray-50 text-black w-full leading-4 ${disabled ? "bg-gray-30" : " bg-white"} outline-none transition-all duration-200 resize-none text-ui-text ${child.type === "textarea" && 'resize-y overflow-hidden'}`
+                className: child.props.className + ` z-0 placeholder-gray-50 text-black w-full leading-4 ${disabled ? "bg-gray-30" : " bg-white"} outline-none transition-all duration-200 resize-none text-ui-text ${child.type === "textarea" && 'resize-y overflow-hidden'}`
             })
         }
         return child
