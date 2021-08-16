@@ -33,7 +33,7 @@ type IColors = {
     voilet: IColoredInputs
 }
 
-type IRegModalInput = "participationType" | "name" | "role" | "amount" | "theme" | "phone" | "year" | "confidential" | "email" | "company"
+export type IRegModalInput = "participationType" | "name" | "role" | "amount" | "theme" | "phone" | "year" | "confidential" | "email" | "company"
 
 type IConfigNames = 'scienceLeadSchoolNextSet' |
 'scienceLeadSchoolMyRegion' |

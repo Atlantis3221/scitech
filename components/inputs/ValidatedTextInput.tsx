@@ -2,15 +2,19 @@ import { useEffect } from "react"
 import Warning from "../icons/warning"
 import { validators } from "../modals/reg/RegModal"
 import InputStyleWrapper from "../styleWrap/InputStyleWrap"
+import { useRouter } from 'next/dist/client/router'
 
-const ValidatedTextInput = ({state, name, setState, errors, setErrors}) => {
+const ValidatedTextInput = ({state, name, setState, errors, setErrors, placeholder}) => {
+    const { query: {lang: lang} } = useRouter()
     return (
         <>
     <InputStyleWrapper>
         <input style={{
             position: "relative",
             zIndex: 0
-        }} placeholder={"placeholder"} name={name} value={state[name]} 
+        }} placeholder={`${placeholder}`}
+               name={name}
+               value={state[name]}
          onChange={(e) => {
             if (errors[name]) {
                 setErrors({
@@ -28,7 +32,7 @@ const ValidatedTextInput = ({state, name, setState, errors, setErrors}) => {
         </div>
     </InputStyleWrapper>
     {errors[name] && <div className={`mt-1 text-sm`}>
-               Заполните данное поле
+        {lang === 'ru' ? 'Заполните данное поле' : 'Please fill in this field'}
             </div>}
 
         </>
