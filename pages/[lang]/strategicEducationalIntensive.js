@@ -10,6 +10,7 @@ import { Layout } from '../../components/layout'
 import { Page } from '../../components/page'
 import Translator from '../../i18n/translator'
 import ModalsContext from '../../components/modals/ModalContext'
+import { Button } from '../../components/button'
 
 
 const day16 =  (<div className="day" id="16">

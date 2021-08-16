@@ -48,7 +48,7 @@ const ValidatedPhoneInput = ({state, setState, errors, setErrors}) => {
             position: "absolute"
         }}
         dropdownClass={`absolute top-10 left-0 z-30`}
-        containerClass={`w-full text-black `}
+        containerClass={`w-full text-black ring-2 ring-transparent focus-within:ring-black hover:ring-input-hover transition-all`}
         />
             <div className={`w-6 h-6 absolute top-3 right-3 z-30`}>
                 {errors["phone"] && <Warning/>}
