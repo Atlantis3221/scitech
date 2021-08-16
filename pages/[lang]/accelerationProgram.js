@@ -8,8 +8,9 @@ import { Helmet } from 'react-helmet'
 import { Button } from '../../components/button'
 import { useRouter } from 'next/dist/client/router'
 import ModalsContext from '../../components/modals/ModalContext'
+import Translator from '../../i18n/translator'
 
-export default function AccelerationProgram(props) {
+export default function AccelerationProgram( {modalForm}) {
   const { query: {lang: lang} } = useRouter()
 
   const {modalService, setRegModalState} = useContext(ModalsContext)
@@ -20,7 +21,9 @@ export default function AccelerationProgram(props) {
       color: "yellow",
       inputs: ["name", "role", "company", "theme", "speciality", "year", "phone", "email", "confidential"],
       configName: "onlineForumConsortium",
-      title: "Зарегистрироваться на Стратегический образовательный интенсив"
+      title: lang === 'ru'
+        ? 'Записаться на следующий набор'
+        : 'Sign up for the next set'
     })
   }
   return (
@@ -29,7 +32,7 @@ export default function AccelerationProgram(props) {
         backgroundImage: 'url(/img/gradients/accelerationProgram.svg)',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '120% -10%'
-      }}>
+      }} modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content='Акселерационная программа' />
           <meta name="keywords" content='Образовательный проект Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -64,7 +67,6 @@ export default function AccelerationProgram(props) {
                   <li className='i3_12 flex_end'>
                     <div>
                       <p className='asideMarker'>
-                        {/*TODO: change svg*/}
                         <svg
                           width='14'
                           height='16'
@@ -88,31 +90,10 @@ export default function AccelerationProgram(props) {
                       </div>
                     </div>
                   </li>
-                  {/* @todo: add Modal pop-up*/}
 
                             <Button orange onClick={openModal}>
                               Записаться на следующий набор
                             </Button>
-
-                  {/*          <div>*/}
-                  {/*            <div className='registerEventForm_title'>*/}
-                  {/*              Регистрация*/}
-                  {/*            </div>*/}
-                  {/*            <RegisterEventForm*/}
-                  {/*              hideParticipant={true}*/}
-                  {/*              isTheme={true}*/}
-                  {/*              isTraineeship={true}*/}
-                  {/*              isTraineeshipYear={true}*/}
-                  {/*              eventType={'accelerationProgramNextSet'}*/}
-                  {/*              onSubmit={(e, payload) => {*/}
-                  {/*                Requests.methods.insert({*/}
-                  {/*                  group: 'registrations_accelerationProgram',*/}
-                  {/*                  payload,*/}
-                  {/*                })*/}
-                  {/*                // props.close()*/}
-                  {/*              }}*/}
-                  {/*            />*/}
-                  {/*          </div>*/}
 
                 </ul>
               </li>
@@ -318,4 +299,12 @@ export default function AccelerationProgram(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps(ctx) {
+  const {current} = Translator("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"], modalForm: current["modalForm"]  },
+  }
 }

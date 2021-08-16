@@ -10,7 +10,7 @@ import { useRouter } from 'next/dist/client/router'
 import Translator from '../../i18n/translator'
 import ModalsContext from '../../components/modals/ModalContext'
 
-export default function School({ current, onClick }) {
+export default function School({ current, modalForm }) {
   const { query: {lang: lang} } = useRouter()
   const {modalService, setRegModalState} = useContext(ModalsContext)
 
@@ -20,7 +20,7 @@ export default function School({ current, onClick }) {
       color: "green",
       inputs: ["participationType","name", "company", "phone", "email", "confidential"],
       configName: "scienceLeadSchoolMyRegion",
-      title: "Сообщить о следующем наборе",
+      title: lang === 'ru'? 'Сообщить о следующем наборе': 'Enquire about next enrolment period',
       isSent: false
     })
   }
@@ -42,7 +42,7 @@ export default function School({ current, onClick }) {
         backgroundImage: 'url(/img/gradients/school_gradient.svg)',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '120% -5%',
-      }}>
+      }} modalFormText={modalForm}>
         <div className='show wrapper_hero'>
           <div className='container relative'>
             <div className='colorSpot colorSpot__green colorSpot__green'></div>
@@ -73,7 +73,6 @@ export default function School({ current, onClick }) {
                         <li className='i3_12 flex_between'>
                           <div>
                             <p className='asideMarker'>
-                              {/*TODO: change svg*/}
                               <svg
                                 width='14'
                                 height='16'
@@ -103,19 +102,9 @@ export default function School({ current, onClick }) {
                       </ul>
                     </li>
                     <li className='i3_12 flex_end'>
-
-                      {/* @todo: add Modal pop-up*/}
-
                             <Button bordered-green marginleft onClick={openModal}>
-                              {current["Заказать проведение в моем регионе"]}
+                              {current["Сообщить о следующем наборе"]}
                             </Button>
-
-                      {/*          hideParticipant={false}*/}
-                      {/*          hideSituation={true}*/}
-                      {/*          showOrganizationField={true}*/}
-                      {/*          eventType={'scienceLeadSchoolMyRegion'}*/}
-                      {/*              group: 'registrations_schoolMyRegion',*/}
-
                     </li>
                   </ul>
                 </li>
@@ -615,6 +604,6 @@ export async function getServerSideProps(ctx) {
   const {current} = Translator("test", ctx.params.lang)
 
   return {
-    props: { current: current["test"]  },
+    props: { current: current["test"], modalForm: current["modalForm"] },
   }
 }

@@ -155,15 +155,16 @@ export default function GameMethodsInEducation(props) {
               <li className='i3_3'></li>
               <li className='i3_9'>
                 <div className="videoContainer">
-                  <iframe
-                    width='560'
-                    height='315'
-                    frameBorder='0'
-                    allowFullScreen
-                    type='video/youtube'
-                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                    src='https://www.youtube.com/embed/TYCX0KjR5js'
-                  />
+                  <p className="raleway">(Видео недоступно. Владелец этого видео запретил воспроизводить его на других сайтах)</p>
+                  {/*<iframe*/}
+                  {/*  width='560'*/}
+                  {/*  height='315'*/}
+                  {/*  frameBorder='0'*/}
+                  {/*  allowFullScreen*/}
+                  {/*  type='video/youtube'*/}
+                  {/*  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'*/}
+                  {/*  src='https://www.youtube.com/embed/TYCX0KjR5js'*/}
+                  {/*/>*/}
                 </div>
                 <p className="raleway">Вводный вебинар от ведущего курса Романа Крылова</p>
               </li>
