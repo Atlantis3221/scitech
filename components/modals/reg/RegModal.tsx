@@ -12,6 +12,7 @@ import Checkbox from "../../inputs/Checkbox"
 import ValidatedPhoneInput from "../../inputs/ValidatedPhoneInput"
 import axios from "axios"
 import SentCheck from "../../icons/sentCheck"
+import { useRouter } from "next/router"
 
 export const Colors = {
     red: {
@@ -81,6 +82,7 @@ type ParticipationEnum = "Индивидуальное" | "Групповое"
     
 
 const RegModal = () => {
+    const { query: {lang: lang} } = useRouter()
     const initialErrors = Object.keys(initialState).reduce((acc, key) => {acc[key] = false; return acc; }, {})
     const modal = "reg"
     const {modalsState, regModalState, setRegModalState, modalService} = useContext(ModalsContext)
@@ -178,10 +180,15 @@ const RegModal = () => {
                             return (
                                 <>
                                 <div className={`col-span-1 flex items-center`}>
-                                    Имя и фамилия
+                                  {lang === 'ru' ? 'Имя и фамилия' : 'Name and surname'}
                                 </div>
                                 <div className={`col-span-3`}>
-                                    <ValidatedTextInput errors={errors} state={state} name={"name"} setState={setState} setErrors={setErrors}/>
+                                    <ValidatedTextInput errors={errors}
+                                                        state={state}
+                                                        name={"name"}
+                                                        setState={setState}
+                                                        placeholder={lang === 'ru' ? 'Имя и фамилия' : 'Name and surname'}
+                                                        setErrors={setErrors}/>
                                 </div>
                                 </>
                             )
@@ -190,11 +197,34 @@ const RegModal = () => {
                             return (
                                 <>
                                 <div className={`col-span-1 flex items-center`}>
-                                    Имя и фамилия
+                                  {lang === 'ru' ? 'Имя и фамилия' : 'Name and surname'}
                                 </div>
                                 <div className={`col-span-3`}>
-                                    <ValidatedTextInput errors={errors} state={state} name={"name"} setState={setState} setErrors={setErrors}/>
+                                    <ValidatedTextInput errors={errors}
+                                                        state={state}
+                                                        name={"name"}
+                                                        setState={setState}
+                                                        placeholder={lang === 'ru' ? 'Имя и фамилия' : 'Name and surname'}
+                                                        setErrors={setErrors}/>
                                 </div>
+                                {Object.keys(addtionalNames).map(name => {
+                                    return (
+                                        <>
+                                        <div className={`col-span-1 flex items-center`}>
+                                          {lang === 'ru' ? 'Имя и фамилия' : 'Name and surname'}
+                                        </div>
+                                        <div className={`col-span-3`}>
+                                            <ValidatedTextInput errors={{
+                                                [name]: false
+                                            }} state={addtionalNames}
+                                                                name={name}
+                                                                setState={setAdditionalNames}
+                                                                placeholder={lang === 'ru' ? 'Имя и фамилия' : 'Name and surname'}
+                                                                setErrors={setErrors}/>
+                                        </div>
+                                        </>
+                                    )
+                                })}
                                 </>
                                 
                             )
@@ -209,7 +239,12 @@ const RegModal = () => {
                                 Email
                             </div>
                             <div className={`col-span-3`}>
-                                <ValidatedTextInput setErrors={setErrors} errors={errors} state={state} name={"email"} setState={setState}/>
+                                <ValidatedTextInput setErrors={setErrors}
+                                                    errors={errors}
+                                                    state={state}
+                                                    name={"email"}
+                                                    placeholder={lang === 'ru' ? 'example@test.com' : 'example@test.com'}
+                                                    setState={setState}/>
                             </div>
                             </>
                         )
@@ -218,12 +253,16 @@ const RegModal = () => {
                         return (
                             <>
                             <div className={`col-span-1`}>
-                             Тип участия
+                              {lang === 'ru' ? 'Тип участия' : 'Participation type'}
                             </div>
                             <div className={`col-span-3`}>
                                   {radioValues.map(a => {
                                  return <div className={`w-6 h-6 mb-2`}>
-                                     <Radio value={a} state={state} setState={setState} color={Colors[regModalState.color].checkbox} name={"participationType"}/>
+                                     <Radio value={a}
+                                            state={state}
+                                            setState={setState}
+                                            color={Colors[regModalState.color].checkbox}
+                                            name={"participationType"}/>
                                  </div>
                                  })}
                              </div>
@@ -234,10 +273,15 @@ const RegModal = () => {
                         return (
                             <>
                             <div className={`col-span-1 mb-1 flex items-center`}>
-                                Количество человек
+                              {lang === 'ru' ? 'Количество человек' : 'Number of participants'}
                             </div>
                             <div className={`col-span-3`}>
-                                <ValidatedTextInput setErrors={setErrors} errors={errors} state={state} name={"amount"} setState={setState}/>
+                                <ValidatedTextInput setErrors={setErrors}
+                                                    errors={errors}
+                                                    state={state}
+                                                    name={"amount"}
+                                                    placeholder={lang === 'ru' ? 'Количество человек' : 'Number of participants'}
+                                                    setState={setState}/>
                             </div>
                             </>
                         )
@@ -246,10 +290,15 @@ const RegModal = () => {
                         return (
                             <>
                             <div className={`col-span-1 flex items-center`}>
-                                Должность
+                              {lang === 'ru' ? 'Должность' : 'Position'}
                             </div>
                             <div className={`col-span-3`}>
-                                <ValidatedTextInput setErrors={setErrors} errors={errors} state={state} name={"role"} setState={setState}/>
+                                <ValidatedTextInput setErrors={setErrors}
+                                                    errors={errors}
+                                                    state={state}
+                                                    name={"role"}
+                                                    placeholder={lang === 'ru' ? 'Должность' : 'Position'}
+                                                    setState={setState}/>
                             </div>
                             </>
                         )
@@ -258,10 +307,15 @@ const RegModal = () => {
                        return (
                         <>
                         <div className={`col-span-1 flex items-center`}>
-                            Год аспирантуры 
+                          {lang === 'ru' ? 'Год аспирантуры' : 'Year of graduate school'}
                         </div>
                         <div className={`col-span-3`}>
-                            <ValidatedTextInput setErrors={setErrors} errors={errors} state={state} name={"year"} setState={setState}/>
+                            <ValidatedTextInput setErrors={setErrors}
+                                                errors={errors}
+                                                state={state}
+                                                name={"year"}
+                                                placeholder={lang === 'ru' ? 'Год аспирантуры' : 'Year of graduate school'}
+                                                setState={setState}/>
                         </div>
                         </>
                        ) 
@@ -270,7 +324,7 @@ const RegModal = () => {
                         return (
                             <>
                             <div className={`col-span-1 flex items-center`}>
-                                Номер телефона
+                              {lang === 'ru' ? 'Телефон' : 'Phone'}
                             </div>
                              <div className={`col-span-3 relative z-40`}>
                                 <ValidatedPhoneInput  setErrors={setErrors} errors={errors} state={state} setState={setState}/>
@@ -283,14 +337,16 @@ const RegModal = () => {
                         return (
                             <>
                             <div className={`col-span-1`}/>
-                            <div className={`col-span-3 flex`}>
+                            <div className={`col-span-3 flex mt-10`}>
                                 <div style={{
                                     color: Colors[regModalState.color].checkbox,
                                 }} className={`w-6 h-6 flex-shrink-0 mr-2`}>
                                     <Checkbox state={state} setState={setState} setErrors={setErrors} errors={errors} name={"confidential"}/>
                                 </div>
                                 <div className={`${errors["confidential"] ? "text-error" : "text-white"}`}>
-                                Даю согласие на обработку персональных данных, описанную в Политике обработки персональных данных
+                                  {lang === 'ru'
+                                    ? <p className="mt0">Даю согласие на обработку персональных данных, описанную в <a href='/ru/policy' className='class="input_linkToPolicy"'>Политике обработки персональных данных</a></p>
+                                    : <p className="mt0">I agree to the processing of personal data described in the <a href='/en/policy' className='class="input_linkToPolicy"'>Personal Data Processing Policy</a></p>}
                                 </div>
                             </div>
                             </>
@@ -300,10 +356,15 @@ const RegModal = () => {
                         return (
                             <>
                             <div className={`col-span-1 flex items-center`}>
-                               Организация
+                              {lang === 'ru' ? 'Организация' : 'Organization'}
                             </div>
                             <div className={`col-span-3`}>
-                                <ValidatedTextInput setErrors={setErrors} errors={errors} state={state} name={"company"} setState={setState}/>
+                                <ValidatedTextInput setErrors={setErrors}
+                                                    errors={errors}
+                                                    state={state}
+                                                    name={"company"}
+                                                    placeholder={lang === 'ru' ? 'Организация' : 'Organization'}
+                                                    setState={setState}/>
                             </div>
                             </>
                         )
@@ -314,10 +375,10 @@ const RegModal = () => {
                                     return (
                                         <>
                                         <div className={`col-span-1 flex items-center`}>
-                                        Имя и фамилия
+                                        {lang === 'ru' ? 'Имя и фамилия' : 'Name and surname'}
                                         </div>
                                         <div className={`col-span-3`}>
-                                            <ValidatedTextInput errors={{
+                                            <ValidatedTextInput placeholder={lang === 'ru' ? 'Имя и фамилия' : 'Name and surname'} errors={{
                                                 [name]: false
                                             }} state={addtionalNames} name={name} setState={setAdditionalNames} setErrors={setErrors}/>
                                         </div>
@@ -340,7 +401,7 @@ const RegModal = () => {
                           sendData()
                        }
                     }}
-                    >Отправить
+                    >{lang === 'ru' ? 'Отправить' : 'Send'}
                     </button>
                 </div>
                 </div>

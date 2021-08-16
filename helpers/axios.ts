@@ -37,3 +37,11 @@ export const getContentfulGrants = async() => await axios
 	}).catch(error => {
 		console.log(error);
 	});
+
+export const getAllRequestData = async(project) => await axios
+	.get(`/api/reg/${project}`)
+	.then((res) => {
+		return res.data;
+	}).catch(error => {
+		console.log(error);
+	});
