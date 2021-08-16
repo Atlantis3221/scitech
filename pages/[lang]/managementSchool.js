@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
@@ -8,9 +8,21 @@ import { Helmet } from 'react-helmet'
 import { Button } from '../../components/button'
 import { useRouter } from 'next/dist/client/router'
 import Translator from '../../i18n/translator'
+import ModalsContext from '../../components/modals/ModalContext'
 
 export default function ManagementSchool({  current, onClick }) {
   const { query: {lang: lang} } = useRouter()
+  const {modalService, setRegModalState} = useContext(ModalsContext)
+
+  const openModal = () => {
+    modalService.openModal("reg")
+    setRegModalState({
+      color: "violet",
+      inputs: ["participationType","name", "company", "phone", "email", "confidential"],
+      configName: "managementSchoolMyRegion",
+      title: "Заказать проведение в моем регионе"
+    })
+  }
   return (
     <Page>
       <Helmet>
@@ -85,7 +97,7 @@ export default function ManagementSchool({  current, onClick }) {
                     <li className='i3_12 flex_end m0'>
                       {/* @todo: add Modal pop-up*/}
 
-                            <Button bordered-violet marginleft onClick={onClick}>
+                            <Button bordered-violet marginleft onClick={openModal}>
                               {current["Заказать проведение в моем регионе"]}
                             </Button>
 
