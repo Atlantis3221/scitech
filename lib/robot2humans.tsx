@@ -8,7 +8,7 @@ export const robots2humans: Map<IRegModalInput, string> = new Map([
     [ 'theme', 'Тема' ],
     [ 'phone', 'Телефон' ],
     [ 'email', 'Email' ],
-    [ 'policy', 'Дал согласие на обработку данных' ],
+    [ 'confidential', 'Дал согласие на обработку данных' ],
     [ 'company', 'Организация' ],
 
   // ?

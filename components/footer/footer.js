@@ -24,10 +24,6 @@ export function Footer(props) {
     if(inputEmailValue) {
       setIsSend(true)
       e.target.classList.toggle('footer_form__success')
-
-      // NewsSubscribers.methods
-      //   .insert({ email: inputEmailValue, sendpulseBookId: 'subscribeToNews', variables: {} })
-      //   .finally(console.log)
     }
   }
 
@@ -64,27 +60,10 @@ export function Footer(props) {
       <p className="footer_title">{lang === 'ru'? 'о центре': 'about the center'}</p>
       <div className='registerEventForm'>
 
-        {/* @todo: add Modal pop-up*/}
-       <p className="footer_text link" onClick={() => {openModal()}}>{lang === 'ru'? 'Стать клиентом': 'Become a client'}</p>
-
-        {/*  Content={props => (*/}
-        {/*    <div>*/}
-        {/*      <div className='registerEventForm_title'>*/}
-        {/*        Стать клиентом*/}
-        {/*      </div>*/}
-        {/*      <RegisterEventForm*/}
-        {/*        hideParticipant={true}*/}
-        {/*        isBecomeClient={true}*/}
-        {/*        eventType={'becomeClient'}*/}
-        {/*        onSubmit={(e, payload) => {*/}
-        {/*          Requests.methods.insert({*/}
-        {/*            group: 'registrations_beClient',*/}
-        {/*            payload,*/}
-        {/*          })*/}
-        {/*          // props.close()*/}
-        {/*        }}*/}
-        {/*      />*/}
-        {/*    </div>*/}
+        {/* MODAL POP-UP*/}
+       <p className="footer_text link" onClick={() => {openModal()}}>
+         {lang === 'ru'? 'Стать клиентом': 'Become a client'}
+       </p>
 
       </div>
       <a href="mailto:cdc@scitech.ru" className="footer_text link" target="_blank">{lang === 'ru'? 'Стать партнером': 'Become a partner'}</a>
@@ -99,7 +78,7 @@ export function Footer(props) {
                placeholder="example@mail.ru"
         />
         <button className={`form_button ${isSend ? 'form_button__send' : ''}`} disabled={isSend} type='submit'></button>
-        {isSend ? <p className="successText">Вы добавлены в новостную рассылку</p> : null}
+        {isSend ? <p className="successText">{lang === 'ru'? 'Вы добавлены в новостную рассылку': 'You\'ve been added to the newsletter'}</p> : null}
       </form>
       <Link href={`/${lang}/policy`}>
       <a>
