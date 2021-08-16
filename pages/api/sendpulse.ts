@@ -20,11 +20,9 @@ const sendpulseConfiguration = {
   const API_SECRET = '756dd2ac089ec8e8f8786af4e25f9fbe'
   const TOKEN_STORAGE = '/tmp/'
 
-  const yes = (doc) => {
+  export const addToSendpulse = (doc) => {
     sendpulse.init(API_USER_ID, API_SECRET, TOKEN_STORAGE, function() {
         const id = doc?.sendpulseBookId ? +sendpulseConfiguration[doc.sendpulseBookId] : 1034453
-        console.log("Meteor!!!!!!!!!", 'data:', id, doc)
-    
         // sendpulse.listAddressBooks(console.log)
         if(doc.email) {
           sendpulse.addEmails(

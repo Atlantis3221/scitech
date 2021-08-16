@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         error: "#E52C2C",
         "input-hover": "#4F4F4F"
+      },
+      fontFamily: { 
+        raleway: ["Raleway", "sans-serif"]
       }
     },
   },
