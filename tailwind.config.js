@@ -2,6 +2,7 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    placeholderColor: theme => theme('colors'),
     extend: {
       colors: {
         error: "#E52C2C",

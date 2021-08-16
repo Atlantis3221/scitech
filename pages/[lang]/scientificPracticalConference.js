@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { Partner } from '../../components/partner'
@@ -9,9 +9,21 @@ import { Layout } from '../../components/layout'
 import { useRouter } from 'next/dist/client/router'
 import Translator from '../../i18n/translator'
 import { Button } from '../../components/button'
+import ModalsContext from '../../components/modals/ModalContext'
 
 export default function ScientificPracticalConference({ current, onClick }) {
   const { query: {lang: lang} } = useRouter()
+  const {modalService, setRegModalState} = useContext(ModalsContext)
+
+  const openModal = () => {
+    modalService.openModal("reg")
+    setRegModalState({
+      color: "red",
+      inputs: ["participationType","name", "role", "company", "phone", "email", "confidential"],
+      configName: "strategicEducationalIntensive",
+      title: "Зарегистрироваться на Стратегический образовательный интенсив"
+    })
+  }
   return (
     <Page>
       <Layout>
@@ -74,7 +86,7 @@ export default function ScientificPracticalConference({ current, onClick }) {
 
                         <div className="schedule_button">
                             <div className='registerEventForm'>
-                              <Button red onClick={onClick}>{current["Зарегистрироваться"]}</Button>
+                              <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
                               {/*@todo REPLACE with new from*/}
                               {/*<a href={'/'} className="btn btn__red">{current["scienceLeadSocRegistr"]}</a>*/}
                               {/*          hideParticipant={true}*/}

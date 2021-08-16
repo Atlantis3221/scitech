@@ -9,6 +9,7 @@ import { useRouter } from 'next/dist/client/router'
 import { Layout } from '../../components/layout'
 import { Page } from '../../components/page'
 import Translator from '../../i18n/translator'
+import ModalsContext from '../../components/modals/ModalContext'
 
 
 const day16 =  (<div className="day" id="16">
@@ -198,6 +199,17 @@ const days = {
 export default function StrategicEducationalIntensive({  current  }) {
   const { query: {lang: lang} } = useRouter()
   const [day, setDay] = useState('16')
+  const {modalService, setRegModalState} = useContext(ModalsContext)
+
+  const openModal = () => {
+    modalService.openModal("reg")
+    setRegModalState({
+      color: "red",
+      inputs: ["participationType","name", "role", "company", "phone", "email", "confidential"],
+      configName: "strategicEducationalIntensive",
+      title: "Зарегистрироваться на Стратегический образовательный интенсив"
+    })
+  }
 
   return (
     <Page>
@@ -249,6 +261,7 @@ export default function StrategicEducationalIntensive({  current  }) {
                                eventLinkToTable="strategicEducationalIntensive"
                                eventType={'strategicEducationalIntensive'}
                     />
+                    <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
                   </li>
                 </ul>
               </li>
