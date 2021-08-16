@@ -29,7 +29,8 @@ type IColors = {
     red: IColoredInputs,
     green: IColoredInputs,
     blue: IColoredInputs,
-    yellow: IColoredInputs
+    yellow: IColoredInputs,
+    voilet: IColoredInputs
 }
 
 type IRegModalInput = "participationType" | "name" | "role" | "amount" | "theme" | "phone" | "year" | "confidential" | "email" | "company"
@@ -50,11 +51,12 @@ type IRegModalState = {
     color: keyof IColors,
     inputs: IRegModalInput[],
     title: string,
-    configName: IConfigNames
+    configName: IConfigNames,
+    isSent: boolean
 }
 
 const initialState:IModalState = {
-    reg: true
+    reg: false
 }
 
 type IAction = 
@@ -106,6 +108,7 @@ const ModalsContextProvider = ({ children }: Props) => {
     inputs: ["participationType", "name", "phone", "email", "confidential"],
     title: "",
     configName: "becomeClient",
+    isSent: false
   })
 
   return (
