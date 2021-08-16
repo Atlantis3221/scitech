@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
@@ -9,11 +9,25 @@ import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { Button } from '../../components/button'
 import { useRouter } from 'next/dist/client/router'
+import ModalsContext from '../../components/modals/ModalContext'
+import useTranslate from '../../i18n/translator'
 
 const isShowRegistrationButton = true
 
-export default function OnlineForumConsortium(props) {
+export default function OnlineForumConsortium({current, ...props}) {
   const { query: {lang: lang} } = useRouter()
+
+  const {modalService, setRegModalState} = useContext(ModalsContext)
+
+  const openModal = () => {
+    modalService.openModal("reg")
+    setRegModalState({
+      color: "red",
+      inputs: ["name", "role", "company", "phone", "email", "speaker", "confidential"],
+      configName: "onlineForumConsortium",
+      title: "Зарегистрироваться на Стратегический образовательный интенсив"
+    })
+  }
   return (
     <Page>
       <Layout>
@@ -68,6 +82,7 @@ export default function OnlineForumConsortium(props) {
                 </ul>
               </li>
             </ul>
+            <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
           </div>
         </div>
 
@@ -293,4 +308,12 @@ export default function OnlineForumConsortium(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps(ctx) {
+  const {current} = useTranslate("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"]  },
+  }
 }
