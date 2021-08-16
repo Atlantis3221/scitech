@@ -12,6 +12,7 @@ import Checkbox from "../../inputs/Checkbox"
 import ValidatedPhoneInput from "../../inputs/ValidatedPhoneInput"
 import axios from "axios"
 import SentCheck from "../../icons/sentCheck"
+import { useRouter } from "next/router"
 
 export const Colors = {
     red: {
@@ -48,7 +49,8 @@ type IRegState = {
     year?: string,
     email?: string,
     confidential?: boolean,
-    company?: string
+    company?: string,
+    speaker?: boolean
 }
 
 type ParticipationEnum = "Индивидуальное" | "Групповое"
@@ -130,6 +132,9 @@ const RegModal = () => {
             if (curr == "confidential") {
                 return acc
             }
+            if (curr === "speaker") {
+                return acc
+            }
             acc[curr] = !validators[curr](state[curr]);
             if (curr === "phone") {
                 acc[curr] = !validators[curr]("+" + state[curr])
@@ -164,7 +169,7 @@ const RegModal = () => {
             }}
             className={`
             ${regModalState.isSent ? "overflow-hidden" : "overflow-y-auto"}
-            max-w-3xl w-full h-full relative z-50 bg-white 
+            max-w-3xl w-full h-full relative z-50 bg-white
             ${isOpen ? "opacity-100 visible scale-100" : "opacity-10 invisible scale-75"}
             transistion-all duration-300 transform origin-center
             pt-10 px-6 md:px-14 pb-10 font-raleway`}>
@@ -336,7 +341,7 @@ const RegModal = () => {
                         return (
                             <>
                             <div className={`col-span-1`}/>
-                            <div className={`col-span-3 flex mt-10`}>
+                            <div className={`col-span-3 flex mt-4`}>
                                 <div style={{
                                     color: Colors[regModalState.color].checkbox,
                                 }} className={`w-6 h-6 flex-shrink-0 mr-2`}>
@@ -346,6 +351,25 @@ const RegModal = () => {
                                   {lang === 'ru'
                                     ? <p className="mt0">Даю согласие на обработку персональных данных, описанную в <a href='/ru/policy' className='class="input_linkToPolicy"'>Политике обработки персональных данных</a></p>
                                     : <p className="mt0">I agree to the processing of personal data described in the <a href='/en/policy' className='class="input_linkToPolicy"'>Personal Data Processing Policy</a></p>}
+                                </div>
+                            </div>
+                            </>
+                        )
+                    }
+                    if (input === "speaker") {
+                        return (
+                            <>
+                            <div className={`col-span-1`}/>
+                            <div className={`col-span-3 flex mt-4`}>
+                                <div style={{
+                                    color: Colors[regModalState.color].checkbox,
+                                }} className={`w-6 h-6 flex-shrink-0 mr-2`}>
+                                    <Checkbox state={state} setState={setState} setErrors={setErrors} errors={errors} name={"speaker"}/>
+                                </div>
+                                <div className={`${errors["speaker"] ? "text-error" : "text-white"}`}>
+                                  {lang === 'ru'
+                                    ? <p className="mt0">Принять участие как спикер</p>
+                                    : <p className="mt0">Participate as a speaker</p>}
                                 </div>
                             </div>
                             </>
@@ -374,10 +398,10 @@ const RegModal = () => {
                                     return (
                                         <>
                                         <div className={`col-span-1 flex items-center`}>
-                                        Имя и фамилия
+                                        {lang === 'ru' ? 'Имя и фамилия' : 'Name and surname'}
                                         </div>
                                         <div className={`col-span-3`}>
-                                            <ValidatedTextInput errors={{
+                                            <ValidatedTextInput placeholder={lang === 'ru' ? 'Имя и фамилия' : 'Name and surname'} errors={{
                                                 [name]: false
                                             }} state={addtionalNames} name={name} setState={setAdditionalNames} setErrors={setErrors}/>
                                         </div>

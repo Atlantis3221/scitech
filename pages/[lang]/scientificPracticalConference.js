@@ -19,8 +19,8 @@ export default function ScientificPracticalConference({ current, onClick }) {
     modalService.openModal("reg")
     setRegModalState({
       color: "red",
-      inputs: ["participationType","name", "role", "company", "phone", "email", "confidential"],
-      configName: "strategicEducationalIntensive",
+      inputs: ["name", "role", "company", "phone", "email", "speaker", "confidential"],
+      configName: "scientificPracticalConference",
       title: "Зарегистрироваться на Стратегический образовательный интенсив"
     })
   }

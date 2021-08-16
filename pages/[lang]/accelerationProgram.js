@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
@@ -7,9 +7,22 @@ import { StrongText } from '../../components/strongText'
 import { Helmet } from 'react-helmet'
 import { Button } from '../../components/button'
 import { useRouter } from 'next/dist/client/router'
+import ModalsContext from '../../components/modals/ModalContext'
 
 export default function AccelerationProgram(props) {
   const { query: {lang: lang} } = useRouter()
+
+  const {modalService, setRegModalState} = useContext(ModalsContext)
+
+  const openModal = () => {
+    modalService.openModal("reg")
+    setRegModalState({
+      color: "yellow",
+      inputs: ["name", "role", "company", "theme", "speciality", "year", "phone", "email", "confidential"],
+      configName: "onlineForumConsortium",
+      title: "Зарегистрироваться на Стратегический образовательный интенсив"
+    })
+  }
   return (
     <Page>
       <Layout style={{
@@ -77,7 +90,7 @@ export default function AccelerationProgram(props) {
                   </li>
                   {/* @todo: add Modal pop-up*/}
 
-                            <Button orange onClick={props.onClick}>
+                            <Button orange onClick={openModal}>
                               Записаться на следующий набор
                             </Button>
 
