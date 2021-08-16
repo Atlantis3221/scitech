@@ -1,11 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
+import ModalsContext from '../modals/ModalContext'
 
 export function Footer(props) {
   const { query: {lang: lang} } = useRouter()
   const [isSend, setIsSend] = useState(false)
   const [inputEmailValue, setInputEmailValue] = useState('')
+  const {modalService, setRegModalState} = useContext(ModalsContext)
+
+  const openModal = () => {
+    modalService.openModal("reg")
+    setRegModalState({
+      color: "red",
+      inputs: ["name", "company", "phone", "email", "confidential"],
+      configName: "becomeClient",
+      title: "Стать клиентом"
+    })
+  }
 
   const saveToServer = (e) => {
     e.preventDefault()
@@ -53,7 +65,7 @@ export function Footer(props) {
       <div className='registerEventForm'>
 
         {/* @todo: add Modal pop-up*/}
-       <p className="footer_text link" onClick={props.onClick}>{lang === 'ru'? 'Стать клиентом': 'Become a client'}</p>
+       <p className="footer_text link" onClick={() => {openModal()}}>{lang === 'ru'? 'Стать клиентом': 'Become a client'}</p>
 
         {/*  Content={props => (*/}
         {/*    <div>*/}

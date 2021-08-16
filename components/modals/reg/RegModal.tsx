@@ -10,6 +10,7 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 import Warning from "../../icons/warning"
 import Checkbox from "../../inputs/Checkbox"
 import ValidatedPhoneInput from "../../inputs/ValidatedPhoneInput"
+import axios from "axios"
 
 export const Colors = {
     red: {
@@ -41,7 +42,7 @@ type IRegState = {
     phone?: string,
     year?: string,
     email?: string,
-    policy?: boolean,
+    confidential?: boolean,
     company?: string
 }
 
@@ -58,7 +59,7 @@ type ParticipationEnum = "Индивидуальное" | "Групповое"
         year: "",
         email: "",
         phone: "",
-        policy: false,
+        confidential: false,
         company: ""
     }
    export const validators = {
@@ -69,17 +70,19 @@ type ParticipationEnum = "Индивидуальное" | "Групповое"
         theme: ValidatorService.default,
         year: ValidatorService.default,
         email: ValidatorService.email,
-        phone: isValidPhoneNumber
+        phone: isValidPhoneNumber,
+        company: ValidatorService.default,
     }
     
 
 const RegModal = () => {
     const initialErrors = Object.keys(initialState).reduce((acc, key) => {acc[key] = false; return acc; }, {})
     const modal = "reg"
-    const {modalService, modalsState, regModalState} = useContext(ModalsContext)
+    const {modalsState, regModalState} = useContext(ModalsContext)
     const isOpen = modalsState[modal]
     const [state, setState] = useState(initialState)
     const [errors, setErrors] = useState(initialErrors)
+    const [loading, setLoading] = useState(false)
     const [addtionalNames, setAdditionalNames] = useState({
         name1: '',
         name2: "",
@@ -89,19 +92,38 @@ const RegModal = () => {
         name6: ""
     })
 
+    const sendData = async () => {
+        setLoading(true)
+        const res = await axios.post(`/api/reg/${regModalState.configName}`, regModalState.inputs.reduce((acc, key) => {acc[key] = state[key]; return acc; }, {}))
+        setLoading(false)
+        if (res.data.ok) {
+            setState(initialState)
+        }
+    }
+
     const validate = () => {
-        const obj = regModalState.inputs.reduce((acc, curr) => {
+        let obj = regModalState.inputs.reduce((acc, curr) => {
+            if (curr == "confidential") {
+                return acc
+            }
             acc[curr] = !validators[curr](state[curr]);
             if (curr === "phone") {
                 acc[curr] = !validators[curr]("+" + state[curr])
             }
             return acc
         }, {})
-        const poilcy = ValidatorService.checkIfTrue(state.policy)
+        if (regModalState.inputs.includes("confidential")) {
+            const confidential = !ValidatorService.checkIfTrue(state.confidential)
+            obj = {
+                ...obj,
+                confidential,
+            }
+        }
+       
         setErrors({
             ...obj,
-            poilcy
         })
+        return obj
     }
     
     return (
@@ -120,8 +142,11 @@ const RegModal = () => {
             overflow-y-auto max-w-3xl w-full h-full relative z-50 bg-white 
             ${isOpen ? "opacity-100 visible scale-100" : "opacity-10 invisible scale-75"}
             transistion-all duration-300 transform origin-center
-            pt-14 px-6 md:px-14 pb-10`}>
-            <div className={`md:grid grid-cols-4 gap-y-4 text-white`}>
+            pt-10 px-6 md:px-14 pb-10 font-raleway`}>
+            <div className={`mb-8 text-white text-2xl`}>
+            {regModalState.title}
+            </div>
+            <div className={`grid grid-cols-1 md:grid-cols-4 gap-y-4 lg:gap-y-6 text-white`}>
                 {regModalState.inputs.map(input => {
                     if (input === "name") {
                         if (state.participationType === "Индивидуальное") {
@@ -166,6 +191,7 @@ const RegModal = () => {
                         }
                     }
                     if (input === "email") {
+                        console.log("email")
                         return (
                             <>
                             <div className={`col-span-1 flex items-center`}>
@@ -235,21 +261,25 @@ const RegModal = () => {
                             <div className={`col-span-1 flex items-center`}>
                                 Номер телефона
                             </div>
-                             <div className={`col-span-3 relative z-30`}>
+                             <div className={`col-span-3 relative z-40`}>
                                 <ValidatedPhoneInput  setErrors={setErrors} errors={errors} state={state} setState={setState}/>
                             </div>
                             </>
                         )
                     }
-                    if (input === "policy") {
+                    if (input === "confidential") {
+                        console.log(errors)
                         return (
                             <>
                             <div className={`col-span-1`}/>
-                            <div className={`col-span-3`}>
+                            <div className={`col-span-3 flex`}>
                                 <div style={{
-                                    color: Colors[regModalState.color].checkbox
-                                }} className={`w-6 h-6`}>
-                                    <Checkbox state={state} setState={setState} name={"policy"}/>
+                                    color: Colors[regModalState.color].checkbox,
+                                }} className={`w-6 h-6 flex-shrink-0 mr-2`}>
+                                    <Checkbox state={state} setState={setState} setErrors={setErrors} errors={errors} name={"confidential"}/>
+                                </div>
+                                <div className={`${errors["confidential"] ? "text-error" : "text-white"}`}>
+                                Даю согласие на обработку персональных данных, описанную в Политике обработки персональных данных
                                 </div>
                             </div>
                             </>
@@ -272,14 +302,17 @@ const RegModal = () => {
                 <div className={`col-span-1`}>
 
                 </div>
-                <div>
+                <div className={`col-span-3`}>
                     <button
                     style={{
                         color: Colors[regModalState.color].checkbox
                     }}
-                    className={`px-4 py-2 bg-white uppercase`}
+                    className={`px-4 py-2 bg-white uppercase font-bold`}
                     onClick={() => {
-                        validate()
+                       const valid = validate()
+                       if (!Object.values(valid).includes(true)) {
+                          sendData()
+                       }
                     }}
                     >Отправить
                     </button>
