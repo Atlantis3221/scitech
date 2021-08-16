@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
@@ -8,9 +8,22 @@ import { Helmet } from 'react-helmet'
 import { Button } from '../../components/button'
 import { useRouter } from 'next/dist/client/router'
 import Translator from '../../i18n/translator'
+import ModalsContext from '../../components/modals/ModalContext'
 
 export default function School({ current, onClick }) {
   const { query: {lang: lang} } = useRouter()
+  const {modalService, setRegModalState} = useContext(ModalsContext)
+
+  const openModal = () => {
+    modalService.openModal("reg")
+    setRegModalState({
+      color: "green",
+      inputs: ["participationType","name", "company", "phone", "email", "confidential"],
+      configName: "scienceLeadSchoolMyRegion",
+      title: "Сообщить о следующем наборе",
+      isSent: false
+    })
+  }
   return (
     <Page>
       <Helmet>
@@ -93,7 +106,7 @@ export default function School({ current, onClick }) {
 
                       {/* @todo: add Modal pop-up*/}
 
-                            <Button bordered-green marginleft onClick={onClick}>
+                            <Button bordered-green marginleft onClick={openModal}>
                               {current["Заказать проведение в моем регионе"]}
                             </Button>
 

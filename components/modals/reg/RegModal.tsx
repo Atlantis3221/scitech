@@ -11,6 +11,7 @@ import Warning from "../../icons/warning"
 import Checkbox from "../../inputs/Checkbox"
 import ValidatedPhoneInput from "../../inputs/ValidatedPhoneInput"
 import axios from "axios"
+import SentCheck from "../../icons/sentCheck"
 
 export const Colors = {
     red: {
@@ -28,6 +29,10 @@ export const Colors = {
     yellow: {
       bg: "#D66E14",
       checkbox: "#D66E14"
+    },
+    violet: {
+        bg: "#8C1F7D",
+        checkbox: "#9F248E"
     }
 }
 
@@ -78,7 +83,7 @@ type ParticipationEnum = "Индивидуальное" | "Групповое"
 const RegModal = () => {
     const initialErrors = Object.keys(initialState).reduce((acc, key) => {acc[key] = false; return acc; }, {})
     const modal = "reg"
-    const {modalsState, regModalState} = useContext(ModalsContext)
+    const {modalsState, regModalState, setRegModalState, modalService} = useContext(ModalsContext)
     const isOpen = modalsState[modal]
     const [state, setState] = useState(initialState)
     const [errors, setErrors] = useState(initialErrors)
@@ -94,10 +99,28 @@ const RegModal = () => {
 
     const sendData = async () => {
         setLoading(true)
-        const res = await axios.post(`/api/reg/${regModalState.configName}`, regModalState.inputs.reduce((acc, key) => {acc[key] = state[key]; return acc; }, {}))
+        let obj = {}
+        if (state.participationType === "Групповое") {
+            obj = addtionalNames
+        }
+        const res = await axios.post(`/api/reg/${regModalState.configName}`, regModalState.inputs.reduce((acc, key) => {acc[key] = state[key]; return acc; }, obj))
         setLoading(false)
         if (res.data.ok) {
-            setState(initialState)
+            
+            setRegModalState({
+                ...regModalState,
+                isSent: true
+            })
+            setTimeout(() => {
+                modalService.closeModal("reg")
+            }, 2000)
+            setTimeout(() => {
+                setRegModalState({
+                    ...regModalState,
+                    isSent: false
+                })
+                setState(initialState)
+            }, 2500)
         }
     }
 
@@ -139,13 +162,15 @@ const RegModal = () => {
                 backgroundColor: Colors[regModalState.color].bg
             }}
             className={`
-            overflow-y-auto max-w-3xl w-full h-full relative z-50 bg-white 
+            ${regModalState.isSent ? "overflow-hidden" : "overflow-y-auto"}
+            max-w-3xl w-full h-full relative z-50 bg-white 
             ${isOpen ? "opacity-100 visible scale-100" : "opacity-10 invisible scale-75"}
             transistion-all duration-300 transform origin-center
             pt-10 px-6 md:px-14 pb-10 font-raleway`}>
-            <div className={`mb-8 text-white text-2xl`}>
+            <div className={`mb-8 text-white text-2xl w-3/4`}>
             {regModalState.title}
             </div>
+
             <div className={`grid grid-cols-1 md:grid-cols-4 gap-y-4 lg:gap-y-6 text-white`}>
                 {regModalState.inputs.map(input => {
                     if (input === "name") {
@@ -170,20 +195,6 @@ const RegModal = () => {
                                 <div className={`col-span-3`}>
                                     <ValidatedTextInput errors={errors} state={state} name={"name"} setState={setState} setErrors={setErrors}/>
                                 </div>
-                                {Object.keys(addtionalNames).map(name => {
-                                    return (
-                                        <>
-                                        <div className={`col-span-1 flex items-center`}>
-                                        Имя и фамилия
-                                        </div>
-                                        <div className={`col-span-3`}>
-                                            <ValidatedTextInput errors={{
-                                                [name]: false
-                                            }} state={addtionalNames} name={name} setState={setAdditionalNames} setErrors={setErrors}/>
-                                        </div>
-                                        </>
-                                    )
-                                })}
                                 </>
                                 
                             )
@@ -298,6 +309,21 @@ const RegModal = () => {
                         )
                     }
                 })}
+                {state.participationType === "Групповое" && <div className={`col-span-4 text-2xl `}>Члены команды</div> }
+                 {state.participationType === "Групповое" && Object.keys(addtionalNames).map(name => {
+                                    return (
+                                        <>
+                                        <div className={`col-span-1 flex items-center`}>
+                                        Имя и фамилия
+                                        </div>
+                                        <div className={`col-span-3`}>
+                                            <ValidatedTextInput errors={{
+                                                [name]: false
+                                            }} state={addtionalNames} name={name} setState={setAdditionalNames} setErrors={setErrors}/>
+                                        </div>
+                                        </>
+                                    )
+                                })}
 
                 <div className={`col-span-1`}>
 
@@ -317,6 +343,25 @@ const RegModal = () => {
                     >Отправить
                     </button>
                 </div>
+                </div>
+                <div
+                style={{
+                    backgroundColor: Colors[regModalState.color].bg
+                }} 
+                className={`absolute ${regModalState.isSent ? "visible opacity-100" : "invisible opacity-0"} transition-all duration-300 w-full top-0 left-0 h-full z-40 grid place-items-center px-10 text-white`}>
+                    <div className={`flex flex-col items-center`}>
+                        <SentCheck/>
+                        <div className={`text-2xl font-bold mt-4 mb-5`}>
+                        Спасибо, вы успешно зарегистрировались
+                        </div>
+                        <div>
+                        До встречи на мероприятии!
+                        </div>
+                    </div>
+
+                </div>
+                <div className={`absolute right-4 top-4 z-40`}>
+                Закрыть
                 </div>
 
                
