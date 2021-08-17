@@ -5,18 +5,17 @@ export const robots2humans: Map<IRegModalInput, string> = new Map([
     [ 'name', 'Имя' ],
     [ 'role', 'Должность' ],
     [ 'amount', 'Количество участников' ],
-    [ 'theme', 'Тема' ],
+    [ 'theme', 'Тема диссертации' ],
     [ 'phone', 'Телефон' ],
     [ 'email', 'Email' ],
     [ 'confidential', 'Дал согласие на обработку данных' ],
     [ 'company', 'Организация' ],
     [ 'speaker', 'Принял участие как спикер' ],
+    [ 'year', 'Год аспирантуры' ],
+    [ 'speciality', 'Направление аспирантуры' ],
 
   // ?
   //   [ 'additionalAttendee', 'Дополнительный участник' ],
-  //   [ 'type', 'Тип участия' ],
-  //   [ 'dissertationTopic', 'Тема диссертации' ],
-  //   [ 'traineeship', 'Направление аспирантуры' ],
   //   [ 'comments', 'Комментарий / Вопрос' ],
   //   [ 'applicationType', 'Форма заявки' ],
 ]);

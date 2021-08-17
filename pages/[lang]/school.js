@@ -19,7 +19,7 @@ export default function School({ current, modalForm }) {
     setRegModalState({
       color: "green",
       inputs: ["participationType","name", "company", "phone", "email", "confidential"],
-      configName: "scienceLeadSchoolMyRegion",
+      configName: "scienceLeadSchoolNextSet",
       title: lang === 'ru'? 'Сообщить о следующем наборе': 'Enquire about next enrolment period',
       isSent: false
     })
