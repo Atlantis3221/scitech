@@ -20,14 +20,7 @@ export const LayoutDefaults = {
   main: undefined,
 }
 
-/**
- * @param { Object } props
- * @param { Function } props.header
- * @param { Function } props.asideLeft
- * @param { Function } props.asideRight
- * @param { Function } props.footer
- * @param { Function } props.children
- */
+
 export function Layout(props) {
   const router = useRouter()
   const pathname = router.pathname
