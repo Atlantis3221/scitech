@@ -37,8 +37,9 @@ export const SpeakerCard = props => {
         {photo ? <img src={photo} loading="lazy" alt='avatar' /> : null}
       </div>
       <div className='card_text'>
-        <p className='card_title'>
-            {expert ? <Link href={`/${lang}/experts/${expert._id}`}><a title={fullName}>{fullName}</a></Link> : fullName}
+        <p className='card_title' onClick={(e) => e.stopPropagation()}>
+            {expert ? <Link passHref href={`/${lang}/experts/${expert._id}`}>
+              <a title={fullName}>{fullName}</a></Link> : fullName}
           {position ? `, ${position}` : ''}
         </p>
         <p className='card_about'>{children}</p>

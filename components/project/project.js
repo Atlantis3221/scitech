@@ -96,7 +96,7 @@ export function Project_Card(props) {
         </div>
         {durations ? <div className="projectCard_spacer"></div> : null}
 
-        <div className={`projectCard_members ${isHover? 'projectCard_members__hover' : !durations ? 'projectCard_members__wide' : ''}`}>
+        <div  className={`projectCard_members ${isHover? 'projectCard_members__hover' : !durations ? 'projectCard_members__wide' : ''}`}>
             {children}
         </div>
 

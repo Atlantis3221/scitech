@@ -21,7 +21,7 @@ export default function DevelopmentProjectZima({  data, current, modalForm  }) {
     setRegModalState({
       color: "green",
       inputs: ["participationType","name", "company", "phone", "email", "confidential"],
-      configName: "scienceLeadSchoolMyRegion",
+      configName: "developmentProjectZima",
       title: lang === 'ru'? 'Сообщить о следующем наборе': 'Enquire about next enrolment period',
       isSent: false
     })

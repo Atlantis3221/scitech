@@ -18,7 +18,18 @@ const Results = ({sortedData}) => {
 
 	},[])
 
-	const memoizedKeys: IRegModalInput[] = ['participationType', 'name', 'role', 'company', 'phone', 'email', 'confidential']
+	const addParticipants = (data) => {
+		let keys = Object.keys(data)
+		let values = ""
+		keys.forEach(key => {
+			if((/name\d/ig).test(key)) {
+				values += `${data[key]}, `
+			}
+		})
+		return values
+	}
+
+	const memoizedKeys: IRegModalInput[] = ['participationType', 'name', 'role', 'company', 'phone', 'email', 'speaker', 'confidential', 'amount']
 
 	return (
 		<Layout>
@@ -30,6 +41,7 @@ const Results = ({sortedData}) => {
 								{robots2humans.get(item)}
 							</Table_column>)
 						})}
+						<Table_column>Участники (Тип участия - групповой)</Table_column>
 						<Table_column>Время создания</Table_column>
 						<Table_column key={'removeFromTable'}></Table_column>
 					</Table_head>
@@ -41,9 +53,9 @@ const Results = ({sortedData}) => {
 										<Table_column key={`indexation_${i}`}>{i + 1}</Table_column>
 										{memoizedKeys.map((key, j) => {
 											const value = res[key]
-
-											return <Table_column key={`col_${j}`}>{value}</Table_column>
+											return <Table_column key={`col_${j}`}>{`${value ?? ''}`}</Table_column>
 										})}
+										<Table_column>{addParticipants(res)}</Table_column>
 										<Table_column>{date.toString()}</Table_column>
 										<Table_column key={`removeFromTable${i}`}>
 											<button onClick={() => removeItem(res._id)} className="remove_btn"></button>

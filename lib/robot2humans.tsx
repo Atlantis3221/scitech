@@ -1,7 +1,7 @@
 import { IRegModalInput } from '../components/modals/ModalContext'
 
 export const robots2humans: Map<IRegModalInput, string> = new Map([
-    [ 'participationType', 'Форма собственности' ],
+    [ 'participationType', 'Тип участия' ],
     [ 'name', 'Имя' ],
     [ 'role', 'Должность' ],
     [ 'amount', 'Количество участников' ],
@@ -10,11 +10,11 @@ export const robots2humans: Map<IRegModalInput, string> = new Map([
     [ 'email', 'Email' ],
     [ 'confidential', 'Дал согласие на обработку данных' ],
     [ 'company', 'Организация' ],
+    [ 'speaker', 'Принял участие как спикер' ],
 
   // ?
   //   [ 'additionalAttendee', 'Дополнительный участник' ],
   //   [ 'type', 'Тип участия' ],
-  //   [ 'isSpeaker', 'Принял участие как спикер' ],
   //   [ 'dissertationTopic', 'Тема диссертации' ],
   //   [ 'traineeship', 'Направление аспирантуры' ],
   //   [ 'comments', 'Комментарий / Вопрос' ],

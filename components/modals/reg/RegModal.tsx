@@ -2,19 +2,14 @@ import { MutableRefObject, useContext, useRef, useState } from "react"
 import Radio from "../../inputs/Radio"
 import ValidatedTextInput from "../../inputs/ValidatedTextInput"
 import { ValidatorService } from "../../inputs/validatorService"
-import InputStyleWrapper from "../../styleWrap/InputStyleWrap"
 import ModalsContext  from "../ModalContext"
 import ModalOverlay from "../ModalOverlay"
-import PhoneInput from 'react-phone-input-2'
 import { isValidPhoneNumber } from "react-phone-number-input";
-import Warning from "../../icons/warning"
 import Checkbox from "../../inputs/Checkbox"
 import ValidatedPhoneInput from "../../inputs/ValidatedPhoneInput"
 import axios from "axios"
 import SentCheck from "../../icons/sentCheck"
 import { useRouter } from "next/router"
-import { getContentfulNews } from '../../../helpers/axios'
-import Translator from '../../../i18n/translator'
 
 export const Colors = {
     red: {
@@ -92,7 +87,6 @@ type ParticipationEnum = "Индивидуальное" | "Групповое"
     
 
 const RegModal = ({ modalFormText = {} }) => {
-    console.log(modalFormText)
     const { query: {lang: lang} } = useRouter()
     const initialErrors = Object.keys(initialState).reduce((acc, key) => {acc[key] = false; return acc; }, {})
     const modal = "reg"
@@ -218,9 +212,9 @@ const RegModal = ({ modalFormText = {} }) => {
                                                         setErrors={setErrors}/>
                                 </div>
                                 </>
-                                
+
                             )
-                            
+
                         }
                     }
                     if (input === "email") {
@@ -310,7 +304,7 @@ const RegModal = ({ modalFormText = {} }) => {
                                                 setState={setState}/>
                         </div>
                         </>
-                       ) 
+                       )
                     }
                     if (input === "phone") {
                         return (
@@ -380,8 +374,7 @@ const RegModal = ({ modalFormText = {} }) => {
                     }
                 })}
                 {state.participationType === "Групповое" && <div className={`col-span-4 text-2xl `}>Члены команды</div> }
-                 {state.participationType === "Групповое" && Object.keys(addtionalNames).map(name => {
-                                    console.log(name)
+                 {state.participationType === "Групповое" && Object.keys(defaultAdditionalNames).map(name => {
                                     return (
                                         <>
                                         <div className={`col-span-1 flex items-center`}>

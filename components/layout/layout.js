@@ -25,7 +25,7 @@ export function Layout(props) {
   const router = useRouter()
   const pathname = router.pathname
   const lang = router.query
-  const isShownNewsLine = lang.lang !== 'en' && (/news/ig).test(pathname) !== true;
+  const isShownNewsLine = lang.lang !== 'en' && (/(news|admin)/ig).test(pathname) !== true;
 
   const {
     header = LayoutDefaults.header,
