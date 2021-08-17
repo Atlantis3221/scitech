@@ -3,16 +3,16 @@ import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
 import { Partner } from '../../components/partner'
-import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../i18n/translator'
 
 
-export default function RecruitingPriceDevelopEvent(props) {
+export default function RecruitingPriceDevelopEvent({ modalForm }) {
   const { query: {lang: lang} } = useRouter()
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content='«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»' />
           <meta name="keywords" content='мероприятие Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -47,16 +47,33 @@ export default function RecruitingPriceDevelopEvent(props) {
               <li className='i3_9 wrapper_borderTop'>
                 <ul className='g3'>
                   <li className='i3_12'>
-                    <Schedule dataFirst={['20', 'Ноя 2020']}
-                              dataSecond={['19', 'Дек 2020']}
-                              place={'онлайн, zoom'}
-                              isShowButton={false}
-                              individual={true}
-                              showOrganizationField={true}
-                              eventType={'recruitingPriceDevelopEvent'}
-                              eventTitle="Регистрация"
-                              eventLinkToTable="recruitingPriceDevelopEvent"
-                    />
+
+                    <div className="schedule_box">
+                      <div className="datePlace_text">
+                      <div className="datePlace_date">
+                        <p className="date_day">20</p>
+                        <span className="date_month">Ноя 2020 </span>
+                      </div>
+                          <div className="sting">-</div>
+                          <div className="datePlace_date">
+                            <p className="date_day">19</p>
+                            <span className="date_month">Дек 2020</span>
+                          </div>
+                      </div>
+
+                      <div className="schedule_place">
+                        <div className={`place_text '}`}>
+                          <div className="place_text_icon">
+                            <img loading="lazy" src='/img/pin.svg' alt='icon'/>
+                            <p className="schedule_time__tiny mt0">онлайн, zoom</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="raleway">Прием заявок окончен</p>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </li>
@@ -223,38 +240,6 @@ export default function RecruitingPriceDevelopEvent(props) {
                 <p>Справки и консультации по программе курсу и общим вопросам заключения договоров:</p>
                 <p>Селиванова Наталья, e-mail: <a href='mailto:natalia.selivanova@scitech.ru'>natalia.selivanova@scitech.ru</a> </p>
                 <p><a href="https://scitech.ru">Scitech.ru</a> - Информация о Центре развития компетенций</p>
-
-                {/*{isShowRegistrationButton ? (*/}
-                {/*  <div className='registerEventForm'>*/}
-                {/*    <Modal*/}
-                {/*      Trigger={props => (*/}
-                {/*        <Button red onClick={props.onClick}>*/}
-                {/*          Зарегистрироваться*/}
-                {/*        </Button>*/}
-                {/*      )}*/}
-                {/*      Content={props => (*/}
-                {/*        <div>*/}
-                {/*          <div className='registerEventForm_title'>*/}
-                {/*            Регистрация*/}
-                {/*          </div>*/}
-                {/*          /!*TODO: переделать на общую форму*!/*/}
-                {/*          <RegisterEventForm*/}
-                {/*            individual={true}*/}
-                {/*            showOrganizationField={true}*/}
-                {/*            hideParticipant={true}*/}
-                {/*            eventType={'recruitingPriceDevelopEvent'}*/}
-                {/*            onSubmit={(e, payload) => {*/}
-                {/*              Requests.methods.insert({*/}
-                {/*                group: 'registrations_recruitingPriceDevelopEvent',*/}
-                {/*                payload,*/}
-                {/*              })*/}
-                {/*            }}*/}
-                {/*          />*/}
-                {/*        </div>*/}
-                {/*      )}*/}
-                {/*    />*/}
-                {/*  </div>*/}
-                {/*) : null}*/}
               </li>
             </ul>
           </div>
@@ -263,4 +248,12 @@ export default function RecruitingPriceDevelopEvent(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps(ctx) {
+  const {current} = Translator("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"], modalForm: current["modalForm"]  },
+  }
 }

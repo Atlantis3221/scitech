@@ -31,7 +31,7 @@ export const ContentfulNewsWidget = props => {
             <SchoolProject_Card
               red
               arrow
-              link={`${lang}/${!isSMI ? 'news': 'newsSMI'}/${newsItem?.fields?.url}`}
+              link={`/${!isSMI ? 'news': 'newsSMI'}/${newsItem?.fields?.url}`}
               time={convertToDate(newsItem?.fields?.date)}
               image={newsItem?.fields?.front?.fields?.file?.url}
               imageLabel={newsItem?.isAddImageLabel}

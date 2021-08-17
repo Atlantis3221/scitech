@@ -6,9 +6,9 @@ import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
 import { Partner } from '../../components/partner'
 import { DateItem, DateSwitcher } from '../../components/dateSwicher/dateSwicher'
 import { EventItem, EventItem_Container } from '../../components/eventItem'
-import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../i18n/translator'
 
 const days = {
   '7': <Day7 />,
@@ -25,7 +25,7 @@ const days = {
 
 const isShowRegistrationButton = false
 
-export default function GameMethodsInEducation(props) {
+export default function GameMethodsInEducation({ modalForm }) {
   const { query: {lang: lang} } = useRouter()
   const [day, setDay] = useState('7')
   return (
@@ -41,7 +41,7 @@ export default function GameMethodsInEducation(props) {
         <link rel="canonical" href="https://scitech.ru/gameMethodsInEducation" />
       </Helmet>
 
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <div className='show content'>
           <div className='container relative'>
             <div className='colorSpot colorSpot__red'></div>
@@ -64,16 +64,32 @@ export default function GameMethodsInEducation(props) {
               <li className='i3_9 wrapper_borderTop'>
                 <ul className='g3'>
                   <li className='i3_12'>
-                    {/* @todo: add Modal pop-up*/}
+                    <div className="schedule_box">
+                      <div className="schedule_date">
+                        <p className="date_day">7</p>
+                        <div className="date_wrapper">
+                          <span className={`date_month 'date_month__wide'`}>Ноя 2020</span>
+                        </div>
+                        <div className="sting">-</div>
+                        <div className="schedule_date">
+                          <p className="date_day">30</p>
+                          <span className={`date_month date_month__wide'}`}>Дек 2020</span>
+                        </div>
+                      </div>
 
-                    <Schedule  dataFirst={[7, 'Ноя 2020']}
-                               dataSecond={[30, 'Дек 2020']}
-                               place={'онлайн, zoom'}
-                               isShowButton={isShowRegistrationButton}
-                               eventTitle="Зарегистрироваться на мероприятие «Игровые методы в образовании. Принципы. Теория."
-                               eventLinkToTable="gameMethods"
-                               eventType={'gameMethodsInEducation'}
-                    />
+                      <div className="schedule_place">
+                        <div className={`place_text '}`}>
+                          <div className="place_text_icon">
+                            <img loading="lazy" src='/img/pin.svg' alt='icon'/>
+                            <p className="schedule_time__tiny mt0">онлайн, zoom</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="raleway">Прием заявок окончен</p>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </li>
@@ -487,4 +503,12 @@ export default function GameMethodsInEducation(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps(ctx) {
+  const {current} = Translator("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"], modalForm: current["modalForm"]  },
+  }
 }

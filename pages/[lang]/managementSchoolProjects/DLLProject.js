@@ -7,8 +7,9 @@ import { SchoolProject, SchoolProject_Card } from '../../../components/schoolPro
 import { StrongText } from '../../../components/strongText'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../../i18n/translator'
 
-export default function DLLProject(props) {
+export default function DLLProject({ modalForm }) {
   const { query: {lang: lang} } = useRouter()
   return (
     <Page>
@@ -16,7 +17,7 @@ export default function DLLProject(props) {
         backgroundImage: 'url(/img/gradients/school_gradient_viol.svg)',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '120% -10%',
-      }}>
+      }} modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content='Digital Lean-Lab (DLL): электронная образовательная платформа' />
           <meta name="keywords" content='проект школы руководителей научно-технических проектов центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -202,4 +203,12 @@ export default function DLLProject(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps(ctx) {
+  const {current} = Translator("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"], modalForm: current["modalForm"]  },
+  }
 }

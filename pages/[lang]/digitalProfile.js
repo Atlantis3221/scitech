@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/dist/client/router'
 import Translator from '../../i18n/translator'
 
-export default function DigitalProfile({ current }) {
+export default function DigitalProfile({ current, modalForm }) {
   const { query: {lang: lang} } = useRouter()
   return (
     <Page>
@@ -14,7 +14,7 @@ export default function DigitalProfile({ current }) {
         backgroundRepeat: 'no-repeat',
         backgroundSize: '850px',
         backgroundPosition: '100% -7%',
-      }}>
+      }} modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content={current["Цифровой профиль исследователя"]} />
           <meta name="keywords" content={current["Цифровой профиль исследователя"]} />
@@ -84,6 +84,6 @@ export async function getServerSideProps(ctx) {
   const {current} = Translator("test", ctx.params.lang)
 
   return {
-    props: { current: current["test"] },
+    props: { current: current["test"], modalForm: current["modalForm"] },
   }
 }

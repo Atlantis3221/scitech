@@ -7,8 +7,9 @@ import { Layout } from '../../../components/layout'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { getContentfulGrants } from '../../../helpers/axios'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../../i18n/translator'
 
-export default function Grants({ data }) {
+export default function Grants({ data, modalForm }) {
 	const { query: {lang: lang} } = useRouter()
 	const [allContentfulGrants, setContentfulGrants] = useState([])
 
@@ -29,7 +30,6 @@ export default function Grants({ data }) {
 				}).sort((a,b) => a.order - b.order))
 		setContentfulGrants(contentfulGrants.concat(grants))
 	}, [])
-	console.log(allContentfulGrants)
 
 	const [grantsType, setGrantsType] = useState(null)
 	const [isShowSpinner, setIsShowSpinner] = useState(false)
@@ -53,7 +53,7 @@ export default function Grants({ data }) {
 
 	return (
 		<Page>
-			<Layout>
+			<Layout modalFormText={modalForm}>
 				<Helmet>
 					<meta name="description" content='Гранты' />
 					<meta name="keywords" content='Гранты' />
@@ -161,10 +161,10 @@ export default function Grants({ data }) {
 }
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
 	const data = await getContentfulGrants();
-
+	const {current} = Translator("test", ctx.params.lang)
 	return {
-		props: { data: data.data },
+		props: { data: data.data, modalForm: current["modalForm"]  },
 	}
 }
