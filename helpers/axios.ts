@@ -6,7 +6,7 @@ const ALL_SORTED_NEWS = 'http://localhost:3000/api/news?sort_by=fields.date&sort
 const DEFINED_NEWS = 'http://localhost:3000/api/news?index_key=fields.url&index_value=';
 
 const instatnce = axios.create({
-	baseURL: "http://localhost:3000"
+	baseURL: process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://scitech.ru/"
 })
 
 

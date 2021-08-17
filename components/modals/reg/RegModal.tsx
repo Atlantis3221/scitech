@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { MutableRefObject, useContext, useRef, useState } from "react"
 import Radio from "../../inputs/Radio"
 import ValidatedTextInput from "../../inputs/ValidatedTextInput"
 import { ValidatorService } from "../../inputs/validatorService"
@@ -57,7 +57,14 @@ type IRegState = {
 
 type ParticipationEnum = "Индивидуальное" | "Групповое"
 
-
+    const defaultAdditionalNames = {
+        name1: '',
+        name2: "",
+        name3: "",
+        name4: "",
+        name5: "",
+        name6: ""
+    }
     const radioValues: ParticipationEnum[] = ["Индивидуальное", "Групповое"]
     const initialState: IRegState = {
         name: "",
@@ -94,14 +101,8 @@ const RegModal = ({ modalFormText = {} }) => {
     const [state, setState] = useState(initialState)
     const [errors, setErrors] = useState(initialErrors)
     const [loading, setLoading] = useState(false)
-    const [addtionalNames, setAdditionalNames] = useState({
-        name1: '',
-        name2: "",
-        name3: "",
-        name4: "",
-        name5: "",
-        name6: ""
-    })
+    const [addtionalNames, setAdditionalNames] = useState(defaultAdditionalNames)
+    const scrollRef = useRef() as MutableRefObject<HTMLDivElement>
 
     const sendData = async () => {
         setLoading(true)
@@ -112,7 +113,7 @@ const RegModal = ({ modalFormText = {} }) => {
         const res = await axios.post(`/api/reg/${regModalState.configName}`, regModalState.inputs.reduce((acc, key) => {acc[key] = state[key]; return acc; }, obj))
         setLoading(false)
         if (res.data.ok) {
-            
+            scrollRef.current.scrollTo(0,0)
             setRegModalState({
                 ...regModalState,
                 isSent: true
@@ -126,6 +127,7 @@ const RegModal = ({ modalFormText = {} }) => {
                     isSent: false
                 })
                 setState(initialState)
+                setAdditionalNames(defaultAdditionalNames)
             }, 2500)
         }
     }
@@ -170,6 +172,7 @@ const RegModal = ({ modalFormText = {} }) => {
             style={{
                 backgroundColor: Colors[regModalState.color].bg
             }}
+            ref={scrollRef}
             className={`
             ${regModalState.isSent ? "overflow-hidden" : "overflow-y-auto"}
             max-w-3xl w-full h-full relative z-50 bg-white
@@ -214,24 +217,6 @@ const RegModal = ({ modalFormText = {} }) => {
                                                         placeholder={modalFormText["Имя и фамилия"]}
                                                         setErrors={setErrors}/>
                                 </div>
-                                {Object.keys(addtionalNames).map(name => {
-                                    return (
-                                        <>
-                                        <div className={`col-span-1 flex items-center`}>
-                                            {modalFormText["Имя и фамилия"]}
-                                        </div>
-                                        <div className={`col-span-3`}>
-                                            <ValidatedTextInput errors={{
-                                                [name]: false
-                                            }} state={addtionalNames}
-                                                                name={name}
-                                                                setState={setAdditionalNames}
-                                                                placeholder={modalFormText["Имя и фамилия"]}
-                                                                setErrors={setErrors}/>
-                                        </div>
-                                        </>
-                                    )
-                                })}
                                 </>
                                 
                             )
@@ -396,6 +381,7 @@ const RegModal = ({ modalFormText = {} }) => {
                 })}
                 {state.participationType === "Групповое" && <div className={`col-span-4 text-2xl `}>Члены команды</div> }
                  {state.participationType === "Групповое" && Object.keys(addtionalNames).map(name => {
+                                    console.log(name)
                                     return (
                                         <>
                                         <div className={`col-span-1 flex items-center`}>
@@ -433,7 +419,7 @@ const RegModal = ({ modalFormText = {} }) => {
                 style={{
                     backgroundColor: Colors[regModalState.color].bg
                 }} 
-                className={`absolute ${regModalState.isSent ? "visible opacity-100" : "invisible opacity-0"} transition-all duration-300 w-full top-0 left-0 h-full z-40 grid place-items-center px-10 text-white`}>
+                className={`fixed ${regModalState.isSent ? "visible opacity-100" : "invisible opacity-0"} transition-all duration-300 w-full top-0 left-0 h-full z-40 grid place-items-center px-10 text-white`}>
                     <div className={`flex flex-col items-center`}>
                         <SentCheck/>
                         <div className={`text-2xl font-bold mt-4 mb-5`}>
