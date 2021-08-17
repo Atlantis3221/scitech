@@ -2,17 +2,15 @@ import React from 'react'
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { EventItem, EventItem_Container } from '../../components/eventItem'
-import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../i18n/translator'
 
-const isShowRegistrationButton = false
-
-export default function RoundTable(props) {
+export default function RoundTable({ modalForm }) {
   const { query: {lang: lang} } = useRouter()
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content='Круглый стол «Трансфер университетских технологий. Будущее стартап-студий»' />
           <meta name="keywords" content='Круглый стол Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -46,15 +44,37 @@ export default function RoundTable(props) {
               <li className='i3_9 wrapper_borderTop'>
                 <ul className='g3'>
                   <li className='i3_12'>
-                    {/*TODO: переделать на общую форму*/}
-                    <Schedule  dataFirst={[20, 'Окт 2020']}
-                               place={'онлайн и офлайн'}
-                               time="11.00 - 12.00"
-                               description="Школа перспективных исследований ТюмГУ, ул. 8 марта, д. 2, корп. 1, 501 аудитория"
-                               isShowButton={isShowRegistrationButton}
-                               eventTitle="Зарегистрироваться на Круглый стол «Трансфер университетских технологий. Будущее стартап-студий»"
-                               eventLinkToTable="roundTable"
-                    />
+                    <div className="schedule_box">
+                      <div className="schedule_date">
+                        <div className="datePlace_date">
+                          <p className="date_day">20</p>
+                          <span className="date_month">Окт 2021</span>
+                        </div>
+                      </div>
+
+                      <div className="schedule_place ">
+                        <div className={`place_text place_text_tiny`} style={{ maxWidth: '13rem' }}>
+                          <div className="place_text_icon" style={{ flexDirection: 'column'}}>
+                            <p className="schedule_time__tiny m0">11.00 - 12.00</p>
+                            <p className="schedule_time__tiny mt0">МОСКОВСКОЕ ВРЕМЯ</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="schedule_place ">
+                        <div className={`place_text place_text_tiny`} style={{ maxWidth: '16rem' }}>
+                          <div className="place_text_icon">
+                            <img loading="lazy" src='/img/pin.svg' alt='icon'/>
+                            <p className="schedule_time__tiny mt0">ОНЛАЙН И ОФЛАЙН</p>
+                          </div>
+                          <span className="schedule_box_description">Школа перспективных исследований ТюмГУ, ул. 8 марта, д. 2, корп. 1, 501 аудитория</span>
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="raleway">Прием заявок окончен</p>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </li>
@@ -129,35 +149,6 @@ export default function RoundTable(props) {
                     Модератор: Кизеев Вениамин Михайлович, эксперт по управлению проектами и инновациями WINbd
                   </EventItem>
                 </EventItem_Container>
-
-                {/*{isShowRegistrationButton ? (*/}
-                {/*  <div className='registerEventForm pt2'>*/}
-                {/*    <Modal*/}
-                {/*      Trigger={props => (*/}
-                {/*        <Button red onClick={props.onClick}>*/}
-                {/*          Зарегистрироваться*/}
-                {/*        </Button>*/}
-                {/*      )}*/}
-                {/*      Content={props => (*/}
-                {/*        <div>*/}
-                {/*          <div className='registerEventForm_title'>*/}
-                {/*            Зарегистрироваться на Круглый стол «Трансфер университетских технологий. Будущее стартап-студий»*/}
-                {/*          </div>*/}
-                {/*          <RegisterEventForm*/}
-                {/*            hideParticipant={true}*/}
-                {/*            onSubmit={(e, payload) => {*/}
-                {/*              Requests.methods.insert({*/}
-                {/*                group: 'registrations_roundTable',*/}
-                {/*                payload,*/}
-                {/*              })*/}
-                {/*              props.close()*/}
-                {/*            }}*/}
-                {/*          />*/}
-                {/*        </div>*/}
-                {/*      )}*/}
-                {/*    />*/}
-                {/*  </div>*/}
-                {/*) : null}*/}
               </li>
             </ul>
           </div>
@@ -165,4 +156,12 @@ export default function RoundTable(props) {
       </Layout>
     </Page>
   )
+}
+
+export async function getServerSideProps(ctx) {
+  const {current} = Translator("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"], modalForm: current["modalForm"]  },
+  }
 }

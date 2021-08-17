@@ -31,7 +31,7 @@ export const NewsSMIWidget = props => {
 					<SchoolProject_Card
 						red
 						arrow
-						link={`${lang}/newsSMI/${newsItem._id}`}
+						link={`/newsSMI/${newsItem._id}`}
 						time={newsItem.date}
 						image={newsItem.image}
 						imageLabel={newsItem.imageLabel}

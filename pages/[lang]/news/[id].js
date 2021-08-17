@@ -5,10 +5,11 @@ import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
 import { getContentfulNews, getDefineNews } from '../../../helpers/axios'
 import processEvent, { convertToDate } from './processEvent'
+import Translator from '../../../i18n/translator'
 
 
 
-const NewsCompany = () => {
+const NewsCompany = ({modalForm}) => {
 	const { query: {lang: lang} } = useRouter()
 	const [defineNews, setDefineNews] = useState({})
 	const router = useRouter()
@@ -34,10 +35,8 @@ const NewsCompany = () => {
 		}, 1000)
 	}, [id])
 
-	console.log(defineNews)
-
 	return (
-		<Layout>
+		<Layout modalFormText={modalForm}>
 			<Helmet>
 				<meta name="description" content={defineNews?.title} />
 				<meta name="keywords" content={defineNews?.title} />
@@ -129,10 +128,10 @@ const NewsCompany = () => {
 export default NewsCompany
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
 	const data = await getContentfulNews();
-
+	const {current} = Translator("test", ctx.params.lang)
 	return {
-		props: { data: data.data },
+		props: { data: data.data, modalForm: current["modalForm"]  },
 	}
 }

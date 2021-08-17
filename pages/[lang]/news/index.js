@@ -8,9 +8,10 @@ import { SchoolProject } from '../../../components/schoolProject'
 import { ContentfulNewsWidget } from './contentfulNewsWidget'
 import { getContentfulNews } from '../../../helpers/axios'
 import { useRouter } from 'next/router'
+import Translator from '../../../i18n/translator'
 
 
-export default function News({ data }) {
+export default function News({ data, modalForm }) {
   const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
 
@@ -20,7 +21,7 @@ export default function News({ data }) {
 
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content='Новости центра' />
           <meta name="keywords" content='Новости центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -105,10 +106,10 @@ export default function News({ data }) {
 }
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
   const data = await getContentfulNews();
-
+  const {current} = Translator("test", ctx.params.lang)
   return {
-    props: { data: data.data },
+    props: { data: data.data, modalForm: current["modalForm"] },
   }
 }

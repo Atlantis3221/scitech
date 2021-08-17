@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
 import { Partner } from '../../components/partner'
 import { DateItem, DateSwitcher } from '../../components/dateSwicher/dateSwicher'
-import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { EventItem, EventItem_Container } from '../../components/eventItem'
 import { useRouter } from 'next/dist/client/router'
@@ -340,15 +339,6 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                       wide
                     ></Partner>
                   </li>
-                  {/*<li className='i3_4'>*/}
-                  {/*  <Partner*/}
-                  {/*    logo='/img/?.svg'*/}
-                  {/*    link="https://minobrnauki.gov.ru/"*/}
-                  {/*    name='Министерство науки и высшего образования РФ'*/}
-                  {/*    alt='Министерство науки и высшего образования РФ'*/}
-                  {/*    wide*/}
-                  {/*  ></Partner>*/}
-                  {/*</li>*/}
                 </ul>
               </li>
             </ul>
@@ -516,38 +506,11 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
           </div>
         </div>
 
-        <div className='wrapper_partners content'>
-          <div className='container'>
-            <ul className='g3'>
-              <li className='i3_3'>
-                <p className='asideMarker'>Группа Модераторов </p>
-              </li>
-              <li className='i3_9'>
-                <SpeakerCards>
-                  <SpeakerCard photo='/img/speaker_latyshev.png' fullName='Андрей Латышев'>
-                    Проректор ТюмГУ, руководитель Центра развития компетенций руководителей научных, научно-технических
-                    проектов и лабораторий межрегионального Западно-Сибирского НОЦ, координатор коммуникаций с индустриальными
-                    партнерами в рамках проекта создания и функционирования карбонового полигона Западно-Сибирского НОЦ в
-                    Тюменской области, руководитель программы, модератор
-                  </SpeakerCard>
-                  <SpeakerCard photo='/img/zenin.png' fullName='Сергей Зенин'>
-                    Директор Института государства и права, проректор ТюмГУ, кандидат юридических наук, эксперт программы, модератор
-                  </SpeakerCard>
-                  <SpeakerCard photo='/img/orlov.png' fullName='Сергей Орлов'>
-                    Директор центра «Цифровой университет», доцент кафедры прикладной аэромеханики Физико-технического
-                    факультета Томского государственного университета, кандидат физико-математических наук, модератор
-                  </SpeakerCard>
-                </SpeakerCards>
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <div className='show wrapper_price content'>
           <div className='container'>
             <ul className='g3'>
               <li className='i3_3'>
-                <p className='asideMarker'>ОРГАНИЗАЦИОННАЯ ИНФОРМАЦИЯ</p>
+                <p className='asideMarker'>ОРГАНИЗАЦИОННАЯ <br/> ИНФОРМАЦИЯ</p>
               </li>
               <li className='i3_9'>
                 <p>По итогам СОИ участники обучения получат удостоверения о повышении квалификации 36 часов от Тюменского
@@ -568,7 +531,7 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>Контактное лицо по всем вопросам:</p>
+                  <p className='asideMarker'>Контактное лицо <br/> по всем вопросам</p>
                 </li>
                 <li className='i3_9'>
                   <div className="speakerCard">
@@ -591,27 +554,44 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
           </div>
         </div>
 
+        <div className='wrapper_partners content'>
+          <div className='container'>
+            <ul className='g3'>
+              <li className='i3_3'>
+                <p className='asideMarker'>Группа Модераторов</p>
+              </li>
+              <li className='i3_9'>
+                <SpeakerCards>
+                  <SpeakerCard photo='/img/speaker_latyshev.png' fullName='Андрей Латышев'>
+                    Проректор ТюмГУ, руководитель Центра развития компетенций руководителей научных, научно-технических
+                    проектов и лабораторий межрегионального Западно-Сибирского НОЦ, координатор коммуникаций с индустриальными
+                    партнерами в рамках проекта создания и функционирования карбонового полигона Западно-Сибирского НОЦ в
+                    Тюменской области, руководитель программы, модератор
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/zenin.png' fullName='Сергей Зенин'>
+                    Директор Института государства и права, проректор ТюмГУ, кандидат юридических наук, эксперт программы, модератор
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/orlov.png' fullName='Сергей Орлов'>
+                    Директор центра «Цифровой университет», доцент кафедры прикладной аэромеханики Физико-технического
+                    факультета Томского государственного университета, кандидат физико-математических наук, модератор
+                  </SpeakerCard>
+                </SpeakerCards>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <div className='show'>
           <div className='container'>
             <div className='content mb6'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>Заявка на обучение:</p>
+                  <p className='asideMarker'>Заявка на обучение</p>
                 </li>
                 <li className='i3_9'>
                   <div className="schedule_button">
                       <div className='registerEventForm'>
-                        {/*Todo: add registration form as above the page*/}
-
-                        {/*        Зарегистрироваться на Стратегический образовательный интенсив.*/}
-
-                        {/*        showSituation={true}*/}
-                        {/*        showOrganizationField={true}*/}
-                        {/*        hideParticipant={false}*/}
-                        {/*        showAdditionalNameFields={true}*/}
-                        {/*        eventTitle="Зарегистрироваться на Стратегический образовательный интенсив."*/}
-                        {/*        eventLinkToTable="strategicEducationalIntensive"*/}
-                        {/*        eventType={'strategicEducationalIntensive'}*/}
+                        <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
                       </div>
                   </div>
                 </li>

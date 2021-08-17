@@ -33,7 +33,6 @@ export const ContentfulNewsWidget = props => {
     }
   }, [contentfulNews])
 
-  console.log(allContentfulNews)
 
   return (
      <>

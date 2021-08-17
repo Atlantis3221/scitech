@@ -10,8 +10,9 @@ import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 import { getContentfulNews } from '../../helpers/axios'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../i18n/translator'
 
-export default function TabulaRasa({  data  }) {
+export default function TabulaRasa({  data, modalForm  }) {
   const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
 
@@ -25,7 +26,7 @@ export default function TabulaRasa({  data  }) {
         backgroundImage: 'url(/img/gradients/tabula_gradient.svg)',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '110% -7%'
-      }}>
+      }} modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content='Tabula Rasa' />
           <meta name="keywords" content='Образовательный проект Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -61,7 +62,6 @@ export default function TabulaRasa({  data  }) {
                   <li className='i3_12 flex_between'>
                     <div>
                       <p className='asideMarker'>
-                        {/*TODO: change svg*/}
                         <svg
                           width='14'
                           height='16'
@@ -471,10 +471,10 @@ export default function TabulaRasa({  data  }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
   const data = await getContentfulNews();
-
+  const {current} = Translator("test", ctx.params.lang)
   return {
-    props: { data: data.data },
+    props: { data: data.data, modalForm: current["modalForm"]  },
   }
 }

@@ -3,19 +3,20 @@ import { Layout } from '../../../components/layout'
 import { experts } from '../../../data/experts'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
+import Translator from '../../../i18n/translator'
 
-const Experts = props => {
+export default function Experts ({ modalForm }) {
   const router = useRouter()
   const { id } = router.query
   const { lang } = router.query
   const data = experts.findById(id)
-  console.log(data)
+
   return (
     <Layout style={{
       backgroundImage: 'url(/img/gradients/gradient_main.svg)',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: '100% 0%'
-    }}>
+    }} modalFormText={modalForm}>
       <Helmet>
         <meta name="description" content={data?.metaDescription} />
         <meta name="keywords" content={data?.title} />
@@ -75,4 +76,10 @@ const Experts = props => {
   )
 }
 
-export default Experts
+export async function getServerSideProps(ctx) {
+  const {current} = Translator("test", ctx.params.lang)
+
+  return {
+    props: { current: current["test"], modalForm: current["modalForm"]  },
+  }
+}

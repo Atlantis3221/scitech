@@ -8,8 +8,9 @@ import { SchoolProject } from '../../../components/schoolProject'
 import { ContentfulNewsWidget } from '../news/contentfulNewsWidget'
 import { getContentfulNews } from '../../../helpers/axios'
 import { useRouter } from 'next/router'
+import Translator from '../../../i18n/translator'
 
-export default function NewsSMIPage({  data  }) {
+export default function NewsSMIPage({  data, modalForm  }) {
   const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
 
@@ -19,7 +20,7 @@ export default function NewsSMIPage({  data  }) {
 
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content='СМИ о нас' />
           <meta name="keywords" content='СМИ Новости центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -104,10 +105,10 @@ export default function NewsSMIPage({  data  }) {
 }
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
   const data = await getContentfulNews();
-
+  const {current} = Translator("test", ctx.params.lang)
   return {
-    props: { data: data.data },
+    props: { data: data.data, modalForm: current["modalForm"]  },
   }
 }

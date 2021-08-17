@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { Partner } from '../../components/partner'
 import { EventItem_guest, EventItem_guests } from '../../components/eventItem'
@@ -22,8 +21,8 @@ export default function ScientificPracticalConference({ current, modalForm }) {
       inputs: ["name", "role", "company", "phone", "email", "speaker", "confidential"],
       configName: "scientificPracticalConference",
       title: lang === 'ru'
-        ? 'Зарегистрироваться на Стратегический образовательный интенсив'
-        : 'Registration for the Strategic Educational Intensive'
+        ? 'Зарегистрироваться на мероприятие II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»'
+        : 'Register now to the 2nd International Scientific and Practical Conference'
     })
   }
   return (
@@ -89,15 +88,6 @@ export default function ScientificPracticalConference({ current, modalForm }) {
                         <div className="schedule_button">
                             <div className='registerEventForm'>
                               <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
-                              {/*@todo REPLACE with new from*/}
-                              {/*<a href={'/'} className="btn btn__red">{current["scienceLeadSocRegistr"]}</a>*/}
-                              {/*          hideParticipant={true}*/}
-                              {/*          individual={individual}*/}
-                              {/*          showOrganizationField={showOrganizationField}*/}
-                              {/*          askIsSpeaker={showAskIsSpeakerButton}*/}
-                              {/*          isSpeaker={showAskIsSpeakerButton}*/}
-                              {/*          eventType={eventType}*/}
-
                             </div>
                           </div>
                     </div>
@@ -190,6 +180,29 @@ export default function ScientificPracticalConference({ current, modalForm }) {
             </div>
           </div>
         </div>
+
+        {lang === 'ru' ? (
+        <div className='show'>
+          <div className='container'>
+            <div className='content'>
+              <ul className='g3'>
+                <li className='i3_3'>
+                  <p className='asideMarker'>ОРГКОМИТЕТ</p>
+                </li>
+                <li className='i3_9'>
+                  <p>— Ирина Шрайбер - Ph. D., кандидат физико-математических наук, ученый, исследователь, лектор, ментор Школы научного лидерства</p>
+                  <p>— Валерий Крюков - доктор экономических наук, профессор, академик РАН. Директор Института экономики и организации промышленного производства СО РАН, руководитель Центра ресурсной экономики, главный редактор всероссийского экономического журнала «ЭКО»</p>
+                  <p>— Андрей Латышев - руководитель ЦРК, проректор ТюмГУ</p>
+                  <p>— Вениамин Кизеев - кандидат экономических наук, IPMA Level«B», член правления НП «СОВНЕТ», эксперт по управлению проектами и инновациями компании WINbd</p>
+                  <p>— Евгений Сженов - научный руководитель Экспертно-аналитического центра «Научно-образовательная политика», ведущий эксперт Института образования НИУ ВШЭ</p>
+                  <p>— Андрей Толстиков - кандидат биологических наук, эксперт Российской Академии наук, первый проректор ТюмГУ</p>
+                  <p>— Денис Неустроев - генеральный директор АНО «Агентство развития научно-образовательных проектов»</p>
+                  <p>— Валерия Безуевская - кандидат педагогических наук, проректор по развитию СурГУ</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> ): null}
 
         <div className='show'>
           <div className='container'>

@@ -6,8 +6,9 @@ import {SpeakerCards, SpeakerCard} from '../../../components/speakerCard'
 import { SchoolProject, SchoolProject_Card } from '../../../components/schoolProject'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
+import Translator from '../../../i18n/translator'
 
-export default function EcoSafety(props) {
+export default function EcoSafety({ modalForm }) {
     const { query: {lang: lang} } = useRouter()
     return (
         <Page>
@@ -32,7 +33,7 @@ export default function EcoSafety(props) {
                 backgroundImage: 'url(/img/gradients/school_gradient.svg)',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: '120% -5%'
-            }}>
+            }} modalFormText={modalForm}>
                 <div className='show wrapper_hero'>
                     <div className='container relative'>
                         <div className="colorSpot colorSpot__green"></div>
@@ -372,4 +373,12 @@ export default function EcoSafety(props) {
             </Layout>
         </Page>
     )
+}
+
+export async function getServerSideProps(ctx) {
+    const {current} = Translator("test", ctx.params.lang)
+
+    return {
+        props: { current: current["test"], modalForm: current["modalForm"]  },
+    }
 }

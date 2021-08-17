@@ -6,11 +6,11 @@ import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
 import Translator from '../../../i18n/translator'
 
-export default function Policy({ current }) {
+export default function Policy({ current, modalForm }) {
   const { query: {lang: lang} } = useRouter()
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content={current["Политика в отношении обработки персональных данных"]} />
           <meta name="keywords" content={current["Политика в отношении обработки персональных данных"]} />
@@ -155,6 +155,6 @@ export async function getServerSideProps(ctx) {
   const {current} = Translator("test", ctx.params.lang)
 
   return {
-    props: { current: current["test"] },
+    props: { current: current["test"], modalForm: current["modalForm"] },
   }
 }

@@ -18,6 +18,7 @@ import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 import { getContentfulNews } from '../../helpers/axios'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../i18n/translator'
 
 const days = {
 	'24': <Day24/>,
@@ -28,7 +29,7 @@ const days = {
 }
 
 
-export default function EventsPage({  data  }) {
+export default function EventsPage({  data, modalForm  }) {
 	const { query: {lang: lang} } = useRouter()
 	const [day, setDay] = useState('24')
 	const [allContentfulNews, setContentfulNews] = useState([])
@@ -38,7 +39,7 @@ export default function EventsPage({  data  }) {
 	}, [])
 
 	return <Page>
-		<Layout>
+		<Layout modalFormText={modalForm}>
 			<Helmet>
 				<meta name="description" content='Международная конференция «Наука. Лидерство. Общество» (Science. Leadership. Society)' />
 				<meta name="keywords" content='Международная конференция «Наука. Лидерство. Общество» (Science. Leadership. Society)' />
@@ -168,7 +169,6 @@ export default function EventsPage({  data  }) {
 								«Актуальные вызовы и лучшие
 								практики в подготовке руководителей научных, научно-технических проектов и лабораторий».
 								<a className="schedule_link">Расписание круглого стола
-									{/* TODO: change svg import */}
 									<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path fillRule="evenodd" clipRule="evenodd"
 													d="M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z"
@@ -362,10 +362,10 @@ export default function EventsPage({  data  }) {
 }
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
 	const data = await getContentfulNews();
-
+	const {current} = Translator("test", ctx.params.lang)
 	return {
-		props: { data: data.data },
+		props: { data: data.data, modalForm: current["modalForm"] },
 	}
 }
