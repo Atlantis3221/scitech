@@ -12,7 +12,8 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
         if (req.method === "POST") {
             const data = await MongoService.db.collection("regs").insertOne({
                 ...req.body,
-                project
+                project,
+                createdAt: +new Date()
             })
             addToSendpulse(req.body)
             controller.ok(data)
