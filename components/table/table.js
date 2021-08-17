@@ -7,13 +7,6 @@ import React from 'react'
 
 import { className } from '../../helpers/className'
 
-/**
- * Table
- *  @param props
- *  @param props.children
-
- *  @return {any}
- */
 export function Table(props) {
   return (
     <TableContainer {...props}>

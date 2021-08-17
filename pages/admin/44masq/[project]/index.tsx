@@ -7,31 +7,15 @@ import { getAllRequestData } from '../../../../helpers/axios'
 import { useRouter } from 'next/dist/client/router'
 
 
-const Results = (props) => {
+const Results = ({sortedData}) => {
 	const { query: {project: project} } = useRouter()
-	const [tableData, setTableData] = useState([
-		{
-			participantType: 'individual',
-			name: 'Test testovich',
-			role: 'Tester',
-			company: 'TestCOO LTD',
-			phone: '+123456789',
-			email: "test@test.com",
-			confidential: true,
-			project: "becomeClient"
-		}
-	])
+	const [tableData, setTableData] = useState(sortedData)
 	const removeItem = (_id: string) => {
 		// Requests.methods.remove(_id)
 	}
 
-	useEffect(async() => {
-		const { data } = await getAllRequestData(project)
-		if(data && data.length) {
-			const sortedData = data.filter(res => res.project === project) ?? []
-			setTableData(sortedData)
-			console.log(sortedData)
-		}
+	useEffect(() => {
+
 	},[])
 
 	const memoizedKeys: IRegModalInput[] = ['participationType', 'name', 'role', 'company', 'phone', 'email', 'confidential']
@@ -52,7 +36,6 @@ const Results = (props) => {
 					<Table_body>
 						{tableData.map((res, i) => {
 								const date = new Date(Date.now())
-
 								return (
 									<Table_row key={`row_${i}`}>
 										<Table_column key={`indexation_${i}`}>{i + 1}</Table_column>
@@ -74,5 +57,19 @@ const Results = (props) => {
 		</Layout>
 	)
 }
+
+export async function getServerSideProps(ctx) {
+	const project = ctx.params.project
+	const {data} = await getAllRequestData(project)
+	let sortedData
+	if (data && data.length) {
+		sortedData = data.filter(res => res.project === project) ?? []
+		console.log(sortedData)
+	 }
+  
+	return {
+	  props: { project, sortedData },
+	}
+  }
 
 export default Results
