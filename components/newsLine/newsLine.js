@@ -5,7 +5,7 @@ import { NewsLineWidget } from './newsLineWidget'
 
 
 
-export function NewsLine({ lang }) {
+export function NewsLine() {
   return <div className="container newsLine">
     <div className="newsLine_wrapper">
       <ul className='g3 newsLine_ul'>
@@ -18,7 +18,7 @@ export function NewsLine({ lang }) {
               minHeight: "10rem"
             }}
             className='g3 newsLine_list'>
-            <NewsLineWidget lang={lang} />
+            <NewsLineWidget />
           </ul>
         </li>
       </ul>

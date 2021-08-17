@@ -14,7 +14,7 @@ import useTranslate from '../../i18n/translator'
 
 const isShowRegistrationButton = true
 
-export default function OnlineForumConsortium({current, ...props}) {
+export default function OnlineForumConsortium({current, modalForm, ...props}) {
   const { query: {lang: lang} } = useRouter()
 
   const {modalService, setRegModalState} = useContext(ModalsContext)
@@ -25,12 +25,14 @@ export default function OnlineForumConsortium({current, ...props}) {
       color: "red",
       inputs: ["name", "role", "company", "phone", "email", "speaker", "confidential"],
       configName: "onlineForumConsortium",
-      title: "Зарегистрироваться на Стратегический образовательный интенсив"
+      title: lang === 'ru'
+        ? 'Зарегистрироваться на мероприятие Онлайн-форум «Научно-образовательные консорциумы. Программы НОЦ и приоритет 2030»'
+        : 'Registration for the event Online forum “Scientific and educational consortia. REC programs and priority 2030"'
     })
   }
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content='Онлайн-форум «Научно-образовательные консорциумы. Программы НОЦ и приоритет 2030»' />
           <meta name="keywords" content='тренинг Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -65,19 +67,28 @@ export default function OnlineForumConsortium({current, ...props}) {
                 <ul className='g3'>
                   <li className='i3_12'>
 
-                    {/* @todo: add Modal pop-up*/}
+                    <div className="schedule_box">
+                      <div className="schedule_date">
+                        <div className="date_wrapper">
+                          <span className={`date_month`}  style={{ width: '8rem'}}>октябрь 2021</span>
+                          <span className={`date_month`}  style={{ width: '11rem'}}>(дата уточняется)</span>
+                          <span className={`date_month`}  style={{ width: '8rem'}}>8:30 - 20:00</span>
+                        </div>
+                      </div>
 
-                    <Schedule dataFirst={[null, 'октябрь 2021', '(дата уточняется)']}
-                              time={'8:30 - 20:00'}
-                              place={'онлайн, zoom'}
-                              isShowButton={isShowRegistrationButton}
-                              showAskIsSpeakerButton={true}
-                              individual={true}
-                              showOrganizationField={true}
-                              eventType={'onlineForumConsortium'}
-                              eventTitle="Зарегистрироваться на мероприятие Онлайн-форум «Научно-образовательные консорциумы. Программы НОЦ и приоритет 2030»"
-                              eventLinkToTable="onlineForumConsortium"
-                    />
+                      <div className="schedule_place ">
+                        <div className={`place_text place_text_tiny`} style={{ maxWidth: '13rem' }}>
+                          <div className="place_text_icon">
+                            <img loading="lazy" src='/img/pin.svg' alt='icon'/>
+                            <p className="schedule_time__tiny mt0">онлайн, zoom</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </li>
@@ -314,6 +325,6 @@ export async function getServerSideProps(ctx) {
   const {current} = useTranslate("test", ctx.params.lang)
 
   return {
-    props: { current: current["test"]  },
+    props: { current: current["test"], modalForm: current["modalForm"]  },
   }
 }

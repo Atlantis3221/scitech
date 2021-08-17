@@ -10,7 +10,7 @@ import { useRouter } from 'next/dist/client/router'
 import Translator from '../../i18n/translator'
 import ModalsContext from '../../components/modals/ModalContext'
 
-export default function ManagementSchool({  current, onClick }) {
+export default function ManagementSchool({  current, onClick, modalForm }) {
   const { query: {lang: lang} } = useRouter()
   const {modalService, setRegModalState} = useContext(ModalsContext)
 
@@ -20,7 +20,7 @@ export default function ManagementSchool({  current, onClick }) {
       color: "violet",
       inputs: ["participationType","name", "company", "phone", "email", "confidential"],
       configName: "managementSchoolMyRegion",
-      title: "Заказать проведение в моем регионе"
+      title: lang === 'ru'? 'Заказать проведение в моем регионе': 'Enquire about next enrolment period'
     })
   }
   return (
@@ -42,7 +42,7 @@ export default function ManagementSchool({  current, onClick }) {
         backgroundImage: 'url(/img/gradients/school_gradient_viol.svg)',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '120% -5%',
-      }}>
+      }} modalFormText={modalForm}>
         <div className='show wrapper_hero'>
           <div className='container relative'>
             <div className="colorSpot colorSpot__violet"></div>
@@ -644,6 +644,6 @@ export async function getServerSideProps(ctx) {
   const {current} = Translator("test", ctx.params.lang)
 
   return {
-    props: { current: current["test"]  },
+    props: { current: current["test"], modalForm: current["modalForm"]  },
   }
 }

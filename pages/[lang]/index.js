@@ -10,7 +10,7 @@ import { getContentfulNews } from '../../helpers/axios'
 import Translator from "../../i18n/translator"
 import { useRouter } from 'next/dist/client/router'
 
-const HomePage = ({  data, current  }) => {
+const HomePage = ({  data, current, modalForm  }) => {
   const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
 
@@ -36,7 +36,9 @@ const HomePage = ({  data, current  }) => {
           backgroundImage: 'url(/img/gradients/gradient_main.svg)',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: '100% 0%'
-        }}>
+        }}
+          modalFormText={modalForm}
+        >
           <div className='show'>
             <div className='container relative'>
               <div className='content'>
@@ -757,6 +759,6 @@ export async function getServerSideProps(ctx) {
   const {current} = Translator("test", ctx.params.lang) 
 
   return {
-    props: { data: data.data, current: current["test"]  },
+    props: { data: data.data, current: current["test"], modalForm: current["modalForm"]  },
   }
 }

@@ -1,22 +1,22 @@
 export const projectGrowth = [
-  {
-    _id: 'strategicEducationalIntensive',
-    link: '/strategicEducationalIntensive',
-    name: 'Интенсив',
-    cardType: ['now', 'courses'],
-    projectDate: '16 - 19 Сен 2021',
-    location: 'Тюмень',
-    image: '/img/developmentProjects/bgLily.svg',
-    title: 'Стратегический образовательный интенсив',
-    engVersion: false
-  },
+  // {
+  //   _id: 'strategicEducationalIntensive',
+  //   link: '/strategicEducationalIntensive',
+  //   name: 'Интенсив',
+  //   cardType: ['now', 'courses'],
+  //   projectDate: '16 - 19 Сен 2021',
+  //   location: 'Тюмень',
+  //   image: '/img/developmentProjects/bgLily.svg',
+  //   title: 'Стратегический образовательный интенсив',
+  //   engVersion: false
+  // },
   {
     _id: 'scientificPracticalConference',
     link: '/scientificPracticalConference',
     name: 'Конференция',
     cardType: ['now', 'courses'],
     projectDate: '18 Окт - 23 Окт 2021',
-    location: 'онлайн',
+    location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»',
     engVersion: true
@@ -27,7 +27,7 @@ export const projectGrowth = [
     name: 'Школа',
     cardType: ['inProcess', 'school'],
     projectDate: 'Мар 2021 - Окт 2021',
-    location: 'онлайн',
+    location: 'Онлайн',
     image: '/img/news/news-31-03.jpg',
     title: 'ЗИМА 21',
     engVersion: true
@@ -38,7 +38,7 @@ export const projectGrowth = [
     name: 'Школа',
     cardType: ['inProcess', 'school'],
     projectDate: 'Фев 2021 - Фев 2022',
-    location: 'онлайн',
+    location: 'Онлайн',
     image: '/img/developmentProjects/bgGreen.svg',
     title: 'Школа научного лидерства. Science leadership school',
     engVersion: true
@@ -49,7 +49,7 @@ export const projectGrowth = [
     name: 'Школа',
     cardType: ['inProcess', 'school'],
     projectDate: 'Фев 2021 - Фев 2022',
-    location: 'онлайн',
+    location: 'Онлайн',
     image: '/img/developmentProjects/bgPink.svg',
     title: 'Школа руководителей научно-технологических проектов',
     engVersion: true
@@ -59,7 +59,7 @@ export const projectGrowth = [
     link: '/onlineForumConsortium',
     name: 'Тренинг',
     cardType: ['now', 'courses'],
-    deadline: 'октябрь 2021 (дата уточняется)',
+    deadline: 'Октябрь 2021 (дата уточняется)',
     location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'Онлайн-форум «Научно-образовательные консорциумы. Программы НОЦ и приоритет 2030»',
@@ -93,7 +93,7 @@ export const projectGrowth = [
     cardType: ['inProcess', 'school'],
     deadline: 'Дедлайн 10 декабря 2020',
     projectDate: 'Ноя 2020 — Июн 2022',
-    location: 'онлайн',
+    location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'Tabula Rasa',
     engVersion: true

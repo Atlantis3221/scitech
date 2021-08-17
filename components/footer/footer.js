@@ -15,7 +15,7 @@ export function Footer(props) {
       color: "red",
       inputs: ["name", "company", "phone", "email", "confidential"],
       configName: "becomeClient",
-      title: "Стать клиентом"
+      title: lang === 'ru'? 'Стать клиентом': 'Become a client'
     })
   }
 

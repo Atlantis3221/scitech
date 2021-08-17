@@ -11,7 +11,7 @@ import Translator from '../../i18n/translator'
 import { Button } from '../../components/button'
 import ModalsContext from '../../components/modals/ModalContext'
 
-export default function ScientificPracticalConference({ current, onClick }) {
+export default function ScientificPracticalConference({ current, modalForm }) {
   const { query: {lang: lang} } = useRouter()
   const {modalService, setRegModalState} = useContext(ModalsContext)
 
@@ -21,12 +21,14 @@ export default function ScientificPracticalConference({ current, onClick }) {
       color: "red",
       inputs: ["name", "role", "company", "phone", "email", "speaker", "confidential"],
       configName: "scientificPracticalConference",
-      title: "Зарегистрироваться на Стратегический образовательный интенсив"
+      title: lang === 'ru'
+        ? 'Зарегистрироваться на Стратегический образовательный интенсив'
+        : 'Registration for the Strategic Educational Intensive'
     })
   }
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content={current["scientificPracticalConferenceTitle"]} />
           <meta name="keywords" content={current["scientificPracticalConferenceTitle"]} />
@@ -270,6 +272,6 @@ export async function getServerSideProps(ctx) {
   const {current} = Translator("test", ctx.params.lang)
 
   return {
-    props: { current: current["test"]  },
+    props: { current: current["test"], modalForm: current["modalForm"]  },
   }
 }
