@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { convertContentfulNews } from '../../lib'
 import { getContentfulNews } from '../../helpers/axios'
+import { useRouter } from 'next/dist/client/router'
 
 
-export const NewsLineWidget = ({ lang }) => {
+export const NewsLineWidget = () => {
+  const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setAllContentfulNews] = useState([])
 
   useEffect(async() => {

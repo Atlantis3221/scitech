@@ -12,6 +12,7 @@ const sendpulseConfiguration = {
     'recruitingPriceDevelopEvent': 1101660,
     'becomeClient': 1236838,
     'scientificPracticalConference': 1248561,
+    'strategicEducationalIntensive': 1298277,
   }
 
 

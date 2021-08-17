@@ -382,5 +382,23 @@ export default {
         "policy81": "The User can receive any clarifications on issues of interest regarding the processing of his/her personal data by contacting the Operator via e-mail hi@scitech.ru.",
         "policy82": " The present document will reflect any changes in the personal data processing policy by the Operator. The policy remains in force indefinitely until it is replaced by a new version.\n",
         "policy83": " The current version of the Policy is freely available on the Internet at: https://scitech.ru/policy.\n",
+    },
+    modalForm: {
+        "Имя и фамилия": "Name and surname",
+        "Индивидуальное": "Individual",
+        "Групповое": "Group",
+        "Тип участия": "Participation type",
+        "Количество человек": "Number of participants",
+        "Должность": "Position",
+        "Год аспирантуры": "Year of graduate school",
+        "Телефон": "Phone",
+        "Даю согласие на обработку персональных данных, описанную в": "I agree to the processing of personal data described in the",
+        "Политике обработки персональных данных": "Personal Data Processing Policy",
+        "Принять участие как спикер": "Participate as a speaker",
+        "Организация": "Organization",
+        "Члены команды": "Team members",
+        "Отправить": "Send",
+        "До встречи на мероприятии!": "See you on the event!",
+        "Спасибо, вы успешно зарегистрировались": "Thank you for the registration",
     }
 }

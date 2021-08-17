@@ -1,4 +1,4 @@
-import React, { ReactNode, Reducer, useEffect, useState } from "react";
+import React, { ReactNode, Reducer, useState } from "react";
 import { useReducer } from "react";
 
 export type IModals = "reg"
@@ -6,8 +6,8 @@ export type IModals = "reg"
 type ContextProps = {
   modalsState: IModalState,
   modalService: ModalService,
-  regModalState: IRegModalState
-  setRegModalState: React.Dispatch<React.SetStateAction<IRegModalState>>
+  regModalState: IRegModalState,
+  setRegModalState: React.Dispatch<React.SetStateAction<IRegModalState>>,
 }
 
 const ModalsContext = React.createContext<Partial<ContextProps>>({});
@@ -120,14 +120,13 @@ const ModalsContextProvider = ({ children }: Props) => {
     configName: "becomeClient",
     isSent: false
   })
-
   return (
     <ModalsContext.Provider
       value={{
         modalsState,
         modalService,
         regModalState,
-        setRegModalState
+        setRegModalState,
       }}
     >
       {children}
@@ -136,5 +135,6 @@ const ModalsContextProvider = ({ children }: Props) => {
 };
 
 export default ModalsContext;
+
 
 export { ModalsContextProvider };

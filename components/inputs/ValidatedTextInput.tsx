@@ -12,7 +12,7 @@ const ValidatedTextInput = ({state, name, setState, errors, setErrors, placehold
         <input style={{
             position: "relative",
             zIndex: 0
-        }} placeholder={`${placeholder}`}
+        }} placeholder={`${placeholder ?? ''}`}
                name={name}
                value={state[name]}
          onChange={(e) => {

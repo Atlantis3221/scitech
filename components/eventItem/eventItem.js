@@ -59,7 +59,7 @@ export function EventItem(props) {
 
     return (
        <div className="eventItem">
-           <p className={`eventItem_time ${bottom ? 'eventItem_time__bottom0' : ''}`}>{date}{date ? `${<br/>}` : null}{date_add}</p>
+           <p className={`eventItem_time ${bottom ? 'eventItem_time__bottom0' : ''}`}>{date}{date ? <br/> : null}{date_add}</p>
            <div className="eventItem_description">
                <p className="eventItem_title">{title}</p>
                <p className="eventItem_about">{children}</p>

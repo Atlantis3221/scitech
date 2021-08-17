@@ -1,9 +1,9 @@
 import RegModal from "./reg/RegModal"
 
-const Modals = () => {
+const Modals = ({modalFormText}) => {
     return (
         <> 
-        <RegModal/>
+        <RegModal modalFormText={modalFormText}/>
         </>
     )
 }

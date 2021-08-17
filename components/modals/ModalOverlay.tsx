@@ -14,9 +14,9 @@ const ModalOverlay = ({children, modal}: IModalOverlayProps) => {
         onMouseUp={(e) => {
             modalService.closeModal(modal)
         }}
-        className={`fixed top-0 left-0 w-full h-full place-items-center
+        className={`fixed top-0 left-0 w-full h-full place-items-center overflow-y-auto
         ${isOpen ? "bg-opacity-25 visible" : "bg-opacity-0 invisible"} z-50 bg-black transition-all duration-300`}>
-            <div className={`w-full p-4 md:p-10 grid place-items-center h-full`}>{children}</div>
+            <div className={`w-full p-4 md:p-10 grid place-items-center overflow-y-auto`}>{children}</div>
         </div>
     )
 }

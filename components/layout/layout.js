@@ -41,12 +41,13 @@ export function Layout(props) {
     asideRight = LayoutDefaults.asideRight,
     main = props.children,
     style = {},
+    modalFormText,
     $,
   } = $props(Layout, props)
 
   return (
     <div>
-      { isShownNewsLine && <NewsLine lang={lang}/> }
+      { isShownNewsLine && <NewsLine/> }
       <div {...$()} style={style}>
       {header && <div {...$(UI_HEADER)}>{header}</div>}
       <div {...$(UI_MAIN)}>
@@ -56,7 +57,7 @@ export function Layout(props) {
       </div>
       {footer && <div {...$(UI_FOOTER)}>{footer}</div>}
     </div>
-    <Modals/>
+    <Modals modalFormText={modalFormText}/>
   </div>
   )
 }
