@@ -2,6 +2,7 @@ import { throws } from "assert"
 import { Collection, Db, MongoClient } from "mongodb"
 
 
+
 const uri = `${process.env.DATABASE_URL}`
 
 class Mongo {
@@ -11,7 +12,7 @@ class Mongo {
     news: Collection
 
     constructor() {
-        this.client = new MongoClient(uri, { })
+        this.client = new MongoClient(uri)
         this.db = this.client.db("SCITECH")
         this.grants = this.db.collection("grants")
         this.news = this.db.collection("news")

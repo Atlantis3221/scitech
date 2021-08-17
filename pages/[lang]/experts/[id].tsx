@@ -8,7 +8,7 @@ const Experts = props => {
   const router = useRouter()
   const { id } = router.query
   const { lang } = router.query
-  const data = experts.findById(id)
+  const data = experts.find(exp => exp._id === id)
   console.log(data)
   return (
     <Layout style={{
