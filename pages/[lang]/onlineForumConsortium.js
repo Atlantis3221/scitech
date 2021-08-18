@@ -99,6 +99,7 @@ export default function OnlineForumConsortium({current, modalForm, ...props}) {
                 </ul>
               </li>
             </ul>
+            <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
           </div>
         </div>
 

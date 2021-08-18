@@ -9,8 +9,13 @@ export default function Experts ({ modalForm }) {
   const router = useRouter()
   const { id } = router.query
   const { lang } = router.query
+<<<<<<< HEAD:pages/[lang]/experts/[id].tsx
+  const data = experts.find(exp => exp._id === id)
+  console.log(data)
+=======
   const data = experts.findById(id)
 
+>>>>>>> efbc281ee3f06f32449ae1b12a94c6c47da5208d:pages/[lang]/experts/[id].js
   return (
     <Layout style={{
       backgroundImage: 'url(/img/gradients/gradient_main.svg)',

@@ -392,6 +392,7 @@ const RegModal = ({ modalFormText = {} }) => {
                                     </>
                                 )
                             }
+                            
                         })}
                         {state.participationType === "Групповое" && <div className={`col-span-4 text-2xl `}>Члены команды</div> }
                          {state.participationType === "Групповое" && Object.keys(defaultAdditionalNames).map(name => {
