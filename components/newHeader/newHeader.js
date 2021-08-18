@@ -79,7 +79,7 @@ export const NewHeader = () => {
                           changeLang("ru")
                         }
                       }
-                      className={`navigation_link ${lang === 'ru' ? 'active' : ''}`} style={{ marginRight: '.2rem' }}>
+                      className={`navigation_link ${lang === 'ru' ? 'active lang' : ''}`} style={{ marginRight: '.2rem' }}>
                         Руc
                       </a>
                       <a 
@@ -88,7 +88,7 @@ export const NewHeader = () => {
                           changeLang("en")
                         }
                       }
-                      className={`navigation_link ${lang === 'en' ? 'active' : ''}`} style={{ marginLeft: '.3rem' }}>
+                      className={`navigation_link ${lang === 'en' ? 'active lang' : ''}`} style={{ marginLeft: '.3rem' }}>
                         Eng
                       </a>
                   </div>
