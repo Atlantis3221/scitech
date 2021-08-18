@@ -5,6 +5,8 @@ import { useRouter } from 'next/router'
 export const NewHeader = () => {
   const router = useRouter()
   const { lang } = router.query
+  const pathname = router.pathname
+  console.warn(pathname)
   const changeLang = (lang) => {
     let path = router.asPath.split("/")
     path.splice(1,1, lang)
@@ -37,21 +39,21 @@ export const NewHeader = () => {
                 <ul className='navigation_list'>
                   <li>
                     <Link href={`/${lang}/developmentProjects`}>
-                      <a className={'navigation_link'}>
+                      <a className={`navigation_link ${(/developmentProjects/ig).test(pathname) ? 'active' : ''}`} >
                         {lang === 'ru'? 'Проекты': 'Projects'}</a>
                     </Link>
                   </li>
 
                   <li>
                     <Link href={`/${lang}/grants`}>
-                      <a className={'navigation_link'}>
+                      <a className={`navigation_link ${(/grants/ig).test(pathname) ? 'active' : ''}`} >
                         {lang === 'ru'? 'Гранты': 'Grants'}</a>
                     </Link>
                   </li>
 
                   <li>
                     <Link href={`/${lang}/vacancies`}>
-                      <a className={'navigation_link'}>
+                      <a className={`navigation_link ${(/vacancies/ig).test(pathname) ? 'active' : ''}`} >
                         {lang === 'ru'? 'Вакансии и стажировки': 'Vacancies and internships'}
                       </a>
                     </Link>
@@ -59,13 +61,13 @@ export const NewHeader = () => {
 
                   <li>
                     <Link href={`/${lang}/news`}>
-                      <a  className={'navigation_link'}>{lang === 'ru'? 'Новости': 'News'}</a>
+                      <a  className={`navigation_link ${(/news/ig).test(pathname) ? 'active' : ''}`} >{lang === 'ru'? 'Новости': 'News'}</a>
                     </Link>
                   </li>
 
                   <li>
                     <Link href={`/${lang}/reports`}>
-                      <a  className={'navigation_link'}>{lang === 'ru'? 'Отчеты': 'Reports'}</a>
+                      <a  className={`navigation_link ${(/reports/ig).test(pathname) ? 'active' : ''}`} >{lang === 'ru'? 'Отчеты': 'Reports'}</a>
                     </Link>
                   </li>
                 </ul>
@@ -77,7 +79,7 @@ export const NewHeader = () => {
                           changeLang("ru")
                         }
                       }
-                      className="navigation_link" style={{ marginRight: '.2rem' }}>
+                      className={`navigation_link ${lang === 'ru' ? 'active' : ''}`} style={{ marginRight: '.2rem' }}>
                         Руc
                       </a>
                       <a 
@@ -86,7 +88,7 @@ export const NewHeader = () => {
                           changeLang("en")
                         }
                       }
-                      className="navigation_link" style={{ marginLeft: '.3rem' }}>
+                      className={`navigation_link ${lang === 'en' ? 'active' : ''}`} style={{ marginLeft: '.3rem' }}>
                         Eng
                       </a>
                   </div>

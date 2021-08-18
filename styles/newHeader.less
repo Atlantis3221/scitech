@@ -85,6 +85,18 @@
       }
     }
 
+    &.active {
+      &::after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        background: #e62c2c;
+        height: 5px;
+        top: 2.4rem;
+        left: 0;
+      }
+    }
+
     @media @phone {
       color: black;
       font-size: 1.1rem;

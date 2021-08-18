@@ -580,7 +580,7 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
           </div>
         </div>
 
-        <div className='wrapper_partners content'>
+        <div className='wrapper_partners content' style={{ display: 'none' }}>
           <div className='container'>
             <ul className='g3'>
               <li className='i3_3'>
