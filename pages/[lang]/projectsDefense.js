@@ -4,11 +4,11 @@ import { Layout } from '../../components/layout'
 import { EventItem, EventItem_Container } from '../../components/eventItem'
 import { SchoolProject } from '../../components/schoolProject'
 import { Helmet } from 'react-helmet'
-import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 import { getContentfulNews } from '../../helpers/axios'
-import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 import { useRouter } from 'next/dist/client/router'
 import Translator from '../../i18n/translator'
+import ContentfulNewsWidget from './news/contentfulNewsWidget'
+import NewsSMIWidget from './newsSMI/newsSMIWidget'
 
 
 export default function ProjectsDefense({ data, modalForm }) {
