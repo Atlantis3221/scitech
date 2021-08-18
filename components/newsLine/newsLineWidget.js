@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { convertContentfulNews } from '../../lib'
 import { getContentfulNews } from '../../helpers/axios'
 import { useRouter } from 'next/dist/client/router'
+import NewsContext from '../context/newsContext'
 
 
 export const NewsLineWidget = () => {
   const { query: {lang: lang} } = useRouter()
-  const [allContentfulNews, setAllContentfulNews] = useState([])
-
-  useEffect(async() => {
-    const contentful = await getContentfulNews()
-    if(contentful?.data) {
-      const news = convertContentfulNews(contentful?.data).filter(news => news.isShownInNewsTopLine)
-      const onlyThree = news.slice(0, 3)
-      setAllContentfulNews(onlyThree)
-    }
-  }, [])
+  const {news} = useContext(NewsContext)
 
   return (
     <>
-      {allContentfulNews.map((newsItem) => {
+      {news.map((newsItem) => {
         return (
           <li className='i3_4 newsLine_linkLi' key={newsItem._id} style={{ paddingLeft: 0 }}>
             <div className='link_toEvent'>

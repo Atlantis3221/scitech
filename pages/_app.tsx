@@ -40,21 +40,27 @@ import { ModalsContextProvider } from '../components/modals/ModalContext'
 import Router from "next/router"
 import smoothscroll from 'smoothscroll-polyfill';
 import Loader from '../components/Loader'
+import { NewsContextProvider } from '../components/context/newsContext'
 
 
 function MyApp({ Component, pageProps }) {
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     smoothscroll.polyfill();
     const appHeight = () => {
       let vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", `${vh}px`);
     }
+    const loading = () => {
+      setLoading(false)
+    }
     window.addEventListener("resize", appHeight);
+    window.addEventListener("load", loading)
     appHeight();
     return () => {
       window.removeEventListener("resize", appHeight);
+      window.removeEventListener("load", loading)
     };
     
   }, []);
@@ -65,9 +71,10 @@ Router.events.on("routeChangeComplete", () => {setLoading(false)});
 Router.events.on("routeChangeError", () => {setLoading(false)});
   return (
     <ModalsContextProvider>
-
+      <NewsContextProvider>
       <Component {...pageProps} />
-      {loading && <Loader/>}
+       <Loader loading={loading}/>
+      </NewsContextProvider>
     </ModalsContextProvider>
   )
 }
