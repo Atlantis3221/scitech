@@ -193,7 +193,7 @@ const RegModal = ({ modalFormText = {} }) => {
                                     return (
                                         <>
                                         <div className={`col-span-1 flex items-center`}>
-                                            {modalFormText["Имя и фамилия"]}
+                                            { modalFormText["Имя и фамилия"]}
                                         </div>
                                         <div className={`col-span-3`}>
                                             <ValidatedTextInput errors={errors}
@@ -210,7 +210,7 @@ const RegModal = ({ modalFormText = {} }) => {
                                     return (
                                         <>
                                         <div className={`col-span-1 flex items-center`}>
-                                            {modalFormText["Имя и фамилия"]}
+                                            {regModalState.configName !== "strategicEducationalIntensive" ? modalFormText["Имя и фамилия"] : "ФИО контактного лица лица"}
                                         </div>
                                         <div className={`col-span-3`}>
                                             <ValidatedTextInput errors={errors}
