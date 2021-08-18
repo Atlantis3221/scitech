@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 
 import { Page } from '../../../components/page'
 import { Layout } from '../../../components/layout'
-import { NewsSMIWidget } from './newsSMIWidget'
 import { Helmet } from 'react-helmet'
 import { SchoolProject } from '../../../components/schoolProject'
-import { ContentfulNewsWidget } from '../news/contentfulNewsWidget'
 import { getContentfulNews } from '../../../helpers/axios'
 import { useRouter } from 'next/router'
 import Translator from '../../../i18n/translator'
+import ContentfulNewsWidget from '../news/contentfulNewsWidget'
+import NewsSMIWidget from './newsSMIWidget'
 
 export default function NewsSMIPage({  data, modalForm  }) {
   const { query: {lang: lang} } = useRouter()
