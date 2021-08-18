@@ -169,9 +169,9 @@ const RegModal = ({ modalFormText = {} }) => {
             ref={scrollRef}
             className={`
             ${regModalState.isSent ? "overflow-hidden" : "overflow-y-auto"}
-            max-w-3xl w-full relative z-50 
+            max-w-3xl w-full relative z-50 h-full
             ${isOpen ? "opacity-100 visible scale-100" : "opacity-10 invisible scale-75"}
-            transistion-all duration-300 transform origin-center
+            transistion-all duration-300 transform origin-center 
             `}>
                 <div className={`w-full overflow-y-auto pt-10 px-6 md:px-14 pb-10 font-raleway`} style={{
                     backgroundColor: Colors[regModalState.color].bg
