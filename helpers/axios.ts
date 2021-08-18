@@ -10,14 +10,20 @@ const instatnce = axios.create({
 })
 
 
-export const getContentfulNews = async() => await instatnce
-	.get(ALL_SORTED_NEWS)
-	.then((res) => {
-		return res.data;
-	}).catch(error => {
-		console.log(error);
-	});
-
+export const getContentfulNews = async() => {
+	try {
+		const resp = await instatnce.get(ALL_SORTED_NEWS)
+		if (resp.data.ok) {
+			return resp.data
+		}
+		throw new Error("No news!")
+	}
+	catch (e) {
+		console.log(e.message)
+		return []
+	}
+	
+}
 export const getAllNews = async() => await instatnce
 	.get(ALL_NEWS)
 	.then((res) => {
