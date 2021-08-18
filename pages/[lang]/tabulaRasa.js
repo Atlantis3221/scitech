@@ -6,11 +6,11 @@ import { Partner } from '../../components/partner'
 import { StrongText } from '../../components/strongText'
 import { SchoolProject } from '../../components/schoolProject'
 import { Helmet } from 'react-helmet'
-import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
-import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 import { getContentfulNews } from '../../helpers/axios'
 import { useRouter } from 'next/dist/client/router'
 import Translator from '../../i18n/translator'
+import ContentfulNewsWidget from './news/contentfulNewsWidget'
+import NewsSMIWidget from './newsSMI/newsSMIWidget'
 
 export default function TabulaRasa({  data, modalForm  }) {
   const { query: {lang: lang} } = useRouter()
