@@ -57,6 +57,7 @@ type IConfigNames = 'scienceLeadSchoolNextSet' |
 'recruitingPriceDevelopEvent' |
 'becomeClient' |
 'scientificPracticalConference'
+| "strategicEducationalIntensive"
 
 type IRegModalState = {
     color: keyof IColors,

@@ -214,7 +214,7 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
     modalService.openModal("reg")
     setRegModalState({
       color: "red",
-      inputs: ["participationType","name", "role", "company", "phone", "email", "confidential"],
+      inputs: ["participationType","name", "role", "company", "phone", "email", "amount", "confidential"],
       configName: "strategicEducationalIntensive",
       title: lang === 'ru'
         ? 'Зарегистрироваться на Стратегический образовательный интенсив'
