@@ -23,7 +23,7 @@
       "next-env.d.ts",
       "**/*.ts",
       "**/*.tsx"
-  , "pages/_app.js", "pages/[lang]/index.оы", "pages/[lang]/scientificPracticalConference.js", "pages/[lang]/vacancies/[id].js", "pages/[lang]/news/[id].js", "pages/[lang]/newsSMI/[id].js", "pages/[lang]/vacancies/[id].js", "pages/[lang]/contentfulNews/contentfulNewsWidget.js", "pages/[lang]/contentfulNews/contentfulNewsWidget.js", "pages/[lang]/contentfulNews/contentfulNews.js"  ],
+  , "pages/_app.js", "pages/[lang]/index.оы", "pages/[lang]/scientificPracticalConference.js", "pages/[lang]/news/index.js", "pages/[lang]/vacancies/[id].js", "pages/[lang]/news/[id].js", "pages/[lang]/newsSMI/[id].js", "pages/[lang]/vacancies/[id].js", "pages/[lang]/contentfulNews/contentfulNewsWidget.js", "pages/[lang]/contentfulNews/contentfulNewsWidget.js", "pages/[lang]/contentfulNews/contentfulNews.js"  ],
     "exclude": [
       "node_modules"
     ]
