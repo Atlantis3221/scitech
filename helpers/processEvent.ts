@@ -1,7 +1,7 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
-export default processAsset = (asset) => {
+const processAsset = (asset) => {
   if (asset?.fields?.body) {
     console.log(asset.fields)
     const options = {
@@ -21,6 +21,8 @@ export default processAsset = (asset) => {
   }
 
   }
+
+export default processAsset
 
 
   function capitalizeFirstLetter(string) {

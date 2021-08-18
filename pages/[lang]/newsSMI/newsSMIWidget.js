@@ -3,7 +3,7 @@ import { newsSMI } from '../../../data/newsSMI'
 import { SchoolProject_Card } from '../../../components/schoolProject'
 import { useRouter } from 'next/router'
 
-export const NewsSMIWidget = props => {
+ const NewsSMIWidget = props => {
 	const { query: {lang: lang} } = useRouter()
 	const { newsCount = newsSMI.length, _id, pageToShow = null } = props
 
@@ -44,3 +44,5 @@ export const NewsSMIWidget = props => {
 		</>
 	)
 }
+
+export default NewsSMIWidget

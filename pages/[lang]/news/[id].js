@@ -4,8 +4,9 @@ import { news } from '../../../data/news'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
 import { getContentfulNews, getDefineNews } from '../../../helpers/axios'
-import processEvent, { convertToDate } from './processEvent'
 import Translator from '../../../i18n/translator'
+import processEvent from '../../../helpers/processEvent'
+import { convertToDate } from '../../../lib'
 
 
 

@@ -3,9 +3,7 @@ import { Layout } from '../../../components/layout'
 import { Helmet } from 'react-helmet'
 // import { useTracker } from 'meteor/react-meteor-data'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-
-import "../../styles/events.less"
-import processEvent, {formattedDate, calculateDuration} from './processEvent'
+import processEvent, {formattedDate, calculateDuration} from '../../../helpers/processEvent'
 
 const options = {
   renderMark: {
@@ -21,7 +19,7 @@ const convertToDate = (sec) => {
   return ''
 }
 
-export function ContentfulNews ({url}) {
+function ContentfulNews ({url}) {
   const [data, setData] = useState("Hello")
   // const project =  useTracker(() => clientNews.findOne({"fields.url": url}))
   const project =  {}
@@ -124,3 +122,5 @@ export function ContentfulNews ({url}) {
    </Layout>
  )
 }
+
+export default ContentfulNews
