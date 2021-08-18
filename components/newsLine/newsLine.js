@@ -14,9 +14,9 @@ export function NewsLine() {
         </li>
         <li className='i3_9'>
           <ul
-            style={{
-              minHeight: "10rem"
-            }}
+            // style={{
+            //   minHeight: "10rem"
+            // }}
             className='g3 newsLine_list'>
             <NewsLineWidget />
           </ul>
