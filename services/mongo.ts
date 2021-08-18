@@ -13,7 +13,7 @@ class Mongo {
 
     constructor() {
         this.client = new MongoClient(uri)
-        this.db = this.client.db("SCITECH")
+        this.db = this.client.db("scitech")
         this.grants = this.db.collection("grants")
         this.news = this.db.collection("news")
     }
