@@ -137,6 +137,12 @@ const RegModal = ({ modalFormText = {} }) => {
             if (curr === "speaker") {
                 return acc
             }
+            if (curr === "amount") {
+                if (state.participationType === "Групповое") {
+                    return acc[curr] = !validators[curr](state[curr]);
+                }
+                return acc
+            }
             acc[curr] = !validators[curr](state[curr]);
             if (curr === "phone") {
                 acc[curr] = !validators[curr]("+" + state[curr])
@@ -258,10 +264,10 @@ const RegModal = ({ modalFormText = {} }) => {
                                      </>
                                 )
                             }
-                            if (input === "amount") {
+                            if (state.participationType === "Групповое" && input === "amount") {
                                 return (
                                     <>
-                                    <div className={`col-span-1 mb-1 flex items-center`}>
+                                    <div className={`col-span-1 mb-1 flex items-center pr-4`}>
                                         {modalFormText["Количество человек"]}
                                     </div>
                                     <div className={`col-span-3`}>
@@ -394,8 +400,9 @@ const RegModal = ({ modalFormText = {} }) => {
                             }
                             
                         })}
-                        {state.participationType === "Групповое" && <div className={`col-span-4 text-2xl `}>Члены команды</div> }
-                         {state.participationType === "Групповое" && Object.keys(defaultAdditionalNames).map(name => {
+ 
+                        {regModalState.configName !== "strategicEducationalIntensive" && state.participationType === "Групповое" && <div className={`col-span-4 text-2xl `}>Члены команды</div> }
+                         {regModalState.configName !== "strategicEducationalIntensive" && state.participationType === "Групповое" && Object.keys(defaultAdditionalNames).map(name => {
                                             return (
                                                 <>
                                                 <div className={`col-span-1 flex items-center`}>
