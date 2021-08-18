@@ -466,7 +466,7 @@ const HomePage = ({  data, current, modalForm  }) => {
                         </p> ): null}
                       </li>
                       <li className='i3_8'>
-                        <img src='/img/photo_2.jpg' loading="lazy" alt='' />
+                        <img src='/img/photo_2.jpg' loading="lazy" alt='' style={{ maxHeight: '400px'}} />
                         {lang === 'ru'? (<p className='raleway'>{current["Руководители ЦРК комментируют предзащиту участников проекта"]}</p> ): null}
                       </li>
                       <li className='i3_12'>

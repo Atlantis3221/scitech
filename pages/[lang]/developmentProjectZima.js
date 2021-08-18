@@ -3,13 +3,13 @@ import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { Helmet } from 'react-helmet'
 import { SchoolProject } from '../../components/schoolProject'
-import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 import { Button } from '../../components/button'
 import { getContentfulNews } from '../../helpers/axios'
 import { useRouter } from 'next/dist/client/router'
-import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 import Translator from '../../i18n/translator'
 import ModalsContext from '../../components/modals/ModalContext'
+import ContentfulNewsWidget from './news/contentfulNewsWidget'
+import NewsSMIWidget from './newsSMI/newsSMIWidget'
 
 export default function DevelopmentProjectZima({  data, current, modalForm  }) {
   const { query: {lang: lang} } = useRouter()

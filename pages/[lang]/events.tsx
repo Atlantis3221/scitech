@@ -20,6 +20,7 @@ import { getContentfulNews } from '../../helpers/axios'
 import { useRouter } from 'next/dist/client/router'
 import Translator from '../../i18n/translator'
 
+
 const days = {
 	'24': <Day24/>,
 	'25': <Day25/>,

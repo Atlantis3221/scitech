@@ -6,7 +6,7 @@ export const NewHeader = () => {
   const router = useRouter()
   const { lang } = router.query
   const pathname = router.pathname
-  console.warn(pathname)
+
   const changeLang = (lang) => {
     let path = router.asPath.split("/")
     path.splice(1,1, lang)
@@ -79,7 +79,7 @@ export const NewHeader = () => {
                           changeLang("ru")
                         }
                       }
-                      className={`navigation_link ${lang === 'ru' ? 'active lang' : ''}`} style={{ marginRight: '.2rem' }}>
+                      className={`navigation_link navigation_link_lang ${lang === 'ru' ? 'active lang' : ''}`} style={{ marginRight: '.2rem' }}>
                         Руc
                       </a>
                       <a 
@@ -88,7 +88,7 @@ export const NewHeader = () => {
                           changeLang("en")
                         }
                       }
-                      className={`navigation_link ${lang === 'en' ? 'active lang' : ''}`} style={{ marginLeft: '.3rem' }}>
+                      className={`navigation_link navigation_link_lang ${lang === 'en' ? 'active lang' : ''}`} style={{ marginLeft: '.3rem' }}>
                         Eng
                       </a>
                   </div>
