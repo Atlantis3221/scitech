@@ -21,11 +21,12 @@ export const getContentfulNews = async() => {
 		if (resp.data.ok) {
 			return resp.data
 		}
+		console.log(resp.data)
 		throw new Error("No news!")
 	}
 	catch (e) {
 		console.log(e.message)
-		return []
+		return {data: []}
 	}
 	
 }

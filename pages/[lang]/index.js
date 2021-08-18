@@ -757,6 +757,7 @@ export default HomePage
 export async function getServerSideProps(ctx) {
   const data = await getContentfulNews();
   const {current} = Translator("test", ctx.params.lang) 
+  console.log(data)
 
   return {
     props: { data: data.data, current: current["test"], modalForm: current["modalForm"]  },
