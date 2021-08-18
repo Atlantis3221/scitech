@@ -3,7 +3,7 @@ import { Collection, Db, MongoClient } from "mongodb"
 
 
 
-const uri = process.env.NODE_ENV === "development" ? `${process.env.DATABASE_URL}` : "mongodb://127.0.0.1:27017/"
+const uri = `${process.env.DATABASE_URL}`
 
 class Mongo {
     client: MongoClient

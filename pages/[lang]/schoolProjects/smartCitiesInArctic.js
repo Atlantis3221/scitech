@@ -6,8 +6,9 @@ import {SpeakerCards, SpeakerCard} from '../../../components/speakerCard'
 import { SchoolProject, SchoolProject_Card } from '../../../components/schoolProject'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
+import Translator from '../../../i18n/translator'
 
-export default function SmartCitiesInArctic(props) {
+export default function SmartCitiesInArctic({ modalForm }) {
     const { query: {lang: lang} } = useRouter()
     return (
         <Page>
@@ -15,7 +16,7 @@ export default function SmartCitiesInArctic(props) {
                 backgroundImage: 'url(/img/gradients/school_gradient.svg)',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: '120% -5%'
-            }}>
+            }} modalFormText={modalForm}>
                 <Helmet>
                     <meta name="description" content='Умные города в российской Арктике Polaris: White Stars Of Arctic' />
                     <meta name="keywords" content='проект школы научного лидерства центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -370,4 +371,12 @@ export default function SmartCitiesInArctic(props) {
             </Layout>
         </Page>
     )
+}
+
+export async function getServerSideProps(ctx) {
+    const {current} = Translator("test", ctx.params.lang)
+
+    return {
+        props: { current: current["test"], modalForm: current["modalForm"]  },
+    }
 }

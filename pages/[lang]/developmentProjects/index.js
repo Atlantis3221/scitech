@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/dist/client/router'
 import Translator from '../../../i18n/translator'
 
-export default function DevelopmentProjects({ current, onClick }) {
+export default function DevelopmentProjects({ current, modalForm }) {
   const { query: {lang: lang} } = useRouter()
 
   const [projectsType, setProjectsType] = useState(null)
@@ -41,7 +41,7 @@ export default function DevelopmentProjects({ current, onClick }) {
 
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content={current["Проекты развития"]} />
           <meta name="keywords" content={current["Проекты развития"]} />
@@ -194,6 +194,6 @@ export async function getServerSideProps(ctx) {
   const {current} = Translator("test", ctx.params.lang)
 
   return {
-    props: { current: current["test"]  },
+    props: { current: current["test"], modalForm: current["modalForm"]  },
   }
 }

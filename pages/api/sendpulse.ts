@@ -13,6 +13,7 @@ const sendpulseConfiguration = {
     'becomeClient': 1236838,
     'scientificPracticalConference': 1248561,
     'strategicEducationalIntensive': 1298277,
+    'developmentProjectZima': 1300210,
   }
 
 
@@ -23,7 +24,7 @@ const sendpulseConfiguration = {
 
   export const addToSendpulse = (doc) => {
     sendpulse.init(API_USER_ID, API_SECRET, TOKEN_STORAGE, function() {
-        const id = doc?.sendpulseBookId ? +sendpulseConfiguration[doc.sendpulseBookId] : 1034453
+        const id = doc?.project ? +sendpulseConfiguration[doc.project] : 1034453
         // sendpulse.listAddressBooks(console.log)
         if(doc.email) {
           sendpulse.addEmails(

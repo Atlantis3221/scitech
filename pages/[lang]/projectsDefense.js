@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
 import { EventItem, EventItem_Container } from '../../components/eventItem'
-import { Schedule } from '../../components/schedule'
 import { SchoolProject } from '../../components/schoolProject'
 import { Helmet } from 'react-helmet'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
 import { getContentfulNews } from '../../helpers/axios'
 import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../i18n/translator'
 
 
-export default function ProjectsDefense({ data }) {
+export default function ProjectsDefense({ data, modalForm }) {
   const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
 
@@ -21,7 +21,7 @@ export default function ProjectsDefense({ data }) {
 
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content='Защита проектов Школы научного лидерства и Школы руководителей научно-технических проектов' />
           <meta name="keywords" content='мероприятие Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
@@ -55,13 +55,37 @@ export default function ProjectsDefense({ data }) {
               <li className='i3_9 wrapper_borderTop'>
                 <ul className='g3'>
                   <li className='i3_12 flex_end'>
-                    {/*TODO: переделать на общую форму*/}
-                    <Schedule  dataFirst={[20, 'Окт 2020']}
-                               place={'онлайн, zoom'}
-                               time="8.30 - 20.00"
-                               isShowButton={true}
-                               eventLinkToTable="https://youtu.be/m196uVLvDTo"
-                    />
+                    <div className="schedule_box">
+                      <div className="schedule_date">
+                        <div className="datePlace_date">
+                          <p className="date_day">20</p>
+                          <span className="date_month">Окт 2021</span>
+                        </div>
+                      </div>
+
+                      <div className="schedule_place ">
+                        <div className={`place_text place_text_tiny`} style={{ maxWidth: '13rem' }}>
+                          <div className="place_text_icon" style={{ flexDirection: 'column'}}>
+                            <p className="schedule_time__tiny m0">8:30 - 20:00</p>
+                            <p className="schedule_time__tiny mt0">МОСКОВСКОЕ ВРЕМЯ</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="schedule_place ">
+                        <div className={`place_text place_text_tiny`} style={{ maxWidth: '13rem' }}>
+                          <div className="place_text_icon">
+                            <img loading="lazy" src='/img/pin.svg' alt='icon'/>
+                            <p className="schedule_time__tiny mt0">онлайн, zoom</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <a href='https://youtu.be/m196uVLvDTo' className="btn btn__red">перейти к трансляции</a>
+                      </div>
+                    </div>
+
                   </li>
                 </ul>
               </li>
@@ -135,10 +159,11 @@ export default function ProjectsDefense({ data }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
   const data = await getContentfulNews();
+  const {current} = Translator("test", ctx.params.lang)
 
   return {
-    props: { data: data.data },
+    props: { data: data.data, modalForm: current["modalForm"] },
   }
 }

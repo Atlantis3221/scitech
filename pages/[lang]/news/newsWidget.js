@@ -22,7 +22,7 @@ export const NewsWidget = props => {
             <SchoolProject_Card
               red
               arrow
-              link={`${lang}/news/${newsItem._id}`}
+              link={`/news/${newsItem._id}`}
               time={newsItem.date}
               image={newsItem.image}
               imageLabel={newsItem.imageLabel}

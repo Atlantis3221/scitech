@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Page } from '../../components/page'
 import { Layout } from '../../components/layout'
-import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { SchoolProject } from '../../components/schoolProject'
 import { NewsSMIWidget } from './newsSMI/newsSMIWidget'
@@ -10,10 +9,23 @@ import { getContentfulNews } from '../../helpers/axios'
 import { useRouter } from 'next/dist/client/router'
 import { ContentfulNewsWidget } from './news/contentfulNewsWidget'
 import Translator from '../../i18n/translator'
+import ModalsContext from '../../components/modals/ModalContext'
 
-export default function DevelopmentProjectZima({  data, current  }) {
+export default function DevelopmentProjectZima({  data, current, modalForm  }) {
   const { query: {lang: lang} } = useRouter()
   const [allContentfulNews, setContentfulNews] = useState([])
+  const {modalService, setRegModalState} = useContext(ModalsContext)
+
+  const openModal = () => {
+    modalService.openModal("reg")
+    setRegModalState({
+      color: "green",
+      inputs: ["participationType","name", "company", "phone", "email", "confidential"],
+      configName: "developmentProjectZima",
+      title: lang === 'ru'? 'Сообщить о следующем наборе': 'Enquire about next enrolment period',
+      isSent: false
+    })
+  }
 
   useEffect(() => {
     setContentfulNews(data)
@@ -21,7 +33,7 @@ export default function DevelopmentProjectZima({  data, current  }) {
 
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content={current["zime"]}/>
           <meta name="keywords" content={current["zime"]} />
@@ -41,7 +53,7 @@ export default function DevelopmentProjectZima({  data, current  }) {
                   <p className='asideMarker'>{current["акселератор"]}</p>
                 </li>
                 <li className='i3_9'>
-                  <h1>{current["zime"]}</h1>
+                  <h1>{current["zima"]}</h1>
                 </li>
               </ul>
             </div>
@@ -57,8 +69,9 @@ export default function DevelopmentProjectZima({  data, current  }) {
                   <li className='i3_12 flex_end'>
                     <div className="schedule_box">
                       <div className="schedule_date">
-                        <p className="raleway" style={{ margin: '0 0.5rem'}}>{current["Март"]} 2021 </p>
-                        <div className="sting"> -</div><p> {current["Окт"]} 2021</p>
+                        <p className=" date_month" style={{ margin: '0 0.5rem', width: 'unset'}}>{current["Март"]} 2021 </p>
+                        <div className="sting"> -</div>
+                        <p className=" date_month" style={{ width: 'unset'}}> {current["Окт"]} 2021</p>
                       </div>
 
                       <div className="schedule_place">
@@ -78,16 +91,9 @@ export default function DevelopmentProjectZima({  data, current  }) {
                   <li className='i3_12 flex_end m0'>
                       <div className="schedule_button">
                         <div className='registerEventForm'>
-                          {/* @todo: add Modal pop-up*/}
-                          <Button bordered-green onClick={() => {}}>
+                          <Button bordered-green onClick={openModal}>
                             {current["Сообщить о следующем наборе"]}
                           </Button>
-                          {/*          hideParticipant={false}*/}
-                          {/*          hideSituation={true}*/}
-                          {/*          showOrganizationField={true}*/}
-                          {/*          eventType={'scienceLeadSchoolMyRegion'}*/}
-                          {/*          onSubmit={(e, payload) => {*/}
-
                         </div>
                       </div>
                   </li>
@@ -373,6 +379,6 @@ export async function getServerSideProps(ctx) {
   const {current} = Translator("test", ctx.params.lang)
 
   return {
-    props: { data: data.data, current: current["test"] },
+    props: { data: data.data, current: current["test"], modalForm: current["modalForm"]  },
   }
 }

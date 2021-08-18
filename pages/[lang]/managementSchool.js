@@ -71,7 +71,6 @@ export default function ManagementSchool({  current, onClick, modalForm }) {
                     <li className='i3_12 flex_between'>
                       <div>
                         <p className="asideMarker">
-                          {/*TODO: change svg*/}
                           <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
                                xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -95,16 +94,9 @@ export default function ManagementSchool({  current, onClick, modalForm }) {
                       </div>
                     </li>
                     <li className='i3_12 flex_end m0'>
-                      {/* @todo: add Modal pop-up*/}
-
                             <Button bordered-violet marginleft onClick={openModal}>
                               {current["Заказать проведение в моем регионе"]}
                             </Button>
-
-                      {/*          hideParticipant={false}*/}
-                      {/*          hideSituation={true}*/}
-                      {/*          showOrganizationField={true}*/}
-                      {/*          eventType={'managementSchoolMyRegion'}*/}
                     </li>
                   </ul>
                 </li>

@@ -5,14 +5,11 @@ import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
 import { Partner } from '../../components/partner'
 import { EventItem, EventItem_Container } from '../../components/eventItem'
 import { StrongText } from '../../components/strongText'
-import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { Button } from '../../components/button'
 import { useRouter } from 'next/dist/client/router'
 import ModalsContext from '../../components/modals/ModalContext'
 import useTranslate from '../../i18n/translator'
-
-const isShowRegistrationButton = true
 
 export default function OnlineForumConsortium({current, modalForm, ...props}) {
   const { query: {lang: lang} } = useRouter()
@@ -70,9 +67,18 @@ export default function OnlineForumConsortium({current, modalForm, ...props}) {
                     <div className="schedule_box">
                       <div className="schedule_date">
                         <div className="date_wrapper">
-                          <span className={`date_month`}  style={{ width: '8rem'}}>октябрь 2021</span>
+                          <span className={`date_month`}  style={{ width: '8rem'}}>октябрь</span>
+                          <span className={`date_month`}  style={{ width: '8rem'}}>2021</span>
                           <span className={`date_month`}  style={{ width: '11rem'}}>(дата уточняется)</span>
-                          <span className={`date_month`}  style={{ width: '8rem'}}>8:30 - 20:00</span>
+                        </div>
+                      </div>
+
+                      <div className="schedule_place ">
+                        <div className={`place_text place_text_tiny`} style={{ maxWidth: '13rem' }}>
+                          <div className="place_text_icon" style={{ flexDirection: 'column'}}>
+                            <p className="schedule_time__tiny m0">8:30 - 20:00</p>
+                            <p className="schedule_time__tiny mt0">МОСКОВСКОЕ ВРЕМЯ</p>
+                          </div>
                         </div>
                       </div>
 
@@ -289,27 +295,7 @@ export default function OnlineForumConsortium({current, modalForm, ...props}) {
                 </EventItem_Container>
 
                   <div className='registerEventForm pt2'>
-                    {/* @todo: add Modal pop-up*/}
-
-                        <Button red onClick={props.onClick}>
-                          Зарегистрироваться
-                        </Button>
-
-                    {/*    <div>*/}
-                    {/*      <div className='registerEventForm_title'>*/}
-                    {/*        Зарегистрироваться на мероприятие Онлайн-форум «Научно-образовательные консорциумы.*/}
-                    {/*        Программы НОЦ и приоритет 2030»*/}
-                    {/*      </div>*/}
-                    {/*      <RegisterEventForm*/}
-                    {/*        onSubmit={(e, payload) => {*/}
-                    {/*          Requests.methods.insert({*/}
-                    {/*            group: 'registrations_onlineForumConsortium',*/}
-                    {/*            payload,*/}
-                    {/*          })*/}
-                    {/*          props.close()*/}
-                    {/*        }}*/}
-                    {/*      />*/}
-                    {/*    </div>*/}
+                    <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
                   </div>
               </li>
             </ul>

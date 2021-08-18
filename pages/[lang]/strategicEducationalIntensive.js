@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import { SpeakerCard, SpeakerCards } from '../../components/speakerCard'
 import { Partner } from '../../components/partner'
 import { DateItem, DateSwitcher } from '../../components/dateSwicher/dateSwicher'
-import { Schedule } from '../../components/schedule'
 import { Helmet } from 'react-helmet'
 import { EventItem, EventItem_Container } from '../../components/eventItem'
 import { useRouter } from 'next/dist/client/router'
@@ -27,8 +26,8 @@ const day16 =  (<div className="day" id="16">
       </EventItem>
       <EventItem date_add='09:15 — 11:15'
                  title='Модуль 1.'>
-        <p className="eventItem_title mt0">Создание и развитие карбоновых полигонов и других климатических проектов:
-          национальный и международный опыт. От глобальных вызовов к стратегии и тактике для России</p>
+        <span className="eventItem_title mt0">Создание и развитие карбоновых полигонов и других климатических проектов:
+          национальный и международный опыт. От глобальных вызовов к стратегии и тактике для России</span><br/>
         Спикер: Николай Дмитриевич Дурманов
       </EventItem>
       <EventItem date_add='11:15 — 11:30'
@@ -46,8 +45,8 @@ const day16 =  (<div className="day" id="16">
       </EventItem>
       <EventItem date_add='14:30 – 16:30'
                  title='Модуль 2.'>
-        <p className="eventItem_title mt0">Перспективные климатические проекты, технологии и оборудование. Организационные,
-          кадровые решения, нормативно-регуляторная рамка и взаимодействие с ключевыми стейкхолдерами</p>
+        <span className="eventItem_title mt0">Перспективные климатические проекты, технологии и оборудование. Организационные,
+          кадровые решения, нормативно-регуляторная рамка и взаимодействие с ключевыми стейкхолдерами</span><br/>
         Спикеры: Николай Дмитриевич Дурманов // Андрей Толстиков
       </EventItem>
       <EventItem date_add='16:30 — 16:45'
@@ -77,8 +76,8 @@ const day17 =  (<div className="day" id="17">
       </EventItem>
       <EventItem date_add='09:00 — 11:00'
                  title='Модуль 3.'>
-        <p className="eventItem_title mt0">Зеленая повестка и устойчивое развитие как драйвер развития человеческого
-          капитала регионов и трансформации экономики</p>
+        <span className="eventItem_title mt0">Зеленая повестка и устойчивое развитие как драйвер развития человеческого
+          капитала регионов и трансформации экономики</span><br/>
         Спикеры: Сергей Зенин // Ольга Захарова // Неля Рахимова // Филимонова Ирина
       </EventItem>
       <EventItem date_add='11:00 — 11:30'
@@ -96,8 +95,8 @@ const day17 =  (<div className="day" id="17">
       </EventItem>
       <EventItem date_add='14:30 – 16:30'
                  title='Модуль 4.'>
-        <p className="eventItem_title mt0">Разработка и испытание технологий контроля баланса климатически активных газов
-          природных экосистем и технологий захвата углерода из атмосферы и его депонирования в почве: карбоновые полигоны и карбоновые фермы</p>
+        <span className="eventItem_title mt0">Разработка и испытание технологий контроля баланса климатически активных газов
+          природных экосистем и технологий захвата углерода из атмосферы и его депонирования в почве: карбоновые полигоны и карбоновые фермы</span><br/>
         Спикер: Помогаев Виталий Михайлович
       </EventItem>
       <EventItem date_add='16:30 — 16:45'
@@ -127,8 +126,8 @@ const day18 =  (<div className="day" id="18">
       </EventItem>
       <EventItem date_add='09:00 — 11:00'
                  title='Модуль 5.'>
-        <p className="eventItem_title mt0">Нормативно-регуляторная рамка климатических проектов на федеральном и региональном уровне.
-          Практический опыт работы с региональными властями, полномочия региональных властей</p>
+        <span className="eventItem_title mt0">Нормативно-регуляторная рамка климатических проектов на федеральном и региональном уровне.
+          Практический опыт работы с региональными властями, полномочия региональных властей</span><br/>
         Спикер: Ирина Ведерникова
       </EventItem>
       <EventItem date_add='11:00 — 11:30'
@@ -146,7 +145,7 @@ const day18 =  (<div className="day" id="18">
       </EventItem>
       <EventItem date_add='14:30 – 16:30'
                  title='Модуль 6.'>
-        <p className="eventItem_title mt0">Практические кейсы и технологии биосеквестрации парниковых газов. Проекты полного цикла</p>
+        <span className="eventItem_title mt0">Практические кейсы и технологии биосеквестрации парниковых газов. Проекты полного цикла</span><br/>
         Спикеры: Сергей Верховец // Андрей Толстиков
       </EventItem>
       <EventItem date_add='16:30 — 16:45'
@@ -176,8 +175,8 @@ const day19 =  (<div className="day" id="19">
       </EventItem>
       <EventItem date_add='09:00 — 11:00'
                  title='Модуль 7.'>
-        <p className="eventItem_title mt0">Декарбонизация экономики, низкоуглеродное производство, углеродные рынки,
-          бизнес возможности и новые индустрии</p>
+        <span className="eventItem_title mt0">Декарбонизация экономики, низкоуглеродное производство, углеродные рынки,
+          бизнес возможности и новые индустрии</span><br/>
         Спикер: Сергей Анатольевич Твердохлеб
       </EventItem>
       <EventItem date_add='11:00 — 13:00'
@@ -340,15 +339,6 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                       wide
                     ></Partner>
                   </li>
-                  {/*<li className='i3_4'>*/}
-                  {/*  <Partner*/}
-                  {/*    logo='/img/?.svg'*/}
-                  {/*    link="https://minobrnauki.gov.ru/"*/}
-                  {/*    name='Министерство науки и высшего образования РФ'*/}
-                  {/*    alt='Министерство науки и высшего образования РФ'*/}
-                  {/*    wide*/}
-                  {/*  ></Partner>*/}
-                  {/*</li>*/}
                 </ul>
               </li>
             </ul>
@@ -496,6 +486,32 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
           </div>
         </div>
 
+        <div className='wrapper_partners content'>
+          <div className='container'>
+            <ul className='g3'>
+              <li className='i3_3'>
+                <p className='asideMarker'>Международные лекции</p>
+              </li>
+              <li className='i3_9'>
+                <SpeakerCards>
+                  <SpeakerCard fullName='Рафик Ислам'>
+                    Профессор, директор Программы почвенных, водных и биоэнергетических ресурсов Университета штата Огайо
+                    (США), руководитель проекта UniVIP ТюмГУ и Университета штата Огайо по гранту Американских Советов по
+                    международному образованию
+                  </SpeakerCard>
+                  <SpeakerCard fullName='Отто Клемм'>
+                    Профессор , руководитель группы климатологии, Институт наук о Земле, Вестфальский университет имени
+                    Вильгельма, г. Мюнстер, Германия
+                  </SpeakerCard>
+                  <SpeakerCard fullName='Питер Фулé'>
+                    Профессор, зав. лабораторией по изучению пожаров, климата и лесов, Институт лесоведения, Университет Северной Аризоны, г. Флагстафф (США)
+                  </SpeakerCard>
+                </SpeakerCards>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <div className='wrapper_program content'>
           <div className='container'>
             <ul className='g3'>
@@ -516,38 +532,11 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
           </div>
         </div>
 
-        <div className='wrapper_partners content'>
-          <div className='container'>
-            <ul className='g3'>
-              <li className='i3_3'>
-                <p className='asideMarker'>Группа Модераторов </p>
-              </li>
-              <li className='i3_9'>
-                <SpeakerCards>
-                  <SpeakerCard photo='/img/speaker_latyshev.png' fullName='Андрей Латышев'>
-                    Проректор ТюмГУ, руководитель Центра развития компетенций руководителей научных, научно-технических
-                    проектов и лабораторий межрегионального Западно-Сибирского НОЦ, координатор коммуникаций с индустриальными
-                    партнерами в рамках проекта создания и функционирования карбонового полигона Западно-Сибирского НОЦ в
-                    Тюменской области, руководитель программы, модератор
-                  </SpeakerCard>
-                  <SpeakerCard photo='/img/zenin.png' fullName='Сергей Зенин'>
-                    Директор Института государства и права, проректор ТюмГУ, кандидат юридических наук, эксперт программы, модератор
-                  </SpeakerCard>
-                  <SpeakerCard photo='/img/orlov.png' fullName='Сергей Орлов'>
-                    Директор центра «Цифровой университет», доцент кафедры прикладной аэромеханики Физико-технического
-                    факультета Томского государственного университета, кандидат физико-математических наук, модератор
-                  </SpeakerCard>
-                </SpeakerCards>
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <div className='show wrapper_price content'>
           <div className='container'>
             <ul className='g3'>
               <li className='i3_3'>
-                <p className='asideMarker'>ОРГАНИЗАЦИОННАЯ ИНФОРМАЦИЯ</p>
+                <p className='asideMarker'>ОРГАНИЗАЦИОННАЯ <br/> ИНФОРМАЦИЯ</p>
               </li>
               <li className='i3_9'>
                 <p>По итогам СОИ участники обучения получат удостоверения о повышении квалификации 36 часов от Тюменского
@@ -568,7 +557,7 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>Контактное лицо по всем вопросам:</p>
+                  <p className='asideMarker'>Контактное лицо <br/> по всем вопросам</p>
                 </li>
                 <li className='i3_9'>
                   <div className="speakerCard">
@@ -591,27 +580,54 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
           </div>
         </div>
 
+        <div className='wrapper_partners content'>
+          <div className='container'>
+            <ul className='g3'>
+              <li className='i3_3'>
+                <p className='asideMarker'>Группа Модераторов</p>
+              </li>
+              <li className='i3_9'>
+                <SpeakerCards>
+                  <SpeakerCard photo='/img/speaker_latyshev.png' fullName='Андрей Латышев'>
+                    Проректор ТюмГУ, руководитель Центра развития компетенций руководителей научных, научно-технических
+                    проектов и лабораторий межрегионального Западно-Сибирского НОЦ, координатор коммуникаций с индустриальными
+                    партнерами в рамках проекта создания и функционирования карбонового полигона Западно-Сибирского НОЦ в
+                    Тюменской области, руководитель программы, модератор
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/zenin.png' fullName='Сергей Зенин'>
+                    Директор Института государства и права, проректор ТюмГУ, кандидат юридических наук, эксперт программы, модератор
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/orlov.png' fullName='Сергей Орлов'>
+                    Директор центра «Цифровой университет», доцент кафедры прикладной аэромеханики Физико-технического
+                    факультета Томского государственного университета, кандидат физико-математических наук, модератор
+                  </SpeakerCard>
+
+                  {/*<SpeakerCard fullName='Ольга Яковлева'>*/}
+                  {/*  начальник пресс-службы НГУ*/}
+                  {/*</SpeakerCard>*/}
+                  {/*<SpeakerCard fullName='Дмитрий Чуркин'>*/}
+                  {/*  проректор по науке НГУ, куратор климатического центра НГУ*/}
+                  {/*</SpeakerCard>*/}
+                  {/*<SpeakerCard fullName='Сергей Ти'>*/}
+                  {/*  помощник главного ученого секретаря СО РАН, программный директор Ассоциации выпускников "Союз НГУ"*/}
+                  {/*</SpeakerCard>*/}
+                </SpeakerCards>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <div className='show'>
           <div className='container'>
             <div className='content mb6'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>Заявка на обучение:</p>
+                  <p className='asideMarker'>Заявка на обучение</p>
                 </li>
                 <li className='i3_9'>
                   <div className="schedule_button">
                       <div className='registerEventForm'>
-                        {/*Todo: add registration form as above the page*/}
-
-                        {/*        Зарегистрироваться на Стратегический образовательный интенсив.*/}
-
-                        {/*        showSituation={true}*/}
-                        {/*        showOrganizationField={true}*/}
-                        {/*        hideParticipant={false}*/}
-                        {/*        showAdditionalNameFields={true}*/}
-                        {/*        eventTitle="Зарегистрироваться на Стратегический образовательный интенсив."*/}
-                        {/*        eventLinkToTable="strategicEducationalIntensive"*/}
-                        {/*        eventType={'strategicEducationalIntensive'}*/}
+                        <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
                       </div>
                   </div>
                 </li>

@@ -8,7 +8,7 @@ import { InputSelect } from '../../../components/inputs/inputSelect'
 import useTranslate from '../../../i18n/translator'
 import { useRouter } from 'next/router'
 
-export default function Vacancies({current}) {
+export default function Vacancies({current, modalForm}) {
   const { query: {lang: lang} } = useRouter()
   const [vacanciesType, setVacanciesType] = useState('vacancies')
   const [vacanciesCountry, setVacanciesCountry] = useState('all')
@@ -42,7 +42,7 @@ export default function Vacancies({current}) {
 
   return (
     <Page>
-      <Layout>
+      <Layout modalFormText={modalForm}>
         <Helmet>
           <meta name="description" content='Вакансии' />
           <meta name="keywords" content='Вакансии' />
@@ -141,6 +141,6 @@ export async function getServerSideProps(ctx) {
   const {current} = useTranslate("test", ctx.params.lang) 
 
   return {
-    props: { current: current["test"]  },
+    props: { current: current["test"], modalForm: current["modalForm"]  },
   }
 }

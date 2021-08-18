@@ -282,7 +282,7 @@ export default {
 
         // developmentProjectZima
         "акселератор": "accelerator",
-        "zime": "«West Siberian interregional innovative accelerator of scientific and R&D projects» (ZIMA 21)",
+        "zima": "«West Siberian interregional innovative accelerator of scientific and R&D projects» (ZIMA 21)",
         "Сообщить о следующем наборе": "Enquire about next enrolment period",
         "zimeAbout1": "The key purpose of acceleration is to identify promising teams and team leaders capable of ensuring rapid transformation of research ideas/prototypes into innovative products and their further economic implementation in such actively developing regions of the Russian Federation as Tyumen Oblast, Khanty-Mansi Autonomous Okrug – Yugra, Yamalo-Nenets Autonomous Okrug.",
         "zimeAbout2": "The initial stage of the acceleration programme (technical selection) has started on March 31, 2021 with the purpose of a preliminary gathering of applications. The following fundamental and applied R&D topics will have the highest priority:\n",
@@ -398,6 +398,7 @@ export default {
         "Организация": "Organization",
         "Члены команды": "Team members",
         "Отправить": "Send",
+        "Направление аспирантуры": "Direction of postgraduate study",
         "До встречи на мероприятии!": "See you on the event!",
         "Спасибо, вы успешно зарегистрировались": "Thank you for the registration",
     }

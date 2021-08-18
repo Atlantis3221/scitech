@@ -44,6 +44,7 @@ export type IRegModalInput = "participationType"
 | "email" 
 | "company"
 | "speaker"
+| "speciality"
 
 type IConfigNames = 'scienceLeadSchoolNextSet' |
 'scienceLeadSchoolMyRegion' |

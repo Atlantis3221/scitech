@@ -10,7 +10,7 @@ const instatnce = axios.create({
 })
 
 
-export const getContentfulNews = async() => await axios
+export const getContentfulNews = async() => await instatnce
 	.get(ALL_SORTED_NEWS)
 	.then((res) => {
 		return res.data;
@@ -18,7 +18,7 @@ export const getContentfulNews = async() => await axios
 		console.log(error);
 	});
 
-export const getAllNews = async() => await axios
+export const getAllNews = async() => await instatnce
 	.get(ALL_NEWS)
 	.then((res) => {
 		return res.data;
@@ -26,7 +26,7 @@ export const getAllNews = async() => await axios
 		console.log(error);
 	});
 
-export const getDefineNews = async(newsUrl) => await axios
+export const getDefineNews = async(newsUrl) => await instatnce
 	.get(`${DEFINED_NEWS}${newsUrl}`)
 	.then((res) => {
 		return res.data;
@@ -34,7 +34,7 @@ export const getDefineNews = async(newsUrl) => await axios
 		console.log(error);
 	});
 
-export const getContentfulGrants = async() => await axios
+export const getContentfulGrants = async() => await instatnce
 	.get(ALL_GRANTS)
 	.then((res) => {
 		return res.data;

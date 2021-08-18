@@ -88,7 +88,6 @@ export function Project_Card(props) {
         <div className="projectCard_title">
             <p className="card_title">{title}</p>
             <span className="card_arrow">
-                {/* TODO: change svg later*/}
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M12.4996 4.00494L1.77461 14.6479L0.35498 13.2391L11.1772 2.49963L1.66897 2.49963L1.66897 0.499634L13.4996 0.499634L14.4996 0.499634L14.4996 1.49963L14.4996 13.2237L12.4996 13.2237L12.4996 4.00494Z"
                           fill={arrowColor ? arrowColor : 'transparent'}/>
@@ -97,7 +96,7 @@ export function Project_Card(props) {
         </div>
         {durations ? <div className="projectCard_spacer"></div> : null}
 
-        <div className={`projectCard_members ${isHover? 'projectCard_members__hover' : !durations ? 'projectCard_members__wide' : ''}`}>
+        <div  className={`projectCard_members ${isHover? 'projectCard_members__hover' : !durations ? 'projectCard_members__wide' : ''}`}>
             {children}
         </div>
 
@@ -107,7 +106,6 @@ export function Project_Card(props) {
             // <Link href={link}>
               <a className="projectCard_duration">
                 <p className="duration">
-                  {/* TODO: change svg later*/}
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.4878 8.70829L10.4274 9.76867L10.4274 9.76863L3.10291 2.44412L3.66582 1.8812L1.33171 0L0 1.33171L1.8812 3.66579L2.44415 3.10287L9.76867 10.4274L8.70829 11.4878L10.2205 13L13 10.2205L11.4878 8.70829Z" fill="white"/>
                         <path d="M13.7674 11L11 13.7669L12.6604 15.427C13.03 15.7965 13.5214 16 14.0441 16C14.5668 16 15.0582 15.7965 15.4278 15.427C16.1907 14.6641 16.1907 13.4229 15.4278 12.6601L13.7674 11Z" fill="white"/>
@@ -124,7 +122,6 @@ export function Project_Card(props) {
             // <Link href={link}>
               <a className="projectCard_duration">
                 <p className="duration">
-                    {/* TODO: change svg later*/}
                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M9.52047 6.33759C10.5813 5.37044 12.0158 4.06241 12.1466 0.9375H13.0938V0H0.90625V0.9375H1.85341C1.98416 4.06241 3.41872 5.37044 4.47953 6.33759C5.19112 6.98637 5.59375 7.38347 5.59375 8C5.59375 8.61653 5.19112 9.01363 4.47953 9.66241C3.41872 10.6296 1.98416 11.9376 1.85341 15.0625H0.90625V16H13.0938V15.0625H12.1466C12.0158 11.9376 10.5813 10.6296 9.52047 9.66241C8.80888 9.01363 8.40625 8.61653 8.40625 8C8.40625 7.38347 8.80888 6.98637 9.52047 6.33759ZM6.53125 11.5137C6.38647 11.5436 6.24344 11.587 6.10384 11.6448L3.23269 12.8329C3.70156 11.6407 4.45675 10.9518 5.11116 10.3552C5.84147 9.68937 6.53125 9.06047 6.53125 8V11.5137ZM8.88884 10.3552C9.54325 10.9518 10.2984 11.6407 10.7673 12.8328L7.89616 11.6447C7.75656 11.587 7.61353 11.5435 7.46875 11.5137V8C7.46875 9.06047 8.15853 9.68937 8.88884 10.3552ZM3.21622 3.125C2.98956 2.53441 2.83303 1.82131 2.79206 0.9375H11.2079C11.1669 1.82131 11.0104 2.53441 10.7837 3.125H3.21622Z"
                           fill="white"/>

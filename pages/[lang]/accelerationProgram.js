@@ -19,7 +19,7 @@ export default function AccelerationProgram( {modalForm}) {
     modalService.openModal("reg")
     setRegModalState({
       color: "yellow",
-      inputs: ["name", "role", "company", "theme", "speciality", "year", "phone", "email", "confidential"],
+      inputs: ["name", "company", "theme", "speciality", "year", "phone", "email", "confidential"],
       configName: "onlineForumConsortium",
       title: lang === 'ru'
         ? 'Записаться на следующий набор'

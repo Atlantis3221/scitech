@@ -7,8 +7,9 @@ import {SchoolProject, SchoolProject_Card} from "../../components/schoolProject"
 import {StrongText} from "../../components/strongText";
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/dist/client/router'
+import Translator from '../../i18n/translator'
 
-export default function ManagementSchool2019_2020 (props) {
+export default function ManagementSchool2019_2020 ({ modalForm }) {
     const { query: {lang: lang} } = useRouter()
     return (
       <Page>
@@ -27,7 +28,7 @@ export default function ManagementSchool2019_2020 (props) {
               backgroundImage: 'url(/img/gradients/school_gradient_viol.svg)',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: '120% -5%'
-          }}>
+          }} modalFormText={modalForm}>
               <div className='show wrapper_hero'>
                   <div className='container relative'>
                       <div className="colorSpot colorSpot__violet"></div>
@@ -56,7 +57,6 @@ export default function ManagementSchool2019_2020 (props) {
                                       <li className='i3_12 flex_end'>
                                           <div>
                                               <p className="asideMarker">
-                                                  {/*TODO: change svg*/}
                                                   <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
                                                        xmlns="http://www.w3.org/2000/svg">
                                                       <path
@@ -581,4 +581,11 @@ export default function ManagementSchool2019_2020 (props) {
           </Layout>
       </Page>
     )
+}
+export async function getServerSideProps(ctx) {
+    const {current} = Translator("test", ctx.params.lang)
+
+    return {
+        props: { current: current["test"], modalForm: current["modalForm"]  },
+    }
 }

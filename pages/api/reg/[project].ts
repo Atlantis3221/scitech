@@ -15,7 +15,11 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
                 project,
                 createdAt: +new Date()
             })
-            addToSendpulse(req.body)
+            addToSendpulse({
+                ...req.body,
+                project,
+                createdAt: +new Date()
+            })
             controller.ok(data)
             return
         }
