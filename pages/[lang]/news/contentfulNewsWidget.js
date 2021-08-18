@@ -3,7 +3,7 @@ import { SchoolProject_Card } from '../../../components/schoolProject'
 import { convertToDate } from '../../../lib'
 import { useRouter } from 'next/router'
 
-export const ContentfulNewsWidget = props => {
+ const ContentfulNewsWidget = props => {
   const { query: {lang: lang} } = useRouter()
   const {isSMI, pageToShow = null, allContentfulNews = []} = props
   let allNews = []
@@ -45,3 +45,4 @@ export const ContentfulNewsWidget = props => {
   )
 }
 
+export default ContentfulNewsWidget

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { SchoolProject, SchoolProject_Card } from '../../components/schoolProject'
+import { SchoolProject, SchoolProject_Card } from '../../../components/schoolProject'
 // import { useTracker } from 'meteor/react-meteor-data'
-import { convertToDate, convertToMilliseconds } from '../../lib'
+import { convertToDate, convertToMilliseconds } from '../../../lib'
 
 
-export const ContentfulNewsWidget = props => {
+const ContentfulNewsWidget = props => {
   const {isSMI, pageToShow = null} = props
 
   const [isContentNewsLoaded, setIsContentNewsLoaded] = useState(false)
@@ -54,3 +54,6 @@ export const ContentfulNewsWidget = props => {
       </>
   )
 }
+
+
+export default ContentfulNewsWidget

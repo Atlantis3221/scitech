@@ -4,8 +4,9 @@ import { newsSMI } from '../../../data/newsSMI'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
 import { getDefineNews } from '../../../helpers/axios'
-import processEvent, { convertToDate } from '../news/processEvent'
 import Translator from '../../../i18n/translator'
+import processEvent from '../../../helpers/processEvent'
+import { convertToDate } from '../../../lib'
 
 export default function NewsSMI ({ modalForm }) {
   const { query: {lang: lang} } = useRouter()

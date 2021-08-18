@@ -1,7 +1,7 @@
 import React from 'react'
 import { vacancies } from '../../../data/vacancies'
 
-export const VacanciesWidget = props => {
+const VacanciesWidget = props => {
   const { vacsCount = vacancies.length, _id } = props
 
   const getVacancies = (vacs, currentId, newsCount) => {
@@ -31,3 +31,5 @@ export const VacanciesWidget = props => {
     </>
   )
 }
+
+export default VacanciesWidget

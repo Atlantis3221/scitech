@@ -3,7 +3,7 @@ import { news } from '../../../data/news'
 import { SchoolProject_Card } from '../../../components/schoolProject'
 import { useRouter } from 'next/router'
 
-export const NewsWidget = props => {
+const NewsWidget = props => {
   const { query: {lang: lang} } = useRouter()
   const { newsCount = news.length, _id } = props
 
@@ -36,3 +36,5 @@ export const NewsWidget = props => {
       </>
   )
 }
+
+export default NewsWidget
