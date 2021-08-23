@@ -7,7 +7,7 @@ export const projectGrowth = [
     projectDate: '16 - 19 Сен 2021',
     location: 'Тюмень',
     image: '/img/developmentProjects/bgLily.svg',
-    title: 'Стратегический образовательный интенсив',
+    title: 'Практика создания и развития карбоновых полигонов и сопутствующих климатических проектов: кадры, технологии, оборудование',
     engVersion: false
   },
   {
