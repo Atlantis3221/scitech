@@ -5,11 +5,6 @@ import Head from 'next/head'
 const Index = () => {
 	const { query, replace } = useRouter()
 
-	useEffect(() => {
-		console.log()
-		Router.replace(`/ru`)
-	}, [query])
-
 	return (
 		<>
 			<Head>

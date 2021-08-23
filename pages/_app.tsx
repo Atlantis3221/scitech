@@ -37,15 +37,28 @@ import '../styles/formRegistration.less'
 import '../styles/vacancies.less'
 import 'react-phone-input-2/lib/style.css'
 import { ModalsContextProvider } from '../components/modals/ModalContext'
-import Router from "next/router"
+import Router, { useRouter } from "next/router"
 import smoothscroll from 'smoothscroll-polyfill';
 import Loader from '../components/Loader'
 import { NewsContextProvider } from '../components/context/newsContext'
+import router from 'next/router'
 
 
 function MyApp({ Component, pageProps }) {
-
   const [loading, setLoading] = useState(true)
+  const {asPath} = useRouter()
+
+
+  useEffect(() => {
+    const array = asPath.split("/")
+    if (array[1] !== "ru" && array[1] !== "en" && array[1] !== "admin") {
+        array.shift()
+        const newArr = ["", "ru", ...array]
+        router.replace(newArr.join("/"))
+    }
+  }, [])
+
+ 
   useEffect(() => {
     smoothscroll.polyfill();
     const appHeight = () => {
