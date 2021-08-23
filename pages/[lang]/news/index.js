@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import { Page } from '../../../components/page'
 import { Layout } from '../../../components/layout'
@@ -9,15 +9,11 @@ import ContentfulNewsWidget  from './contentfulNewsWidget'
 import { getContentfulNews } from '../../../helpers/axios'
 import { useRouter } from 'next/router'
 import Translator from '../../../i18n/translator'
+import { EN_LANG, RU_LANG } from '../../../lib/constants'
 
 
-export default function News({ data, modalForm }) {
+function News({ data, modalForm }) {
   const { query: {lang: lang} } = useRouter()
-  const [allContentfulNews, setContentfulNews] = useState([])
-
-  useEffect(() => {
-    setContentfulNews(data)
-  }, [])
 
   return (
     <Page>
@@ -88,7 +84,7 @@ export default function News({ data, modalForm }) {
                     <SchoolProject>
 
                       {/*THESE ARE News from Contentful */}
-                      <ContentfulNewsWidget isSMI={false} allContentfulNews={allContentfulNews} />
+                      <ContentfulNewsWidget isSMI={false} allContentfulNews={data} />
 
                       {/*THESE ARE News from website */}
                       <NewsWidget />
@@ -105,11 +101,20 @@ export default function News({ data, modalForm }) {
   )
 }
 
+export default News
 
-export async function getServerSideProps(ctx) {
+export async function getStaticPaths() {
+  return { fallback: 'blocking',
+    paths: [{ params: { lang: RU_LANG } }, { params: { lang: EN_LANG } }]
+  }
+}
+
+export async function getStaticProps(ctx) {
   const data = await getContentfulNews();
+
   const {current} = Translator("test", ctx.params.lang)
   return {
     props: { data: data.data, modalForm: current["modalForm"] },
+    revalidate: 42,
   }
 }

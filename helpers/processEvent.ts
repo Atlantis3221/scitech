@@ -3,7 +3,6 @@ import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
 const processAsset = (asset) => {
   if (asset?.fields?.body) {
-    console.log(asset.fields)
     const options = {
       renderMark: {
         [MARKS.BOLD]: text => `<b>${text}</b>`
@@ -19,8 +18,7 @@ const processAsset = (asset) => {
   
     return documentToHtmlString(asset.fields.body, options)
   }
-
-  }
+}
 
 export default processAsset
 

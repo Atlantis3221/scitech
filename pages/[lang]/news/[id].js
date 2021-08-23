@@ -1,40 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Layout } from '../../../components/layout'
 import { news } from '../../../data/news'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
 import { getContentfulNews, getDefineNews } from '../../../helpers/axios'
 import Translator from '../../../i18n/translator'
-import processEvent from '../../../helpers/processEvent'
-import { convertToDate } from '../../../lib'
+import { EN_LANG, RU_LANG } from '../../../lib/constants'
+import { transformContentfulNews } from '../../../helpers/transformContentfulNews'
 
 
-
-const NewsCompany = ({modalForm}) => {
+const NewsCompany = ({modalForm, data: defineNews}) => {
 	const { query: {lang: lang} } = useRouter()
-	const [defineNews, setDefineNews] = useState({})
-	const router = useRouter()
-	const { id } = router.query
-	let data = undefined
-
-	useEffect(async() => {
-		data = news.findById(id)
-		setDefineNews(data)
-		setTimeout(async() => {
-			if (!data) {
-				const { data: [contentful] } = await getDefineNews(id)
-				const contentfulNews = processEvent(contentful)
-				data = {
-					_id: contentful?.fields?._id,
-					title: contentful?.fields?.title,
-					date: convertToDate(contentful?.fields?.date),
-					image: contentful?.fields?.front?.fields?.file?.url,
-					description: contentfulNews,
-				}
-				setDefineNews(data)
-			}
-		}, 1000)
-	}, [id])
 
 	return (
 		<Layout modalFormText={modalForm}>
@@ -125,14 +101,38 @@ const NewsCompany = ({modalForm}) => {
 		</Layout>
 	)
 }
-
 export default NewsCompany
 
 
-export async function getServerSideProps(ctx) {
+export async function getStaticPaths() {
 	const data = await getContentfulNews();
+	const contentfulNews = data.data.map(contNews => transformContentfulNews(contNews))
+	const allNews = contentfulNews.concat(news)
+	const ruPaths = allNews.map((news) => {
+		return {
+			params: { id: news._id, lang: RU_LANG}
+		}
+	})
+	const enPaths = allNews.map((news) => ({
+		params: { id: news._id, lang: EN_LANG}
+	}))
+	return { fallback: 'blocking', paths: [...ruPaths, ...enPaths] }
+}
+
+export async function getStaticProps(ctx) {
+	const { id } = ctx.params
+	let defineNews = {}
+
+	const { data: [contentful] } = await getDefineNews(id)
+	if(contentful) {
+		defineNews = transformContentfulNews(contentful)
+	} else {
+		defineNews = news.findById(id)
+	}
+
 	const {current} = Translator("test", ctx.params.lang)
 	return {
-		props: { data: data.data, modalForm: current["modalForm"]  },
+		props: { data: defineNews, modalForm: current["modalForm"] },
+		revalidate: 42,
 	}
 }

@@ -151,7 +151,7 @@ export default function ScientificPracticalConference({ current, modalForm }) {
                       {current["roundtable-3"]}
                     </EventItem_guest>
                   </EventItem_guests>
-                  <p><StrongText> {current["Лекции"]}Лекции</StrongText> {current["международных и российских экспертов."]}</p>
+                  <p><StrongText> {current["Лекции"]}</StrongText> {current["международных и российских экспертов."]}</p>
                   <p><StrongText>{current["Мини-конференции"]}</StrongText> {current["ведущих исследовательских команд."]}</p>
                   <p><StrongText>{current["Дискуссии"]}</StrongText> {current["с привлечением широкого круга профессиональной общественности."]}</p>
                   <p><StrongText>{current["Обсуждение"]}</StrongText> {current["международного опыта и трансляция его в отечественную практику."]}</p>
