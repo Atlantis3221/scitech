@@ -6,7 +6,11 @@ module.exports = {
     extend: {
       colors: {
         error: "#E52C2C",
-        "input-hover": "#4F4F4F"
+        "input-hover": "#4F4F4F",
+        "scitech-red": "#FA3E3E"
+      },
+      maxHeight: {
+        30: "7.5rem"
       },
       fontFamily: { 
         raleway: ["Raleway", "sans-serif"]
@@ -16,6 +20,7 @@ module.exports = {
   variants: {
     extend: {
       ringColor: ['hover', 'active'],
+      ringOpacity: ['hover', 'active']
     },
   },
   plugins: [],
