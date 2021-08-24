@@ -35,8 +35,10 @@ export class BackRequest<T> {
         return this
     }
 
-    find(index_key:string, index_value:string) {
-        this.url += `index_key=${index_key}&index_value=${index_value}&`
+    find(index_key?:string, index_value?:string) {
+        if (index_value && index_key) {
+            this.url += `${index_key}=${index_value}&`
+        }
         return this
     }
 
@@ -65,6 +67,9 @@ class CBackendService {
     }
     getVacancies() {
             return new BackRequest<IShortVacancy[]>("/api/vacancies/")
+    }
+    getAllCategories() {
+        return new BackRequest<string[]>("/api/vacancies/categories")
     }
 }
 

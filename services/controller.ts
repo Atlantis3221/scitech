@@ -11,7 +11,7 @@ class Controller {
         sort_order?:string
         index_key?: string,
         index_value?: string | string[]
-    }
+        }
     limit: number
     skip: number
     sort: any
@@ -25,12 +25,36 @@ class Controller {
     }
     getSearchQuery() {
         let obj:any={}
+        Object.keys(this.query).map(a => {
+            if (a === "page" 
+            || a === "sort_by" 
+            || a === "sort_order" 
+            || a === "limit" 
+            || a === "index_key" 
+            || a === "index_value" 
+            || a === "coll") {
+                return {}
+            }
+            else {
+                if (this.query[a] === "true") {
+                    obj[a] = true
+                    return
+                }
+                if (this.query[a] === "false") {
+                    obj[a] = false
+                    return
+                }
+                const array = this.query[a].split(",")
+                obj[a] = {$in: array}
+            }
+        })
         if (this.query.index_key && this.query.index_value) {
             obj[this.query.index_key] = this.query.index_value
             if (Array.isArray(this.query.index_value)) {
-             obj = {[this.query.index_key]: {$in: this.query.index_value}}
+             obj[this.query.index_key] = {$in: this.query.index_value}
             }
         }
+        console.log(obj)
         return obj
 
     }

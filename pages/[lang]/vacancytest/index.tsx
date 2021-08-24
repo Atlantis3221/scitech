@@ -4,13 +4,16 @@ import Checkbox from "../../../components/inputs/Checkbox"
 import Dropdown from "../../../components/inputs/Dropdown"
 import { Page } from "../../../components/page"
 import backendService, { BackRequest } from "../../../helpers/backendService"
+import lodash from "lodash"
 
 
 
 type IVacanciesState = {
     location: string,
     locations: string[],
-    vacancies?: IShortVacancy[]
+    categories: string[],
+    currentCategories: string[],
+    vacancies: IShortVacancy[]
 }
 
 export type IShortVacancy = {
@@ -23,14 +26,16 @@ export type IShortVacancy = {
 
 type IVacancyAction = 
 {type: "setLocation", payload: string} |
-{type: "setVacancies", payload: IShortVacancy[]}
+{type: "setVacancies", payload: IShortVacancy[]} |
+{type: "setCategories", payload: string[]}
 
 interface VacancyPageProps {
     locations: string[],
-    vacancies: IShortVacancy[]
+    vacancies: IShortVacancy[],
+    categories: string[]
 }
 
-const VacancyReducer = (state:IVacanciesState, action: IVacancyAction) => {
+const VacancyReducer= (state:IVacanciesState, action: IVacancyAction):IVacanciesState  => {
 
     if (action.type === "setLocation") {
         return {
@@ -39,10 +44,16 @@ const VacancyReducer = (state:IVacanciesState, action: IVacancyAction) => {
         }
     }
     if (action.type === "setVacancies") {
-        console.log(action.payload)
         return {
             ...state,
             vacancies: action.payload
+        }
+    }
+    if (action.type === "setCategories") {
+        console.log(action.payload)
+        return {
+            ...state,
+            currentCategories: lodash.xor(action.payload)
         }
     }
 }
@@ -60,23 +71,49 @@ class CVacancyService {
         }
         this.dispatch({type: "setLocation", payload: value})
         if (value === "Любая") {
-            const vacancies = (await backendService.getVacancies().exec()).data
+            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", this.state.currentCategories.join(",")).exec()).data
             this.dispatch({type: "setVacancies", payload: vacancies})
+            return
+        }
+        if (value === "Удаленно") {
+            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", this.state.currentCategories.join(",")).find("fields.remote", "true").exec()).data
+            this.dispatch({type: "setVacancies", payload: vacancies})
+            return
+        }
+            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", this.state.currentCategories.join(",")).find("fields.location", value).exec()).data
+            this.dispatch({type: "setVacancies", payload: vacancies})
+    }
+    async toggleCategory(value:string) {
+        const newArr = lodash.xor(this.state.currentCategories, [value]) 
+        console.log(newArr.join(","))
+        this.dispatch({type: "setCategories", payload: newArr})
+        if (this.state.location === "Любая") {
+            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", newArr.join(",")).exec()).data
+            this.dispatch({type: "setVacancies", payload: vacancies})
+            return
+        }
+        if (this.state.location === "Удаленно") {
+            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", newArr.join(",")).find("fields.remote", "true").exec()).data
+            this.dispatch({type: "setVacancies", payload: vacancies})
+            return
         }
         else {
-            const vacancies = (await backendService.getVacancies().find("fields.location", value).exec()).data
+            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", newArr.join(",")).find("fields.location", this.state.location).exec()).data
             this.dispatch({type: "setVacancies", payload: vacancies})
+            return
         }
-
     }
 }
 
 
 
-const VacancyPage = ({locations, vacancies}:VacancyPageProps) => {
+const VacancyPage = ({locations, vacancies, categories}:VacancyPageProps) => {
     const InitiialState:IVacanciesState = {
         location: "Любая",
-        locations: ["Любая", "Удаленно", "SSS", ...locations],
+        locations: ["Любая", "Удаленно", ...locations],
+        vacancies: vacancies,
+        categories: [...categories],
+        currentCategories: []
     }
     const [state, dispatch] = useReducer(VacancyReducer, InitiialState)
     const VacancyService = new CVacancyService(dispatch,state)
@@ -92,13 +129,31 @@ const VacancyPage = ({locations, vacancies}:VacancyPageProps) => {
                 <div className={`font-raleway font-bold mb-3 mt-10`}>
                     Научная область 
                 </div>
+                <div>
+                    {state.categories.map(a => {
+                        return (
+                            <div className={`flex items-center`}>
+                                <div>
+                                    <input onChange={
+                                        (e) => {
+                                            VacancyService.toggleCategory(e.target.value)
+                                        }
+                                    } type="checkbox" name={a} id="" value={a} checked={state.currentCategories.includes(a)} />
+                                </div>
+                                <div>
+                                {a}
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
             <div className={`bg-yellow-400 h-full col-span-3`}>
                 <h1>
                 Вакансии и стажировки
                 </h1>
                 <div className={`grid grid-cols-3 space-x-5`}>
-                    {state.vacancies.map(vacany => (<div>{vacany.name}</div>))}
+                    {state.vacancies.map(v=> (<div>{v.name}</div>))}
                 </div>
             </div>
             </div>
@@ -118,9 +173,10 @@ export async function getStaticPaths() {
     
     const locations = await (await backendService.getAllLocations().exec()).data
     const vacancies = await  (await backendService.getVacancies().exec()).data
-
+    const categories =  await (await backendService.getAllCategories().exec()).data
+    console.log(vacancies)
     return {
-      props: { locations, vacancies },
+      props: { locations, vacancies, categories},
       revalidate: 42,
     }
   }

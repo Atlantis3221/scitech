@@ -9,10 +9,10 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
     await MongoService.init()
     try {
         const data:IVacancies[] = await MongoService.db.collection("vacancies").find({}).toArray()
-        const locationsArray = data.map(vacancy => {
-            return vacancy.fields.location
+        const categoryArray = data.map(vacancy => {
+            return vacancy.fields.vacancyCategory
         })
-        controller.ok([...new Set(locationsArray)])
+        controller.ok([...new Set(categoryArray.flat())])
     }
     catch (e) {
         controller.error(e.message)

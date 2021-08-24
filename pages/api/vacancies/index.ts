@@ -15,7 +15,8 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
                 image: "https://" + value.fields.employer.fields.image.fields.file.url,
                 name: value.fields.vacancyName,
                 employer: value.fields.employer.fields.name,
-                location: value.fields.location
+                location: value.fields.location,
+                remote: value.fields.remote
             })
         })
         controller.ok(response)
