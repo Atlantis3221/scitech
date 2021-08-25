@@ -130,9 +130,6 @@ export interface IVacanciesFields {
   /** Описание вакансии */
   vacancyDescription?: Document | undefined
 
-  /** Удаленная вакасия? */
-  remote: boolean
-
   /** Категория вакансии */
   vacancyCategory: ('Инжиниринг' | 'Математика' | 'Физика' | 'Химия')[]
 
@@ -142,11 +139,14 @@ export interface IVacanciesFields {
   /** Уровень зароботной платы */
   salary?: string | undefined
 
-  /** Город */
-  location: 'Москва'
+  /** Локация */
+  location: 'Москва' | 'Тюмень' | 'Удаленно'
 
   /** Работодатель */
   employer: IEmployers
+
+  /** URL вакансии */
+  vacancyURL: string
 }
 
 export interface IVacancies extends Entry<IVacanciesFields> {

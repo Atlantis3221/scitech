@@ -60,11 +60,9 @@ class Controller {
     }
     ok(data){
         this.res.json({ok:true, data: data})
-        MongoService.close()
     }
     error(message) {
         this.res.json({ok: false, data: message})
-        MongoService.close()
     }
 }
 

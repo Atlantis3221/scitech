@@ -1,14 +1,28 @@
-import { Dispatch, useReducer, useState } from "react"
+import { ChangeEvent, Dispatch, useReducer, useState } from "react"
 import DropdownToggle from "../../../components/icons/dropdownToggle"
 import Checkbox from "../../../components/inputs/Checkbox"
 import Dropdown from "../../../components/inputs/Dropdown"
 import { Page } from "../../../components/page"
 import backendService, { BackRequest } from "../../../helpers/backendService"
 import lodash from "lodash"
+import SmallCheckbox from "../../../components/inputs/smallCheckbox"
+import { throws } from "node:assert"
 
 
+class CDebouncer{
+    private timeout: NodeJS.Timeout
+    constructor() {
 
-type IVacanciesState = {
+    }
+    debounce(fn, wait:number) {
+        clearTimeout(this.timeout)
+        console.log(this.timeout)
+        this.timeout = setTimeout(fn, wait)
+    }
+}
+
+const vacancyDebouncer = new CDebouncer()
+export type IVacanciesState = {
     location: string,
     locations: string[],
     categories: string[],
@@ -35,6 +49,11 @@ interface VacancyPageProps {
     categories: string[]
 }
 
+export interface IVacanciesQuery {
+    location: string,
+    currentCategories: string[]
+}
+
 const VacancyReducer= (state:IVacanciesState, action: IVacancyAction):IVacanciesState  => {
 
     if (action.type === "setLocation") {
@@ -53,7 +72,7 @@ const VacancyReducer= (state:IVacanciesState, action: IVacancyAction):IVacancies
         console.log(action.payload)
         return {
             ...state,
-            currentCategories: lodash.xor(action.payload)
+            currentCategories: action.payload
         }
     }
 }
@@ -61,47 +80,39 @@ const VacancyReducer= (state:IVacanciesState, action: IVacancyAction):IVacancies
 class CVacancyService {
     private dispatch: Dispatch<IVacancyAction>
     private state: IVacanciesState
+    private cooldown: number
+    
+    counter: number
     constructor(dispatch,state) {
         this.dispatch = dispatch
         this.state = state
+        this.cooldown = 1
+    }
+    async fetchVacancies(state:IVacanciesQuery) {
+        vacancyDebouncer.debounce(async () => {
+            const result = await ( backendService.getVacanciesWithFilters(state))
+            this.dispatch({type: "setVacancies", payload: result})
+        }, 1000)
     }
     async changeLocation(value: string) {
         if (this.state.location === value) {
             return
         }
         this.dispatch({type: "setLocation", payload: value})
-        if (value === "Любая") {
-            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", this.state.currentCategories.join(",")).exec()).data
-            this.dispatch({type: "setVacancies", payload: vacancies})
-            return
-        }
-        if (value === "Удаленно") {
-            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", this.state.currentCategories.join(",")).find("fields.remote", "true").exec()).data
-            this.dispatch({type: "setVacancies", payload: vacancies})
-            return
-        }
-            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", this.state.currentCategories.join(",")).find("fields.location", value).exec()).data
-            this.dispatch({type: "setVacancies", payload: vacancies})
+        await this.fetchVacancies({
+            currentCategories: this.state.currentCategories,
+            location: value
+        })
+        
     }
     async toggleCategory(value:string) {
         const newArr = lodash.xor(this.state.currentCategories, [value]) 
         console.log(newArr.join(","))
         this.dispatch({type: "setCategories", payload: newArr})
-        if (this.state.location === "Любая") {
-            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", newArr.join(",")).exec()).data
-            this.dispatch({type: "setVacancies", payload: vacancies})
-            return
-        }
-        if (this.state.location === "Удаленно") {
-            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", newArr.join(",")).find("fields.remote", "true").exec()).data
-            this.dispatch({type: "setVacancies", payload: vacancies})
-            return
-        }
-        else {
-            const vacancies = (await backendService.getVacancies().find("fields.vacancyCategory", newArr.join(",")).find("fields.location", this.state.location).exec()).data
-            this.dispatch({type: "setVacancies", payload: vacancies})
-            return
-        }
+        await this.fetchVacancies({
+            currentCategories: newArr,
+            location: this.state.location
+        })
     }
 }
 
@@ -110,7 +121,7 @@ class CVacancyService {
 const VacancyPage = ({locations, vacancies, categories}:VacancyPageProps) => {
     const InitiialState:IVacanciesState = {
         location: "Любая",
-        locations: ["Любая", "Удаленно", ...locations],
+        locations: ["Любая", ...locations],
         vacancies: vacancies,
         categories: [...categories],
         currentCategories: []
@@ -133,12 +144,8 @@ const VacancyPage = ({locations, vacancies, categories}:VacancyPageProps) => {
                     {state.categories.map(a => {
                         return (
                             <div className={`flex items-center`}>
-                                <div>
-                                    <input onChange={
-                                        (e) => {
-                                            VacancyService.toggleCategory(e.target.value)
-                                        }
-                                    } type="checkbox" name={a} id="" value={a} checked={state.currentCategories.includes(a)} />
+                                <div className={`w-4 h-4 mr-2`}>
+                                    <SmallCheckbox value={a} onChange={(e:ChangeEvent<HTMLInputElement>) => {VacancyService.toggleCategory(e.target.value)}} checked={state.currentCategories.includes(a)}/>
                                 </div>
                                 <div>
                                 {a}

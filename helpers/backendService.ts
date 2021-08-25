@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, Method } from "axios"
-import { IShortVacancy } from "../pages/[lang]/vacancytest"
+import { IShortVacancy, IVacanciesQuery, IVacanciesState } from "../pages/[lang]/vacancytest"
 
 const instatnce = axios.create({
 })
@@ -61,7 +61,15 @@ class CBackendService {
     constructor(client, request) {
         this.client = client
     }
-
+    async getVacanciesWithFilters(state:IVacanciesQuery) {
+        const resp = await axios.post<IBackendResponse<IShortVacancy[]>>("/api/vacancies/searchByCategory", state)
+        if (resp.data.ok) {
+            return resp.data.data
+        }
+        if (resp.data.ok === false) {
+            throw new Error(resp.data.error)
+        }
+    }
     getAllLocations() {
             return new BackRequest<string[]>("/api/vacancies/geo")
     }
