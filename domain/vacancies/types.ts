@@ -12,7 +12,8 @@ export type IShortVacancy = {
     name: string,
     employer: string,
     salary?: string,
-    location: string
+    location: string,
+    vacancyURL: string
 }
 
 export type IVacancyAction = 
