@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const ALL_NEWS = '/api/news';
+const ALL_VACANCIES = '/api/vacancies';
 const ALL_GRANTS = '/api/grants';
 const ALL_SORTED_NEWS = '/api/news?sort_by=fields.date&sort_order=-1';
 const DEFINED_NEWS = '/api/news?index_key=fields.url&index_value=';
@@ -61,6 +62,28 @@ export const getContentfulGrants = async() => await instatnce
 
 export const getAllRequestData = async(project) => await instatnce
 	.get(`/api/reg/${project}`)
+	.then((res) => {
+		return res.data;
+	}).catch(error => {
+		console.log(error);
+	});
+
+export const getContentfulVacancies = async() => {
+	try {
+		const resp = await instatnce.get(ALL_VACANCIES)
+		if (resp.data.ok) {
+			return resp.data
+		}
+		throw new Error("No vacancies!")
+	}
+	catch (e) {
+		console.log(e.message)
+		return {data: []}
+	}
+
+}
+export const getDefineVacancy = async(vacancyUrl) => await instatnce
+	.get(`${ALL_VACANCIES}/${vacancyUrl}`)
 	.then((res) => {
 		return res.data;
 	}).catch(error => {

@@ -1,10 +1,15 @@
 import Cash from "../../../components/icons/cash"
 import Globe from "../../../components/icons/globe"
+import Link from 'next/link'
 import { IShortVacancy } from "../types"
+import { useRouter } from 'next/router'
 
-const VacancyCard = ({name, image, salary, employer, location}:IShortVacancy) => {
-    return (
-        <div className={`bg-white w-full p-4 font-raleway h-full`}>
+const VacancyCard = ({name, image, salary, employer, location, vacancyURL}:IShortVacancy) => {
+  const router = useRouter()
+  const { lang } = router.query
+  return (
+    <Link href={`/${lang}/vacancytest/${vacancyURL}/`}>
+        <a className={`block bg-white w-full p-4 font-raleway h-full no-underline border-b-0`}>
             <div className={`w-full`}>
             <img src={image} alt="" className={`mb-3 w-full `} />
             </div>
@@ -31,7 +36,8 @@ const VacancyCard = ({name, image, salary, employer, location}:IShortVacancy) =>
                     {salary}
                 </div>
             </div>}
-        </div>
+        </a>
+    </Link>
     )
 }
 
