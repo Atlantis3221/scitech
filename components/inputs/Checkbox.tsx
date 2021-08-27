@@ -1,16 +1,16 @@
 import Checkmark from "../icons/checkmark"
 
-const Checkbox = ({name, state, setState, setErrors, errors}) => {
+const Checkbox = ({name, state, setState, setErrors=null, errors=null, bg="white"}) => {
     return (
         <label>
-            <div className={`w-full h-full p-1 bg-white cursor-pointer flex items-center justify-center`}>
-                <div className={`${state[name] ? "opacity-100" : "hover:opacity-50 opacity-0"} transition-all `}>
+            <div className={`w-full h-full p-1 group ${bg === "white" && "bg-white"} ${bg === "red" && "bg-scitech-red"} cursor-pointer flex items-center justify-center`}>
+                <div className={`${state[name] ? "opacity-100" : "group-hover:opacity-50 opacity-0"} transition-all flex items-center`}>
                 <Checkmark/>
                 </div>
             </div>
 
             <input type="checkbox" checked={state[name]} onChange={() => {
-                if (errors[name]) {
+                if (errors && errors[name]) {
                     setErrors({
                         ...errors,
                         [name]: false

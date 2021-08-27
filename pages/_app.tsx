@@ -54,6 +54,7 @@ function MyApp({ Component, pageProps }) {
     if (array[1] !== "ru" && array[1] !== "en" && array[1] !== "admin") {
         array.shift()
         const newArr = ["", "ru", ...array]
+        console.log(array)
         router.replace(newArr.join("/"))
     }
   }, [])
