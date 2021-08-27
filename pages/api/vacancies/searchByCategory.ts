@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { IVacancies } from "../../../@types/generated/contentful";
+import { IShortVacancy, IVacanciesQuery } from "../../../domain/vacancies/types";
 import Controller from "../../../services/controller";
 import { MongoService } from "../../../services/mongo";
-import { IShortVacancy, IVacanciesQuery, IVacanciesState } from "../../[lang]/vacancytest";
 
 
 export default async (req:NextApiRequest, res:NextApiResponse) => { 
@@ -18,6 +18,10 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
             }
             if (state.currentCategories.length > 0) {
                 search["fields.vacancyCategory"] = {$in: state.currentCategories}
+            }
+            if (state.searchQuery) {
+                const searchRegex = "\w*(" + state.searchQuery.replace(/W/, ")\w*|\w*") + "\w*"
+                console.log(new RegExp(searchRegex))
             }
             const data: IVacancies[] = await MongoService.db.collection("vacancies").find(search).toArray()
             const response: IShortVacancy[] = data.map(value => {

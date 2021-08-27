@@ -7,7 +7,8 @@ module.exports = {
       colors: {
         error: "#E52C2C",
         "input-hover": "#4F4F4F",
-        "scitech-red": "#FA3E3E"
+        "scitech-red": "#FA3E3E",
+        "ui-gray": "#ABAAAA"
       },
       maxHeight: {
         30: "7.5rem"

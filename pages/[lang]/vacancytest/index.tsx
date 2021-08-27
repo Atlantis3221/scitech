@@ -4,164 +4,79 @@ import Checkbox from "../../../components/inputs/Checkbox"
 import Dropdown from "../../../components/inputs/Dropdown"
 import { Page } from "../../../components/page"
 import backendService, { BackRequest } from "../../../helpers/backendService"
-import lodash from "lodash"
 import SmallCheckbox from "../../../components/inputs/smallCheckbox"
-import { throws } from "node:assert"
-
-
-class CDebouncer{
-    private timeout: NodeJS.Timeout
-    constructor() {
-
-    }
-    debounce(fn, wait:number) {
-        clearTimeout(this.timeout)
-        console.log(this.timeout)
-        this.timeout = setTimeout(fn, wait)
-    }
-}
-
-const vacancyDebouncer = new CDebouncer()
-export type IVacanciesState = {
-    location: string,
-    locations: string[],
-    categories: string[],
-    currentCategories: string[],
-    vacancies: IShortVacancy[]
-}
-
-export type IShortVacancy = {
-    image: string,
-    name: string,
-    employer: string,
-    salary?: string,
-    location: string
-}
-
-type IVacancyAction = 
-{type: "setLocation", payload: string} |
-{type: "setVacancies", payload: IShortVacancy[]} |
-{type: "setCategories", payload: string[]}
-
-interface VacancyPageProps {
-    locations: string[],
-    vacancies: IShortVacancy[],
-    categories: string[]
-}
-
-export interface IVacanciesQuery {
-    location: string,
-    currentCategories: string[]
-}
-
-const VacancyReducer= (state:IVacanciesState, action: IVacancyAction):IVacanciesState  => {
-
-    if (action.type === "setLocation") {
-        return {
-            ...state,
-            location: action.payload
-        }
-    }
-    if (action.type === "setVacancies") {
-        return {
-            ...state,
-            vacancies: action.payload
-        }
-    }
-    if (action.type === "setCategories") {
-        console.log(action.payload)
-        return {
-            ...state,
-            currentCategories: action.payload
-        }
-    }
-}
-
-class CVacancyService {
-    private dispatch: Dispatch<IVacancyAction>
-    private state: IVacanciesState
-    private cooldown: number
-    
-    counter: number
-    constructor(dispatch,state) {
-        this.dispatch = dispatch
-        this.state = state
-        this.cooldown = 1
-    }
-    async fetchVacancies(state:IVacanciesQuery) {
-        vacancyDebouncer.debounce(async () => {
-            const result = await ( backendService.getVacanciesWithFilters(state))
-            this.dispatch({type: "setVacancies", payload: result})
-        }, 1000)
-    }
-    async changeLocation(value: string) {
-        if (this.state.location === value) {
-            return
-        }
-        this.dispatch({type: "setLocation", payload: value})
-        await this.fetchVacancies({
-            currentCategories: this.state.currentCategories,
-            location: value
-        })
-        
-    }
-    async toggleCategory(value:string) {
-        const newArr = lodash.xor(this.state.currentCategories, [value]) 
-        console.log(newArr.join(","))
-        this.dispatch({type: "setCategories", payload: newArr})
-        await this.fetchVacancies({
-            currentCategories: newArr,
-            location: this.state.location
-        })
-    }
-}
-
+import { IVacanciesState, VacancyPageProps } from "../../../domain/vacancies/types"
+import CVacancyService from "../../../domain/vacancies/service"
+import VacancyReducer from "../../../domain/vacancies/reducer"
+import VacancyCard from "../../../domain/vacancies/ui/VacancyCard"
+import Magnifier from "../../../components/icons/magnifier"
 
 
 const VacancyPage = ({locations, vacancies, categories}:VacancyPageProps) => {
+
     const InitiialState:IVacanciesState = {
         location: "Любая",
         locations: ["Любая", ...locations],
         vacancies: vacancies,
         categories: [...categories],
-        currentCategories: []
+        currentCategories: [],
+        searchQuery: ""
     }
+
     const [state, dispatch] = useReducer(VacancyReducer, InitiialState)
     const VacancyService = new CVacancyService(dispatch,state)
 
     return (
         <Page>
-            <div className={`grid grid-cols-4 h-full gap-x-5 px-12`}>
-            <div className={` h-screen sticky`}>
+            <div className={`grid md:grid-cols-4 grid-cols-2 h-full gap-x-5 px-12`}>
+            <div >
+                <div className={`sticky top-5`}>
                 <div className={`font-raleway font-bold mt-20 mb-3`}>
                     Локация
                 </div>
                 <Dropdown value={state.location} values={state.locations} setter={VacancyService.changeLocation.bind(VacancyService)}/>
-                <div className={`font-raleway font-bold mb-3 mt-10`}>
+                <div className={`font-raleway font-bold mb-4 mt-10`}>
                     Научная область 
                 </div>
-                <div>
+                <div className={`grid grid-cols-1 gap-y-4`}>
                     {state.categories.map(a => {
                         return (
-                            <div className={`flex items-center`}>
-                                <div className={`w-4 h-4 mr-2`}>
+                            <label className={`flex items-center cursor-pointer `}>
+                                <div className={`w-4 h-4 mr-2 flex-shrink-0 group text-white`}>
                                     <SmallCheckbox value={a} onChange={(e:ChangeEvent<HTMLInputElement>) => {VacancyService.toggleCategory(e.target.value)}} checked={state.currentCategories.includes(a)}/>
                                 </div>
-                                <div>
-                                {a}
+                                <div className={`font-raleway`}>
+                                    {a}
                                 </div>
-                            </div>
+                            </label>
                         )
                     })}
                 </div>
+                </div>
             </div>
-            <div className={`bg-yellow-400 h-full col-span-3`}>
+            <div className={`h-full md:col-span-3`}>
                 <h1>
                 Вакансии и стажировки
                 </h1>
-                <div className={`grid grid-cols-3 space-x-5`}>
-                    {state.vacancies.map(v=> (<div>{v.name}</div>))}
+                <div className={`w-full mt-14`}>
+                    <div className={`h-10 ring-blue-400 transition-all bg-white max-w-xs flex items-center px-3 py-2 cursor-pointer focus-within:ring-1`}>
+                        <div className={`w-6 h-6 `}>
+                            <Magnifier/>
+                        </div>
+                        <input onChange={(e) => {VacancyService.SearchByString(e.target.value)}} value={state.searchQuery} className={`pl-2 font-raleway  ring-0 focus:ring-0 border-0 focus:outline-none w-full`} placeholder="Поиск" type="search" name="" id="" />
+                    </div>
                 </div>
+                {state.vacancies.length ? 
+                <div className={`grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-5 mt-8`}>
+                     {state.vacancies.map(v => (
+                     <div>
+                        <VacancyCard {...v}/>
+                    </div>))}
+                </div> :
+                <div className={`text-4xl text-center w-full h-full pt-10`}>
+                    Ничего не найдено!
+                </div>
+                }
             </div>
             </div>
         </Page>
@@ -181,7 +96,7 @@ export async function getStaticPaths() {
     const locations = await (await backendService.getAllLocations().exec()).data
     const vacancies = await  (await backendService.getVacancies().exec()).data
     const categories =  await (await backendService.getAllCategories().exec()).data
-    console.log(vacancies)
+
     return {
       props: { locations, vacancies, categories},
       revalidate: 42,

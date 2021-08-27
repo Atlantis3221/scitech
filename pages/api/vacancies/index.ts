@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { IVacancies } from "../../../@types/generated/contentful";
+import { IShortVacancy } from "../../../domain/vacancies/types";
 import Controller from "../../../services/controller";
 import { MongoService } from "../../../services/mongo";
-import { IShortVacancy } from "../../[lang]/vacancytest";
 
 
 export default async (req:NextApiRequest, res:NextApiResponse) => { 
