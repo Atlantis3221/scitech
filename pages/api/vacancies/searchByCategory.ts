@@ -11,7 +11,6 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
     try {
         if (req.method === "POST") {
             const state:IVacanciesQuery = req.body
-            console.log(state)
             let search:any = {}
             if (state.location !== "Любая") {
                 search["fields.location"] = state.location
@@ -20,8 +19,17 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
                 search["fields.vacancyCategory"] = {$in: state.currentCategories}
             }
             if (state.searchQuery) {
-                const searchRegex = "\w*(" + state.searchQuery.replace(/W/, ")\w*|\w*") + "\w*"
-                console.log(new RegExp(searchRegex))
+                const searchRegex = ".*(" + state.searchQuery.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'').replace(" ", ").*|.*(") + ").*"
+                search = {$or: 
+                    [{
+                        ...search,
+                        "fields.vacancyName": { $regex: searchRegex, $options: 'gi' }
+                    },
+                    {
+                        ...search,
+                        "fields.employer.fields.name": {$regex: searchRegex, $options: 'gi'}
+                    }
+                ]}
             }
             const data: IVacancies[] = await MongoService.db.collection("vacancies").find(search).toArray()
             const response: IShortVacancy[] = data.map(value => {
@@ -30,7 +38,8 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
                     name: value.fields.vacancyName,
                     employer: value.fields.employer.fields.name,
                     location: value.fields.location,
-                    salary: value.fields.salary
+                    salary: value.fields.salary,
+                    vacancyURL: value.fields.vacancyURL
                 })
             })
             controller.ok(response)
