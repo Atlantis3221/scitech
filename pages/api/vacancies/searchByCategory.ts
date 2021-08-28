@@ -20,7 +20,7 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
             }
             if (state.searchQuery) {
                 const searchRegex = ".*(" + state.searchQuery.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'').replace(" ", ").*|.*(") + ").*"
-                search = {$or: 
+                search = {$or:
                     [{
                         ...search,
                         "fields.vacancyName": { $regex: searchRegex, $options: 'gi' }
@@ -32,7 +32,7 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
                 ]}
             }
             const data: IVacancies[] = await MongoService.db.collection("vacancies").find(search).toArray()
-            const response: IShortVacancy[] = data.map(value => {
+            const response: IShortVacancy[] = data.map((value, index) => {
                 return ({
                     image: "https://" + value.fields.employer.fields.image.fields.file.url,
                     name: value.fields.vacancyName,
