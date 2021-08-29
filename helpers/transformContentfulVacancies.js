@@ -1,7 +1,9 @@
-import { convertToDate } from '../lib'
-import processEvent from './processEvent'
-
-export const transformContentfulVacancies = (vacancy) => {
+export const transformContentfulVacancies = (vacancy = {}) => {
+	const convertText = (text = '') => {
+		let newString = text.replace(/\n/g, '<br\>')
+		newString = newString.replace(/-/g, '—')
+		return newString
+	}
 	const mappedVacancy = {
 		_id: vacancy?._id,
 		employerImage: vacancy?.fields?.employer?.fields?.image?.fields?.file?.url,
@@ -14,7 +16,7 @@ export const transformContentfulVacancies = (vacancy) => {
 		vacancyURL: vacancy?.fields?.vacancyURL,
 		vacancyDescription: vacancy?.fields?.vacancyDescription?.content?.map(content => {
 			return {
-				text: content?.content?.[0]?.value,
+				text: convertText(content?.content?.[0]?.value),
 			}
 		}),
 	}
