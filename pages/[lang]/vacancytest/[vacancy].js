@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Link from 'next/link'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
@@ -9,10 +9,32 @@ import { EN_LANG, RU_LANG } from '../../../lib/constants'
 import { transformContentfulVacancies } from '../../../helpers/transformContentfulVacancies'
 import { Button } from '../../../components/button'
 import VacanciesWidget from './vacanciesWidget'
+import ModalsContext from '../../../components/modals/ModalContext'
 
 const Vacancy = ({modalForm, data, allVacancies}) => {
   const router = useRouter()
   const { lang } = router.query
+  const [inputEmailValue, setInputEmailValue] = useState('')
+  const {modalService, setRegModalState} = useContext(ModalsContext)
+
+  const openModal = () => {
+    modalService.openModal("reg")
+    setRegModalState({
+      color: "red",
+      inputs: ["name", "file", "comment", "confidential"],
+      configName: "becomeClient",
+      title: lang === 'ru'? 'Подать резюме': 'Provide a CV',
+      subtitle: 'Мы формируем базу резюме, но не публикуем ее в общий доступ'
+    })
+  }
+
+  const saveToServer = (e) => {
+    e.preventDefault()
+    if(inputEmailValue) {
+      setIsSend(true)
+      e.target.classList.toggle('footer_form__success')
+    }
+  }
 
   return (
     <Layout modalFormText={modalForm}>
@@ -86,7 +108,7 @@ const Vacancy = ({modalForm, data, allVacancies}) => {
                 </li>
 
                 <li className='i3_12 mt-10 mb-14'>
-                  <Button red onClick={() => {}}>Откликнуться</Button>
+                  <Button red onClick={() => {openModal()}}>Откликнуться</Button>
                 </li>
               </li>
             </ul>

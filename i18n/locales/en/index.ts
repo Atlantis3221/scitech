@@ -392,6 +392,8 @@ export default {
         "Должность": "Position",
         "Год аспирантуры": "Year of graduate school",
         "Телефон": "Phone",
+        "Комментарий": "Comment",
+        "Файл": "File",
         "Даю согласие на обработку персональных данных, описанную в": "I agree to the processing of personal data described in the",
         "Политике обработки персональных данных": "Personal Data Processing Policy",
         "Принять участие как спикер": "Participate as a speaker",

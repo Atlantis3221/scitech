@@ -1,22 +1,32 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 
 export function InputFile(props) {
-  const { description } = props
+  const { description = 'common', state = {}, setState = (args) => {}, name} = props
+
+  const descriptions = {
+    resume: 'Выбрать файл (doc. или pdf.)',
+    esse: 'Имя файла должно быть в формате ФамилияИО_эссе',
+    teamList: 'Для каждого участника укажите ФИО, должность, email и номер телефона. Имя файла должно быть в формате Огранизация_проект.xls',
+    teamPresentation: 'Имя файла должно быть в формате Организация_презентация',
+    common: 'Имя файла должно быть в формате ФамилияИО_CV',
+  }
 
   return (
     <div className='inputFile_container'>
-      <span>{description === 'Эссе' ? 'Имя файла должно быть в формате ФамилияИО_эссе'
-        : description === 'Список команды'
-          ? 'Для каждого участника укажите ФИО, должность, email и номер телефона. Имя файла должно ' +
-          'быть в формате Огранизация_проект.xls'
-        :  description === 'Презентация команды' ? "Имя файла должно быть в формате Организация_презентация "
-        : 'Имя файла должно быть в формате ФамилияИО_CV'}</span>
+      <span>{descriptions[description]}</span>
       <input
         style={{ backgroundColor: 'unset' }}
         type='file'
+        name={name}
         required
-        {...props}
+        onChange={(e) => {
+          console.log(e.target?.files?.[0])
+          setState({
+            ...state,
+            [name]: e.target?.files?.[0]
+          })
+        }}
       />
     </div>
   )
