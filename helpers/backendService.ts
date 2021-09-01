@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, Method } from "axios"
-import { IShortVacancy, IVacanciesQuery, IVacanciesState } from "../pages/[lang]/vacancytest"
+import { IShortVacancy, IVacanciesQuery } from '../domain/vacancies/types'
 
 const instatnce = axios.create({
 })
