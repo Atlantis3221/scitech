@@ -10,7 +10,7 @@ import { Page } from '../../components/page'
 import Translator from '../../i18n/translator'
 import ModalsContext from '../../components/modals/ModalContext'
 import { Button } from '../../components/button'
-
+import Link from 'next/link'
 
 const day16 =  (<div className="day" id="16">
   <div className="event">
@@ -287,6 +287,25 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                     </div>
                   </li>
                 </ul>
+                <p>
+                    <a href="/docs/Strategic_Educational_Intensive.pptx" className="link_event" target="_blank">Скачать презентацию
+                      <svg
+                        width='12'
+                        height='12'
+                        viewBox='0 0 12 12'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                        style={{ marginLeft: '0.5rem' }}
+                      >
+                        <path
+                          fillRule='evenodd'
+                          clipRule='evenodd'
+                          d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                          fill='#E62C2C'
+                        />
+                      </svg>
+                    </a>
+                </p>
               </li>
             </ul>
           </div>
@@ -465,8 +484,7 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                     Директор Сахалинского климатического центра, эксперт программы
                   </SpeakerCard>
                   <SpeakerCard photo='/img/verhovec.png' fullName='Сергей Верховец'>
-                    Директор Института лесных технологий СибГУ им. М. Ф. Решетнева, кандидат сельскохозяйственных наук,
-                    куратор проекта по установке вышки Zotto, мониторингу баланса ПГ и получению карбоновых кредитов для «РУСАЛ»
+                    Директор Проектного офиса НОЦ мирового уровня «Енисейская Сибирь» (Первый климатический НОЦ)
                   </SpeakerCard>
                   <SpeakerCard photo='/img/zenin.png' fullName='Сергей Зенин '>
                     Директор Института государства и права, проректор ТюмГУ, кандидат юридических наук, эксперт программы, модератор
@@ -483,6 +501,18 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                   <SpeakerCard photo='/img/titov_m.jpg' fullName='Максим Титов'>
                     Исполнительный директор исследовательского центра энергетической политики и международных отношений
                     (ИЦ ЭНЕРПО) Европейского университета в Санкт-Петербурге
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/harhordin.jpg' fullName='Олег Хархордин'>
+                    Доктор философии (Ph.D, 1996, University of California, Berkeley), профессор факультета политических
+                    наук Европейского университета в Санкт-Петербурге (ЕУСПб), основатель и руководитель исследовательского
+                    центра Res Publica (ЕУСПб), специалист в области политической философии. <br/>
+                    Лекция в программе: «Контракт с природой. Философия климата и человека»
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/luksha.jpg' fullName='Павел Лукша'>
+                    к.э.н., профессор практики Московской школы управления СКОЛКОВО, эксперт Центра трансформации образования
+                    СКОЛКОВО (SEDeC). Основатель инициативы Global Education
+                    Futures. Автор методики Rapid Foresight, сооснователь и программный директор Форсайт-флота. <br/>
+                    Лекция в программе: «Переход к регенеративной экономике как ставка для России»
                   </SpeakerCard>
                 </SpeakerCards>
               </li>
@@ -543,8 +573,13 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                 <p className='asideMarker'>ОРГАНИЗАЦИОННАЯ <br/> ИНФОРМАЦИЯ</p>
               </li>
               <li className='i3_9'>
-                <p>По итогам СОИ участники обучения получат удостоверения о повышении квалификации 36 часов от Тюменского
-                  государственного университета и Новосибирского государственного университета.</p>
+                <p>По итогам программы участники обучения получат два удостоверения о повышении квалификации 52 часа от Тюменского
+                  государственного университета и 38 часов от Новосибирского государственного университета.</p>
+                <p>Проекты, получившие наиболее высокие оценки панели экспертов, получат памятные дипломы образовательного интенсива.</p>
+                <p>Все участники обучения получат доступ к материалам
+                  <a href="/docs/Strategic_Educational_Intensive.pdf" target="_blank" > I Международной научно-практической конференции
+                  «Экосистемы будущего»</a>
+                </p>
                 <p>Участие в обучении предусматривает обязательную проектную работу. Проектная работа может быть организована
                   в сборных группах или в группе от одной организации региона.</p>
                 <p>Стоимость участия в программе:</p>
@@ -634,6 +669,26 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                         <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
                       </div>
                   </div>
+                  <p style={{ marginTop: '3rem' }}>
+                    <a className="link_event"
+                       href="/docs/Strategic_Educational_Intensive.pptx" download>Скачать презентацию
+                      <svg
+                        width='12'
+                        height='12'
+                        viewBox='0 0 12 12'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                        style={{ marginLeft: '0.5rem' }}
+                      >
+                        <path
+                          fillRule='evenodd'
+                          clipRule='evenodd'
+                          d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                          fill='#E62C2C'
+                        />
+                      </svg>
+                    </a>
+                  </p>
                 </li>
               </ul>
             </div>
