@@ -86,8 +86,9 @@ const VacancyPage = ({locations, vacancies, categories}:VacancyPageProps) => {
 export default VacancyPage
 
 export async function getStaticPaths() {
+    
     return { fallback: 'blocking',
-      paths: [{ params: { lang: "ru" } }, { params: { lang: "en" } }]
+      paths: []
     }
   }
   
