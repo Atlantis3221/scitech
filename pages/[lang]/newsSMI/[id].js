@@ -133,7 +133,8 @@ export async function getStaticPaths() {
   const enPaths = allNews.map((news) => ({
     params: { id: news._id, lang: EN_LANG}
   }))
-  return { fallback: 'blocking', paths: [...ruPaths, ...enPaths] }
+  
+  return { fallback: 'blocking', paths: [] }
 }
 
 export async function getStaticProps(ctx) {

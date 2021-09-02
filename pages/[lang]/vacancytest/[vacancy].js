@@ -130,7 +130,7 @@ export async function getStaticPaths() {
   const enPaths = allVacancies?.map((vacancy) => ({
     params: { lang: EN_LANG, vacancy: vacancy?.vacancyURL ?? '1' }
   })) ?? []
-  return { fallback: 'blocking', paths: [...ruPaths, ...enPaths] }
+  return { fallback: 'blocking', paths: [] }
 }
 
 export async function getStaticProps(ctx) {
