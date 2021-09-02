@@ -29,7 +29,7 @@ const Results = ({sortedData}) => {
 		return values
 	}
 
-	const memoizedKeys: IRegModalInput[] = ['participationType', 'name', 'role', 'company', 'phone', 'email', 'speaker', 'confidential', 'amount']
+	const memoizedKeys: IRegModalInput[] = ['participationType', 'name', 'role', 'company', 'phone', 'email', 'speaker', 'confidential', 'amount', 'comment', 'file']
 
 	return (
 		<Layout>

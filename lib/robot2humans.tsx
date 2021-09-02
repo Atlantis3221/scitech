@@ -13,6 +13,8 @@ export const robots2humans: Map<IRegModalInput, string> = new Map([
     [ 'speaker', 'Принял участие как спикер' ],
     [ 'year', 'Год аспирантуры' ],
     [ 'speciality', 'Направление аспирантуры' ],
+    [ 'comment', 'Комментарий' ],
+    [ 'file', 'Файл' ],
 
   // ?
   //   [ 'additionalAttendee', 'Дополнительный участник' ],

@@ -45,6 +45,8 @@ export type IRegModalInput = "participationType"
 | "company"
 | "speaker"
 | "speciality"
+| "comment"
+| "file"
 
 type IConfigNames = 'scienceLeadSchoolNextSet' |
 'scienceLeadSchoolMyRegion' |
@@ -63,6 +65,7 @@ type IRegModalState = {
     color: keyof IColors,
     inputs: IRegModalInput[],
     title: string,
+    subtitle?: string,
     configName: IConfigNames,
     isSent: boolean
 }

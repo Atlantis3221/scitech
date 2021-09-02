@@ -1,4 +1,4 @@
-import { MutableRefObject, useContext, useRef, useState } from "react"
+import React, { MutableRefObject, useContext, useRef, useState } from "react"
 import Radio from "../../inputs/Radio"
 import ValidatedTextInput from "../../inputs/ValidatedTextInput"
 import { ValidatorService } from "../../inputs/validatorService"
@@ -7,6 +7,8 @@ import ModalOverlay from "../ModalOverlay"
 import { isValidPhoneNumber } from "react-phone-number-input";
 import Checkbox from "../../inputs/Checkbox"
 import ValidatedPhoneInput from "../../inputs/ValidatedPhoneInput"
+import { InputTextarea } from '../../inputs/inputTextarea'
+import { InputFile } from '../../inputs/inputFile'
 import axios from "axios"
 import SentCheck from "../../icons/sentCheck"
 import { useRouter } from "next/router"
@@ -49,6 +51,8 @@ type IRegState = {
     confidential?: boolean,
     company?: string,
     speaker?: boolean
+    comment?: string
+    file?: any
 }
 
 type ParticipationEnum = "Индивидуальное" | "Групповое"
@@ -73,7 +77,9 @@ type ParticipationEnum = "Индивидуальное" | "Групповое"
         email: "",
         phone: "",
         confidential: false,
-        company: ""
+        company: "",
+        comment: "",
+        file: undefined
     }
    export const validators = {
         name: ValidatorService.default,
@@ -86,6 +92,8 @@ type ParticipationEnum = "Индивидуальное" | "Групповое"
         email: ValidatorService.email,
         phone: isValidPhoneNumber,
         company: ValidatorService.default,
+        comment: ValidatorService.default,
+        file: ValidatorService.default,
     }
     
 
@@ -147,6 +155,9 @@ const RegModal = ({ modalFormText = {} }) => {
             if (curr === "phone") {
                 acc[curr] = !validators[curr]("+" + state[curr])
             }
+            if (curr === "file") {
+               // value = await toBase64(state[curr])
+            }
             return acc
         }, {})
         if (regModalState.inputs.includes("confidential")) {
@@ -183,7 +194,9 @@ const RegModal = ({ modalFormText = {} }) => {
                     backgroundColor: Colors[regModalState.color].bg
                 }}>
                     <div className={`mb-8 text-white text-2xl w-3/4`}>
-                    {regModalState.title}
+                        {regModalState.title}
+                        <span style={{ display: 'block', fontSize: 'initial', paddingTop: '1rem'}}>
+                            {regModalState.subtitle}</span>
                     </div>
 
                     <div className={`grid grid-cols-1 md:grid-cols-4 gap-y-4 lg:gap-y-6 text-white`}>
@@ -398,7 +411,36 @@ const RegModal = ({ modalFormText = {} }) => {
                                     </>
                                 )
                             }
-                            
+                            if (input === "comment") {
+                                return (
+                                  <>
+                                      <div className={`col-span-1 flex items-center`}>
+                                          {modalFormText["Комментарий"]}
+                                      </div>
+                                      <div className={`col-span-3`}>
+                                          <InputTextarea state={state}
+                                                              name={"comment"}
+                                                              placeholder={modalFormText["Комментарий"]}
+                                                              setState={setState}/>
+                                      </div>
+                                  </>
+                                )
+                            }
+                            if (input === "file") {
+                                return (
+                                  <>
+                                      <div className={`col-span-1 flex items-center`}>
+                                          {modalFormText["Файл"]}
+                                      </div>
+                                      <div className={`col-span-3`}>
+                                          <InputFile state={state}
+                                                         name={"comment"}
+                                                         description={'resume'}
+                                                         setState={setState}/>
+                                      </div>
+                                  </>
+                                )
+                            }
                         })}
  
                         {regModalState.configName !== "strategicEducationalIntensive" && state.participationType === "Групповое" && <div className={`col-span-4 text-2xl `}>Члены команды</div> }
