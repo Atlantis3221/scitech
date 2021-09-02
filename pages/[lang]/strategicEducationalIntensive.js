@@ -470,16 +470,6 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
               </li>
               <li className='i3_9'>
                 <SpeakerCards>
-                  <SpeakerCard photo='/img/speaker_latyshev.png' fullName='Андрей Латышев'>
-                    Проректор ТюмГУ, руководитель Центра развития компетенций руководителей научных, научно-технических
-                    проектов и лабораторий межрегионального Западно-Сибирского НОЦ, координатор коммуникаций с индустриальными
-                    партнерами в рамках проекта создания и функционирования карбонового полигона Западно-Сибирского НОЦ в
-                    Тюменской области, руководитель программы, модератор
-                  </SpeakerCard>
-                  <SpeakerCard photo='/img/vdovin.jpg' fullName='Евгений Вдовин'>
-                    Зам. директора по научной работе Института математики им. С. Л. Соболева СО РАН, директор Математического
-                    центра в Академгородке (НГУ + ИМ СО РАН), доктор физико-математических наук, руководитель проектной работы на программе
-                  </SpeakerCard>
                   <SpeakerCard photo='/img/vederniko.png' fullName='Ирина Ведерникова '>
                     Директор Сахалинского климатического центра, эксперт программы
                   </SpeakerCard>
@@ -605,7 +595,7 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                     </div>
                     <div className="card_text">
                       <p className="card_title">
-                        Латышев Андрей
+                        Андрей Латышев
                       </p>
                       <div className="socials">
                         <a href="mailto:a.s.latyshev@utmn.ru" className="socials_mail"></a>
@@ -616,6 +606,30 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+
+        <div className='wrapper_partners content'>
+          <div className='container'>
+            <ul className='g3'>
+              <li className='i3_3'>
+                <p className='asideMarker'>Руководители программы</p>
+              </li>
+              <li className='i3_9'>
+                <SpeakerCards>
+                  <SpeakerCard photo='/img/speaker_latyshev.png' fullName='Андрей Латышев'>
+                    Проректор ТюмГУ, руководитель Центра развития компетенций руководителей научных, научно-технических
+                    проектов и лабораторий межрегионального Западно-Сибирского НОЦ, координатор коммуникаций с индустриальными
+                    партнерами в рамках проекта создания и функционирования карбонового полигона Западно-Сибирского НОЦ в
+                    Тюменской области, руководитель программы, модератор
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/vdovin.jpg' fullName='Евгений Вдовин'>
+                    Зам. директора по научной работе Института математики им. С. Л. Соболева СО РАН, директор Математического
+                    центра в Академгородке (НГУ + ИМ СО РАН), доктор физико-математических наук, руководитель проектной работы на программе
+                  </SpeakerCard>
+                </SpeakerCards>
+              </li>
+            </ul>
           </div>
         </div>
 
