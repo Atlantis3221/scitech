@@ -27,7 +27,7 @@ const Dropdown = ({value="", values=[], setter=(arg:string)=>{} }) => {
                 setter(value)
                 setIsOpen(false)
             }}
-            className={`p-3 hover:bg-blue-200 w-full text-left h-10 `}>
+            className={`p-3 hover:bg-scitech-red hover:text-white w-full text-left h-10 `}>
                 {value}
             </button>)}
         </div>

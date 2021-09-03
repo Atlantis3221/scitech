@@ -147,6 +147,15 @@ export interface IVacanciesFields {
 
   /** URL вакансии */
   vacancyURL: string
+
+  /** Минимальная зп */
+  minSalary?: number | undefined
+
+  /** Максимальная зп */
+  maxSalary?: number | undefined
+
+  /** Отображение на главной */
+  isOnMainPage: boolean
 }
 
 export interface IVacancies extends Entry<IVacanciesFields> {

@@ -17,7 +17,7 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
                 employer: value.fields.employer.fields.name,
                 location: value.fields.location,
                 salary: value.fields.salary,
-                vacancyURL: value.fields.vacancyURL
+                vacancyURL: value.fields.vacancyURL,
             })
         })
         controller.ok(response)

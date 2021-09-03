@@ -26,9 +26,11 @@ export default class CVacancyService {
     }
 
     private async fetchVacancies(state:IVacanciesQuery) {
+        this.dispatch({type: "toggleLoading", payload: true})
         vacancyDebouncer.debounce(async () => {
             const result = await ( backendService.getVacanciesWithFilters(state))
             this.dispatch({type: "setVacancies", payload: result})
+            this.dispatch({type: "toggleLoading", payload: false})
         }, 1000)
     }
 
@@ -58,5 +60,17 @@ export default class CVacancyService {
             ...this.state,
             currentCategories: newArr,
         })
+    }
+    async toggleSalaryLevel(value: string) {
+        const newArr = lodash.xor(this.state.currentSalaryLevels, [value])
+        const expected = this.state.currentSalaryLevels.includes(value) ? [] : [value]
+        this.dispatch({type: "setCurrentSalaries", payload:  expected})
+        await this.fetchVacancies({
+            ...this.state,
+            currentSalaryLevels: expected,
+        })
+    }
+    async init() {
+        await this.fetchVacancies(this.state)
     }
 }

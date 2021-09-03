@@ -26,6 +26,19 @@ const VacancyReducer = (state:IVacanciesState, action: IVacancyAction):IVacancie
             searchQuery: action.payload
         }
     }
+    if (action.type === "setCurrentSalaries") {
+        return {
+            ...state,
+            currentSalaryLevels: action.payload
+        }
+    }
+    if (action.type === "toggleLoading") {
+        return {
+            ...state,
+            isLoading: action.payload
+        }
+    }
+
 }
 
 
