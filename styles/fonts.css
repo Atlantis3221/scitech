@@ -2,108 +2,126 @@
     font-family: 'Raleway';
     font-weight: 900;
     font-style: normal;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway Black'), local('Raleway-Black'), url('/font/Raleway-Black.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 900;
     font-style: italic;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway BlackItalic'), local('Raleway-BlackItalic'), url('/font/Raleway-BlackItalic.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 700;
     font-style: normal;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway Bold'), local('Raleway-Bold'), url('/font/Raleway-Bold.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 700;
     font-style: italic;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway BoldItalic'), local('Raleway-BoldItalic'), url('/font/Raleway-BoldItalic.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 800;
     font-style: normal;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway ExtraBold'), local('Raleway-ExtraBold'), url('/font/Raleway-ExtraBold.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 800;
     font-style: italic;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway ExtraBoldItalic'), local('Raleway-ExtraBoldItalic'), url('/font/Raleway-ExtraBoldItalic.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 100;
     font-style: normal;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url('/font/Raleway-ExtraLight.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 100;
     font-style: italic;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway ExtraLightItalic'), local('Raleway-ExtraLightItalic'), url('/font/Raleway-ExtraLightItalic.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 200;
     font-style: italic;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway Italic'), local('Raleway-Italic'), url('/font/Raleway-Italic.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 300;
     font-style: normal;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway Light'), local('Raleway-Light'), url('/font/Raleway-Light.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 300;
     font-style: italic;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway LightItalic'), local('Raleway-LightItalic'), url('/font/Raleway-LightItalic.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 500;
     font-style: normal;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway Medium'), local('Raleway-Medium'), url('/font/Raleway-Medium.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 500;
     font-style: italic;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway MediumItalic'), local('Raleway-MediumItalic'), url('/font/Raleway-MediumItalic.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 400;
     font-style: normal;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway Regular'), local('Raleway-Regular'), url('/font/Raleway-Regular.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 600;
     font-style: normal;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url('/font/Raleway-SemiBold.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 600;
     font-style: italic;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway SemiBoldItalic'), local('Raleway-SemiBoldItalic'), url('/font/Raleway-SemiBoldItalic.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 200;
     font-style: normal;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway Thin'), local('Raleway-Thin'), url('/font/Raleway-Thin.ttf') format('truetype')
 }
 @font-face {
     font-family: 'Raleway';
     font-weight: 200;
     font-style: italic;
+    font-feature-settings: 'pnum' on, 'lnum' on;
     src: local('Raleway ThinItalic'), local('Raleway-ThinItalic'), url('/font/Raleway-ThinItalic.ttf') format('truetype');
 }
 
