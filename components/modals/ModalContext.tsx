@@ -1,7 +1,7 @@
 import React, { ReactNode, Reducer, useState } from "react";
 import { useReducer } from "react";
 
-export type IModals = "reg"
+export type IModals = "reg" | "vacancy"
 
 type ContextProps = {
   modalsState: IModalState,
@@ -62,16 +62,17 @@ type IConfigNames = 'scienceLeadSchoolNextSet' |
 | "strategicEducationalIntensive"
 
 type IRegModalState = {
-    color: keyof IColors,
-    inputs: IRegModalInput[],
+    color?: keyof IColors,
+    inputs?: IRegModalInput[],
     title: string,
     subtitle?: string,
-    configName: IConfigNames,
+    configName?: IConfigNames,
     isSent: boolean
 }
 
 const initialState:IModalState = {
-    reg: false
+    reg: false,
+    vacancy: false
 }
 
 type IAction = 

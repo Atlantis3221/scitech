@@ -1,9 +1,6 @@
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
 export const transformContentfulVacancies = (vacancy = {}) => {
-	const convertText = (text = '') => {
-		let newString = text.replace(/\n/g, '<br\>')
-		newString = newString.replace(/-/g, '—')
-		return newString
-	}
 	const mappedVacancy = {
 		_id: vacancy?._id,
 		employerImage: vacancy?.fields?.employer?.fields?.image?.fields?.file?.url,
@@ -14,11 +11,7 @@ export const transformContentfulVacancies = (vacancy = {}) => {
 		vacancyCategory: vacancy?.fields?.vacancyCategory,
 		vacancyName: vacancy?.fields?.vacancyName,
 		vacancyURL: vacancy?.fields?.vacancyURL,
-		vacancyDescription: vacancy?.fields?.vacancyDescription?.content?.map(content => {
-			return {
-				text: convertText(content?.content?.[0]?.value),
-			}
-		}),
+		vacancyDescription: documentToHtmlString(vacancy?.fields?.vacancyDescription),
 	}
 
 	return mappedVacancy;

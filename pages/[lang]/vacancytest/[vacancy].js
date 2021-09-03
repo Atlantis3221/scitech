@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
 import { Helmet } from 'react-helmet'
 import { useRouter } from 'next/router'
@@ -14,26 +14,10 @@ import ModalsContext from '../../../components/modals/ModalContext'
 const Vacancy = ({modalForm, data, allVacancies}) => {
   const router = useRouter()
   const { lang } = router.query
-  const [inputEmailValue, setInputEmailValue] = useState('')
-  const {modalService, setRegModalState} = useContext(ModalsContext)
+  const {modalService} = useContext(ModalsContext)
 
   const openModal = () => {
-    modalService.openModal("reg")
-    setRegModalState({
-      color: "red",
-      inputs: ["name", "file", "comment", "confidential"],
-      configName: "becomeClient",
-      title: lang === 'ru'? 'Подать резюме': 'Provide a CV',
-      subtitle: 'Мы формируем базу резюме, но не публикуем ее в общий доступ'
-    })
-  }
-
-  const saveToServer = (e) => {
-    e.preventDefault()
-    if(inputEmailValue) {
-      setIsSend(true)
-      e.target.classList.toggle('footer_form__success')
-    }
+    modalService.openModal("vacancy")
   }
 
   return (
@@ -101,10 +85,8 @@ const Vacancy = ({modalForm, data, allVacancies}) => {
                   {`${data?.salary} ₽`}
                 </p>}
 
-                <li className='i3_12'>
-                  {data?.vacancyDescription?.map(text => (
-                    <p dangerouslySetInnerHTML={{__html: text?.text}}></p>
-                  ))}
+                <li className='i3_12 contentful_vacancy_text'
+                    dangerouslySetInnerHTML={{__html: data?.vacancyDescription}}>
                 </li>
 
                 <li className='i3_12 mt-10 mb-14'>

@@ -889,3 +889,21 @@ h4 {
     cursor: pointer;
   }
 }
+
+
+.contentful_vacancy_text {
+  ul, li {
+    padding-left: 0.8rem;
+  }
+  li {
+    position: relative;
+    &:before {
+      position: absolute;
+      left: -0.6rem;
+      top: 0;
+      content: '—';
+      width: 0.8rem;
+      height: inherit;
+    }
+  }
+}
