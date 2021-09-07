@@ -79,6 +79,9 @@ class CBackendService {
     getAllCategories() {
         return new BackRequest<string[]>("/api/vacancies/categories")
     }
+    getEmployers() {
+        return new BackRequest("/api/employers")
+    }
 }
 
 export default new CBackendService(instatnce, BackRequest)

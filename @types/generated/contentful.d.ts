@@ -12,6 +12,15 @@ export interface IEmployersFields {
 
   /** Адрес работодателя */
   address?: string | undefined
+
+  /** Короткое имя работодателя */
+  shortName?: string | undefined
+
+  /** Описание работодателя */
+  description?: Document | undefined
+
+  /** URL работодателя */
+  url: string
 }
 
 export interface IEmployers extends Entry<IEmployersFields> {

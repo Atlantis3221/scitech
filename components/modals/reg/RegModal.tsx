@@ -240,7 +240,6 @@ const RegModal = ({ modalFormText = {} }) => {
                                 }
                             }
                             if (input === "email") {
-                                console.log("email")
                                 return (
                                     <>
                                     <div className={`col-span-1 flex items-center`}>
@@ -375,7 +374,6 @@ const RegModal = ({ modalFormText = {} }) => {
                                 )
                             }
                             if (input === "confidential") {
-                                console.log(errors)
                                 return (
                                     <>
                                     <div className={`col-span-1`}/>

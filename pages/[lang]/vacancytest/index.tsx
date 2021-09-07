@@ -12,6 +12,8 @@ import VacancyCard from "../../../domain/vacancies/ui/VacancyCard"
 import Magnifier from "../../../components/icons/magnifier"
 import WhiteCross from "../../../components/icons/whiteCross"
 import { disableBodyScroll, enableBodyScroll} from "body-scroll-lock"
+import { Layout } from "../../../components/layout"
+import Translator from '../../../i18n/translator'
 
 
 const VacancyPage = ({locations, categories}:VacancyPageProps) => {
@@ -56,7 +58,7 @@ const VacancyPage = ({locations, categories}:VacancyPageProps) => {
     }, [sidebarOpen])
 
     return (
-        <Page>
+        <Layout>
             <div className={`grid md:grid-cols-4  h-full gap-x-5 md:px-12 px-5`}>
             <div className={`fixed overflow-y-auto md:pt-12 top-0 left-0 bg-gray-200 transition-all duration-300 md:bg-transparent w-full h-full transform ${!sidebarOpen ? "-translate-x-full md:translate-x-0" : "translate-x-0"}  px-4 md:px-2 md:relative`} >
                 <div className={`top-5 `}>
@@ -106,7 +108,7 @@ const VacancyPage = ({locations, categories}:VacancyPageProps) => {
                 </div>
                 </div>
             </div>
-            <div className={`h-full md:col-span-3 pt-12`}>
+            <div className={`h-full md:col-span-3 pt-12 mb-20`}>
                 <h1>
                 Вакансии и стажировки
                 </h1>
@@ -148,7 +150,7 @@ const VacancyPage = ({locations, categories}:VacancyPageProps) => {
 
             </div>
             </div>
-        </Page>
+            </Layout>
     )
 }
 
@@ -165,7 +167,7 @@ export async function getStaticPaths() {
     
     const locations = await (await backendService.getAllLocations().exec()).data
     const categories =  await (await backendService.getAllCategories().exec()).data
-
+    const {current} = Translator("test", ctx.params.lang)
     return {
       props: { locations, categories},
       revalidate: 42,
