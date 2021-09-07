@@ -10,6 +10,7 @@ import { transformContentfulVacancies } from '../../../helpers/transformContentf
 import { Button } from '../../../components/button'
 import VacanciesWidget from './vacanciesWidget'
 import ModalsContext from '../../../components/modals/ModalContext'
+import backendService, { BackRequest } from "../../../helpers/backendService"
 
 const Vacancy = ({modalForm, data, allVacancies}) => {
   const router = useRouter()
@@ -117,7 +118,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(ctx) {
   const { vacancy } = ctx.params
-  const allVacancies = await getContentfulVacancies();
+  const allVacancies = await backendService.getVacancies().paginate(3,0).exec()
   const defineVacancy = await getDefineVacancy(vacancy)
   const {current} = Translator("test", ctx.params.lang)
   return {
