@@ -376,7 +376,7 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                   <li className='i3_4'>
                     <Partner
                       logo='/img/sibnoc_black.svg'
-                      link=""
+                      link="https://sibnoc.ru/"
                       name='АНО «Агентство развития научно-образовательных проектов Тюменской области»'
                       alt='АНО «Агентство развития научно-образовательных проектов Тюменской области»'
                       wide
