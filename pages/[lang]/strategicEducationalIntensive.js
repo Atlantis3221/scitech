@@ -393,7 +393,8 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                       </div>
 
                       <div>
-                        <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
+                        {/*<Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>*/}
+                        <p className="raleway">Прием заявок окончен</p>
                       </div>
                     </div>
                   </li>
@@ -809,12 +810,12 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                   <p className='asideMarker'>Заявка на обучение</p>
                 </li>
                 <li className='i3_9'>
-                  <div className="schedule_button">
-                      <div className='registerEventForm'>
-                        <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
-                      </div>
-                  </div>
-                  <p style={{ marginTop: '3rem' }}>
+                  {/*<div className="schedule_button">*/}
+                      {/*<div className='registerEventForm'>*/}
+                      {/*  <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>*/}
+                      {/*</div>*/}
+                  {/*</div>*/}
+                  <p>
                     <a className="link_event"
                        href="/docs/Strategic_Educational_Intensive.pptx" download>Скачать презентацию
                       <svg
