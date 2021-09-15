@@ -24,7 +24,7 @@ const EmployerPage = ({employer, employerVacancies}:PageProps) => {
                 </div>
                 <div>
                     <a className={`font-bold mb-2`} href="">
-                    Лаборатория геномной инженерии МФТИ
+                    {employer.fields.name}
                     </a>
                     <div className={"mt-2"}>
                         {employer.fields.address}

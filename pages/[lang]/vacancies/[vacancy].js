@@ -12,7 +12,7 @@ import VacanciesWidget from './vacanciesWidget'
 import ModalsContext from '../../../components/modals/ModalContext'
 import backendService from "../../../helpers/backendService"
 
-const Vacancy = ({modalForm, data, allVacancies, employerVacanciesAmount}) => {
+const Vacancy = ({modalForm, data, allVacancies, employerVacanciesAmount, url}) => {
   const router = useRouter()
   const { lang } = router.query
   const {modalService} = useContext(ModalsContext)
@@ -48,13 +48,23 @@ const Vacancy = ({modalForm, data, allVacancies, employerVacanciesAmount}) => {
           <div className='content'>
             <ul className='g3'>
               <li className='i3_3 mt-8 flex flex-column pt2'>
-                <a href={data?.employerWebsite} className="schedule_link schedule_link_normal mb-2">
+                <a 
+                  href={`/${lang}/vacancies/employers/${url}`}                
+                  onClick={() => {
+                    router.push(`/${lang}/vacancies/employers/${url}`)
+                  }} 
+                className="schedule_link schedule_link_normal mb-2">
                   <div className="vacancySidebar_logo">
                     <img src={data?.employerImage} alt="vacancy_logo" />
                   </div>
                   <p className='vacancies_description'>{data?.employerName}</p>
                   <p className='vacancies_description'>{data?.location}</p>
-                  <a href={data?.employerWebsite} className='raleway link_event link_event__noBorder raleway_bold'>
+                  <a 
+                  href={`/${lang}/vacancies/employers/${url}`}                
+                  onClick={() => {
+                  router.push(`/${lang}/vacancies/employers/${url}`)
+                  }} 
+                  className='raleway link_event link_event__noBorder raleway_bold'>
                     {vacancyAmount(employerVacanciesAmount?.data?.length)}
                     <svg
                       width='12'
@@ -149,7 +159,6 @@ export async function getStaticProps(ctx) {
   const employerVacanciesAmount = await backendService.getVacancies()
     .find("fields.employer.sys.id", defineVacancy?.data.fields.employer.sys.id)
     .exec()
-
   const {current} = Translator("test", ctx.params.lang)
   return {
     props: {
@@ -157,7 +166,8 @@ export async function getStaticProps(ctx) {
       allVacancies: allVacancies?.data,
       employerVacanciesAmount,
       current: current["test"],
-      modalForm: current["modalForm"]
+      modalForm: current["modalForm"],
+      url: defineVacancy?.data.fields.employer.fields.url
     },
     revalidate: 42,
   }
