@@ -10,9 +10,9 @@ import { transformContentfulVacancies } from '../../../helpers/transformContentf
 import { Button } from '../../../components/button'
 import VacanciesWidget from './vacanciesWidget'
 import ModalsContext from '../../../components/modals/ModalContext'
-import backendService, { BackRequest } from "../../../helpers/backendService"
+import backendService from "../../../helpers/backendService"
 
-const Vacancy = ({modalForm, data, allVacancies}) => {
+const Vacancy = ({modalForm, data, allVacancies, employerVacanciesAmount}) => {
   const router = useRouter()
   const { lang } = router.query
   const {modalService} = useContext(ModalsContext)
@@ -21,6 +21,15 @@ const Vacancy = ({modalForm, data, allVacancies}) => {
     modalService.openModal("vacancy")
   }
 
+  const vacancyAmount = (num = 0) => {
+    if (num === 0 || num >= 5) {
+      return `${num} открытых вакансий`
+    }
+    if (num === 1) {
+      return `${num} открытая вакансия`
+    }
+    return `${num} открытой вакансии`
+  }
   return (
     <Layout modalFormText={modalForm}>
       <Helmet>
@@ -45,6 +54,23 @@ const Vacancy = ({modalForm, data, allVacancies}) => {
                   </div>
                   <p className='vacancies_description'>{data?.employerName}</p>
                   <p className='vacancies_description'>{data?.location}</p>
+                  <a href={data?.employerWebsite} className='raleway link_event link_event__noBorder raleway_bold'>
+                    {vacancyAmount(employerVacanciesAmount?.data?.length)}
+                    <svg
+                      width='12'
+                      height='12'
+                      viewBox='0 0 12 12'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                        fill='#E62C2C'
+                      />
+                    </svg>
+                  </a>
                 </a>
 
                 <div className="mb-4 pr-12 pt-8">
@@ -71,7 +97,7 @@ const Vacancy = ({modalForm, data, allVacancies}) => {
               </li>
               <li className='i3_9 vacancyDescr'>
                 <Link href={`/${lang}/vacancies`}>
-                  <a className="raleway_bold backArrow">
+                  <a className="raleway_bold backArrow" style={{ width: 'max-content' }}>
                     <img src="/img/icons/arrow_black.svg" alt="backArrow" />
                     Вакансии
                   </a>
@@ -120,11 +146,16 @@ export async function getStaticProps(ctx) {
   const { vacancy } = ctx.params
   const allVacancies = await backendService.getVacancies().paginate(3,0).exec()
   const defineVacancy = await getDefineVacancy(vacancy)
+  const employerVacanciesAmount = await backendService.getVacancies()
+    .find("fields.employer.sys.id", defineVacancy?.data.fields.employer.sys.id)
+    .exec()
+
   const {current} = Translator("test", ctx.params.lang)
   return {
     props: {
       data: transformContentfulVacancies(defineVacancy?.data),
       allVacancies: allVacancies?.data,
+      employerVacanciesAmount,
       current: current["test"],
       modalForm: current["modalForm"]
     },

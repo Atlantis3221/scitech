@@ -583,7 +583,7 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
               <li className='i3_9'>
                 <SpeakerCards>
                   <SpeakerCard photo='/img/momot.jpg' fullName='Раиса Момот'>
-                    Менеджер, функция устойчивое развитие
+                    Менеджер, функция устойчивое развитие, ООО СИБУР
                   </SpeakerCard>
                   <SpeakerCard photo='/img/verhovec.png' fullName='Сергей Верховец'>
                     Директор Проектного офиса НОЦ мирового уровня «Енисейская Сибирь» (Первый климатический НОЦ)
