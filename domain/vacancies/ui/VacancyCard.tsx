@@ -8,7 +8,7 @@ const VacancyCard = ({name, image, salary, employer, location, vacancyURL}:IShor
   const router = useRouter()
   const { lang } = router.query
   return (
-    <Link href={`/${lang}/vacancytest/${vacancyURL}/`}>
+    <Link href={`/${lang}/vacancies/${vacancyURL}/`}>
         <a className={`block bg-white w-full p-4 font-raleway h-full no-underline border-b-0`}>
             <div className={`w-full`}>
             <img src={image} alt="" className={`mb-3 w-full `} />
