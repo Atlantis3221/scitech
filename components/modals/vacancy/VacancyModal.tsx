@@ -9,24 +9,34 @@ import { InputFile } from '../../inputs/inputFile'
 import axios from "axios"
 import SentCheck from "../../icons/sentCheck"
 import { useRouter } from "next/router"
+import ValidatedPhoneInput from "../../inputs/ValidatedPhoneInput"
+import { isValidPhoneNumber } from "react-phone-number-input"
+import { fileURLToPath } from "url"
 
 export type IVacancyState = {
     name?: string,
     comment?: string,
+    email: string,
+    phone: string,
     confidential?: boolean,
-    file?: any,
+    file?: undefined | File,
 }
 
 const initialState: IVacancyState = {
     name: "",
+    email: "",
     comment: "",
+    phone: "",
     confidential: false,
     file: undefined,
 }
 export const validators = {
     name: ValidatorService.default,
-    comment: ValidatorService.default,
+    comment: ValidatorService.true,
     file: ValidatorService.default,
+    email: ValidatorService.email,
+    phone: isValidPhoneNumber,
+    confidential: ValidatorService.checkIfTrue,
 }
     
 
@@ -37,7 +47,7 @@ const VacancyModal = ({ modalFormText = {} }) => {
     const modal = "vacancy"
     const {modalsState, modalService} = useContext(ModalsContext)
     const isOpen = modalsState[modal]
-
+    const ref = useRef() as MutableRefObject<HTMLFormElement> 
     const [state, setState] = useState(initialState)
     const [isSent, setIsSent] = useState(false)
     const [errors, setErrors] = useState(initialErrors)
@@ -47,10 +57,19 @@ const VacancyModal = ({ modalFormText = {} }) => {
     const sendData = async () => {
         setLoading(true)
         let obj = {}
-        const res = { data: {ok: true}}
-        // const res = await axios.post(`/api/vacancy/${regModalState.configName}`,
-        //   regModalState.inputs.reduce((acc, key) => {acc[key] = state[key]; return acc; }, obj))
-        // setLoading(false)
+        const data = new FormData()
+        Object.keys(state).map((value) => {
+            if (typeof state[value] === "string") {
+                data.append(value, state[value])
+            }
+        })
+        data.append("cv", state.file, state.file.name)
+        const res = await axios.post("/api/vacancies/upload", data, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        
         if (res.data.ok) {
             scrollRef.current.scrollTo(0,0)
             setIsSent(true)
@@ -58,40 +77,39 @@ const VacancyModal = ({ modalFormText = {} }) => {
                 modalService.closeModal("vacancy")
             }, 2000)
             setTimeout(() => {
-                setIsSent(true)
-                setState(initialState)
+                setIsSent(false)
+                // setState(initialState)
             }, 2500)
         }
     }
 
-    const toBase64 = async (file) => new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        reader.readAsDataURL(file)
-        reader.onload = () => resolve(reader.result)
-        reader.onerror = error => reject(error)
-    })
 
-    {/*const validate = () => {*/}
-    {/*    let obj = regModalState.inputs.reduce((acc, curr) => {*/}
-    //         if (curr === "file") {
-    //            // const value = await toBase64(state[curr])
-    //            // console.log(value)
-    //         }
-    //         return acc
-    {/*    }, {})*/}
-    {/*    console.log(obj)*/}
-    //     if (regModalState.inputs.includes("confidential")) {
-    //         const confidential = !ValidatorService.checkIfTrue(state.confidential)
-    //         obj = {
-    //             ...obj,
-    //             confidential,
-    //         }
-    //     }
-    //     setErrors({
-    //         ...obj,
-    //     })
-    //     return obj
-    // }
+
+    const validate = () => {
+    let obj = Object.keys(initialErrors).reduce((acc, curr) => {
+        if (curr === "file") {
+            console.log(state)
+            if (state.file) {
+               acc[curr] = false
+            }
+            else {
+                acc[curr] = true
+            }
+            return acc
+        }
+        if (curr === "phone") {
+            acc[curr] = !validators.phone("+" + state.phone)
+            return acc
+        }
+        acc[curr] = !validators[curr](state[curr])
+        return acc
+    }, {})
+
+        setErrors({
+            ...obj,
+        })
+        return obj
+    }
     
     return (
         <ModalOverlay modal={modal}>
@@ -117,7 +135,9 @@ const VacancyModal = ({ modalFormText = {} }) => {
                         </span>
                     </div>
 
-                    <div className={`grid grid-cols-1 md:grid-cols-4 gap-y-4 lg:gap-y-6 text-white`}>
+                    <div onSubmit={(e) => {
+                        e.preventDefault()
+                    }} className={`grid grid-cols-1 md:grid-cols-4 gap-y-4 lg:gap-y-6 text-white`}>
                         <>
                             <div className={`col-span-1 flex items-center`}>Имя и фамилия</div>
                             <div className={`col-span-3`}>
@@ -130,10 +150,31 @@ const VacancyModal = ({ modalFormText = {} }) => {
                             </div>
                         </>
                         <>
+                            <div className={`col-span-1 flex items-center`}>
+                                            Email
+                            </div>
+                            <div className={`col-span-3`}>
+                                <ValidatedTextInput setErrors={setErrors}
+                                                                errors={errors}
+                                                                state={state}
+                                                                name={"email"}
+                                                                placeholder={lang === 'ru' ? 'example@test.com' : 'example@test.com'}
+                                                                setState={setState}/>
+                            </div>
+                        </>
+                        <>
+                                    <div className={`col-span-1 flex items-center`}>
+                                        {modalFormText["Телефон"]}
+                                    </div>
+                                     <div className={`col-span-3 relative z-40`}>
+                                        <ValidatedPhoneInput  setErrors={setErrors} errors={errors} state={state} setState={setState}/>
+                                    </div>
+                                    </>
+                        <>
                             <div className={`col-span-1 flex items-center`}>Файл</div>
                             <div className={`col-span-3`}>
                                 <InputFile state={state}
-                                           name={"comment"}
+                                           name={"file"}
                                            description={'resume'}
                                            setState={setState}/>
                             </div>
@@ -167,15 +208,17 @@ const VacancyModal = ({ modalFormText = {} }) => {
                             <button style={{ color: "#E52C2C" }}
                             className={`px-4 py-2 bg-white uppercase font-bold`}
                             onClick={() => {
-                               // const valid = validate()
-                               // if (!Object.values(valid).includes(true)) {
+                               const valid = validate()
+                               console.log(valid)
+                               if (!Object.values(valid).includes(true)) {
                                   sendData()
-                               // }
+                               }
                             }}
                             >Отправить
                             </button>
                         </div>
                         </div>
+
                         <div style={{ backgroundColor: '#9F1E1E'}}
                              className={`fixed ${isSent ? "visible opacity-100" : "invisible opacity-0"} transition-all duration-300 w-full top-0 left-0 h-full z-40 grid place-items-center px-10 text-white`}>
                             <div className={`flex flex-col items-center`}>
