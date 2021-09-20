@@ -4,7 +4,7 @@ import Controller from "../../../services/controller";
 import { MongoService } from "../../../services/mongo";
 var storage = multer.diskStorage(
     {
-        destination: "/opt/data/electrobase/cvs",
+        destination: "/opt/data/scitech-next/cvs/",
         filename: function (req, file, cb) {
 
             cb(null, String(Date.now()) + file.originalname );
