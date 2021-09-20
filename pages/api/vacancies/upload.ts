@@ -46,7 +46,7 @@ export default nc().use(upload.single("cv")).post(async (req:NextApiRequest, res
                           "Телефон": req.body.phone,
                           "Резюме": [
                                 {
-                                    url: "https://scitech.ru/cvs/1632132767247Les%20Miserables%20-%20Audition%20Material%20-%20Javert%20(1).pdf",
+                                    url: "https://scitech.ru/cvs/" + ((req as any).file as Express.Multer.File).filename,
                                 }
                           ],
                           "Дата отправки": new Date().toISOString(),
