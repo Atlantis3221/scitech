@@ -2,6 +2,14 @@ import { NextApiRequest, NextApiResponse } from "next";
 import multer from "multer";
 import Controller from "../../../services/controller";
 import { MongoService } from "../../../services/mongo";
+import Airtable from "airtable";
+
+Airtable.configure({
+    endpointUrl: 'https://api.airtable.com',
+    apiKey: 'keysJwLEuJ3OXlA3X'
+});
+
+const base = Airtable.base('appHRY7wvluZglGZA');
 var storage = multer.diskStorage(
     {
         destination: "/opt/data/scitech-next/cvs/",
@@ -30,6 +38,22 @@ export default nc().use(upload.single("cv")).post(async (req:NextApiRequest, res
                 ...req.body,
                 cv: ((req as any).file as Express.Multer.File).filename
             })
+            await (base("Table 1") as any).create([
+                    {
+                        "fields": {
+                          "ФИО": req.body.name                          ,
+                          "Email": req.body.email,
+                          "Телефон": req.body.phone,
+                          "Резюме": [
+                                {
+                                    url: "https://scitech.ru/cvs/1632132767247Les%20Miserables%20-%20Audition%20Material%20-%20Javert%20(1).pdf",
+                                }
+                          ],
+                          "Дата отправки": new Date().toISOString(),
+                          "Вакансия": req.body.vacancy
+                        }
+                      },
+                ])
             controller.ok({ok: true})
         }
     }

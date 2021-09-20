@@ -41,7 +41,7 @@ export const validators = {
     
 
 const VacancyModal = ({ modalFormText = {} }) => {
-    const { query: {lang: lang} } = useRouter()
+    const { query: {lang: lang, vacancy} } = useRouter()
 
     const initialErrors = Object.keys(initialState).reduce((acc, key) => {acc[key] = false; return acc; }, {})
     const modal = "vacancy"
@@ -64,6 +64,7 @@ const VacancyModal = ({ modalFormText = {} }) => {
             }
         })
         data.append("cv", state.file, state.file.name)
+        data.append("vacancy", vacancy as string)
         const res = await axios.post("/api/vacancies/upload", data, {
             headers: {
                 'Content-Type': 'multipart/form-data'
