@@ -11,7 +11,10 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
         for (let type of types) {
             await MongoService.db.collection(type).deleteMany({})
             let items = await ContentfulService.getAllEntriesOfOneType(type)
-            await MongoService.db.collection(type).insertMany(items)
+            if (items.length) {
+                await MongoService.db.collection(type).insertMany(items)
+            }
+
         }
         controller.ok(true)
     }
