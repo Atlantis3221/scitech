@@ -23,9 +23,10 @@ var storage = multer.diskStorage(
 const upload = multer({storage})
 import nc from "next-connect";
 export const config = {
-    api: {
+  api: {
       bodyParser: false,
-    },
+      sizeLimit: "5mb"
+  },
 }
 
 
