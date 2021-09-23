@@ -119,7 +119,7 @@ const Vacancy = ({modalForm, data, allVacancies, employerVacanciesAmount, url}) 
                 </p>}
                 {data?.salary && <p className="description_text raleway flex">
                   <span className="block w-6 mr-2"><img src='/img/icons/money.svg' alt='icon'/></span>
-                  {`${data?.salary} ₽`}
+                  {`${data?.salary}`}
                 </p>}
 
                 <li className='i3_12 contentful_vacancy_text'

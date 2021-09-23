@@ -70,7 +70,7 @@ const VacancyModal = ({ modalFormText = {} }) => {
                 'Content-Type': 'multipart/form-data'
             }
         })
-        
+        setLoading(false)
         if (res.data.ok) {
             scrollRef.current.scrollTo(0,0)
             setIsSent(true)
@@ -136,90 +136,100 @@ const VacancyModal = ({ modalFormText = {} }) => {
                         </span>
                     </div>
 
-                    <div onSubmit={(e) => {
-                        e.preventDefault()
-                    }} className={`grid grid-cols-1 md:grid-cols-4 gap-y-4 lg:gap-y-6 text-white`}>
-                        <>
-                            <div className={`col-span-1 flex items-center`}>Имя и фамилия</div>
-                            <div className={`col-span-3`}>
-                                <ValidatedTextInput errors={errors}
-                                                    state={state}
-                                                    name={"name"}
-                                                    setState={setState}
-                                                    placeholder={'Имя и фамилия'}
-                                                    setErrors={setErrors}/>
-                            </div>
-                        </>
-                        <>
-                            <div className={`col-span-1 flex items-center`}>
-                                            Email
-                            </div>
-                            <div className={`col-span-3`}>
-                                <ValidatedTextInput setErrors={setErrors}
-                                                                errors={errors}
-                                                                state={state}
-                                                                name={"email"}
-                                                                placeholder={lang === 'ru' ? 'example@test.com' : 'example@test.com'}
-                                                                setState={setState}/>
-                            </div>
-                        </>
-                        <>
-                                    <div className={`col-span-1 flex items-center`}>
-                                        {modalFormText["Телефон"]}
-                                    </div>
-                                     <div className={`col-span-3 relative z-40`}>
-                                        <ValidatedPhoneInput  setErrors={setErrors} errors={errors} state={state} setState={setState}/>
-                                    </div>
-                                    </>
-                        <>
-                            <div className={`col-span-1 flex items-center`}>Файл</div>
-                            <div className={`col-span-3`}>
-                                <InputFile state={state}
-                                           name={"file"}
-                                           description={'resume'}
-                                           setState={setState}/>
-                            </div>
-                        </>
-                        <>
-                            <div className={`col-span-1 flex items-center`}>Комментарий</div>
-                            <div className={`col-span-3`}>
-                                <InputTextarea state={state}
-                                               name={"comment"}
-                                               placeholder={'Комментарий'}
-                                               setState={setState}/>
-                            </div>
-                        </>
-                        <>
-                            <div className={`col-span-1`}/>
-                            <div className={`col-span-3 flex mt-4`}>
-                                <div style={{ color: "#E52C2C" }} className={`w-6 h-6 flex-shrink-0 mr-2`}>
-                                    <Checkbox state={state} setState={setState} setErrors={setErrors} errors={errors} name={"confidential"}/>
-                                </div>
-                                <div className={`${errors["confidential"] ? "text-error" : "text-white"}`}>
-                                    <p className="mt0">Даю согласие на обработку персональных данных, описанную в
-                                        <a href={`/${lang}/policy`} className='class="input_linkToPolicy"'>
-                                            Политике обработки персональных данных</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </>
+                    {loading ?
+                      <div className={`w-full h-60 grid place-items-center`}>
+                          <div className="w-20 h-20 p-2">
+                              <img className={`w-full h-full`} src="/img/icons/spiner.gif" loading="lazy" alt="spiner" />
+                          </div>
+                      </div>
+                      :
+                      <div onSubmit={(e) => {
+                          e.preventDefault()
+                      }} className={`grid grid-cols-1 md:grid-cols-4 gap-y-4 lg:gap-y-6 text-white`}>
+                          <>
+                              <div className={`col-span-1 flex items-center`}>Имя и фамилия</div>
+                              <div className={`col-span-3`}>
+                                  <ValidatedTextInput errors={errors}
+                                                      state={state}
+                                                      name={"name"}
+                                                      setState={setState}
+                                                      placeholder={'Имя и фамилия'}
+                                                      setErrors={setErrors} />
+                              </div>
+                          </>
+                          <>
+                              <div className={`col-span-1 flex items-center`}>
+                                  Email
+                              </div>
+                              <div className={`col-span-3`}>
+                                  <ValidatedTextInput setErrors={setErrors}
+                                                      errors={errors}
+                                                      state={state}
+                                                      name={"email"}
+                                                      placeholder={lang === 'ru' ? 'example@test.com' : 'example@test.com'}
+                                                      setState={setState} />
+                              </div>
+                          </>
+                          <>
+                              <div className={`col-span-1 flex items-center`}>
+                                  {modalFormText["Телефон"]}
+                              </div>
+                              <div className={`col-span-3 relative z-40`}>
+                                  <ValidatedPhoneInput setErrors={setErrors} errors={errors} state={state}
+                                                       setState={setState} />
+                              </div>
+                          </>
+                          <>
+                              <div className={`col-span-1 flex items-center`}>Файл</div>
+                              <div className={`col-span-3`}>
+                                  <InputFile state={state}
+                                             name={"file"}
+                                             description={'resume'}
+                                             setState={setState} />
+                              </div>
+                          </>
+                          <>
+                              <div className={`col-span-1 flex items-center`}>Комментарий</div>
+                              <div className={`col-span-3`}>
+                                  <InputTextarea state={state}
+                                                 name={"comment"}
+                                                 placeholder={'Комментарий'}
+                                                 setState={setState} />
+                              </div>
+                          </>
+                          <>
+                              <div className={`col-span-1`} />
+                              <div className={`col-span-3 flex mt-4`}>
+                                  <div style={{ color: "#E52C2C" }} className={`w-6 h-6 flex-shrink-0 mr-2`}>
+                                      <Checkbox state={state} setState={setState} setErrors={setErrors} errors={errors}
+                                                name={"confidential"} />
+                                  </div>
+                                  <div className={`${errors["confidential"] ? "text-error" : "text-white"}`}>
+                                      <p className="mt0">Даю согласие на обработку персональных данных, описанную в <a
+                                        href={`/${lang}/policy`}
+                                        className='class="input_linkToPolicy"'> Политике обработки персональных
+                                          данных</a>
+                                      </p>
+                                  </div>
+                              </div>
+                          </>
 
-                        <div className={`col-span-1`}> </div>
-                        <div className={`col-span-3`}>
-                            <button style={{ color: "#E52C2C" }}
-                            className={`px-4 py-2 bg-white uppercase font-bold`}
-                            onClick={() => {
-                               const valid = validate()
-                               console.log(valid)
-                               if (!Object.values(valid).includes(true)) {
-                                  sendData()
-                               }
-                            }}
-                            >Отправить
-                            </button>
-                        </div>
-                        </div>
-
+                          <div className={`col-span-1`}></div>
+                          <div className={`col-span-3`}>
+                              <button style={{ color: "#E52C2C" }}
+                                      className={`px-4 py-2 bg-white uppercase font-bold`}
+                                      onClick={() => {
+                                          const valid = validate()
+                                          console.log(valid)
+                                          if (!Object.values(valid).includes(true)) {
+                                              sendData()
+                                          }
+                                      }}
+                              >Отправить
+                              </button>
+                          </div>
+                      </div>
+                    }
                         <div style={{ backgroundColor: '#9F1E1E'}}
                              className={`fixed ${isSent ? "visible opacity-100" : "invisible opacity-0"} transition-all duration-300 w-full top-0 left-0 h-full z-40 grid place-items-center px-10 text-white`}>
                             <div className={`flex flex-col items-center`}>

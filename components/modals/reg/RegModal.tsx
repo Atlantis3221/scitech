@@ -384,7 +384,7 @@ const RegModal = ({ modalFormText = {} }) => {
                                             <Checkbox state={state} setState={setState} setErrors={setErrors} errors={errors} name={"confidential"}/>
                                         </div>
                                         <div className={`${errors["confidential"] ? "text-error" : "text-white"}`}>
-                                            <p className="mt0">{modalFormText["Даю согласие на обработку персональных данных, описанную в"]}
+                                            <p className="mt0">{modalFormText["Даю согласие на обработку персональных данных, описанную в "]}
                                                 <a href={`/${lang}/policy`} className='class="input_linkToPolicy"'> {modalFormText["Политике обработки персональных данных"]}</a>
                                             </p>
                                         </div>
