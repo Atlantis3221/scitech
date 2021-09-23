@@ -14,7 +14,7 @@ export function InputFile(props: IPropsInputFile) {
     state = {},
     setState = (args) => {},
     name = "upload",
-    accept = "application/pdf, application/doc, application/docx"
+    accept = "application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
   } = props
   const [sizeError, setSizeError] = useState(false);
   const [typeError, setTypeError] = useState(false);
