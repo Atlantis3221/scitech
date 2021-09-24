@@ -636,6 +636,13 @@ export default function StrategicEducationalIntensive({  current, modalForm  }) 
                   <SpeakerCard fullName='Роман Табакаев '>
                     К.т.н., научный сотрудник, Инженерная школа энергетики, Томский политехнический университет
                   </SpeakerCard>
+
+                  <SpeakerCard fullName='Георгий Афанасьев '>
+                    Руководитель Экспертного клуба промышленности и энергетики
+                  </SpeakerCard>
+                  <SpeakerCard fullName='Андрей Ермаков '>
+                    Начальник отдела государственной поддержки инновационной деятельности Департамента инвестиционной политики и государственной поддержки предпринимательства Тюменской области
+                  </SpeakerCard>
                 </SpeakerCards>
               </li>
             </ul>
