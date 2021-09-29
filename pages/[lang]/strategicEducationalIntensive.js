@@ -299,7 +299,7 @@ const day19 =  (<div className="day" id="19">
           Директор по ESG, Сбер. <br/>
           <b>Георгий Афанасьев</b> <br/>
           Руководитель Экспертного клуба промышленности и энергетики <br/>
-          <a style={{ fontSize: 'initial' }} href='https://method-estate.com/'>https://method-estate.com/</a> <br/>
+          <a className="raleway" style={{ fontSize: 'inherit' }} href='https://method-estate.com/'>https://method-estate.com/</a> <br/>
           <b>Андрей Ермаков</b> <br/>
           Начальник отдела государственной поддержки инновационной деятельности Департамента инвестиционной политики и государственной поддержки предпринимательства Тюменской области
         </p>

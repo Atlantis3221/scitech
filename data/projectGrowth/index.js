@@ -3,7 +3,7 @@ export const projectGrowth = [
     _id: 'strategicEducationalIntensive',
     link: '/strategicEducationalIntensive',
     name: 'Интенсив',
-    cardType: ['now', 'courses'],
+    cardType: ['past', 'courses'],
     projectDate: '16 - 19 Сен 2021',
     location: 'Тюмень',
     image: '/img/developmentProjects/bgLily.svg',

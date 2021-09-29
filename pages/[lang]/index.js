@@ -73,31 +73,6 @@ const HomePage = ({  data, current, modalForm  }) => {
                   </li>
                   <li className='i3_9'>
                     <ul className='g3'>
-                      {lang === 'ru'? ( <>
-                        <li className='i3_4'>
-                          <div className='link_toEvent'>
-                            <a href={`/${lang}/strategicEducationalIntensive`} className='link_event'>
-                              {current["Стратегический образовательный интенсив: Практика создания и развития карбоновых полигонов и сопутствующих климатических проектов: кадры, технологии, оборудование"]}
-                              <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
-                              >
-                                <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
-                                />
-                              </svg>
-                            </a>
-                            <div className='link_data'>16 - 19 {current["Сентября"]} 2021</div>
-                          </div>
-                        </li>
-                      </>) : null}
-
                         <li className='i3_4'>
                           <div className='link_toEvent'>
                             <a href={`/${lang}/scientificPracticalConference`} className='link_event'>
@@ -311,6 +286,30 @@ const HomePage = ({  data, current, modalForm  }) => {
                   </li>
                   <li className='i3_9'>
                     <ul className='g3'>
+                      {lang === 'ru'? ( <>
+                        <li className='i3_4'>
+                          <div className='link_toEvent'>
+                            <a href={`/${lang}/strategicEducationalIntensive`} className='link_event'>
+                              {current["Стратегический образовательный интенсив: Практика создания и развития карбоновых полигонов и сопутствующих климатических проектов: кадры, технологии, оборудование"]}
+                              <svg
+                                width='12'
+                                height='12'
+                                viewBox='0 0 12 12'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path
+                                  fillRule='evenodd'
+                                  clipRule='evenodd'
+                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                  fill='#E62C2C'
+                                />
+                              </svg>
+                            </a>
+                            <div className='link_data'>16 - 19 {current["Сентября"]} 2021</div>
+                          </div>
+                        </li>
+                      </>) : null}
                       <li className='i3_4'>
                         <div className='link_toEvent'>
                           <a href={`/${lang}/flagmanSchoolPresentation`} className='link_event'>
@@ -355,7 +354,7 @@ const HomePage = ({  data, current, modalForm  }) => {
                           <div className='link_data'>20 {current["Октября"]}</div>
                         </div>
                       </li>
-                      <li className='i3_4'>
+                      {lang !== 'ru'? (<li className='i3_4'>
                         <div className='link_toEvent'>
                           <a href={`/${lang}/events`} className='link_event'>
                             {current["Международная конференция «Наука. Лидерство. Общество»"]}
@@ -377,7 +376,8 @@ const HomePage = ({  data, current, modalForm  }) => {
                           <div className='link_data'>24 - 28 {current["августа"]}</div>
                         </div>
                       </li>
-                      <li className='i3_2'>
+                        ) : null}
+                      <li className='i3_12'>
                         <a href={`/${lang}/developmentProjects`} className='btn btn__red mt'>
                           {current["Посмотреть всё"]}
                         </a>
