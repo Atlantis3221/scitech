@@ -1,16 +1,5 @@
 export const projectGrowth = [
   {
-    _id: 'strategicEducationalIntensive',
-    link: '/strategicEducationalIntensive',
-    name: 'Интенсив',
-    cardType: ['past', 'courses'],
-    projectDate: '16 - 19 Сен 2021',
-    location: 'Тюмень',
-    image: '/img/developmentProjects/bgLily.svg',
-    title: 'Практика создания и развития карбоновых полигонов и сопутствующих климатических проектов: кадры, технологии, оборудование',
-    engVersion: false
-  },
-  {
     _id: 'scientificPracticalConference',
     link: '/scientificPracticalConference',
     name: 'Конференция',
@@ -55,17 +44,6 @@ export const projectGrowth = [
     engVersion: true
   },
   {
-    _id: 'onlineForumConsortium',
-    link: '/onlineForumConsortium',
-    name: 'Тренинг',
-    cardType: ['now', 'courses'],
-    deadline: 'Октябрь 2021 (дата уточняется)',
-    location: 'Онлайн',
-    image: '/img/developmentProjects/projectCardTemplate.svg',
-    title: 'Онлайн-форум «Научно-образовательные консорциумы. Программы НОЦ и приоритет 2030»',
-    engVersion: false
-  },
-  {
     _id: 'digitalProfile',
     link: '/digitalProfile',
     name: 'Сервис, Партнерский проект',
@@ -74,17 +52,6 @@ export const projectGrowth = [
     image: '/img/developmentProjects/digitalProfile.svg',
     title: 'Цифровой профиль исследователя — социальная сеть для ученых',
     engVersion: true
-  },
-  {
-    _id: 'flagmanSchoolPresentation',
-    link: '/flagmanSchoolPresentation',
-    name: 'Мероприятие',
-    cardType: ['past', 'courses'],
-    deadline: '11 фев 2021',
-    location: 'Онлайн',
-    image: '/img/developmentProjects/projectCardTemplate.svg',
-    title: 'Онлайн-презентация флагманских школ ЦРК',
-    engVersion: false
   },
   {
     _id: 'tabulaRasa',
@@ -97,6 +64,30 @@ export const projectGrowth = [
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'Tabula Rasa',
     engVersion: true
+  },
+
+  // past projects
+  {
+    _id: 'strategicEducationalIntensive',
+    link: '/strategicEducationalIntensive',
+    name: 'Интенсив',
+    cardType: ['past', 'courses'],
+    projectDate: '16 - 19 Сен 2021',
+    location: 'Тюмень',
+    image: '/img/developmentProjects/bgLily.svg',
+    title: 'Практика создания и развития карбоновых полигонов и сопутствующих климатических проектов: кадры, технологии, оборудование',
+    engVersion: false
+  },
+  {
+    _id: 'flagmanSchoolPresentation',
+    link: '/flagmanSchoolPresentation',
+    name: 'Мероприятие',
+    cardType: ['past', 'courses'],
+    deadline: '11 фев 2021',
+    location: 'Онлайн',
+    image: '/img/developmentProjects/projectCardTemplate.svg',
+    title: 'Онлайн-презентация флагманских школ ЦРК',
+    engVersion: false
   },
   {
     _id: 'gameMethodsInEducation',
