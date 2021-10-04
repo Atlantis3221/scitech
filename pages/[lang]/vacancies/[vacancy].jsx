@@ -16,7 +16,7 @@ const Vacancy = ({modalForm, data, allVacancies, employerVacanciesAmount, url}) 
   const router = useRouter()
   const { lang } = router.query
   const {modalService} = useContext(ModalsContext)
-  console.log(data)
+
   const openModal = () => {
     modalService.openModal("vacancy")
   }
