@@ -307,7 +307,7 @@ export default function School({ current, modalForm }) {
                 </li>
                 <li className='i3_3'>
                   <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 5</p>
-                  <p className='asideMarker asideMarker_mt1'>17 - 29 {current["Октября"]} 2021</p>
+                  <p className='asideMarker asideMarker_mt1'>18 - 29 {current["Октября"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
