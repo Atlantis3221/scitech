@@ -23,7 +23,7 @@ const EmployerPage = ({employer, employerVacancies}:PageProps) => {
                     <img className={``} src={"https://" + employer.fields.image.fields.file.url} alt="" />
                 </div>
                 <div>
-                    <a className={`font-bold mb-2`} href="">
+                    <a className={`font-bold mb-2`} href={employer.fields.address}>
                     {employer.fields.name}
                     </a>
                     <div className={"mt-2"}>
