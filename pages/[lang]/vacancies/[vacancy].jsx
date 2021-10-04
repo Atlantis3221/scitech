@@ -16,7 +16,7 @@ const Vacancy = ({modalForm, data, allVacancies, employerVacanciesAmount, url}) 
   const router = useRouter()
   const { lang } = router.query
   const {modalService} = useContext(ModalsContext)
-
+  console.log(data)
   const openModal = () => {
     modalService.openModal("vacancy")
   }
@@ -59,12 +59,36 @@ const Vacancy = ({modalForm, data, allVacancies, employerVacanciesAmount, url}) 
                   </div>
                   <p className='vacancies_description'>{data?.employerName}</p>
                   <p className='vacancies_description'>{data?.location}</p>
+                  <div>
+                  {data?.initUrl && 
+                  <a style={{
+                    marginBottom: "3rem"
+                  }} className="my-3 font-raleway" href={data?.initUrl} target="_blank" rel="noopener noreferrer">
+                    Первоисточник вакансии
+                    <svg
+                      width='12'
+                      height='12'
+                      viewBox='0 0 12 12'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                        fill='#E62C2C'
+                      />
+                    </svg>
+                    </a>}
+                  </div>
+
+                    <br/>
                   <a 
                   href={`/${lang}/vacancies/employers/${url}`}                
                   onClick={() => {
                   router.push(`/${lang}/vacancies/employers/${url}`)
                   }} 
-                  className='raleway link_event link_event__noBorder raleway_bold'>
+                  className='raleway link_event link_event__noBorder raleway_bold mt-2'>
                     {vacancyAmount(employerVacanciesAmount?.data?.length)}
                     <svg
                       width='12'

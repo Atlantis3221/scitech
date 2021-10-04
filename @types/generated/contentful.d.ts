@@ -165,6 +165,8 @@ export interface IVacanciesFields {
 
   /** Отображение на главной */
   isOnMainPage: boolean
+
+  initUrl?:string
 }
 
 export interface IVacancies extends Entry<IVacanciesFields> {

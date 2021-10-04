@@ -12,6 +12,7 @@ export const transformContentfulVacancies = (vacancy = {}) => {
 		vacancyName: vacancy?.fields?.vacancyName,
 		vacancyURL: vacancy?.fields?.vacancyURL,
 		vacancyDescription: documentToHtmlString(vacancy?.fields?.vacancyDescription),
+		initUrl:vacancy?.fields?.initUrl
 	}
 
 	return mappedVacancy;
