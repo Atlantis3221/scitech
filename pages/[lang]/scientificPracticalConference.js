@@ -24,7 +24,7 @@ const day18 =  (<div className="day" id="18">
                  title='Открытая лекция. Спикер: Александр Чулок, кандидат экономических наук, директор Центра научно-технологического прогнозирования НИУ ВШЭ'>
       </EventItem>
       <EventItem date_add='11:30 — 13:30 МСК'
-                 title='Секция «Зеленые ценности и устойчивое развитие» (часть 1)'>
+                 title='Секция «Ценности, устойчивость, изменения климата, degrowth: согласование зеленых действий» (часть 1)'>
       </EventItem>
       <EventItem date_add='14:00 — 15:30 МСК'
                  title='Круглый стол «Интеграция России в мировую климатическую повестку. Развитие и формирование карбоновых полигонов.
@@ -41,7 +41,7 @@ const day18 =  (<div className="day" id="18">
         <p className="mt-0">— Федоров Александр Александрович, ректор ФГАОУ ВО «Балтийский федеральный университет имени Иммануила Канта»</p>
       </EventItem>
       <EventItem date_add='16:00 — 18:00 МСК'
-                 title='Секция «Зеленые ценности и устойчивое развитие» (часть 2)'>
+                 title='Секция «Ценности, устойчивость, изменения климата, degrowth: согласование зеленых действий» (часть 2)'>
       </EventItem>
     </EventItem_Container>
   </div>
@@ -71,7 +71,7 @@ const day19 =  (<div className="day" id="19">
         <p className="mt-0">— Шевченко Владимир Игоревич, и. о. ректора ФГАОУ ВО Национальный исследовательский ядерный университет «МИФИ»</p>
       </EventItem>
       <EventItem date_add='16:00 — 18:00 МСК'
-                 title='Секция «Цифровизация здравоохранения новые решения и работающие кейсы»'>
+                 title='Секция «Цифровизация здравоохранения: новые решения и работающие кейсы»'>
       </EventItem>
     </EventItem_Container>
   </div>
@@ -117,7 +117,7 @@ const day21 =  (<div className="day" id="21">
       <EventItem date_add='8:00 — 9:30 МСК'
                  title='Встреча со студентами. Спикер: Сергей Рязанский, лётчик-космонавт, Герой Российской Федерации, кандидат биологических наук, заслуженный испытатель космической техники.'>
       </EventItem>
-      <EventItem date_add='10:00 — 12:00 МСК'
+      <EventItem date_add='10:00 — 12:30 МСК'
                  title='Секция «Арктика и человек в Арктике. Вызовы и контуры будущего развития циркумполярного мира. Фокус: Человек»'>
       </EventItem>
       <EventItem date_add='12:00 — 13:00 МСК'
@@ -125,6 +125,11 @@ const day21 =  (<div className="day" id="21">
       </EventItem>
       <EventItem date_add='14:00 — 16:00 МСК'
                  title='Финал Западно-Сибирского инновационного межрегионального акселератора научно-технических проектов (ЗИМА21)'>
+      </EventItem>
+      <EventItem date_add='15:30 — 16:30 МСК'
+                 title='Открытая лекция «Новый этап освоения Арктики. Вызовы и возможности 2050». Спикер: Andy Bruno,
+                 associate Professor and Director of Graduate Studies, Ph. D. (University of Illinois), автор монографии
+                 «The Nature of Soviet Power: An Arctic Environmental History»'>
       </EventItem>
     </EventItem_Container>
   </div>
@@ -138,6 +143,9 @@ const day22 =  (<div className="day" id="22">
     <EventItem_Container>
       <EventItem date_add='9:00 — 10:00 МСК'
                  title='Открытая лекция «Развитие человеческого капитала и Арктические проекты НОЦ». Спикер: Марат Есеев, доктор физико-математических наук, проректор по инновационному развитию САФУ, научный руководитель НОЦ мирового уровня «Российская Арктика»'>
+      </EventItem>
+      <EventItem date_add='10:00 — 12:00 МСК'
+                 title='Секция «Арктика и человек в Арктике. Вызовы и контуры будущего развития циркумполярного мира. Фокус: Среда и экология»'>
       </EventItem>
       <EventItem date_add='14:00 — 15:30 МСК'
                  title='Круглый стол «Арктика и человек в Арктике. Вызовы и контуры будущего развития  циркумполярного мира»'>
@@ -227,7 +235,7 @@ export default function ScientificPracticalConference({ current, modalForm }) {
                         </div>
                             <div className="sting">-</div>
                             <div className="schedule_date">
-                              <p className="date_day">23</p>
+                              <p className="date_day">22</p>
                               <span className={`date_month date_month__wide'}`}>{current["Окт"]} 2021</span>
                             </div>
                       </div>
