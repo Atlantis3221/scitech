@@ -81,7 +81,7 @@ export default {
         "Прототип платформы комплексной оценки и развития компетенций управления сложными научно-техническими проектами и программами, с возможностями удаленного доступа и обработки цифрового следа.": "is a prototype platform for comprehensive assessment and development of competencies for managing complex scientific and technical projects and programmes, with option for remote access and digital footprint processing. ",
         "digitalProfPro": "An interactive IT platform with modern interfaces is set for processing information about the current and forecasted competence of users, based on end-to-end data technology, providing development management and staff training, organizing project teams and assessing the potential of specific users.",
         "Акселерационная программа": "Акселерационная программа",
-        "Руководитель ЦРК, и.о. проректора по персоналу и организационному развитию ТюмГУ": "Руководитель ЦРК, и.о. проректора по персоналу и организационному развитию ТюмГУ",
+        "Руководитель ЦРК, проректор ТюмГУ": "Руководитель ЦРК, проректор ТюмГУ",
         "Step into Russian Arctic": "Step into Russian Arctic",
         "Уникальная модульная программа по подготовке людей для управления широким спектром проектов в Арктической зоне РФ. Выпускники смогут на новом уровне подходить к решению задач, связанных с эффективным и результативным управлением в данном регионе.": "Уникальная модульная программа по подготовке людей для управления широким спектром проектов в Арктической зоне РФ. Выпускники смогут на новом уровне подходить к решению задач, связанных с эффективным и результативным управлением в данном регионе.",
 

@@ -619,7 +619,7 @@ const HomePage = ({  data, current, modalForm  }) => {
               link={`/${lang}/accelerationProgram`}
             >
               <SpeakerCard photo='/img/speaker_latyshev.png' fullName={current["Андрей Латышев"]} position={current["руководитель"]} white>
-                {current["Руководитель ЦРК, и.о. проректора по персоналу и организационному развитию ТюмГУ"]}
+                {current["Руководитель ЦРК, проректор ТюмГУ"]}
               </SpeakerCard>
               <SpeakerCard photo='/img/speaker_kizeev.png'
                            fullName={current["Вениамин Кизеев"]}
