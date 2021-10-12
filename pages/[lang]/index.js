@@ -586,7 +586,7 @@ const HomePage = ({  data, current, modalForm  }) => {
                 {current["Д. т. н., генеральный директор НКГ DBA"]}
               </SpeakerCard>
               <SpeakerCard photo='/img/speaker_latyshev.png' fullName={current["Андрей Латышев"]} position={current["идеолог"]} white>
-                {current["Руководитель ЦРК"]}
+                {current["Руководитель ЦРК, проректор ТюмГУ"]}
               </SpeakerCard>
               <SpeakerCard photo='/img/speaker_tereshcenko.png' fullName={current["Терещенко Владимир"]} position={current["руководитель проектной работы"]} white>
                 {current["Директор ЦКИ СурГУ"]}
@@ -678,7 +678,7 @@ const HomePage = ({  data, current, modalForm  }) => {
                         <div className='quote_content'>
                           <div className='quote_author'>
                           <span>
-                            <a href={`${lang}/experts/latishev`}>{current["Андрей Латышев"]}</a>, {current["Руководитель ЦРК"]}
+                            <a href={`${lang}/experts/latishev`}>{current["Андрей Латышев"]}</a>, {current["Руководитель ЦРК, проректор ТюмГУ"]}
                           </span>
                             <span className='quote_authorDescription'>
                             {current["И.о. проректора по персоналу и организационному развитию ТюмГУ"]}
