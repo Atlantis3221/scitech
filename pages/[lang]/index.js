@@ -92,7 +92,7 @@ const HomePage = ({  data, current, modalForm  }) => {
                                 />
                               </svg>
                             </a>
-                            <div className='link_data'>18 - 23 {current["Октября"]} 2021</div>
+                            <div className='link_data'>18 - 22 {current["Октября"]} 2021</div>
                           </div>
                         </li>
 
@@ -681,7 +681,6 @@ const HomePage = ({  data, current, modalForm  }) => {
                             <a href={`${lang}/experts/latishev`}>{current["Андрей Латышев"]}</a>, {current["Руководитель ЦРК, проректор ТюмГУ"]}
                           </span>
                             <span className='quote_authorDescription'>
-                            {current["И.о. проректора по персоналу и организационному развитию ТюмГУ"]}
                           </span>
                           </div>
                           <div className='quote_title'>
