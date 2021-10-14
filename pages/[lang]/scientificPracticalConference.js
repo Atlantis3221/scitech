@@ -17,13 +17,13 @@ const day18 =  (<div className="day" id="18">
       18 Октября, понедельник
     </h4>
     <EventItem_Container>
-      <EventItem date_add='10:00 — 10:30 МСК'
+      <EventItem date_add='10:00 — 11:30 МСК'
                  title='Открытая лекция «Глобальные тренды будущего - рамка для переосмысления роли университетов до и после 2050 года»'>
         <p>Спикер: Александр Чулок, кандидат экономических наук, директор Центра научно-технологического прогнозирования НИУ ВШЭ</p>
       </EventItem>
-      <EventItem date_add='10:30 — 11:30 МСК'
-                 title='Открытая лекция. Спикер: Александр Чулок, кандидат экономических наук, директор Центра научно-технологического прогнозирования НИУ ВШЭ'>
-      </EventItem>
+      {/*<EventItem date_add='10:30 — 11:30 МСК'*/}
+      {/*           title='Открытая лекция. Спикер: Александр Чулок, кандидат экономических наук, директор Центра научно-технологического прогнозирования НИУ ВШЭ'>*/}
+      {/*</EventItem>*/}
       <EventItem date_add='11:30 — 13:30 МСК'
                  title='Секция «Ценности, устойчивость, изменения климата, degrowth: согласование зеленых действий» (часть 1)'>
       </EventItem>
@@ -41,7 +41,7 @@ const day18 =  (<div className="day" id="18">
         <p className="m-0">— Романчук Иван Сергеевич, ректор ФГАОУ ВО «Тюменский государственный университет»</p>
         <p className="m-0">— Румянцев Максим Валерьевич, ректор ФГАОУ ВО «Сибирский федеральный университет»</p>
         <p className="m-0">— Толстиков Андрей Викторович, первый проректор ФГАОУ ВО «Тюменский государственный университет»</p>
-        <p className="mt-0">— Федоров Александр Александрович, ректор ФГАОУ ВО «Балтийский федеральный университет имени Иммануила Канта»</p>
+        <p className="mt-0">— Дёмин Максим Викторович, проректор по научной работе ФГАОУ ВО «Балтийский федеральный университет имени Иммануила Канта»</p>
       </EventItem>
       <EventItem date_add='16:00 — 18:00 МСК'
                  title='Секция «Ценности, устойчивость, изменения климата, degrowth: согласование зеленых действий» (часть 2)'>
@@ -191,8 +191,16 @@ const day22 =  (<div className="day" id="22">
         <p className="m-0">— Сергеев Александр Михайлович, президент ФГБУ «Российская академия наук», академик РАН, доктор физико-математических наук</p>
         <p className="mt-0">— Фрумин Исак Давидович, научный руководитель, профессор Института образования НИУ «Высшая школа экономики», член Международной академии образования</p>
       </EventItem>
-      <EventItem date_add='16:00 — 18:00 МСК'
+      <EventItem date_add='15:30 — 16:00 МСК'
                  title='Подведение итогов конференции'>
+      </EventItem>
+      <EventItem date_add='16:00 — 17:00 МСК'
+                 title='Открытая лекция «Risks and Response Measures in the Arctic»'>
+        <p>Спикер: Lаra Jóhannsdóttir, PhD, Professor (Faculty of Business Administration, University of Iceland)</p>
+      </EventItem>
+      <EventItem date_add='17:00 — 18:00 МСК'
+                 title="Открытая лекция «Possibility for greater cooperation in the Arctic between the US and Russia, during Russia's chairship of the Arctic Council»">
+      <p>Спикер: Dr. Thomas E. Rotnem, Ph.D., M.B.A. Associate Director & Professor of Political Science, School of Government & International Affairs, Kennesaw State University (USA)</p>
       </EventItem>
     </EventItem_Container>
   </div>
