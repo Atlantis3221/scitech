@@ -513,6 +513,14 @@ export default function ScientificPracticalConference({ current, modalForm }) {
                       alt='Высшая школа экономики'
                     ></Partner>
                   </li>
+                  <li className='i3_3'>
+                    <Partner
+                      logo='/img/logo-winbd.png'
+                      link="https://winbd.ru/"
+                      name='Компания WINbd'
+                      alt='компания WINbd'
+                    ></Partner>
+                  </li>
                 </ul>
               </li>
             </ul>
