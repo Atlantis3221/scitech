@@ -41,7 +41,7 @@ export default function DevelopmentProjectZima({  data, current, modalForm  }) {
           <meta property="og:url" content={`https://scitech.ru/developmentProjectZima`} />
           <meta property="og:title" content={current["zime"]}/>
           <meta property="og:description" content={current["zime"]} />
-          <title>{current["zime"]}</title>
+          <title>{current["zima"]}</title>
           <link rel="canonical" href={`https://scitech.ru/developmentProjectZima`} />
         </Helmet>
 
@@ -83,7 +83,7 @@ export default function DevelopmentProjectZima({  data, current, modalForm  }) {
                         </div>
                       </div>
 
-                      <div>
+                      <div className="schedule_button">
                         <p className="raleway">{current["Прием заявок окончен"]}</p>
                       </div>
                     </div>

@@ -117,6 +117,7 @@ export default {
         "Конференция": "Conference ",
         "«Наука. Лидерство. Общество – 2050»": "«Science. Leadership. Society – 2050»",
         "Зарегистрироваться": "Register now",
+        "Ссылка на трансляцию": "Broadcast link",
         "о конференции": "ABOUT THE CONFERENCE",
         "scientificPracticalConferenceA": "The 2nd international conference with the thematic scope «Man and the Prospects of Humanity in a Dynamically Changing World» will be held on October 18–22, 2021.",
         "scientificPracticalConferenceB": "The Conference is aimed at discussing topical issues of human development in a changing world, including such existential threats as climate change, social disasters, biosafety disruption and the role of science in combating these threats.",

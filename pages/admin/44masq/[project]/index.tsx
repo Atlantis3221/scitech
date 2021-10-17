@@ -47,7 +47,7 @@ const Results = ({sortedData}) => {
 					</Table_head>
 					<Table_body>
 						{tableData.map((res, i) => {
-								const date = new Date(Date.now())
+								const date = new Date(res.createdAt ?? Date.now())
 								return (
 									<Table_row key={`row_${i}`}>
 										<Table_column key={`indexation_${i}`}>{i + 1}</Table_column>
