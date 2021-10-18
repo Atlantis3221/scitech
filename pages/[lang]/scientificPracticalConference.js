@@ -356,7 +356,7 @@ export default function ScientificPracticalConference({ current, modalForm }) {
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker'>{current["ПРОЕКТ СОДЕРЖАНИЯ КОНФЕРЕНЦИИ"]}</p>
+                  <p className='asideMarker'>{current["РАСПИСАНИЕ КОНФЕРЕНЦИИ"]}</p>
                 </li>
                 <li className='i3_9'>
                   <p className='mb0'><StrongText>{current["4 круглых стола"]}</StrongText> {current["по следующим тематикам:"]}</p>

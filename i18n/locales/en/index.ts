@@ -129,7 +129,7 @@ export default {
           "as well as representatives of public authorities and businesses for discussing current challenges of scientific and technological development. This " +
           "will facilitate collaboration between the participants in implementing breakthrough R&D projects in accordance with the national goals of the Russian Federation.",
         "онлайн": "online",
-        "ПРОЕКТ СОДЕРЖАНИЯ КОНФЕРЕНЦИИ": "DRAFT PROGRAMME",
+        "РАСПИСАНИЕ КОНФЕРЕНЦИИ": "DRAFT PROGRAMME",
         "4 круглых стола": "4 round tables",
         "по следующим тематикам:": "on the following topics:",
         "roundtable-1": "Human capital as an important component of the transformational and innovative development of science and technology on the agenda of world-class scientific and educational centres.",
