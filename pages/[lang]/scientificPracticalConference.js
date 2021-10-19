@@ -163,7 +163,7 @@ const day21 =  (<div className="day" id="21">
                  title='Финал Западно-Сибирского инновационного межрегионального акселератора научно-технических проектов (ЗИМА21)'>
       </EventItem>
       <EventItem date_add='15:30 — 16:30 МСК'
-                 title='Открытая лекция «Новый этап освоения Арктики. Вызовы и возможности 2050»'>
+                 title='Открытая лекция «Environmental Humanities and the Anthropocene»'>
         <p>Спикер: Bruno Andy, associate Professor and Director of Graduate Studies, PhD (University of Illinois)</p>
       </EventItem>
     </EventItem_Container>
