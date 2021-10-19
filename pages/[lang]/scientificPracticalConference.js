@@ -164,7 +164,7 @@ const day21 =  (<div className="day" id="21">
       </EventItem>
       <EventItem date_add='15:30 — 16:30 МСК'
                  title='Открытая лекция «Environmental Humanities and the Anthropocene»'>
-        <p>Спикер: Bruno Andy, associate Professor and Director of Graduate Studies, PhD (University of Illinois)</p>
+        <p>Спикер: Bruno Andy, associate Professor and Director of Graduate Studies, PhD (Northern Illinois University)</p>
       </EventItem>
     </EventItem_Container>
   </div>
@@ -183,6 +183,21 @@ const day22 =  (<div className="day" id="22">
       </EventItem>
       <EventItem date_add='10:00 — 12:00 МСК'
                  title='Секция «Арктика и человек в Арктике. Вызовы и контуры будущего развития циркумполярного мира. Фокус: Среда и экология»'>
+        <p>Модератор: Гладун Елена Федоровна, кандидат юридических наук, профессор кафедры государственного и муниципального
+          управления ТюмГУ, главный редактор журнала BRICS Law Journal, выпускник программы Fulbright Arctic Initiative</p>
+        <p>Эксперты и темы докладов:</p>
+        <p className="mb-0">— Diane Hirshberg, Professor of Education Policy, Interim Director, Institute of Social and Economic
+          Policy, University of Alaska Anchorage, Vice President Academic for UArctic. «UArctic Collaborations, Universities'
+          Networking Opportunities and Perspective Academic Projects»</p>
+        <p className="m-0">— Гладун Елена Федоровна, кандидат юридических наук, профессор кафедры государственного и муниципального
+          управления ТюмГУ, главный редактор журнала BRICS Law Journal, выпускник программы Fulbright Arctic Initiative.
+          «"Полярная лихорадка" XXI века: причины и последствия»</p>
+        <p className="m-0">— Тулаева Светлана Александровна, кандидат социологических наук, PhD in Legal Studies, доцент кафедры
+          сравнительных и политических исследований Северо-Западного института управления РАНХиГС. «Экономика коренных народов
+          в Арктике: вызовы и возможности»</p>
+        <p className="mt-0">— Симонова Вероника Витальевна, PhD in Social Anthropology, кандидат социологических наук, руководитель
+          Центра Арктических и Сибирских исследований, старший научный сотрудник, Социологический Институт, Федеральный Научно-Исследовательский
+          Социологический Центр, Российской Академии Наук (ФНИСЦ РАН). «"Делиться у нас в крови": антропология ущерба традиционному образу жизни у КМНС Арктики»</p>
       </EventItem>
       <EventItem date_add='12:00 — 13:00 МСК'
                  title='Открытая лекция «Не только нефть и ледоколы: социогуманитарные исследования Арктики как основа развития человеческого потенциала в регионе»'>
@@ -306,7 +321,7 @@ export default function ScientificPracticalConference({ current, modalForm }) {
                             <div className='registerEventForm'>
                               <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
                             </div>
-                            <a href='https://youtu.be/u-fXAlg7pJo' className="btn btn__red mt1">
+                            <a href='https://youtu.be/MsTkxlF7Xds' className="btn btn__red mt1">
                               {current["Ссылка на трансляцию"]}
                             </a>
                         </div>
