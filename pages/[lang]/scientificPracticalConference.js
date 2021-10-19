@@ -107,7 +107,7 @@ const day20 =  (<div className="day" id="20">
     </h4>
     <EventItem_Container>
       <EventItem date_add='9:00 — 10:00 МСК'
-                 title='Открытая лекция «Future of Science and future scientists. Prospectives for 2050»'>
+                 title='Открытая лекция «Fundamental Science for Society and Challenges on the Horizon 2050»'>
         <p>Спикер: HansPeter Beck, PhD, professor, senior physicist and researcher (CERN, Switzerland)</p>
       </EventItem>
       <EventItem date_add='10:00 — 13:00 МСК'
