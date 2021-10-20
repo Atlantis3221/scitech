@@ -318,7 +318,7 @@ export default function ScientificPracticalConference({ current, modalForm }) {
                             <div className='registerEventForm'>
                               <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
                             </div>
-                            <a href='https://youtu.be/MsTkxlF7Xds' className="btn btn__red mt1">
+                            <a href='https://youtu.be/jK0Uo4gRYUo' className="btn btn__red mt1">
                               {current["Ссылка на трансляцию"]}
                             </a>
                         </div>
