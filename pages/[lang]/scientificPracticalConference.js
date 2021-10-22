@@ -315,12 +315,15 @@ export default function ScientificPracticalConference({ current, modalForm }) {
                       </div>
 
                         <div className="schedule_button">
-                            <div className='registerEventForm'>
-                              <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>
-                            </div>
-                            <a href='https://youtu.be/0DW2szyv5GY' className="btn btn__red mt1">
-                              {current["Ссылка на трансляцию"]}
-                            </a>
+                          <div className="schedule_button">
+                            <p className="raleway">{current["Прием заявок окончен"]}</p>
+                          </div>
+                            {/*<div className='registerEventForm'>*/}
+                            {/*  <Button red onClick={openModal}>{current["Зарегистрироваться"]}</Button>*/}
+                            {/*</div>*/}
+                            {/*<a href='https://youtu.be/0DW2szyv5GY' className="btn btn__red mt1">*/}
+                            {/*  {current["Ссылка на трансляцию"]}*/}
+                            {/*</a>*/}
                         </div>
                     </div>
                   </li>
