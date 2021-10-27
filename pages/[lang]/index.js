@@ -73,29 +73,28 @@ const HomePage = ({  data, current, modalForm  }) => {
                   </li>
                   <li className='i3_9'>
                     <ul className='g3'>
-                        <li className='i3_4'>
-                          <div className='link_toEvent'>
-                            <a href={`/${lang}/scientificPracticalConference`} className='link_event'>
-                              {current["II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»"]}
-                              <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
-                              >
-                                <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
-                                />
-                              </svg>
-                            </a>
-                            <div className='link_data'>18 - 22 {current["Октября"]} 2021</div>
-                          </div>
-                        </li>
-
+                      <li className='i3_4'>
+                        <div className='link_toEvent'>
+                          <a href={`/${lang}/recruitingPriceDevelopEvent`} className='link_event'>
+                            {current["Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение"]}
+                            <svg
+                              width='12'
+                              height='12'
+                              viewBox='0 0 12 12'
+                              fill='none'
+                              xmlns='http://www.w3.org/2000/svg'
+                            >
+                              <path
+                                fillRule='evenodd'
+                                clipRule='evenodd'
+                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                fill='#E62C2C'
+                              />
+                            </svg>
+                          </a>
+                          <div className='link_data' style={{ textTransform: 'capitalize' }}>6 {current["ноября"]} - 18 {current["Декабря"]} 2021</div>
+                        </div>
+                      </li>
                       {lang === 'ru'? ( <>
                       <li className='i3_4'>
                         <div className='link_toEvent'>
@@ -289,6 +288,28 @@ const HomePage = ({  data, current, modalForm  }) => {
                       {lang === 'ru'? ( <>
                         <li className='i3_4'>
                           <div className='link_toEvent'>
+                            <a href={`/${lang}/scientificPracticalConference`} className='link_event'>
+                              {current["II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»"]}
+                              <svg
+                                width='12'
+                                height='12'
+                                viewBox='0 0 12 12'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path
+                                  fillRule='evenodd'
+                                  clipRule='evenodd'
+                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                  fill='#E62C2C'
+                                />
+                              </svg>
+                            </a>
+                            <div className='link_data'>18 - 22 {current["Октября"]} 2021</div>
+                          </div>
+                        </li>
+                        <li className='i3_4'>
+                          <div className='link_toEvent'>
                             <a href={`/${lang}/strategicEducationalIntensive`} className='link_event'>
                               {current["Стратегический образовательный интенсив: Практика создания и развития карбоновых полигонов и сопутствующих климатических проектов: кадры, технологии, оборудование"]}
                               <svg
@@ -332,28 +353,28 @@ const HomePage = ({  data, current, modalForm  }) => {
                           <div className='link_data'>11 {current["февраля"]} 2021</div>
                         </div>
                       </li>
-                      <li className='i3_4'>
-                        <div className='link_toEvent'>
-                          <a href={`/${lang}/roundTable`} className='link_event'>
-                            {current["Круглый стол «Трансфер университетских технологий. Будущее стартап-студий»"]}
-                            <svg
-                              width='12'
-                              height='12'
-                              viewBox='0 0 12 12'
-                              fill='none'
-                              xmlns='http://www.w3.org/2000/svg'
-                            >
-                              <path
-                                fillRule='evenodd'
-                                clipRule='evenodd'
-                                d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                fill='#E62C2C'
-                              />
-                            </svg>
-                          </a>
-                          <div className='link_data'>20 {current["Октября"]}</div>
-                        </div>
-                      </li>
+                      {/*<li className='i3_4'>*/}
+                      {/*  <div className='link_toEvent'>*/}
+                      {/*    <a href={`/${lang}/roundTable`} className='link_event'>*/}
+                      {/*      {current["Круглый стол «Трансфер университетских технологий. Будущее стартап-студий»"]}*/}
+                      {/*      <svg*/}
+                      {/*        width='12'*/}
+                      {/*        height='12'*/}
+                      {/*        viewBox='0 0 12 12'*/}
+                      {/*        fill='none'*/}
+                      {/*        xmlns='http://www.w3.org/2000/svg'*/}
+                      {/*      >*/}
+                      {/*        <path*/}
+                      {/*          fillRule='evenodd'*/}
+                      {/*          clipRule='evenodd'*/}
+                      {/*          d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'*/}
+                      {/*          fill='#E62C2C'*/}
+                      {/*        />*/}
+                      {/*      </svg>*/}
+                      {/*    </a>*/}
+                      {/*    <div className='link_data'>20 {current["Октября"]}</div>*/}
+                      {/*  </div>*/}
+                      {/*</li>*/}
                       {lang !== 'ru'? (<li className='i3_4'>
                         <div className='link_toEvent'>
                           <a href={`/${lang}/events`} className='link_event'>
