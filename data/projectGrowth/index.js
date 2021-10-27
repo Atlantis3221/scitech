@@ -1,14 +1,14 @@
 export const projectGrowth = [
   {
-    _id: 'scientificPracticalConference',
-    link: '/scientificPracticalConference',
-    name: 'Конференция',
-    cardType: ['now', 'courses'],
-    projectDate: '18 Окт - 23 Окт 2021',
+    _id: 'recruitingPriceDevelopEvent',
+    link: '/recruitingPriceDevelopEvent',
+    name: 'Мероприятие',
+    cardType: ['inProcess', 'courses'],
+    deadline: '6 Ноя - 18 Дек 2021',
     location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
-    title: 'II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»',
-    engVersion: true
+    title: '«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»',
+    engVersion: false
   },
   {
     _id: 'developmentProjectZima',
@@ -68,6 +68,17 @@ export const projectGrowth = [
 
   // past projects
   {
+    _id: 'scientificPracticalConference',
+    link: '/scientificPracticalConference',
+    name: 'Конференция',
+    cardType: ['past', 'courses'],
+    projectDate: '18 Окт - 23 Окт 2021',
+    location: 'Онлайн',
+    image: '/img/developmentProjects/projectCardTemplate.svg',
+    title: 'II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»',
+    engVersion: true
+  },
+  {
     _id: 'strategicEducationalIntensive',
     link: '/strategicEducationalIntensive',
     name: 'Интенсив',
@@ -98,17 +109,6 @@ export const projectGrowth = [
     location: 'Онлайн',
     image: '/img/developmentProjects/bgLily.svg',
     title: 'Игровые методы в образовании. Принципы. Теория. Практика',
-    engVersion: false
-  },
-  {
-    _id: 'recruitingPriceDevelopEvent',
-    link: '/recruitingPriceDevelopEvent',
-    name: 'Мероприятие',
-    cardType: ['past', 'courses'],
-    deadline: '20 ноя 2020 - 19 дек 2020',
-    location: 'Онлайн',
-    image: '/img/developmentProjects/projectCardTemplate.svg',
-    title: '«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»',
     engVersion: false
   },
   {

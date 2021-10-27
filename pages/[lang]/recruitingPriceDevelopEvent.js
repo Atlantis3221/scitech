@@ -17,11 +17,11 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
           <meta name="description" content='«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»' />
           <meta name="keywords" content='мероприятие Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
           <meta property="og:image" content="/img/appleIcon.png" />
-          <meta property="og:url" content={`https://scitech.ru/recruitingPriceDevelopEvent`} />
+          <meta property="og:url" content={`https://scitech.ru/ru/recruitingPriceDevelopEvent`} />
           <meta property="og:title" content='«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»' />
           <meta property="og:description" content='мероприятие Центра развития компетенций руководителей научных и научно-технических проектов и лабораторий межрегионального Западно-Сибирского научно-образовательного центра мирового уровня' />
           <title>«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»</title>
-          <link rel="canonical" href={`https://scitech.ru/recruitingPriceDevelopEvent`} />
+          <link rel="canonical" href={`https://scitech.ru/ru/recruitingPriceDevelopEvent`} />
         </Helmet>
 
         <div className='show content'>
@@ -51,13 +51,13 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
                     <div className="schedule_box">
                       <div className="datePlace_text">
                       <div className="datePlace_date">
-                        <p className="date_day">20</p>
-                        <span className="date_month">Ноя 2020 </span>
+                        <p className="date_day">6</p>
+                        <span className="date_month">Ноя 2021 </span>
                       </div>
                           <div className="sting">-</div>
                           <div className="datePlace_date">
-                            <p className="date_day">19</p>
-                            <span className="date_month">Дек 2020</span>
+                            <p className="date_day">18</p>
+                            <span className="date_month">Дек 2021</span>
                           </div>
                       </div>
 
@@ -71,7 +71,7 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
                       </div>
 
                       <div>
-                        <p className="raleway">Прием заявок окончен</p>
+                        {/*<p className="raleway">Прием заявок окончен</p>*/}
                       </div>
                     </div>
                   </li>
@@ -97,8 +97,8 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
                   персонала в современном университете: рекрутинг, оценка, развитие, продвижение».
                 </p>
                 <p>
-                  Программа обучения реализуется в модульном формате онлайн и пройдет в период с 20.11.2020 по
-                  19.12.2020 года. Программу реализует группа отечественных и зарубежных экспертов, представляющих опыт
+                  Программа обучения реализуется в модульном формате онлайн и пройдет в период с 06.11.2021 по
+                  18.12.2021 года. Программу реализует группа отечественных и зарубежных экспертов, представляющих опыт
                   ведущих университетов и научных центров по заявленной проблематике.
                 </p>
                 <p>Обучение будет проводиться в формате интенсивных семинаров, мозговых штурмов, кейс-практик и
@@ -153,18 +153,48 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
           <div className='container'>
             <ul className='g3'>
               <li className='i3_3'>
-                <p className='asideMarker'>ОСНОВНАЯ КОМАНДА</p>
+                <p className='asideMarker'>Ведущий программы</p>
+              </li>
+              <li className='i3_9'>
+                {/*<SpeakerCards>*/}
+                {/*  <SpeakerCard photo='/img/speaker_latyshev.png'*/}
+                {/*               fullName='Андрей Латышев'*/}
+                {/*               position="ведущий программы">*/}
+                {/*    И.о. проректора по персоналу и организационному развитию ТюмГУ*/}
+                {/*  </SpeakerCard>*/}
+                {/*</SpeakerCards>*/}
+                <div className="speakerCard">
+                  <div className="card_photo">
+                    <img src="/img/speaker_latyshev.png" alt="avatar" />
+                  </div>
+                  <div className="card_text">
+                    <p className="card_title">
+                      Андрей Латышев
+                    </p>
+                    <div className="socials" style={{ display: 'flex', flexDirection: 'column'}}>
+                      <p>И.о. проректора по персоналу и организационному развитию ТюмГУ</p>
+                      <div style={{ display: 'flex' }}>
+                        <a href="mailto:a.s.latyshev@utmn.ru" className="socials_mail"></a>
+                        <a href="tel:+7 905 089 67 47" className="socials_phone"></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className='wrapper_partners content'>
+          <div className='container'>
+            <ul className='g3'>
+              <li className='i3_3'>
+                <p className='asideMarker'>Спикеры</p>
               </li>
               <li className='i3_9'>
                 <SpeakerCards>
-                  <SpeakerCard photo='/img/speaker_latyshev.png'
-                               fullName='Андрей Латышев'
-                               position="ведущий программы">
-                    И.о. проректора по персоналу и организационному развитию ТюмГУ
-                  </SpeakerCard>
                   <SpeakerCard photo='/img/speaker_irina.png'
-                               fullName='Ирина Шрайбер'
-                               position='эксперт'>
+                               fullName='Ирина Шрайбер' >
                     Ph. D., кандидат физико-математических наук, физик-ядерщик, ЦЕРН (CERN, Geneva, Switzerland), ментор
                     Школы научного лидерства ЦРК Западно-Сибирского НОЦ, популяризатор науки
                   </SpeakerCard>
@@ -199,6 +229,39 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
                                position="эксперт">
                     Кандидат философских наук, директор Научно-образовательного центра "Институт передовых технологий
                     обучения" Томского государственного университета.
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/speaker_sorokin.png' fullName='Александр Сорокин' position=''>
+                    Руководитель проектной работы (2019/2020)
+                  </SpeakerCard>
+                </SpeakerCards>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className='wrapper_partners content'>
+          <div className='container'>
+            <ul className='g3'>
+              <li className='i3_3'>
+                <p className='asideMarker'>приглашенные эксперты</p>
+              </li>
+              <li className='i3_9'>
+                <SpeakerCards>
+                  <SpeakerCard photo='/img/speaker_romanchuk.jpg' fullName='Иван Романчук' >
+                    К.ю.н., Ректор Тюменского Государственного Университета
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/speaker_kizeev.png' fullName='Вениамин Кизеев'>
+                    IPMA Level«B», член правления НП «СОВНЕТ», эксперт по управлению проектами и инновациями компании WINbd
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/speaker_yudkevich.jpg' fullName='Мария Юдкевич' >
+                    К.э.н., Проректор НИУ ВШЭ, Директор Института институциональных исследований НИУ ВШЭ
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/speaker_borovikov.jpg' fullName='Юрий Боровиков' >
+                    Д.т.н., профессор, и.о. Ректора Новгородского университета им. Ярослава Мудрого
+                  </SpeakerCard>
+                  <SpeakerCard photo='/img/speaker_kiselev.png' fullName='Максим Киселев'>
+                    Ph. D. (Yale), Professor of the Practice; Mentor, SKOLKOVO Foundation; Center for Entrepreneurship
+                    and Innovation
                   </SpeakerCard>
                 </SpeakerCards>
               </li>
