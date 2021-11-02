@@ -72,7 +72,7 @@ export const projectGrowth = [
     link: '/scientificPracticalConference',
     name: 'Конференция',
     cardType: ['past', 'courses'],
-    projectDate: '18 Окт - 23 Окт 2021',
+    projectDate: '18 Окт - 22 Окт 2021',
     location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»',
