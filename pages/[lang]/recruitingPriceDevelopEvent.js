@@ -172,7 +172,7 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
                       Андрей Латышев
                     </p>
                     <div className="socials" style={{ display: 'flex', flexDirection: 'column'}}>
-                      <p>И.о. проректора по персоналу и организационному развитию ТюмГУ</p>
+                      <p>Проректор ТюмГУ</p>
                       <div style={{ display: 'flex' }}>
                         <a href="mailto:a.s.latyshev@utmn.ru" className="socials_mail"></a>
                         <a href="tel:+7 905 089 67 47" className="socials_phone"></a>
@@ -207,7 +207,7 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
                   <SpeakerCard photo='/img/roman_osvald.png'
                                fullName='Роман Оствальд'
                                position="эксперт">
-                    Канд. хим. наук. Проректор СурГУ по науке и технологиям. Руководитель проектной работы SLS
+                    Кандидат химических наук, проректор СурГУ. Руководитель проектной работы SLS
                   </SpeakerCard>
                   <SpeakerCard photo='/img/speaker_klimovaTatiana.png'
                                fullName='Татьяна Владимировна Климова'
@@ -227,11 +227,12 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
                   <SpeakerCard photo='/img/speaker_drugova.png'
                                fullName='Елена Анатольевна Другова'
                                position="эксперт">
-                    Кандидат философских наук, директор Научно-образовательного центра "Институт передовых технологий
-                    обучения" Томского государственного университета.
+                    Кандидат философских наук, директор Научно-образовательного центра «Институт передовых технологий
+                    обучения» Томского государственного университета.
                   </SpeakerCard>
                   <SpeakerCard photo='/img/speaker_sorokin.png' fullName='Александр Сорокин' position=''>
-                    Руководитель проектной работы (2019/2020)
+                    Руководитель проектной работы ШНЛ (2019/2020), кандидат исторических наук, директор Школы исследований
+                    окружающей среды ТюмГУ (Антропошкола – проект «Приоритет 2030»)
                   </SpeakerCard>
                 </SpeakerCards>
               </li>
@@ -248,16 +249,16 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
               <li className='i3_9'>
                 <SpeakerCards>
                   <SpeakerCard photo='/img/speaker_romanchuk.jpg' fullName='Иван Романчук' >
-                    К.ю.н., Ректор Тюменского Государственного Университета
+                    Кандидат юридических наук, ректор Тюменского государственного университета
                   </SpeakerCard>
                   <SpeakerCard photo='/img/speaker_kizeev.png' fullName='Вениамин Кизеев'>
                     IPMA Level«B», член правления НП «СОВНЕТ», эксперт по управлению проектами и инновациями компании WINbd
                   </SpeakerCard>
                   <SpeakerCard photo='/img/speaker_yudkevich.jpg' fullName='Мария Юдкевич' >
-                    К.э.н., Проректор НИУ ВШЭ, Директор Института институциональных исследований НИУ ВШЭ
+                    Кандидат экономических наук, проректор НИУ ВШЭ, директор Института институциональных исследований НИУ ВШЭ
                   </SpeakerCard>
                   <SpeakerCard photo='/img/speaker_borovikov.jpg' fullName='Юрий Боровиков' >
-                    Д.т.н., профессор, и.о. Ректора Новгородского университета им. Ярослава Мудрого
+                    Доктор технических наук, профессор, и.о. ректора Новгородского университета им. Ярослава Мудрого
                   </SpeakerCard>
                   <SpeakerCard photo='/img/speaker_kiselev.png' fullName='Максим Киселев'>
                     Ph. D. (Yale), Professor of the Practice; Mentor, SKOLKOVO Foundation; Center for Entrepreneurship
@@ -269,19 +270,40 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
           </div>
         </div>
 
+        {/*<div className='show wrapper_price content'>*/}
+        {/*  <div className='container'>*/}
+        {/*    <ul className='g3'>*/}
+        {/*      <li className='i3_3'>*/}
+        {/*        <p className='asideMarker asideMarker_mt_half'>Программа</p>*/}
+        {/*      </li>*/}
+        {/*      <li className='i3_9'>*/}
+        {/*        <p className='flex'>*/}
+        {/*          <span>*/}
+        {/*             <img src='/img/download.svg' alt='icon' />*/}
+        {/*          </span>*/}
+        {/*          <a href="/docs/recruitingPriceDevelopProgram.docx" target="_blank">План программы</a>*/}
+        {/*        </p>*/}
+        {/*      </li>*/}
+        {/*    </ul>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+
         <div className='show wrapper_price content'>
           <div className='container'>
             <ul className='g3'>
               <li className='i3_3'>
-                <p className='asideMarker asideMarker_mt_half'>Программа</p>
+                <p className='asideMarker'>ОРГАНИЗАЦИОННАЯ ИНФОРМАЦИЯ</p>
               </li>
               <li className='i3_9'>
-                <p className='flex'>
-                  <span>
-                     <img src='/img/download.svg' alt='icon' />
-                  </span>
-                  <a href="/docs/recruitingPriceDevelopProgram.docx" target="_blank">План программы</a>
-                </p>
+                <p>Место проведения: дистанционно, онлайн на платформе Zoom.</p>
+                <p>Стоимость обучения на курсе: </p>
+                <p>29 000 &#x20bd; индивидуальное участие.</p>
+                <p>87 000 &#x20bd; для команды от университета или организации, 3-8 человек.</p>
+                <p>-10% скидка для участников, входящих в периметр действующих НОЦ или вузов, подавших заявку в «Приоритет 2030».</p>
+                <p>Ссылка на регистрацию: <a href="http://shrinru.utmn.ru/ ">http://shrinru.utmn.ru/.</a></p>
+                <p>Справки и консультации по программе курсу и общим вопросам заключения договоров:</p>
+                <p>Юлия Сюткина, e-mail: <a href='mailto:y.v.syutkina@utmn.ru'>y.v.syutkina@utmn.ru</a> </p>
+                <p><a href="https://scitech.ru">Scitech.ru</a> - Информация о Центре развития компетенций</p>
               </li>
             </ul>
           </div>
@@ -291,18 +313,12 @@ export default function RecruitingPriceDevelopEvent({ modalForm }) {
           <div className='container pb3'>
             <ul className='g3'>
               <li className='i3_3'>
-                <p className='asideMarker'>ОРГАНИЗАЦИОННАЯ ИНФОРМАЦИЯ</p>
+                <p className='asideMarker '>Актуальная информация о программе</p>
               </li>
               <li className='i3_9'>
-                <p>Место проведения: дистанционно, онлайн на платформе Zoom.</p>
-                <p>Стоимость обучения на курсе: </p>
-                <p>- 19 000 &#x20bd; для одного участника.</p>
-                <p>- 15 000 &#x20bd; для одного участника, представляющего организации участников Западно-Сибирского НОЦ.</p>
-                <p>- 30 000 &#x20bd; для группы от 3 до 4 человек от одной организации.</p>
-                <p>Заявки принимаются через заполнение <a href={`/${lang}/recruitingPriceDevelopEvent`}>электронной формы.</a></p>
-                <p>Справки и консультации по программе курсу и общим вопросам заключения договоров:</p>
-                <p>Селиванова Наталья, e-mail: <a href='mailto:natalia.selivanova@scitech.ru'>natalia.selivanova@scitech.ru</a> </p>
-                <p><a href="https://scitech.ru">Scitech.ru</a> - Информация о Центре развития компетенций</p>
+                <p className='flex'>
+                  <a href="http://shrinru.utmn.ru/" target="_blank">http://shrinru.utmn.ru/</a>
+                </p>
               </li>
             </ul>
           </div>

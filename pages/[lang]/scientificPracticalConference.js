@@ -16,6 +16,9 @@ const day18 =  (<div className="day" id="18">
     <h4>
       18 Октября, понедельник
     </h4>
+    <a href='https://youtu.be/YNLXEt7sK5w' className="btn btn__red mt1">
+      Ссылка на трансляцию
+    </a>
     <EventItem_Container>
       <EventItem date_add='10:00 — 10:30 МСК'
                  title='Открытие конференции'>
@@ -70,6 +73,9 @@ const day19 =  (<div className="day" id="19">
     <h4>
       19 Октября, вторник
     </h4>
+    <a href='https://youtu.be/u-fXAlg7pJo' className="btn btn__red mt1">
+      Ссылка на трансляцию
+    </a>
     <EventItem_Container>
       <EventItem date_add='10:00 — 11:00 МСК'
                  title='Открытая лекция «Климатические вызовы для России: риски, возможности адаптации и миграции, роль карбоновых полигонов»'>
@@ -105,6 +111,9 @@ const day20 =  (<div className="day" id="20">
     <h4>
       20 Октября, среда
     </h4>
+    <a href='https://youtu.be/MsTkxlF7Xds' className="btn btn__red mt1">
+      Ссылка на трансляцию
+    </a>
     <EventItem_Container>
       <EventItem date_add='9:00 — 10:00 МСК'
                  title='Открытая лекция «Fundamental Science for Society and Challenges on the Horizon 2050»'>
@@ -145,6 +154,9 @@ const day21 =  (<div className="day" id="21">
     <h4>
       21 Октября, четверг
     </h4>
+    <a href='https://youtu.be/jK0Uo4gRYUo' className="btn btn__red mt1">
+      Ссылка на трансляцию
+    </a>
     <EventItem_Container>
       <EventItem date_add='8:00 — 9:30 МСК'
                  title='Встреча со студентами'>
@@ -172,6 +184,9 @@ const day22 =  (<div className="day" id="22">
     <h4>
       22 Октября, пятница
     </h4>
+    <a href='https://youtu.be/0DW2szyv5GY' className="btn btn__red mt1">
+      Ссылка на трансляцию
+    </a>
     <EventItem_Container>
       <EventItem date_add='9:00 — 10:00 МСК'
                  title='Открытая лекция «Развитие человеческого капитала и Арктические проекты НОЦ»'>
