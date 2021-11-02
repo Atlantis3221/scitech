@@ -17,7 +17,7 @@ const day18 =  (<div className="day" id="18">
       18 Октября, понедельник
     </h4>
     <a href='https://youtu.be/YNLXEt7sK5w' className="btn btn__red mt1">
-      Ссылка на трансляцию
+      Смотреть видеозапись
     </a>
     <EventItem_Container>
       <EventItem date_add='10:00 — 10:30 МСК'
@@ -74,7 +74,7 @@ const day19 =  (<div className="day" id="19">
       19 Октября, вторник
     </h4>
     <a href='https://youtu.be/u-fXAlg7pJo' className="btn btn__red mt1">
-      Ссылка на трансляцию
+      Смотреть видеозапись
     </a>
     <EventItem_Container>
       <EventItem date_add='10:00 — 11:00 МСК'
@@ -112,7 +112,7 @@ const day20 =  (<div className="day" id="20">
       20 Октября, среда
     </h4>
     <a href='https://youtu.be/MsTkxlF7Xds' className="btn btn__red mt1">
-      Ссылка на трансляцию
+      Смотреть видеозапись
     </a>
     <EventItem_Container>
       <EventItem date_add='9:00 — 10:00 МСК'
@@ -155,7 +155,7 @@ const day21 =  (<div className="day" id="21">
       21 Октября, четверг
     </h4>
     <a href='https://youtu.be/jK0Uo4gRYUo' className="btn btn__red mt1">
-      Ссылка на трансляцию
+      Смотреть видеозапись
     </a>
     <EventItem_Container>
       <EventItem date_add='8:00 — 9:30 МСК'
@@ -185,7 +185,7 @@ const day22 =  (<div className="day" id="22">
       22 Октября, пятница
     </h4>
     <a href='https://youtu.be/0DW2szyv5GY' className="btn btn__red mt1">
-      Ссылка на трансляцию
+      Смотреть видеозапись
     </a>
     <EventItem_Container>
       <EventItem date_add='9:00 — 10:00 МСК'
