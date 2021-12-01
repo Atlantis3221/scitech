@@ -239,7 +239,7 @@ export default function TabulaRasa({  data, modalForm  }) {
         </div>
 
         <div className='show content'>
-          <div className='container mb6'>
+          <div className='container'>
             <ul className='g3'>
               <li className='i3_3'>
                 <p className='asideMarker asideMarker_tiny'>отбор</p>

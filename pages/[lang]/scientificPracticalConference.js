@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Partner } from '../../components/partner'
 import { EventItem, EventItem_Container, EventItem_guest, EventItem_guests } from '../../components/eventItem'
@@ -10,6 +10,10 @@ import Translator from '../../i18n/translator'
 import { Button } from '../../components/button'
 import ModalsContext from '../../components/modals/ModalContext'
 import { DateItem, DateSwitcher } from '../../components/dateSwicher/dateSwicher'
+import { SchoolProject } from '../../components/schoolProject'
+import ContentfulNewsWidget from './news/contentfulNewsWidget'
+import NewsSMIWidget from './newsSMI/newsSMIWidget'
+import { getContentfulNews } from '../../helpers/axios'
 
 const day18 =  (<div className="day" id="18">
   <div className="event">
@@ -253,10 +257,16 @@ const days = {
   '22': day22,
 }
 
-export default function ScientificPracticalConference({ current, modalForm }) {
+export default function ScientificPracticalConference({ data, current, modalForm }) {
   const { query: {lang: lang} } = useRouter()
   const {modalService, setRegModalState} = useContext(ModalsContext)
   const [day, setDay] = useState('18')
+
+  const [allContentfulNews, setContentfulNews] = useState([])
+
+  useEffect(() => {
+    setContentfulNews(data)
+  }, [])
 
   const openModal = () => {
     modalService.openModal("reg")
@@ -501,7 +511,7 @@ export default function ScientificPracticalConference({ current, modalForm }) {
         </div>
 
         {lang === 'ru' ? (
-        <div className="wrapper_partners content mb6">
+        <div className="wrapper_partners content">
           <div className="container">
             <ul className="g3">
               <li className="i3_3">
@@ -557,6 +567,29 @@ export default function ScientificPracticalConference({ current, modalForm }) {
           </div>
         </div>
         ) : null}
+
+        {lang === 'ru' ? (
+          <div className="wrapper_partners content">
+            <div className="container mb6">
+              <ul className="g3">
+                <li className="i3_3">
+                  <p className="asideMarker">Публикации СМИ</p>
+                </li>
+                <li className="i3_9">
+                  <SchoolProject>
+
+                    {/*THESE ARE News from Contentful */}
+                    <ContentfulNewsWidget isSMI={true} pageToShow={'scientificPracticalConference'} allContentfulNews={allContentfulNews} />
+
+                    {/*THESE ARE News from website */}
+                    <NewsSMIWidget pageToShow={'scientificPracticalConference'}/>
+
+                  </SchoolProject>
+                </li>
+              </ul>
+            </div>
+          </div>
+        ) : null}
       </Layout>
     </Page>
   )
@@ -564,9 +597,9 @@ export default function ScientificPracticalConference({ current, modalForm }) {
 
 
 export async function getServerSideProps(ctx) {
+  const data = await getContentfulNews();
   const {current} = Translator("test", ctx.params.lang)
-
   return {
-    props: { current: current["test"], modalForm: current["modalForm"]  },
+    props: { data: data.data, current: current["test"], modalForm: current["modalForm"]  },
   }
 }
