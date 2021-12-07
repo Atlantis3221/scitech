@@ -246,22 +246,22 @@ export default function School({ current, modalForm }) {
             <div className='content'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 1</p>
-                  <p className='asideMarker asideMarker_mt1'>20 - 28 {current["марта"]} 2021</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 1</p>
+                  <p className='asideMarker asideMarker_mt1'>20 {current["марта"]} - 2 {current["апреля"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["Лидерство и эффективная командная работа в научной среде. Форсайт в науке"]}</h4>
+                          <h4 className="mt1">{current["Лидерство и эффективная командная работа в научной среде. Форсайт в науке"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 2</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 2</p>
                   <p className='asideMarker asideMarker_mt1'>15 - 23 {current["мая"]} 2021</p>
                 </li>
                 <li className='i3_9'>
@@ -269,14 +269,14 @@ export default function School({ current, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["Научный протокол и управление знаниями. Академическое письмо."]}</h4>
+                          <h4 className="mt1">{current["Научный протокол и управление знаниями. Академическое письмо."]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 3</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 3</p>
                   <p className='asideMarker asideMarker_mt1'>11 - 30 {current["июля"]} 2021</p>
                 </li>
                 <li className='i3_9'>
@@ -284,14 +284,14 @@ export default function School({ current, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["Проектное управление в науке. Разработка и создание устава проекта."]}</h4>
+                          <h4 className="mt1">{current["Проектное управление в науке. Разработка и создание устава проекта."]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 4</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 4</p>
                   <p className='asideMarker asideMarker_mt1'>21 - 29 {current["августа"]} 2021</p>
                 </li>
                 <li className='i3_9'>
@@ -299,14 +299,14 @@ export default function School({ current, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["Фандрайзинг, финансирование и работа с грантовыми фондами. Научная экспертиза"]}</h4>
+                          <h4 className="mt1">{current["Фандрайзинг, финансирование и работа с грантовыми фондами. Научная экспертиза"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 5</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 5</p>
                   <p className='asideMarker asideMarker_mt1'>18 - 29 {current["Октября"]} 2021</p>
                 </li>
                 <li className='i3_9'>
@@ -314,14 +314,14 @@ export default function School({ current, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["Коммуникации ученого в современном мире: власть, бизнес, социум"]}</h4>
+                          <h4 className="mt1">{current["Коммуникации ученого в современном мире: власть, бизнес, социум"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 6</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 6</p>
                   <p className='asideMarker asideMarker_mt1'>20 - 28 {current["ноября"]} 2021</p>
                 </li>
                 <li className='i3_9'>
@@ -329,14 +329,14 @@ export default function School({ current, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["Стратегия управления научно-исследовательской деятельностью. Трансфер технологий"]}</h4>
+                          <h4 className="mt1">{current["Стратегия управления научно-исследовательской деятельностью. Трансфер технологий"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 7</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 7</p>
                   <p className='asideMarker asideMarker_mt1'>15 - 23 {current["января"]} 2022</p>
                 </li>
                 <li className='i3_9'>
@@ -344,14 +344,14 @@ export default function School({ current, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["Линейное управление в научных и научно-технических проектах, центрах, лабораториях"]}</h4>
+                          <h4 className="mt1">{current["Линейное управление в научных и научно-технических проектах, центрах, лабораториях"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 8</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 8</p>
                   <p className='asideMarker asideMarker_mt1'>19 - 22 {current["февраля"]} 2022</p>
                 </li>
                 <li className='i3_9'>
@@ -359,7 +359,7 @@ export default function School({ current, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["Подготовка к защитам и защиты проектов"]}</h4>
+                          <h4 className="mt1">{current["Подготовка к защитам и защиты проектов"]}</h4>
                         </li>
                       </ul>
                     </li>

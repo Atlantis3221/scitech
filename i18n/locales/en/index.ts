@@ -14,6 +14,7 @@ export default {
         "мая": "May",
         "Март": "March",
         "марта": "March",
+        "апреля": "April",
         "Июнь": "June",
         "Июль": "July",
         "июля": "July",
