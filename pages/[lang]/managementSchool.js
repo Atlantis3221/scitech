@@ -281,22 +281,22 @@ export default function ManagementSchool({  current, onClick, modalForm }) {
             <div className='content pt0'>
               <ul className='g3'>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 1</p>
-                  <p className='asideMarker asideMarker_mt1'>20 - 25 {current["марта"]} 2021</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 1</p>
+                  <p className='asideMarker asideMarker_mt1'>20 {current["марта"]} - 2 {current["апреля"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["managementModule1"]}</h4>
+                          <h4 className="mt1">{current["managementModule1"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 2</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 2</p>
                   <p className='asideMarker asideMarker_mt1'>17 - 22 {current["мая"]} 2021</p>
                 </li>
                 <li className='i3_9'>
@@ -304,74 +304,74 @@ export default function ManagementSchool({  current, onClick, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["managementModule2"]}</h4>
+                          <h4 className="mt1">{current["managementModule2"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 3</p>
-                  <p className='asideMarker asideMarker_mt1'>12 - 17 {current["июля"]} 2021</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 3</p>
+                  <p className='asideMarker asideMarker_mt1'>13 - 21 {current["июля"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["managementModule3"]}</h4>
+                          <h4 className="mt1">{current["managementModule3"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 4</p>
-                  <p className='asideMarker asideMarker_mt1'>23 - 28 {current["августа"]} 2021</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 4</p>
+                  <p className='asideMarker asideMarker_mt1'>24 - 31 {current["августа"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["managementModule4"]}</h4>
+                          <h4 className="mt1">{current["managementModule4"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 5</p>
-                  <p className='asideMarker asideMarker_mt1'>18 - 23 {current["Октября"]} 2021</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 5</p>
+                  <p className='asideMarker asideMarker_mt1'>19 - 27 {current["Октября"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["managementModule5"]}</h4>
+                          <h4 className="mt1">{current["managementModule5"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 6</p>
-                  <p className='asideMarker asideMarker_mt1'>22 - 27 {current["ноября"]} 2021</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 6</p>
+                  <p className='asideMarker asideMarker_mt1'>16 - 24 {current["ноября"]} 2021</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["managementModule6"]}</h4>
+                          <h4 className="mt1">{current["managementModule6"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 7</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 7</p>
                   <p className='asideMarker asideMarker_mt1'>17 - 22 {current["января"]} 2022</p>
                 </li>
                 <li className='i3_9'>
@@ -379,14 +379,14 @@ export default function ManagementSchool({  current, onClick, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["managementModule7"]}</h4>
+                          <h4 className="mt1">{current["managementModule7"]}</h4>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li className='i3_3'>
-                  <p className='asideMarker asideMarker_tiny'>{current["Модуль"]} 8</p>
+                  <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 8</p>
                   <p className='asideMarker asideMarker_mt1'>19 - 22 {current["февраля"]} 2022</p>
                 </li>
                 <li className='i3_9'>
@@ -394,7 +394,7 @@ export default function ManagementSchool({  current, onClick, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4>{current["managementModule8"]}</h4>
+                          <h4 className="mt1">{current["managementModule8"]}</h4>
                         </li>
                       </ul>
                     </li>
