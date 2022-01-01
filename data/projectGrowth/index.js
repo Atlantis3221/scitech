@@ -1,27 +1,5 @@
 export const projectGrowth = [
   {
-    _id: 'recruitingPriceDevelopEvent',
-    link: '/recruitingPriceDevelopEvent',
-    name: 'Мероприятие',
-    cardType: ['inProcess', 'courses'],
-    deadline: '6 Ноя - 18 Дек 2021',
-    location: 'Онлайн',
-    image: '/img/developmentProjects/projectCardTemplate.svg',
-    title: '«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»',
-    engVersion: false
-  },
-  {
-    _id: 'developmentProjectZima',
-    link: '/developmentProjectZima',
-    name: 'Школа',
-    cardType: ['inProcess', 'school'],
-    projectDate: 'Мар 2021 - Окт 2021',
-    location: 'Онлайн',
-    image: '/img/news/news-31-03.jpg',
-    title: 'ЗИМА 21',
-    engVersion: true
-  },
-  {
     _id: 'school',
     link: '/school',
     name: 'Школа',
@@ -67,6 +45,28 @@ export const projectGrowth = [
   },
 
   // past projects
+  {
+    _id: 'recruitingPriceDevelopEvent',
+    link: '/recruitingPriceDevelopEvent',
+    name: 'Мероприятие',
+    cardType: ['past', 'courses'],
+    deadline: '6 Ноя - 18 Дек 2021',
+    location: 'Онлайн',
+    image: '/img/developmentProjects/projectCardTemplate.svg',
+    title: '«Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение»',
+    engVersion: false
+  },
+  {
+    _id: 'developmentProjectZima',
+    link: '/developmentProjectZima',
+    name: 'Школа',
+    cardType: ['past', 'school'],
+    projectDate: 'Мар 2021 - Окт 2021',
+    location: 'Онлайн',
+    image: '/img/news/news-31-03.jpg',
+    title: 'ЗИМА 21',
+    engVersion: true
+  },
   {
     _id: 'scientificPracticalConference',
     link: '/scientificPracticalConference',
