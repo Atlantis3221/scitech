@@ -18,7 +18,7 @@ module.exports = {
       user: "app",
       host: [
         {
-          host: "91.221.61.101",
+          host: "176.120.26.91",
           port: "22148",
         },
       ],
