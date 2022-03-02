@@ -337,14 +337,14 @@ export default function School({ current, modalForm }) {
                 </li>
                 <li className='i3_3'>
                   <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 7</p>
-                  <p className='asideMarker asideMarker_mt1'>15 - 23 {current["января"]} 2022</p>
+                  <p className='asideMarker asideMarker_mt1'>7 - 24 {current["февраля"]} 2022</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4 className="mt1">{current["Линейное управление в научных и научно-технических проектах, центрах, лабораториях"]}</h4>
+                          <h4 className="mt1">{current["Подготовка к защитам проектов, питч-сессии"]}</h4>
                         </li>
                       </ul>
                     </li>
@@ -352,14 +352,14 @@ export default function School({ current, modalForm }) {
                 </li>
                 <li className='i3_3'>
                   <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 8</p>
-                  <p className='asideMarker asideMarker_mt1'>19 - 22 {current["февраля"]} 2022</p>
+                  <p className='asideMarker asideMarker_mt1'>22 - 25 {current["марта"]} 2022</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4 className="mt1">{current["Подготовка к защитам и защиты проектов"]}</h4>
+                          <h4 className="mt1">{current["Подготовка и финальная защита проектов в рамках Международного молодежного научно-практического форума «Нефтяная столица» (г.Сургут)"]}</h4>
                         </li>
                       </ul>
                     </li>
@@ -376,6 +376,8 @@ export default function School({ current, modalForm }) {
                             является безвозмездным, направляющая организация обязуется обеспечить полноценное участие
                             сотрудников в обучении. Для команд и индивидуальных участников не от организаций
                             Западно-Сибирского НОЦ участие платное.</p>
+                            <br/>
+                            <a className="raleway_bold" href="/docs/projects&experts.pdf" download>Проекты и эксперты второго потока 2021-2022</a>
                         </li>
                       </ul>
                     </li>
