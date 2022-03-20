@@ -204,7 +204,7 @@ const RegModal = ({ modalFormText = {} }) => {
                             if (input === "name") {
                                 if (state.participationType === "Индивидуальное") {
                                     return (
-                                        <>
+                                        <div key={Math.random()}>
                                         <div className={`col-span-1 flex items-center`}>
                                             { modalFormText["Имя и фамилия"]}
                                         </div>
@@ -216,12 +216,12 @@ const RegModal = ({ modalFormText = {} }) => {
                                                                 placeholder={modalFormText["Имя и фамилия"]}
                                                                 setErrors={setErrors}/>
                                         </div>
-                                        </>
+                                        </div>
                                     )
                                 }
                                 else {
                                     return (
-                                        <>
+                                        <div key={Math.random()}>
                                         <div className={`col-span-1 flex items-center`}>
                                             {regModalState.configName !== "strategicEducationalIntensive" ? modalFormText["Имя и фамилия"] : "ФИО контактного лица лица"}
                                         </div>
@@ -233,7 +233,7 @@ const RegModal = ({ modalFormText = {} }) => {
                                                                 placeholder={modalFormText["Имя и фамилия"]}
                                                                 setErrors={setErrors}/>
                                         </div>
-                                        </>
+                                        </div>
 
                                     )
 
@@ -241,7 +241,7 @@ const RegModal = ({ modalFormText = {} }) => {
                             }
                             if (input === "email") {
                                 return (
-                                    <>
+                                    <div key={Math.random()}>
                                     <div className={`col-span-1 flex items-center`}>
                                         Email
                                     </div>
@@ -253,18 +253,18 @@ const RegModal = ({ modalFormText = {} }) => {
                                                             placeholder={lang === 'ru' ? 'example@test.com' : 'example@test.com'}
                                                             setState={setState}/>
                                     </div>
-                                    </>
+                                    </div>
                                 )
                             }
                             if (input === "participationType") {
                                 return (
-                                    <>
+                                    <div key={Math.random()}>
                                     <div className={`col-span-1`}>
                                         {modalFormText["Тип участия"]}
                                     </div>
                                     <div className={`col-span-3`}>
                                           {radioValues.map(a => {
-                                         return <div className={`w-6 h-6 mb-2`}>
+                                         return <div className={`w-6 h-6 mb-2`} key={Math.random()}>
                                              <Radio value={a}
                                                     state={state}
                                                     setState={setState}
@@ -273,12 +273,12 @@ const RegModal = ({ modalFormText = {} }) => {
                                          </div>
                                          })}
                                      </div>
-                                     </>
+                                     </div>
                                 )
                             }
                             if (state.participationType === "Групповое" && input === "amount") {
                                 return (
-                                    <>
+                                    <div key={Math.random()}>
                                     <div className={`col-span-1 mb-1 flex items-center pr-4`}>
                                         {modalFormText["Количество человек"]}
                                     </div>
@@ -290,12 +290,12 @@ const RegModal = ({ modalFormText = {} }) => {
                                                             placeholder={modalFormText["Количество человек"]}
                                                             setState={setState}/>
                                     </div>
-                                    </>
+                                    </div>
                                 )
                             }
                             if (input === "role") {
                                 return (
-                                    <>
+                                    <div key={Math.random()}>
                                     <div className={`col-span-1 flex items-center`}>
                                         {modalFormText["Должность"]}
                                     </div>
@@ -307,12 +307,12 @@ const RegModal = ({ modalFormText = {} }) => {
                                                             placeholder={modalFormText["Должность"]}
                                                             setState={setState}/>
                                     </div>
-                                    </>
+                                    </div>
                                 )
                             }
                             if (input === "company") {
                                 return (
-                                  <>
+                                  <div key={Math.random()}>
                                       <div className={`col-span-1 flex items-center`}>
                                           {modalFormText["Организация"]}
                                       </div>
@@ -324,12 +324,12 @@ const RegModal = ({ modalFormText = {} }) => {
                                                               placeholder={modalFormText["Организация"]}
                                                               setState={setState}/>
                                       </div>
-                                  </>
+                                  </div>
                                 )
                             }
                             if (input === "speciality") {
                                 return (
-                                  <>
+                                  <div key={Math.random()}>
                                       <div className={`col-span-1 flex items-center`}>
                                           {modalFormText["Направление аспирантуры"]}
                                       </div>
@@ -341,12 +341,12 @@ const RegModal = ({ modalFormText = {} }) => {
                                                               placeholder={modalFormText["Направление аспирантуры"]}
                                                               setState={setState}/>
                                       </div>
-                                  </>
+                                  </div>
                                 )
                             }
                             if (input === "year") {
                                return (
-                                <>
+                                <div key={Math.random()}>
                                 <div className={`col-span-1 flex items-center`}>
                                     {modalFormText["Год аспирантуры"]}
                                 </div>
@@ -358,24 +358,24 @@ const RegModal = ({ modalFormText = {} }) => {
                                                         placeholder={modalFormText["Год аспирантуры"]}
                                                         setState={setState}/>
                                 </div>
-                                </>
+                                </div>
                                )
                             }
                             if (input === "phone") {
                                 return (
-                                    <>
+                                    <div key={Math.random()}>
                                     <div className={`col-span-1 flex items-center`}>
                                         {modalFormText["Телефон"]}
                                     </div>
                                      <div className={`col-span-3 relative z-40`}>
                                         <ValidatedPhoneInput  setErrors={setErrors} errors={errors} state={state} setState={setState}/>
                                     </div>
-                                    </>
+                                    </div>
                                 )
                             }
                             if (input === "confidential") {
                                 return (
-                                    <>
+                                    <div key={Math.random()}>
                                     <div className={`col-span-1`}/>
                                     <div className={`col-span-3 flex mt-4`}>
                                         <div style={{
@@ -389,12 +389,12 @@ const RegModal = ({ modalFormText = {} }) => {
                                             </p>
                                         </div>
                                     </div>
-                                    </>
+                                    </div>
                                 )
                             }
                             if (input === "speaker") {
                                 return (
-                                    <>
+                                    <div key={Math.random()}>
                                     <div className={`col-span-1`}/>
                                     <div className={`col-span-3 flex mt-4`}>
                                         <div style={{
@@ -406,12 +406,12 @@ const RegModal = ({ modalFormText = {} }) => {
                                             <p className="mt0">{modalFormText["Принять участие как спикер"]}</p>
                                         </div>
                                     </div>
-                                    </>
+                                    </div>
                                 )
                             }
                             if (input === "comment") {
                                 return (
-                                  <>
+                                  <div key={Math.random()}>
                                       <div className={`col-span-1 flex items-center`}>
                                           {modalFormText["Комментарий"]}
                                       </div>
@@ -421,12 +421,12 @@ const RegModal = ({ modalFormText = {} }) => {
                                                               placeholder={modalFormText["Комментарий"]}
                                                               setState={setState}/>
                                       </div>
-                                  </>
+                                  </div>
                                 )
                             }
                             if (input === "file") {
                                 return (
-                                  <>
+                                  <div key={Math.random()}>
                                       <div className={`col-span-1 flex items-center`}>
                                           {modalFormText["Файл"]}
                                       </div>
@@ -436,7 +436,7 @@ const RegModal = ({ modalFormText = {} }) => {
                                                          description={'resume'}
                                                          setState={setState}/>
                                       </div>
-                                  </>
+                                  </div>
                                 )
                             }
                         })}
@@ -444,7 +444,7 @@ const RegModal = ({ modalFormText = {} }) => {
                         {regModalState.configName !== "strategicEducationalIntensive" && state.participationType === "Групповое" && <div className={`col-span-4 text-2xl `}>Члены команды</div> }
                          {regModalState.configName !== "strategicEducationalIntensive" && state.participationType === "Групповое" && Object.keys(defaultAdditionalNames).map(name => {
                                             return (
-                                                <>
+                                                <div key={Math.random()}>
                                                 <div className={`col-span-1 flex items-center`}>
                                                     {modalFormText["Имя и фамилия"]}
                                                 </div>
@@ -453,7 +453,7 @@ const RegModal = ({ modalFormText = {} }) => {
                                                         [name]: false
                                                     }} state={addtionalNames} name={name} setState={setAdditionalNames} setErrors={setErrors}/>
                                                 </div>
-                                                </>
+                                                </div>
                                             )
                                         })}
 
