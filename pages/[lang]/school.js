@@ -24,6 +24,18 @@ export default function School({ current, modalForm }) {
       isSent: false
     })
   }
+
+  const schoolProjects = [
+    {image: '/img/schoolProjects/projectGrowth_image.png', link: '/schoolProjects/professionalGrowth', text: 'professionalGrowth'},
+    {image: '/img/schoolProjects/ecoSafety_image.png', link: '/schoolProjects/ecoSafety', text: 'ecoSafety'},
+    {image: '/img/schoolProjects/diseaseRisk.png', link: '/schoolProjects/diseaseRisk', text: 'diseaseRisk'},
+    {image: '/img/schoolProjects/greenTransformation.png', link: '/schoolProjects/greenTransformation', text: 'greenTransformation'},
+    {image: '/img/schoolProjects/smartCitiesInArctic.png', link: '/schoolProjects/smartCitiesInArctic', text: 'smartCitiesInArctic'},
+    {image: '/img/schoolProjects/sihirtyaNation.png', link: '/schoolProjects/sihirtyaNation', text: 'sihirtyaNation'},
+    {image: '/img/schoolProjects/wisdomAsTheBasis.png', link: '/schoolProjects/wisdomAsTheBasis', text: 'wisdomAsTheBasis'},
+    {image: '/img/schoolProjects/integration_image.svg', link: '/schoolProjects/integrationOfGreenTechnologies', text: 'integrationOfGreenTechnologies'},
+  ];
+
   return (
     <Page>
       <Helmet>
@@ -543,54 +555,15 @@ export default function School({ current, modalForm }) {
                 </li>
                 <li className='i3_9'>
                   <SchoolProject>
-                    <SchoolProject_Card
-                      image='/img/schoolProjects/projectGrowth_image.png'
-                      link={`/schoolProjects/professionalGrowth`}
-                    >
-                      {current["professionalGrowth"]}
-                    </SchoolProject_Card>
-                    <SchoolProject_Card
-                      image='/img/schoolProjects/ecoSafety_image.png'
-                      link="/schoolProjects/ecoSafety"
-                    >
-                      {current["ecoSafety"]}
-                    </SchoolProject_Card>
-                    <SchoolProject_Card
-                      image='/img/schoolProjects/diseaseRisk.png'
-                      link="/schoolProjects/diseaseRisk"
-                    >
-                      {current["diseaseRisk"]}
-                    </SchoolProject_Card>
-                    <SchoolProject_Card
-                      image='/img/schoolProjects/greenTransformation.png'
-                      link="/schoolProjects/greenTransformation"
-                    >
-                      {current["greenTransformation"]}
-                    </SchoolProject_Card>
-                    <SchoolProject_Card
-                      image='/img/schoolProjects/smartCitiesInArctic.png'
-                      link="/schoolProjects/smartCitiesInArctic"
-                    >
-                      {current["smartCitiesInArctic"]}
-                    </SchoolProject_Card>
-                    <SchoolProject_Card
-                      image='/img/schoolProjects/sihirtyaNation.png'
-                      link="/schoolProjects/sihirtyaNation"
-                    >
-                      {current["sihirtyaNation"]}
-                    </SchoolProject_Card>
-                    <SchoolProject_Card
-                      image='/img/schoolProjects/wisdomAsTheBasis.png'
-                      link="/schoolProjects/wisdomAsTheBasis"
-                    >
-                      {current["wisdomAsTheBasis"]}
-                    </SchoolProject_Card>
-                    <SchoolProject_Card
-                      image='/img/schoolProjects/integration_image.svg'
-                      link="/schoolProjects/integrationOfGreenTechnologies"
-                    >
-                      {current["integrationOfGreenTechnologies"]}
-                    </SchoolProject_Card>
+                    {schoolProjects.map((project, index) => (
+                      <SchoolProject_Card
+                        key={index}
+                        image={project.image}
+                        link={project.link}
+                      >
+                        {current[project.text]}
+                      </SchoolProject_Card>
+                    ))}
                   </SchoolProject>
                 </li>
               </ul>

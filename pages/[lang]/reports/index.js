@@ -43,9 +43,9 @@ export default function Reports({ current, modalForm }) {
                 </li>
                 <li className='i3_9'>
                   <h2>{current["Итоги и результаты"]} 2019-2020</h2>
-                  <p className='flex'>
+                  <p className='flex' style={{ display: 'flex' }}>
                      <span style={{ marginRight: '0.5rem'}}>
-                        <img src='/img/download.svg' alt='icon' />
+                        <img src='/img/download.svg' alt='icon' style={{ width: '20px'}} />
                      </span>
                      <a href="/docs/Broshura_SHNL.pdf" target="_blank">{current["Буклет с итогами года PDF"]}</a>
                   </p>
