@@ -40,17 +40,17 @@ export function Footer(props) {
       <p className="footer_text">{lang === 'ru'? 'Тюмень — Сургут': 'Tyumen - Surgut'}</p>
       <a href="mailto:cdc@scitech.ru" target='_blank'>
         <p className="footer_text link link_red">cdc@scitech.ru</p>
-      </a>
+      </a><br/>
       <div className="footer_socials">
-        <a href="https://www.facebook.com/cdcscitech" target="_blank">
+        {/* <a href="https://www.facebook.com/cdcscitech" target="_blank">
           <img className="" src="/img/icons/Facebook.svg" loading="lazy" alt="facebook" />
-        </a>
+        </a> */}
         <a href="https://vk.com/public202354376" target="_blank">
-          <img className="ml1" src="/img/icons/Vkontakte.svg" loading="lazy" alt="vkontakte" />
+          <img className="" src="/img/icons/Vkontakte.svg" loading="lazy" alt="vkontakte" />
         </a>
-        <a href="https://www.instagram.com/scitech.ru/ " target="_blank">
+        {/* <a href="https://www.instagram.com/scitech.ru/ " target="_blank">
           <img className="ml1" src="/img/icons/Instagram.svg" loading="lazy" alt="instagram" />
-        </a>
+        </a> */}
         <a href="https://t.me/scitechru" target="_blank">
           <img className="ml1" src="/img/icons/Telegram.svg" loading="lazy" alt="telegram" />
         </a>

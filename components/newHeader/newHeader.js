@@ -71,7 +71,7 @@ export const NewHeader = () => {
                     </Link>
                   </li>
                 </ul>
-                <div className='navigation_email flex'>
+                <div className='navigation_email'>
                   <div className="languages">
                       <a 
                       onClick={
@@ -91,13 +91,13 @@ export const NewHeader = () => {
                       className={`navigation_link navigation_link_lang ${lang === 'en' ? 'active lang' : ''}`} style={{ marginLeft: '.3rem' }}>
                         Eng
                       </a>
-                  </div>
+                  </div><br/>
 
 
                   <p className='mobileOnly'>Тюмень - Сургут</p>
                   <a className='link_data mobileRed raleway_bold' href='mailto:cdc@scitech.ru'>
                     cdc@scitech.ru
-                  </a>
+                  </a><br/>
                   <a className='mobileOnly' href="https://t.me/scitechru" target="_blank">
                     <img className="ml1" src="/img/icons/telegram.svg" loading="lazy" alt="telegram" />
                   </a>

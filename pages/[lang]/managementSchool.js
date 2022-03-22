@@ -23,6 +23,13 @@ export default function ManagementSchool({  current, onClick, modalForm }) {
       title: lang === 'ru'? 'Заказать проведение в моем регионе': 'Enquire about next enrolment period'
     })
   }
+
+  const schoolProjects = [
+    {image: '/img/managementSchoolProjects/DLLProject.png', link: '/managementSchoolProjects/DLLProject', text: 'Digital Lean-Lab (DLL): электронная образовательная платформа'},
+    {image: '/img/managementSchoolProjects/ElectroBase.png', link: '/managementSchoolProjects/ElectroBase', text: 'Мобильная многофункциональная электрическая платформа с дистанционным управлением ElectroBase'},
+    {image: '/img/managementSchoolProjects/FaceDrive.png', link: '/managementSchoolProjects/FaceDrive', text: 'FaceDrive - Услуга по идентификации водителя транспортного средства путём распознавания его лица'},
+    {image: '/img/managementSchoolProjects/BioPlantsSecure.png', link: '/managementSchoolProjects/BioPlantsSecure', text: 'Интеллектуальная система биологической защиты растений'}
+  ];
   return (
     <Page>
       <Helmet>
@@ -595,34 +602,15 @@ export default function ManagementSchool({  current, onClick, modalForm }) {
                 </li>
                 <li className='i3_9'>
                   <SchoolProject>
-                    <SchoolProject_Card
-                      violet
-                      image='/img/managementSchoolProjects/DLLProject.png'
-                      link="/managementSchoolProjects/DLLProject"
-                    >
-                      {current["Digital Lean-Lab (DLL): электронная образовательная платформа"]}
-                    </SchoolProject_Card>
-                    <SchoolProject_Card
-                      violet
-                      image='/img/managementSchoolProjects/ElectroBase.png'
-                      link="/managementSchoolProjects/ElectroBase"
-                    >
-                      {current["Мобильная многофункциональная электрическая платформа с дистанционным управлением ElectroBase"]}
-                    </SchoolProject_Card>
-                    <SchoolProject_Card
-                      violet
-                      image='/img/managementSchoolProjects/FaceDrive.png'
-                      link="/managementSchoolProjects/FaceDrive"
-                    >
-                      {current["FaceDrive - Услуга по идентификации водителя транспортного средства путём распознавания его лица"]}
-                    </SchoolProject_Card>
-                    <SchoolProject_Card
-                      violet
-                      image='/img/managementSchoolProjects/BioPlantsSecure.png'
-                      link="/managementSchoolProjects/BioPlantsSecure"
-                    >
-                      {current["Интеллектуальная система биологической защиты растений"]}
-                    </SchoolProject_Card>
+                    {schoolProjects.map((project, index) => (
+                      <SchoolProject_Card
+                        key={index}
+                        image={project.image}
+                        link={project.link}
+                      >
+                        {current[project.text]}
+                      </SchoolProject_Card>
+                    ))}
                   </SchoolProject>
                 </li>
               </ul>
