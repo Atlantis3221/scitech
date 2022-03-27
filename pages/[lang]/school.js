@@ -9,8 +9,11 @@ import { Button } from '../../components/button'
 import { useRouter } from 'next/dist/client/router'
 import Translator from '../../i18n/translator'
 import ModalsContext from '../../components/modals/ModalContext'
+import ContentfulSchoolProjectsWidget from '../[lang]/projectsSchool/contentfulSchoolProjectsWidget'
+import { EN_LANG, RU_LANG } from '../../lib/constants'
+import { getContentfulSchoolProjects } from '../../helpers/axios'
 
-export default function School({ current, modalForm }) {
+export default function School({ data, modalForm, current }) {
   const { query: {lang: lang} } = useRouter()
   const {modalService, setRegModalState} = useContext(ModalsContext)
 
@@ -555,6 +558,9 @@ export default function School({ current, modalForm }) {
                 </li>
                 <li className='i3_9'>
                   <SchoolProject>
+                    {/*THESE ARE News from Contentful */}
+                    <ContentfulSchoolProjectsWidget isForSchool={true} allContentfulProjects={data} />
+
                     {schoolProjects.map((project, index) => (
                       <SchoolProject_Card
                         key={index}
@@ -575,10 +581,19 @@ export default function School({ current, modalForm }) {
   )
 }
 
-export async function getServerSideProps(ctx) {
-  const {current} = Translator("test", ctx.params.lang)
 
+export async function getStaticPaths() {
+  return { fallback: 'blocking',
+    paths: [{ params: { lang: RU_LANG } }, { params: { lang: EN_LANG } }]
+  }
+}
+
+export async function getStaticProps(ctx) {
+  const data = await getContentfulSchoolProjects();
+
+  const {current} = Translator("test", ctx.params.lang)
   return {
-    props: { current: current["test"], modalForm: current["modalForm"] },
+    props: { data: data.data, modalForm: current["modalForm"], current: current["test"] },
+    revalidate: 42,
   }
 }

@@ -27,7 +27,7 @@ export const projectGrowth = [
     name: 'Сервис, Партнерский проект',
     cardType: ['now', 'services'],
     location: 'онлайн',
-    image: '/img/developmentProjects/digitalProfile.svg',
+    image: '/img/developmentProjects/digitalProfile.png',
     title: 'Цифровой профиль исследователя — социальная сеть для ученых',
     engVersion: true
   },

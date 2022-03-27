@@ -7,7 +7,7 @@ import { MongoService } from "../../../services/mongo";
 export default async (req:NextApiRequest, res:NextApiResponse) => { 
     const controller = new Controller(req, res)
     try {
-        const types = ['grants', 'news', "vacancies", "employers"]
+        const types = ['grants', 'news', "vacancies", "employers", "schoolProject"]
         await MongoService.init()
         for (let type of types) {
             await MongoService.db.collection(type).deleteMany({})
