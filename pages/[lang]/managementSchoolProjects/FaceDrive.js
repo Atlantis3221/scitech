@@ -41,8 +41,9 @@ export default function FaceDrive({ modalForm }) {
                 <li className='i3_9'>
                   <h1>FaceDrive - Услуга по идентификации водителя транспортного средства путём распознавания его
                     лица</h1>
-                  <img loading="lazy" className="pt2 mb0" src="/img/managementSchoolProjects/FaceDrive.png"
-                       alt="FaceDrive - Услуга по идентификации водителя транспортного средства путём распознавания его лица" />
+                    <div className="mb0" style={{ marginTop: '2rem', maxWidth: '853px', width: '100%', maxHeight: '480px'}}>
+                  <img loading="lazy" style={{objectFit: 'cover'}} src="/img/managementSchoolProjects/FaceDrive.png"
+                       alt="FaceDrive - Услуга по идентификации водителя транспортного средства путём распознавания его лица" /></div>
                   <div className="mt_big">
                     <h4 className="raleway"><StrongText>Проблема:</StrongText> Компании-собственники транспортных
                       средств сталкиваются с незаконной передачей права управления третьим лицам, что приводит к рискам

@@ -69,8 +69,9 @@ const ContentfulSchoolProject = ({modalForm, allProjects, current, data}) => {
                 </li>
                 <li className='i3_9'>
                   <h1>{data?.title}</h1>
-                  <img loading="lazy" className="pt2 mb0" src={data?.coverImg}
-                       alt={data?.title} />
+                  <div className="mb0" style={{ marginTop: '2rem', maxWidth: '853px', width: '100%', maxHeight: '480px'}}>
+                  <img loading="lazy" style={{objectFit: 'cover'}} src={data?.coverImg}
+                       alt={data?.title} /></div>
                   <div className="mt_big">
                     <h4 className="raleway">Цель научного проекта:</h4>
                     <h4 dangerouslySetInnerHTML={{ __html: data?.goal }}></h4>

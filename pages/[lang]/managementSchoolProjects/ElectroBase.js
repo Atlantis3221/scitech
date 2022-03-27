@@ -40,8 +40,9 @@ export default function ElectroBase({ modalForm }) {
                 </li>
                 <li className='i3_9'>
                   <h1>Мобильная многофункциональная электрическая платформа с дистанционным управлением ElectroBase</h1>
-                  <img loading="lazy" className="pt2 mb0" src="/img/managementSchoolProjects/ElectroBase.png"
-                       alt="Мобильная многофункциональная электрическая платформа с дистанционным управлением ElectroBase" />
+                  <div className="mb0" style={{ marginTop: '2rem', maxWidth: '853px', width: '100%', maxHeight: '480px'}}>
+                  <img loading="lazy" style={{objectFit: 'cover'}} src="/img/managementSchoolProjects/ElectroBase.png"
+                       alt="Мобильная многофункциональная электрическая платформа с дистанционным управлением ElectroBase" /></div>
                   <div className="mt_big">
                     <h4 className="raleway"><StrongText>Суть проекта:</StrongText> простая, надежная, ремонтопригодная
                       электрическая платформа с дистанционным управлением и большим набором навесного оборудования для

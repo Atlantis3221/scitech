@@ -40,8 +40,9 @@ export default function BioPlantsSecure({ modalForm }) {
                 </li>
                 <li className='i3_9'>
                   <h1>Интеллектуальная система биологической защиты растений</h1>
-                  <img loading="lazy" className="pt2 mb0" src="/img/managementSchoolProjects/BioPlantsSecure.png"
-                       alt="Интеллектуальная система биологической защиты растений" />
+                  <div className="mb0" style={{ marginTop: '2rem', maxWidth: '853px', width: '100%', maxHeight: '480px'}}>
+                  <img loading="lazy" style={{objectFit: 'cover'}} src="/img/managementSchoolProjects/BioPlantsSecure.png"
+                       alt="Интеллектуальная система биологической защиты растений" /></div>
                   <div className="mt_big">
                     <h4 className="raleway">Проект представляет собой программно-аппаратный комплекс, автоматизирующий
                       интеллектуальный сбор, обработку и визуализацию фитосанитарной информации об экосистемах

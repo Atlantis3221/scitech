@@ -40,8 +40,9 @@ export default function DLLProject({ modalForm }) {
                 </li>
                 <li className='i3_9'>
                   <h1>Digital Lean-Lab (DLL): электронная образовательная платформа</h1>
-                  <img className="pt2 mb0" src="/img/managementSchoolProjects/DLLProject.png"
-                       alt="Digital Lean-Lab (DLL): электронная образовательная платформа" />
+                  <div className="mb0" style={{ marginTop: '2rem', maxWidth: '853px', width: '100%', maxHeight: '480px'}}>
+                  <img style={{objectFit: 'cover'}} src="/img/managementSchoolProjects/DLLProject.png"
+                       alt="Digital Lean-Lab (DLL): электронная образовательная платформа" /></div>
                   <div className="mt_big">
                     <h4 className="raleway"><StrongText>Профиль:</StrongText> бизнес-образование, корпоративное и
                       индивидуальное онлайн-обучение бережливому управлению.</h4>
