@@ -403,7 +403,34 @@ export default function School({ data, modalForm, current }) {
           </div>
         </div>
 
-        <div className='show wrapper_results'>
+        <div className='show'>
+          <div className='container mt_half'>
+            <div className='content'>
+              <ul className='g3'>
+                <li className='i3_3'>
+                  <p className='asideMarker'>{current['проекты 2 модуля']}</p>
+                </li>
+                <li className='i3_9'>
+                  <SchoolProject>
+                    {/*THESE ARE News from Contentful */}
+                    <ContentfulSchoolProjectsWidget isForSchool={true} allContentfulProjects={data} />
+                    {/* {schoolProjects.map((project, index) => (
+                      <SchoolProject_Card
+                        key={index}
+                        image={project.image}
+                        link={project.link}
+                      >
+                        {current[project.text]}
+                      </SchoolProject_Card>
+                    ))} */}
+                  </SchoolProject>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className='show'>
           <div className='container'>
             <div className='content'>
               <ul className='g3'>
@@ -431,7 +458,7 @@ export default function School({ data, modalForm, current }) {
                     </svg></a>
 
                   <ul className='g3'>
-                    <li className='i3_12'>
+                    <li className='i3_12' style={{ marginTop: '2rem' }}>
                       <div className='result_numbers'>
                         <div className='result_item'>
                           <p className='bigNumber'>46</p>
@@ -456,6 +483,26 @@ export default function School({ data, modalForm, current }) {
                       </div>
                     </li>
                   </ul>
+                  <ul className='g3'>
+                    <li className='i3_12' style={{ marginTop: '2.5rem' }}>
+                      <a href={`/${lang}/school2019_2020/#projects`} className='link_event link_event__noBorder raleway_bold mt_low'>
+                      {current["Посмотреть проекты первого потока"]}
+                      <svg
+                        width='12'
+                        height='12'
+                        viewBox='0 0 12 12'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <path
+                          fillRule='evenodd'
+                          clipRule='evenodd'
+                          d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                          fill='#E62C2C'
+                        />
+                      </svg></a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </div>
@@ -469,7 +516,7 @@ export default function School({ data, modalForm, current }) {
               <li className='i3_3'>
                 <p className='asideMarker'>отзывы</p>
               </li>
-              <li className='i3_9'>
+              <li className='i3_9' style={{ marginBottom: '2.5rem' }}>
                 <p className='feedback_name feedback_name_pt_low'>Захаров Антон Викторович – кандидат педагогических наук, начальник научного
                   отдела Ишимского педагогического института им. П.П. Ершова, участник проекта «Разработка модели
                   зеленой трансформации региона: ценности, практики, социально-экономические эффекты».</p>
@@ -548,34 +595,6 @@ export default function School({ data, modalForm, current }) {
             </ul>
           </div>
         </div>) : null}
-
-        <div className='show'>
-          <div className='container mt_half'>
-            <div className='content'>
-              <ul className='g3'>
-                <li className='i3_3'>
-                  <p className='asideMarker'>{current["проекты 1 потока"]}</p>
-                </li>
-                <li className='i3_9'>
-                  <SchoolProject>
-                    {/*THESE ARE News from Contentful */}
-                    <ContentfulSchoolProjectsWidget isForSchool={true} allContentfulProjects={data} />
-
-                    {schoolProjects.map((project, index) => (
-                      <SchoolProject_Card
-                        key={index}
-                        image={project.image}
-                        link={project.link}
-                      >
-                        {current[project.text]}
-                      </SchoolProject_Card>
-                    ))}
-                  </SchoolProject>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </Layout>
     </Page>
   )

@@ -518,7 +518,7 @@ export default function ManagementSchool2019_2020 ({ modalForm }) {
                   </div>
               </div>
 
-              <div className='show'>
+              <div className='show' id="projects">
                   <div className='container'>
                       <div className='content'>
                           <ul className='g3'>
