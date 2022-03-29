@@ -320,10 +320,16 @@ const ContentfulSchoolProject = ({modalForm, allProjects, current, data}) => {
                       <ul className='g3'>
                         <li className='i3_12'>
                           <div className="raleway" dangerouslySetInnerHTML={{__html: data.performance}}></div>
-                          <a className="raleway" href={data.performanceVideoLink} target="_blank">{data.performanceVideoLink}</a>
+                          <a className="raleway" href={data.performanceVideoLink.replace('/embed/', '/watch?v=')} target="_blank">
+                            {'Перейти по ссылке'}</a>
                           <div className='videoContainer' style={{marginTop: '10px'}}>
-                            {/* <embed allowfullscreen="true" src={data.performanceVideoLink} width="853" height="480"/> */}
-                            {/* <iframe  width="853" height="480" src={data.performanceVideoLink} frameborder="0" allowfullscreen></iframe> */}
+                            <iframe  width="853" height="480" 
+                              src={data.performanceVideoLink.replace('/watch?v=', '/embed/')} 
+                              frameborder="0" 
+                              webkitAllowFullScreen 
+                              mozallowfullscreen 
+                              allowfullscreen 
+                              scrolling="no"></iframe>
                           </div>
                         </li>
                       </ul>

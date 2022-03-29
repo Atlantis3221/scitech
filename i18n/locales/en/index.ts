@@ -232,6 +232,8 @@ export default {
         "грантовых заявок": "grant applications",
         "повышений до руководителей": "promotions to executive positions",
         "проекты 1 потока": "PROJECTS prepared by the participants of the first enrolment stream",
+        "проекты 2 модуля": "2 module projects",
+        "Посмотреть проекты первого потока": "1 module projects",
         "professionalGrowth": "Increasing the professional longevity of the newcomer population in Northern areas: Foresight of adjustment strategies",
         "ecoSafety": "Environmental safety of the Ob-Irtysh basin",
         "diseaseRisk": "A multilevel system for assessing the risk of cardiovascular disease among workers in the Arctic",
