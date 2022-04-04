@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next -p 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "export": "next export",
     "test": "echo \"Error: no test specified\" && exit 1",
     "ctypes": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
