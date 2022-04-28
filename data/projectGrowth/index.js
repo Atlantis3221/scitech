@@ -37,7 +37,7 @@ export const projectGrowth = [
     name: 'Школа',
     cardType: ['inProcess', 'school'],
     deadline: 'Дедлайн 10 декабря 2020',
-    projectDate: 'Ноя 2020 — Июн 2022',
+    projectDate: 'Ноя 2020 — Июн 2021',
     location: 'Онлайн',
     image: '/img/developmentProjects/projectCardTemplate.svg',
     title: 'Tabula Rasa',

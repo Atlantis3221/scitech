@@ -389,7 +389,7 @@ export default function ManagementSchool({  current, data, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                        <h4 className="mt1">{current["Подготовка к защитам проектов, питч-сессии"]}</h4>
+                        <h4 className="mt1">{current["Эффективная работа со стейкхолдерами научных и научно-исследовательских проектов"]}</h4>
                         </li>
                       </ul>
                     </li>
@@ -404,7 +404,7 @@ export default function ManagementSchool({  current, data, modalForm }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                        <h4 className="mt1">{current["Подготовка и финальная защита проектов в рамках Международного молодежного научно-практического форума «Нефтяная столица» (г.Сургут)"]}</h4>
+                        <h4 className="mt1">{current["Эффективное представление и защита научного (научно-исследовательского) проекта: теория и практика"]}</h4>
                         </li>
                       </ul>
                     </li>
