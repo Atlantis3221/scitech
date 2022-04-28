@@ -359,7 +359,7 @@ export default function School({ data, modalForm, current }) {
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4 className="mt1">{current["Подготовка к защитам проектов, питч-сессии"]}</h4>
+                          <h4 className="mt1">{current["Эффективная работа со стейкхолдерами научных и научно-исследовательских проектов"]}</h4>
                         </li>
                       </ul>
                     </li>
@@ -367,14 +367,14 @@ export default function School({ data, modalForm, current }) {
                 </li>
                 <li className='i3_3'>
                   <p className='asideMarker asideMarker_tiny asideMarker_mt'>{current["Модуль"]} 8</p>
-                  <p className='asideMarker asideMarker_mt1'>22 - 25 {current["марта"]} 2022</p>
+                  <p className='asideMarker asideMarker_mt1'>21 - 25 {current["марта"]} 2022</p>
                 </li>
                 <li className='i3_9'>
                   <ul className='g3'>
                     <li className='i3_12'>
                       <ul className='g3'>
                         <li className='i3_12'>
-                          <h4 className="mt1">{current["Подготовка и финальная защита проектов в рамках Международного молодежного научно-практического форума «Нефтяная столица» (г.Сургут)"]}</h4>
+                          <h4 className="mt1">{current["Эффективное представление и защита научного (научно-исследовательского) проекта: теория и практика"]}</h4>
                         </li>
                       </ul>
                     </li>

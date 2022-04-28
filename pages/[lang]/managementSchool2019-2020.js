@@ -410,33 +410,6 @@ export default function ManagementSchool2019_2020 ({ modalForm }) {
                                       <li className='i3_12'>
                                           <ul className='g3'>
                                               <li className='i3_12'>
-                                                  <h4>Экономика научно-технического проекта</h4>
-                                              </li>
-                                              <li className='i3_3'>
-                                                  <p className="module_school">Экономическая оценка эффективности научно-технического проекта </p>
-                                              </li>
-                                              <li className='i3_3'>
-                                                  <p className="module_school">Стратегии коммерциализации научно-технического проекта</p>
-                                              </li>
-                                              <li className='i3_3'>
-                                                  <p className="module_school">Формирование инвестиционного предложения научно-технического проекта</p>
-                                              </li>
-                                              <li className='i3_12'>
-                                                  <p className="cursiv"><StrongText>Домашнее задание:</StrongText> работа в команде
-                                                      над формированием финальной версии бизнес-модели и инвестиционного предложения научно-технического проекта.</p>
-                                              </li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                              </li>
-                              <li className='i3_3'>
-                                  <p className='asideMarker asideMarker_tiny'>Модуль 7 август</p>
-                              </li>
-                              <li className='i3_9'>
-                                  <ul className='g3'>
-                                      <li className='i3_12'>
-                                          <ul className='g3'>
-                                              <li className='i3_12'>
                                                   <h4>Международный трансфер технологий и защита интеллектуальной собственности</h4>
                                               </li>
                                               <li className='i3_3'>
@@ -456,6 +429,34 @@ export default function ManagementSchool2019_2020 ({ modalForm }) {
                                       </li>
                                   </ul>
                               </li>
+                              <li className='i3_3'>
+                                  <p className='asideMarker asideMarker_tiny'>Модуль 7 август</p>
+                              </li>
+                              <li className='i3_9'>
+                                  <ul className='g3'>
+                                      <li className='i3_12'>
+                                          <ul className='g3'>
+                                              <li className='i3_12'>
+                                                  <h4>Экономика научно-технического проекта</h4>
+                                              </li>
+                                              <li className='i3_3'>
+                                                  <p className="module_school">Экономическая оценка эффективности научно-технического проекта </p>
+                                              </li>
+                                              <li className='i3_3'>
+                                                  <p className="module_school">Стратегии коммерциализации научно-технического проекта</p>
+                                              </li>
+                                              <li className='i3_3'>
+                                                  <p className="module_school">Формирование инвестиционного предложения научно-технического проекта</p>
+                                              </li>
+                                              <li className='i3_12'>
+                                                  <p className="cursiv"><StrongText>Домашнее задание:</StrongText> работа в команде
+                                                      над формированием финальной версии бизнес-модели и инвестиционного предложения научно-технического проекта.</p>
+                                              </li>
+                                          </ul>
+                                      </li>
+                                  </ul>
+                              </li>
+                              
                               <li className='i3_3'>
                                   <p className='asideMarker asideMarker_tiny'>Модуль 8 октябрь</p>
                               </li>

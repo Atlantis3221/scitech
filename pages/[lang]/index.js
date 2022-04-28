@@ -73,7 +73,47 @@ const HomePage = ({  data, current, modalForm  }) => {
                   </li>
                   <li className='i3_9'>
                     <ul className='g3'>
-                      <li className='i3_4'>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {lang === 'en'? (
+            <div className='show'>
+              <div className='container'>
+                <div className='content'>
+                  <ul className='g3'>
+                    <li className='i3_3'>
+                      <p className='asideMarker'>Current activities</p>
+                    </li>
+                    <li className='i3_9'>
+                      <ul className='g3 mainPageLinks'>
+                        <li className='i3_4'>
+                          <div className='link_toEvent'>
+                            <a href={`/${lang}/school`} className='link_event'>
+                              {current["Школа научного лидерства"]}
+                              <svg
+                                width='12'
+                                height='12'
+                                viewBox='0 0 12 12'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                              >
+                                <path
+                                  fillRule='evenodd'
+                                  clipRule='evenodd'
+                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
+                                  fill='#E62C2C'
+                                />
+                              </svg>
+                            </a>
+                            <div className='link_data'>{current["Февраль"]} 2021 - {current["Февраль"]} 2022</div>
+                          </div>
+                        </li>
+                        <li className='i3_4'>
                         <div className='link_toEvent'>
                           <a href={`/${lang}/recruitingPriceDevelopEvent`} className='link_event'>
                             {current["Стратегия управления компетенциями персонала в современном университете: рекрутинг, оценка, развитие, продвижение"]}
@@ -181,49 +221,10 @@ const HomePage = ({  data, current, modalForm  }) => {
                               />
                             </svg>
                           </a>
-                          <div className='link_data'>{current["Ноябрь"]} 2020 — {current["Июнь"]} 2022</div>
+                          <div className='link_data'>{current["Ноябрь"]} 2020 — {current["Июнь"]} 2021</div>
                         </div>
                       </li>
                       </>) : null}
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {lang === 'en'? (
-            <div className='show'>
-              <div className='container'>
-                <div className='content'>
-                  <ul className='g3'>
-                    <li className='i3_3'>
-                      <p className='asideMarker'>Current activities</p>
-                    </li>
-                    <li className='i3_9'>
-                      <ul className='g3 mainPageLinks'>
-                        <li className='i3_4'>
-                          <div className='link_toEvent'>
-                            <a href={`/${lang}/school`} className='link_event'>
-                              {current["Школа научного лидерства"]}
-                              <svg
-                                width='12'
-                                height='12'
-                                viewBox='0 0 12 12'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
-                              >
-                                <path
-                                  fillRule='evenodd'
-                                  clipRule='evenodd'
-                                  d='M9.79972 3.68412L1.56172 11.8591L0.14209 10.4503L8.45638 2.19965L1.33524 2.19965L1.33524 0.199646L10.7997 0.199646L11.7997 0.199646V1.19965L11.7997 10.5789H9.79972L9.79972 3.68412Z'
-                                  fill='#E62C2C'
-                                />
-                              </svg>
-                            </a>
-                            <div className='link_data'>{current["Февраль"]} 2021 - {current["Февраль"]} 2022</div>
-                          </div>
-                        </li>
                         <li className='i3_4'>
                           <div className='link_toEvent'>
                             <a href={`/${lang}/managementSchool`} className='link_event'>

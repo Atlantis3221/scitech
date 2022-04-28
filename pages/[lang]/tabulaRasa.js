@@ -76,7 +76,7 @@ export default function TabulaRasa({  data, modalForm  }) {
                         </svg>
                         Длительность — 2 года
                       </p>
-                      <p className='raleway'>Ноябрь 2020 — Июнь 2022</p>
+                      <p className='raleway'>Ноябрь 2020 — Июнь 2021</p>
                     </div>
                     <div className='datePlace_place mt_low'>
                       <img src='/img/pin.svg' alt='icon' />
