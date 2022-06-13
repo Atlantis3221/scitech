@@ -11,6 +11,17 @@ export const projectGrowth = [
     engVersion: true
   },
   {
+    _id: 'projectManagementSchool',
+    link: '/projectManagementSchool',
+    name: 'Школа',
+    cardType: ['inProcess', 'school'],
+    projectDate: 'Июн 2022 - Дек 2022',
+    location: 'Онлайн',
+    image: '/img/developmentProjects/bgGreen.svg',
+    title: 'Школа управления проектами в медицине и биотехнологиях',
+    engVersion: true
+  },
+  {
     _id: 'managementSchool',
     link: '/managementSchool',
     name: 'Школа',
