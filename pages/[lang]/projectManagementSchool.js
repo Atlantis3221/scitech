@@ -12,55 +12,38 @@ import ModalsContext from '../../components/modals/ModalContext'
 import ContentfulSchoolProjectsWidget from './projectsSchool/contentfulSchoolProjectsWidget'
 import { EN_LANG, RU_LANG } from '../../lib/constants'
 import { getContentfulSchoolProjects } from '../../helpers/axios'
+import { speakers } from '../../data/experts'
+import PageHelmet from '../../components/PageHelmet'
+
+
 
 export default function projectManagementSchool({ data, current }) {
   const {
     query: { lang: lang },
   } = useRouter()
 
-  const schoolProjects = [
-    {
-      image: '/img/schoolProjects/projectGrowth_image.png',
-      link: '/schoolProjects/professionalGrowth',
-      text: 'professionalGrowth',
-    },
-    { image: '/img/schoolProjects/ecoSafety_image.png', link: '/schoolProjects/ecoSafety', text: 'ecoSafety' },
-    { image: '/img/schoolProjects/diseaseRisk.png', link: '/schoolProjects/diseaseRisk', text: 'diseaseRisk' },
-    {
-      image: '/img/schoolProjects/greenTransformation.png',
-      link: '/schoolProjects/greenTransformation',
-      text: 'greenTransformation',
-    },
-    {
-      image: '/img/schoolProjects/smartCitiesInArctic.png',
-      link: '/schoolProjects/smartCitiesInArctic',
-      text: 'smartCitiesInArctic',
-    },
-    { image: '/img/schoolProjects/sihirtyaNation.png', link: '/schoolProjects/sihirtyaNation', text: 'sihirtyaNation' },
-    {
-      image: '/img/schoolProjects/wisdomAsTheBasis.png',
-      link: '/schoolProjects/wisdomAsTheBasis',
-      text: 'wisdomAsTheBasis',
-    },
-    {
-      image: '/img/schoolProjects/integration_image.svg',
-      link: '/schoolProjects/integrationOfGreenTechnologies',
-      text: 'integrationOfGreenTechnologies',
-    },
-  ]
+  const headInfo = {
+    title: "Школа управления проектами в медицине и биотехнологиях",
+    link: "https://scitech.ru/projectManagementSchool",
+    keyword: "schoolMeta",
+    description: "schoolMeta",
+  }
 
   return (
     <Page>
-      <Helmet>
+      {/* <Helmet>
         <meta name='description' content={current['schoolMeta']} />
         <meta name='keywords' content={current['schoolMeta']} />
         <meta property='og:image' content='/img/appleIcon.png' />
-        <meta property='og:url' content='https://scitech.ru/school' />
+        <meta property='og:url' content='https://scitech.ru/projectManagementSchool' />
         <meta property='og:title' content={current['Школа управления проектами в медицине и биотехнологиях']} />
         <meta property='og:description' content={current['schoolMeta']} />
         <title>{current['Школа управления проектами в медицине и биотехнологиях']}</title>
-        <link rel='canonical' href='https://scitech.ru/school' />
-      </Helmet>
+        <link rel='canonical' href='https://scitech.ru/projectManagementSchool' />
+      </Helmet> */}
+      <PageHelmet
+        {...headInfo}
+      />
 
       <Layout
         style={{
@@ -159,41 +142,13 @@ export default function projectManagementSchool({ data, current }) {
                   </li>
                   <li className='i3_9'>
                     <SpeakerCards>
-                      <SpeakerCard photo='/img/new_speaker_kizeev.png' fullName='Вениамин Кизеев'>
-                        Член совета директоров Академии управления WINbd, к.э.н., MBA, Certified Project Director
-                        (IPMA_A)
-                      </SpeakerCard>
-                      <SpeakerCard photo='/img/new_speaker_kobyakova.png' fullName='Ольга Кобякова'>
-                        доктор медицинских наук, профессор MBA, директор ФГБУ «ЦНИИОИЗ» Минздрава России
-                      </SpeakerCard>
-                      <SpeakerCard photo='/img/new_speaker_lavrov.png' fullName='Олег Лавров'>
-                        Президент Ассоциации «KM-Альянс», д.м.н, профессор МВА, аккредитация в Knowledge Management
-                      </SpeakerCard>
-                      <SpeakerCard photo='/img/new_speaker_gareev.png' fullName='Арсен Гареев'>
-                        Директор Центра управления технологическим развитием НТИ, АО «Российская венчурная компания»
-                      </SpeakerCard>
-                      <SpeakerCard photo='/img/new_speaker_fertman.png' fullName='Александр Фертман'>
-                        Директор по науке, технологиям и образованию Фонда "Сколково", кандидат физ.-мат. наук
-                      </SpeakerCard>
-                      <SpeakerCard photo='/img/new_speaker_rojdestvenskiy.png' fullName='Игорь Рождественский'>
-                        Кандидат физ.-мат. наук PhD Со-основатель и член Правления Ассоциации Брокеров Инноваций и
-                        Технологий, член Международного Комитета International Technology Transfer Network (Китай)
-                      </SpeakerCard>
-                      <SpeakerCard photo='/img/new_speaker_schayhutdinov.png' fullName='Ильдар Шайхутдинов'>
-                        Член Генерального совета общероссийской общественной организации «Деловая Россия», Генеральный
-                        директор АО «Институт финансового развития бизнеса»
-                      </SpeakerCard>
-                      <SpeakerCard photo='/img/new_speaker_chyulok.png' fullName='Александр Чулок'>
-                        Кандидат экономических наук, Директор Центра научно-технологического прогнозирования НИУ ВШЭ
-                      </SpeakerCard>
-                      <SpeakerCard photo='/img/new_speaker_knyazev.png' fullName='Алексей Князев'>
-                        Заведующий лабораторией каталитических исследований ТГУ, директор томского Инжирингового
-                        химико-технологического центра (ИХТЦ)
-                      </SpeakerCard>
-                      <SpeakerCard order4 photo='/img/new_speaker_kashirskih.png' fullName='Егор Каширских'>
-                        Директор ООО ИНПЦ «Иннотех», Член совета объединения «Сибирская биотехнологическая инициатива»,
-                        Член Совета директоров АО «Кузбасский Технопарк», Директор по НИОКР ООО «Биотехнологии»
-                      </SpeakerCard>
+                      {speakers.map((speaker) => {
+                        return (
+                          <SpeakerCard photo={speaker.img} fullName={speaker.name}>
+                            {speaker.description}
+                          </SpeakerCard>
+                        )
+                      })}
                     </SpeakerCards>
                   </li>
                 </ul>
