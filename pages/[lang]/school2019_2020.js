@@ -16,12 +16,12 @@ export default function School2019_2020({ modalForm }) {
       <Helmet>
         <meta name="description" content="Школа воспитывает современное поколение научных лидеров, способных управлять научными процессами" />
         <meta name="keywords" content="школа научного лидерства,  шнл, Система компетенций LAUNCH, Форсайт" />
-        <meta property="og:image" content="/img/appleIcon.png" />
+        <meta property="og:image" content="/img/appleIcohttps://scitech.ru/schooln.png" />
         <meta property="og:url" content="https://scitech.ru/school" />
         <meta property="og:title" content="Школа научного лидерства Science leadership school" />
         <meta property="og:description" content="Школа воспитывает современное поколение научных лидеров, способных управлять научными процессами" />
         <title>Школа научного лидерства Science leadership school</title>
-        <link rel="canonical" href="https://scitech.ru/school" />
+        <link rel="canonical" href="" />
       </Helmet>
 
       <Layout style={{
