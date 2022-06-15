@@ -28,7 +28,7 @@ export default function projectManagementSchool({ data, modalForm, current }) {
     keyword: 'schoolMeta',
     description: 'schoolMeta',
   }
-  
+
   const openModal = () => {
     modalService.openModal('reg')
     setRegModalState({
@@ -102,11 +102,11 @@ export default function projectManagementSchool({ data, modalForm, current }) {
                               </p>
                             </div>
                           </div>
-                        </li>
-                        <li className='i3_12 flex_end'>
-                          <Button bordered-green marginleft onClick={openModal}>
+                          <div className='datePlace_place'>
+                          <Button bordered-green marginleft marginbottom onClick={openModal}>
                             {current['Регистрация']}
                           </Button>
+                          </div>
                         </li>
                       </ul>
                     </li>
