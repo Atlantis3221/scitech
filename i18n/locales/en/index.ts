@@ -27,6 +27,7 @@ export default {
         "ноября": "November",
         "Декабрь": "December",
         "Декабря": "December",
+        "Регистрация": "Registration",
 
         "Проекты": "Projects",
         "II Международная научно-практическая конференция «Наука. Лидерство. Общество – 2050»": "Conference «SCIENCE. LEADERSHIP. SOCIETY – 2050»",

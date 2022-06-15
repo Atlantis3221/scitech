@@ -14,17 +14,30 @@ import { EN_LANG, RU_LANG } from '../../lib/constants'
 import { getContentfulSchoolProjects } from '../../helpers/axios'
 import { speakers } from '../../data/experts'
 import PageHelmet from '../../components/PageHelmet'
+import { Partner } from '../../components/partner'
 
-export default function projectManagementSchool({ data, current }) {
+export default function projectManagementSchool({ data, modalForm, current }) {
   const {
     query: { lang: lang },
   } = useRouter()
+  const { modalService, setRegModalState } = useContext(ModalsContext)
 
   const headInfo = {
     title: 'Школа управления проектами в медицине и биотехнологиях',
     link: 'https://scitech.ru/projectManagementSchool',
     keyword: 'schoolMeta',
     description: 'schoolMeta',
+  }
+  
+  const openModal = () => {
+    modalService.openModal('reg')
+    setRegModalState({
+      color: 'green',
+      inputs: ['participationType', 'name', 'company', 'phone', 'email', 'confidential'],
+      configName: 'scienceLeadSchoolNextSet',
+      title: lang === 'ru' ? 'Регистрация' : 'Enquire about next enrolment period',
+      isSent: false,
+    })
   }
 
   return (
@@ -47,6 +60,7 @@ export default function projectManagementSchool({ data, current }) {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: '120% -5%',
         }}
+        modalFormText={modalForm}
       >
         <div className='show wrapper_hero'>
           <div className='container relative'>
@@ -89,6 +103,11 @@ export default function projectManagementSchool({ data, current }) {
                             </div>
                           </div>
                         </li>
+                        <li className='i3_12 flex_end'>
+                          <Button bordered-green marginleft onClick={openModal}>
+                            {current['Регистрация']}
+                          </Button>
+                        </li>
                       </ul>
                     </li>
                   </ul>
@@ -125,6 +144,38 @@ export default function projectManagementSchool({ data, current }) {
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+
+        <div className='show wrapper_speakers content'>
+          <div className='container'>
+            <ul className='g3'>
+              <li className='i3_3'>
+                <p className='asideMarker'>Организаторы</p>
+              </li>
+              <li className='i3_9'>
+                <ul className='g3'>
+                  <li className='i3_3'>
+                    <Partner
+                      logo='/img/logo_tyumsmu.png'
+                      link="https://www.tyumsmu.ru/"
+                      name='Тюменский государственный медицинский университет'
+                      alt='ТюмГМУ'
+                      wide
+                    ></Partner>
+                  </li>
+                  <li className='i3_3'>
+                    <Partner
+                      logo='/img/logo_tumen_gov.svg'
+                      link="https://www.utmn.ru/"
+                      name='Тюменский государственный университет'
+                      alt='Тюменский государственный университет'
+                      wide
+                    ></Partner>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
 
