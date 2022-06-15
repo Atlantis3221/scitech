@@ -28,6 +28,7 @@ export default function projectManagementSchool({ data, modalForm, current }) {
     keyword: 'schoolMeta',
     description: 'schoolMeta',
   }
+  
   const openModal = () => {
     modalService.openModal('reg')
     setRegModalState({
