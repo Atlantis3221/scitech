@@ -15,18 +15,16 @@ import { getContentfulSchoolProjects } from '../../helpers/axios'
 import { speakers } from '../../data/experts'
 import PageHelmet from '../../components/PageHelmet'
 
-
-
 export default function projectManagementSchool({ data, current }) {
   const {
     query: { lang: lang },
   } = useRouter()
 
   const headInfo = {
-    title: "Школа управления проектами в медицине и биотехнологиях",
-    link: "https://scitech.ru/projectManagementSchool",
-    keyword: "schoolMeta",
-    description: "schoolMeta",
+    title: 'Школа управления проектами в медицине и биотехнологиях',
+    link: 'https://scitech.ru/projectManagementSchool',
+    keyword: 'schoolMeta',
+    description: 'schoolMeta',
   }
 
   return (
@@ -41,9 +39,7 @@ export default function projectManagementSchool({ data, current }) {
         <title>{current['Школа управления проектами в медицине и биотехнологиях']}</title>
         <link rel='canonical' href='https://scitech.ru/projectManagementSchool' />
       </Helmet> */}
-      <PageHelmet
-        {...headInfo}
-      />
+      <PageHelmet {...headInfo} />
 
       <Layout
         style={{
@@ -325,6 +321,37 @@ export default function projectManagementSchool({ data, current }) {
                         </li>
                         <li className='i3_3'>
                           <p className='module_school'>Награждение лучших команд и участников</p>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className='show'>
+          <div className='container'>
+            <div className='content'>
+              <ul className='g3'>
+                <li className='i3_3'>
+                  <p className='asideMarker'>Контакты</p>
+                </li>
+                <li className='i3_9'>
+                  <ul className='g3'>
+                    <li className='i3_12'>
+                      <ul className='g3'>
+                        <li className='i3_6'>
+                          <p>
+                            8 912 929 23 17
+                            <br /> 8 912 997 29 28
+                          </p>
+                          <p>
+                            <a href='mailto:GlushkovVS@tyumsmu.ru'>GlushkovVS@tyumsmu.ru</a>
+                            <br />
+                            <a href='mailto:egorovaaa@tyumsmu.ru'>egorovaaa@tyumsmu.ru</a>
+                          </p>
                         </li>
                       </ul>
                     </li>
